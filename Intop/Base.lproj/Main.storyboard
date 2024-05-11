@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SOG-gy-ZKx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SOG-gy-ZKx">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,16 +15,16 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="Intop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWn-7E-2uN">
-                                <rect key="frame" x="1" y="128" width="391" height="723"/>
+                                <rect key="frame" x="1" y="84" width="391" height="767"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="Srm-QL-Htm">
                                         <rect key="frame" x="22" y="23" width="35" height="35"/>
@@ -39,13 +39,26 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHd-Wo-uWI">
+                                        <rect key="frame" x="52" y="231" width="287" height="38"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="YEp-9d-Gv9"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="20"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" name="WhiteMain"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GHd-Wo-uWI" secondAttribute="trailing" constant="52" id="LiL-n3-aVv"/>
                                     <constraint firstItem="Srm-QL-Htm" firstAttribute="leading" secondItem="gWn-7E-2uN" secondAttribute="leading" constant="22" id="Pta-Xc-NHy"/>
                                     <constraint firstItem="7sG-mh-iUr" firstAttribute="top" secondItem="Srm-QL-Htm" secondAttribute="bottom" constant="65" id="S87-Md-zVu"/>
                                     <constraint firstItem="Srm-QL-Htm" firstAttribute="top" secondItem="gWn-7E-2uN" secondAttribute="top" constant="23" id="V4H-0F-5HK"/>
                                     <constraint firstItem="7sG-mh-iUr" firstAttribute="centerX" secondItem="gWn-7E-2uN" secondAttribute="centerX" id="V58-Tv-fEA"/>
+                                    <constraint firstItem="GHd-Wo-uWI" firstAttribute="top" secondItem="7sG-mh-iUr" secondAttribute="bottom" constant="70" id="Vd2-0H-APq"/>
+                                    <constraint firstItem="GHd-Wo-uWI" firstAttribute="leading" secondItem="gWn-7E-2uN" secondAttribute="leading" constant="52" id="bGa-Ix-7D9"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="30"/>
@@ -62,6 +75,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="v1b-4N-D4o"/>
+                    <connections>
+                        <outlet property="viewNumber" destination="GHd-Wo-uWI" id="iOP-wZ-XvR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,10 +226,9 @@
         <!--Navigation Controller-->
         <scene sceneID="bfv-5a-qc6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SOG-gy-ZKx" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="SOG-gy-ZKx" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aUI-Nf-0iP">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
