@@ -13,6 +13,7 @@
 		44D17D422BEF9B6B00F5C073 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D17D412BEF9B6B00F5C073 /* Assets.xcassets */; };
 		44D17D452BEF9B6B00F5C073 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D17D432BEF9B6B00F5C073 /* LaunchScreen.storyboard */; };
 		757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */; };
+		44D17D502BEFA85200F5C073 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D4F2BEFA85200F5C073 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +24,11 @@
 		44D17D412BEF9B6B00F5C073 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44D17D442BEF9B6B00F5C073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44D17D462BEF9B6B00F5C073 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+
 		757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+
+		44D17D4F2BEFA85200F5C073 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +92,7 @@
 		44D17D4E2BEFA2C500F5C073 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				44D17D4F2BEFA85200F5C073 /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 			files = (
 				44D17D392BEF9B6A00F5C073 /* AppDelegate.swift in Sources */,
 				44D17D3B2BEF9B6A00F5C073 /* SceneDelegate.swift in Sources */,
+				44D17D502BEFA85200F5C073 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
