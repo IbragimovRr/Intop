@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="up0-t5-hfN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SOG-gy-ZKx">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -55,7 +55,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aZ-zV-2tK">
-                                                <rect key="frame" x="59" y="0.0" width="228" height="38"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="287" height="38"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                             </button>
@@ -70,7 +70,7 @@
                                             <constraint firstItem="Wgf-oH-UL4" firstAttribute="leading" secondItem="GHd-Wo-uWI" secondAttribute="leading" constant="45" id="azf-2U-XXp"/>
                                             <constraint firstItem="5aZ-zV-2tK" firstAttribute="top" secondItem="GHd-Wo-uWI" secondAttribute="top" id="maA-lb-Rbc"/>
                                             <constraint firstItem="CmL-Od-vE5" firstAttribute="leading" secondItem="Wgf-oH-UL4" secondAttribute="trailing" constant="10" id="tfM-Y7-l0X"/>
-                                            <constraint firstItem="5aZ-zV-2tK" firstAttribute="leading" secondItem="Wgf-oH-UL4" secondAttribute="trailing" id="wG2-nl-yQC"/>
+                                            <constraint firstItem="5aZ-zV-2tK" firstAttribute="leading" secondItem="GHd-Wo-uWI" secondAttribute="leading" id="wG2-nl-yQC"/>
                                             <constraint firstAttribute="trailing" secondItem="5aZ-zV-2tK" secondAttribute="trailing" id="ww8-iq-1FP"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -80,23 +80,70 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duo-3u-t8F">
-                                        <rect key="frame" x="174.66666666666666" y="304" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Или войдите с помощью" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duo-3u-t8F">
+                                        <rect key="frame" x="119.66666666666667" y="304" width="151.66666666666663" height="15.333333333333314"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                        <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIk-Eb-9jp">
+                                        <rect key="frame" x="52" y="342.33333333333331" width="287" height="38"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRt-cV-8cO">
+                                                <rect key="frame" x="239" y="0.0" width="24" height="14"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти через Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wME-Ea-9MC">
+                                                <rect key="frame" x="98" y="12" width="110" height="14"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="W4W-eL-7md">
+                                                <rect key="frame" x="53" y="9" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="DWh-YU-D0e"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzf-Ww-byZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="287" height="38"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="WhiteMain"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="wzf-Ww-byZ" secondAttribute="trailing" id="45V-P3-aIi"/>
+                                            <constraint firstItem="wME-Ea-9MC" firstAttribute="leading" secondItem="W4W-eL-7md" secondAttribute="trailing" constant="25" id="OC7-1r-gdH"/>
+                                            <constraint firstItem="W4W-eL-7md" firstAttribute="leading" secondItem="HIk-Eb-9jp" secondAttribute="leading" constant="53" id="T3n-ta-dKU"/>
+                                            <constraint firstItem="wzf-Ww-byZ" firstAttribute="top" secondItem="HIk-Eb-9jp" secondAttribute="top" id="bm4-JB-mE8"/>
+                                            <constraint firstItem="wME-Ea-9MC" firstAttribute="centerY" secondItem="HIk-Eb-9jp" secondAttribute="centerY" id="jM8-uB-ROx"/>
+                                            <constraint firstItem="wzf-Ww-byZ" firstAttribute="leading" secondItem="HIk-Eb-9jp" secondAttribute="leading" id="kqJ-7C-JMa"/>
+                                            <constraint firstItem="W4W-eL-7md" firstAttribute="top" secondItem="HIk-Eb-9jp" secondAttribute="top" constant="9" id="pZC-nw-nd3"/>
+                                            <constraint firstAttribute="bottom" secondItem="wzf-Ww-byZ" secondAttribute="bottom" id="r5I-MI-ARe"/>
+                                            <constraint firstAttribute="height" constant="38" id="rJD-yZ-gpp"/>
+                                            <constraint firstAttribute="bottom" secondItem="W4W-eL-7md" secondAttribute="bottom" constant="9" id="y2T-O8-X5t"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="20"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" name="WhiteMain"/>
                                 <constraints>
                                     <constraint firstItem="duo-3u-t8F" firstAttribute="centerX" secondItem="gWn-7E-2uN" secondAttribute="centerX" id="Atq-Xk-xsw"/>
+                                    <constraint firstAttribute="trailing" secondItem="HIk-Eb-9jp" secondAttribute="trailing" constant="52" id="CMz-0a-Gbx"/>
                                     <constraint firstAttribute="trailing" secondItem="GHd-Wo-uWI" secondAttribute="trailing" constant="52" id="LiL-n3-aVv"/>
+                                    <constraint firstItem="HIk-Eb-9jp" firstAttribute="top" secondItem="duo-3u-t8F" secondAttribute="bottom" constant="23" id="NKR-wp-73V"/>
                                     <constraint firstItem="Srm-QL-Htm" firstAttribute="leading" secondItem="gWn-7E-2uN" secondAttribute="leading" constant="22" id="Pta-Xc-NHy"/>
                                     <constraint firstItem="7sG-mh-iUr" firstAttribute="top" secondItem="Srm-QL-Htm" secondAttribute="bottom" constant="65" id="S87-Md-zVu"/>
                                     <constraint firstItem="Srm-QL-Htm" firstAttribute="top" secondItem="gWn-7E-2uN" secondAttribute="top" constant="23" id="V4H-0F-5HK"/>
                                     <constraint firstItem="7sG-mh-iUr" firstAttribute="centerX" secondItem="gWn-7E-2uN" secondAttribute="centerX" id="V58-Tv-fEA"/>
                                     <constraint firstItem="GHd-Wo-uWI" firstAttribute="top" secondItem="7sG-mh-iUr" secondAttribute="bottom" constant="70" id="Vd2-0H-APq"/>
                                     <constraint firstItem="GHd-Wo-uWI" firstAttribute="leading" secondItem="gWn-7E-2uN" secondAttribute="leading" constant="52" id="bGa-Ix-7D9"/>
+                                    <constraint firstItem="HIk-Eb-9jp" firstAttribute="leading" secondItem="gWn-7E-2uN" secondAttribute="leading" constant="52" id="ky4-t2-EDZ"/>
                                     <constraint firstItem="duo-3u-t8F" firstAttribute="top" secondItem="GHd-Wo-uWI" secondAttribute="bottom" constant="35" id="pFR-Io-rmZ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -363,6 +410,7 @@
         <image name="categoryFull" width="29" height="29"/>
         <image name="chat" width="22" height="22"/>
         <image name="chatFull" width="22" height="22"/>
+        <image name="google" width="20" height="20"/>
         <image name="home" width="23" height="23"/>
         <image name="homeFull" width="23" height="23"/>
         <image name="like" width="21" height="20"/>
