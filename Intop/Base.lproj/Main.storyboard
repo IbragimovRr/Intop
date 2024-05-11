@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BBf-8K-acV">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
@@ -7,13 +6,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -22,137 +17,13 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWn-7E-2uN">
-                                <rect key="frame" x="1" y="84" width="391" height="767"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="Srm-QL-Htm">
-                                        <rect key="frame" x="22" y="23" width="35" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="JZB-3d-YVF"/>
-                                            <constraint firstAttribute="width" constant="35" id="LUi-K6-Xgy"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sG-mh-iUr">
-                                        <rect key="frame" x="142" y="126" width="106" height="38"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="32"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" name="WhiteMain"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="7sG-mh-iUr" secondAttribute="trailing" constant="143" id="Abf-xL-8nV"/>
-                                    <constraint firstItem="Srm-QL-Htm" firstAttribute="leading" secondItem="gWn-7E-2uN" secondAttribute="leading" constant="22" id="Pta-Xc-NHy"/>
-                                    <constraint firstItem="7sG-mh-iUr" firstAttribute="top" secondItem="gWn-7E-2uN" secondAttribute="top" constant="126" id="S87-Md-zVu"/>
-                                    <constraint firstItem="Srm-QL-Htm" firstAttribute="top" secondItem="gWn-7E-2uN" secondAttribute="top" constant="23" id="V4H-0F-5HK"/>
-                                    <constraint firstItem="7sG-mh-iUr" firstAttribute="leading" secondItem="gWn-7E-2uN" secondAttribute="leading" constant="142" id="dhC-IS-XHc"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="30"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="BlueMain"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gWn-7E-2uN" secondAttribute="trailing" constant="1" id="4EU-Gu-HNd"/>
-                            <constraint firstAttribute="bottom" secondItem="gWn-7E-2uN" secondAttribute="bottom" constant="1" id="58j-1F-Ykt"/>
-                            <constraint firstItem="gWn-7E-2uN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Y7q-bk-0zC"/>
-                            <constraint firstItem="gWn-7E-2uN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="1" id="eRT-7V-bQR"/>
-                        </constraints>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="v1b-4N-D4o"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-
-            <point key="canvasLocation" x="-19" y="101"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="fP6-K1-KdZ">
-            <objects>
-                <viewController id="GHe-8A-Kk6" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oMU-zn-jI0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WM-vk-rZ6">
-                                <rect key="frame" x="1" y="84" width="391" height="767"/>
-                                <color key="backgroundColor" name="WhiteMain"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="30"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="3VF-Dm-Fcb">
-                                <rect key="frame" x="22" y="107" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="2pm-j9-YlL"/>
-                                    <constraint firstAttribute="height" constant="35" id="6bs-p7-Lpa"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="mmE-0w-eCM"/>
-                        <color key="backgroundColor" name="BlueMain"/>
-                        <constraints>
-                            <constraint firstItem="7WM-vk-rZ6" firstAttribute="top" secondItem="mmE-0w-eCM" secondAttribute="top" constant="25" id="89P-We-GIw"/>
-                            <constraint firstItem="mmE-0w-eCM" firstAttribute="trailing" secondItem="7WM-vk-rZ6" secondAttribute="trailing" constant="1" id="I8g-WM-0Tv"/>
-                            <constraint firstItem="7WM-vk-rZ6" firstAttribute="leading" secondItem="mmE-0w-eCM" secondAttribute="leading" constant="1" id="OIs-F3-C4F"/>
-                            <constraint firstItem="3VF-Dm-Fcb" firstAttribute="top" secondItem="7WM-vk-rZ6" secondAttribute="top" constant="23" id="OMw-mC-yj0"/>
-                            <constraint firstAttribute="bottom" secondItem="7WM-vk-rZ6" secondAttribute="bottom" constant="1" id="RVi-ya-1dp"/>
-                            <constraint firstItem="3VF-Dm-Fcb" firstAttribute="leading" secondItem="mmE-0w-eCM" secondAttribute="leading" constant="22" id="qDw-jW-hKJ"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iEB-tD-VtS" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="967" y="102"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="pGY-99-Uph">
-            <objects>
-                <viewController id="G6i-GW-vwM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4Jp-DP-ZtX">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2b-kE-w8d">
-                                <rect key="frame" x="1" y="84" width="391" height="767"/>
-                                <color key="backgroundColor" name="WhiteMain"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="30"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="WP8-mA-qZ4">
-                                <rect key="frame" x="22" y="107" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="da1-ne-yUi"/>
-                                    <constraint firstAttribute="width" constant="35" id="z4N-dL-cDX"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="pKq-Ak-NIQ"/>
-                        <color key="backgroundColor" name="BlueMain"/>
-                        <constraints>
-                            <constraint firstItem="pKq-Ak-NIQ" firstAttribute="trailing" secondItem="d2b-kE-w8d" secondAttribute="trailing" constant="1" id="J6g-lP-rPc"/>
-                            <constraint firstItem="WP8-mA-qZ4" firstAttribute="top" secondItem="d2b-kE-w8d" secondAttribute="top" constant="23" id="XWN-Rv-PLo"/>
-                            <constraint firstItem="d2b-kE-w8d" firstAttribute="top" secondItem="pKq-Ak-NIQ" secondAttribute="top" constant="25" id="Z6f-pd-Qah"/>
-                            <constraint firstItem="WP8-mA-qZ4" firstAttribute="leading" secondItem="pKq-Ak-NIQ" secondAttribute="leading" constant="22" id="lKp-5L-pBy"/>
-                            <constraint firstAttribute="bottom" secondItem="d2b-kE-w8d" secondAttribute="bottom" constant="1" id="ouf-5O-nRe"/>
-                            <constraint firstItem="d2b-kE-w8d" firstAttribute="leading" secondItem="pKq-Ak-NIQ" secondAttribute="leading" constant="1" id="sWt-fj-CBr"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zdH-1G-j2T" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1862" y="101"/>
-        </scene>
-    </scenes>
-    <resources>
-        <image name="back" width="35" height="35"/>
-        <namedColor name="BlueMain">
-            <color red="0.058823529411764705" green="0.59607843137254901" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-=======
             <point key="canvasLocation" x="1014.5038167938931" y="3.5211267605633805"/>
         </scene>
         <!--Home View Controller-->
@@ -288,7 +159,6 @@
         <image name="profileFull" width="22" height="22"/>
         <namedColor name="White">
             <color red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-
         </namedColor>
         <namedColor name="WhiteMain">
             <color red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
