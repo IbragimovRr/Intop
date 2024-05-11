@@ -13,6 +13,8 @@
 		44D17D422BEF9B6B00F5C073 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D17D412BEF9B6B00F5C073 /* Assets.xcassets */; };
 		44D17D452BEF9B6B00F5C073 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D17D432BEF9B6B00F5C073 /* LaunchScreen.storyboard */; };
 		44D17D502BEFA85200F5C073 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D4F2BEFA85200F5C073 /* HomeViewController.swift */; };
+		44D17D552BEFDE7800F5C073 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D542BEFDE7800F5C073 /* SignInViewController.swift */; };
+		44D17D572BEFE08F00F5C073 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D562BEFE08F00F5C073 /* Segment.swift */; };
 		757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */; };
 		75AF2FAB2BEFD1FC00F0165E /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FAA2BEFD1FC00F0165E /* Border.swift */; };
 		75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */; };
@@ -30,6 +32,8 @@
 		44D17D442BEF9B6B00F5C073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44D17D462BEF9B6B00F5C073 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44D17D4F2BEFA85200F5C073 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		44D17D542BEFDE7800F5C073 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		44D17D562BEFE08F00F5C073 /* Segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
 		757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		75AF2FAA2BEFD1FC00F0165E /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
 		75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -85,11 +89,20 @@
 		44D17D4E2BEFA2C500F5C073 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				44D17D532BEFDE5900F5C073 /* StartScreen */,
 				44D17D4F2BEFA85200F5C073 /* HomeViewController.swift */,
 				75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */,
 				75AF2FB22BEFE65100F0165E /* FirstViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		44D17D532BEFDE5900F5C073 /* StartScreen */ = {
+			isa = PBXGroup;
+			children = (
+				44D17D542BEFDE7800F5C073 /* SignInViewController.swift */,
+			);
+			path = StartScreen;
 			sourceTree = "<group>";
 		};
 		757043112BEFAC7C00DDC3E9 /* Fonts */ = {
@@ -106,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				75AF2FAA2BEFD1FC00F0165E /* Border.swift */,
+				44D17D562BEFE08F00F5C073 /* Segment.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,8 +205,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44D17D552BEFDE7800F5C073 /* SignInViewController.swift in Sources */,
 				75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */,
 				44D17D392BEF9B6A00F5C073 /* AppDelegate.swift in Sources */,
+				44D17D572BEFE08F00F5C073 /* Segment.swift in Sources */,
 				75AF2FAB2BEFD1FC00F0165E /* Border.swift in Sources */,
 				75AF2FB32BEFE65100F0165E /* FirstViewController.swift in Sources */,
 				44D17D3B2BEF9B6A00F5C073 /* SceneDelegate.swift in Sources */,
