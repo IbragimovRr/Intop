@@ -16,6 +16,9 @@
 		757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */; };
 		75AF2FAB2BEFD1FC00F0165E /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FAA2BEFD1FC00F0165E /* Border.swift */; };
 		75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */; };
+		75AF2FAF2BEFE17A00F0165E /* Mulish-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75AF2FAE2BEFE17A00F0165E /* Mulish-Bold.ttf */; };
+		75AF2FB12BEFE18400F0165E /* Mulish-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75AF2FB02BEFE18400F0165E /* Mulish-Regular.ttf */; };
+		75AF2FB32BEFE65100F0165E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FB22BEFE65100F0165E /* FirstViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		75AF2FAA2BEFD1FC00F0165E /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
 		75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		75AF2FAE2BEFE17A00F0165E /* Mulish-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Bold.ttf"; sourceTree = "<group>"; };
+		75AF2FB02BEFE18400F0165E /* Mulish-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Regular.ttf"; sourceTree = "<group>"; };
+		75AF2FB22BEFE65100F0165E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 			children = (
 				44D17D4F2BEFA85200F5C073 /* HomeViewController.swift */,
 				75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */,
+				75AF2FB22BEFE65100F0165E /* FirstViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -89,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */,
+				75AF2FAE2BEFE17A00F0165E /* Mulish-Bold.ttf */,
+				75AF2FB02BEFE18400F0165E /* Mulish-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -169,6 +178,8 @@
 				44D17D452BEF9B6B00F5C073 /* LaunchScreen.storyboard in Resources */,
 				44D17D422BEF9B6B00F5C073 /* Assets.xcassets in Resources */,
 				757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */,
+				75AF2FB12BEFE18400F0165E /* Mulish-Regular.ttf in Resources */,
+				75AF2FAF2BEFE17A00F0165E /* Mulish-Bold.ttf in Resources */,
 				44D17D402BEF9B6A00F5C073 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,6 +194,7 @@
 				75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */,
 				44D17D392BEF9B6A00F5C073 /* AppDelegate.swift in Sources */,
 				75AF2FAB2BEFD1FC00F0165E /* Border.swift in Sources */,
+				75AF2FB32BEFE65100F0165E /* FirstViewController.swift in Sources */,
 				44D17D3B2BEF9B6A00F5C073 /* SceneDelegate.swift in Sources */,
 				44D17D502BEFA85200F5C073 /* HomeViewController.swift in Sources */,
 			);
