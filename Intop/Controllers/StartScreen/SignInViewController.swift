@@ -26,8 +26,8 @@ class SignInViewController: UIViewController {
         Sign().signInPhone(phoneNumber: phone, password: password) { result, error in
             if error == nil {
                 self.performSegue(withIdentifier: "code", sender: self)
-            }else{
-                print(error!)
+            }else if let error = error{
+                Error().alert(error, self)
             }
         }
     }

@@ -25,14 +25,14 @@ class SegmentSettings {
     }
     
     func onFirst() {
-        firstBtn.backgroundColor = UIColor(named: "BlueMain")
+        firstBtn.backgroundColor = UIColor(named: "OrangeMain")
         firstBtn.setTitleColor(UIColor.white, for: .normal)
         secondBtn.backgroundColor = UIColor(named: "BorderColor")
         secondBtn.setTitleColor(UIColor.black, for: .normal)
     }
     
     func onSecond() {
-        secondBtn.backgroundColor = UIColor(named: "BlueMain")
+        secondBtn.backgroundColor = UIColor(named: "OrangeMain")
         secondBtn.setTitleColor(UIColor.white, for: .normal)
         firstBtn.backgroundColor = UIColor(named: "BorderColor")
         firstBtn.setTitleColor(UIColor.black, for: .normal)

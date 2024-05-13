@@ -15,8 +15,23 @@ class Sign {
         "Content-Type": "application/json"
     ]
     
+    // MARK: - Sign Up
+    
+    private func errorSignUp(_ phoneNumber:String,_ password:String) -> (Bool,String?) {
+        guard phoneNumber.count >= 11 else { return (false,"Неверный формат номера телефона") }
+        guard  password.isValidPassword() == true else { return (false,"Пароль должен содержать не менее 8 символов и включать как минимум 1 цифру, 1 прописную и 1 строчную ") }
+        return (true,nil)
+    }
+    
+    
     func signUpPhone(phoneNumber:String, password: String, completion:@escaping (_ result:String?, _ error:String?) -> ()) {
+        let errorValidate = errorSignUp(phoneNumber, password)
+        guard errorValidate.0 else {
+            completion(nil, errorValidate.1)
+            return }
+        
         url += "users/register"
+        
         AF.upload(multipartFormData: { multipartFormData in
             
             multipartFormData.append(Data("\(phoneNumber)".utf8), withName: "user_phone_number")
@@ -61,6 +76,7 @@ class Sign {
                         completion(nil,"Неправильный логин или пароль")
                     }else {
                         UD().savePhone(phoneNumber)
+                        UD().saveRemember(true)
                         completion(result,nil)
                     }
                 }
@@ -79,11 +95,6 @@ class Sign {
         }
     }
     
-    private func errorSignUp(_ phoneNumber:String,_ password:String) -> Bool {
-        guard phoneNumber.count == 13 else { return false }
-        guard password.count >= 8 else { return false }
-        return true
-    }
     
     // MARK: - Code
     
