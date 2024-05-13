@@ -26,6 +26,7 @@
 		75AF2FB12BEFE18400F0165E /* Mulish-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75AF2FB02BEFE18400F0165E /* Mulish-Regular.ttf */; };
 		75AF2FB32BEFE65100F0165E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FB22BEFE65100F0165E /* FirstViewController.swift */; };
 		75AF2FB52BF23A2100F0165E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FB42BF23A2100F0165E /* SecondViewController.swift */; };
+		75AF2FB72BF256DC00F0165E /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FB62BF256DC00F0165E /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		75AF2FB02BEFE18400F0165E /* Mulish-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Regular.ttf"; sourceTree = "<group>"; };
 		75AF2FB22BEFE65100F0165E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		75AF2FB42BF23A2100F0165E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		75AF2FB62BF256DC00F0165E /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +104,6 @@
 				44D17D532BEFDE5900F5C073 /* StartScreen */,
 				44D17D4F2BEFA85200F5C073 /* HomeViewController.swift */,
 				75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */,
-				75AF2FB22BEFE65100F0165E /* FirstViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -110,8 +111,10 @@
 		44D17D532BEFDE5900F5C073 /* StartScreen */ = {
 			isa = PBXGroup;
 			children = (
+				75AF2FB22BEFE65100F0165E /* FirstViewController.swift */,
 				44D17D542BEFDE7800F5C073 /* SignInViewController.swift */,
 				75AF2FB42BF23A2100F0165E /* SecondViewController.swift */,
+				75AF2FB62BF256DC00F0165E /* ThirdViewController.swift */,
 			);
 			path = StartScreen;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				75AF2FB32BEFE65100F0165E /* FirstViewController.swift in Sources */,
 				44D17D802BF2380800F5C073 /* SignIn.swift in Sources */,
 				44D17D3B2BEF9B6A00F5C073 /* SceneDelegate.swift in Sources */,
+				75AF2FB72BF256DC00F0165E /* ThirdViewController.swift in Sources */,
 				44D17D502BEFA85200F5C073 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
