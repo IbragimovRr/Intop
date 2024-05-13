@@ -15,6 +15,32 @@ class SignIn {
         "Content-Type": "application/json"
     ]
     
+    func signUpPhone(phoneNumber:String, password: String, completion:@escaping (_ result:String?, _ error:String?) -> ()) {
+        url += "users/register"
+        AF.upload(multipartFormData: { multipartFormData in
+            
+            multipartFormData.append(Data("\(phoneNumber)".utf8), withName: "user_phone_number")
+            multipartFormData.append(Data("\(password)".utf8), withName: "app_password")
+        }, to: url,
+                  method: .post,
+                  headers: headers).responseData { responseData in
+            switch responseData.result {
+            case .success(let value):
+                self.jsonInData(value) { result in
+                    if result == "User with this number already exists!" {
+                        completion(nil, "Номер уже был зарегистрирован")
+                        
+                    }else {
+                        completion(result, nil)
+                    }
+                }
+            case .failure(_):
+                completion(nil, "Ошибка повторите попытку позже")
+            }
+        }
+        
+    }
+    
     func signInPhone(phoneNumber:String,password:String,completion:@escaping (_ result:String?,_ error:String?) -> ()) {
         url += "users/login"
         AF.upload(multipartFormData: { multipartFormData in

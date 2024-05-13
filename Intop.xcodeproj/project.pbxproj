@@ -18,6 +18,7 @@
 		44D17D7E2BF235CA00F5C073 /* TFPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D7D2BF235CA00F5C073 /* TFPhone.swift */; };
 		44D17D802BF2380800F5C073 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D7F2BF2380800F5C073 /* SignIn.swift */; };
 		44D17D832BF2382E00F5C073 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44D17D822BF2382E00F5C073 /* Alamofire */; };
+		752E818C2BF26985004DABC3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E818B2BF26985004DABC3 /* SignUpViewController.swift */; };
 		757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */; };
 		75AF2FAB2BEFD1FC00F0165E /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FAA2BEFD1FC00F0165E /* Border.swift */; };
 		75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */; };
@@ -41,6 +42,7 @@
 		44D17D562BEFE08F00F5C073 /* Segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
 		44D17D7D2BF235CA00F5C073 /* TFPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFPhone.swift; sourceTree = "<group>"; };
 		44D17D7F2BF2380800F5C073 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		752E818B2BF26985004DABC3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		75AF2FAA2BEFD1FC00F0165E /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
 		75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -100,8 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				44D17D532BEFDE5900F5C073 /* StartScreen */,
-				44D17D4F2BEFA85200F5C073 /* HomeViewController.swift */,
-				75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -112,7 +112,10 @@
 				75AF2FB22BEFE65100F0165E /* FirstViewController.swift */,
 				75AF2FB42BF23A2100F0165E /* SecondViewController.swift */,
 				75AF2FB62BF256DC00F0165E /* ThirdViewController.swift */,
+				75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */,
 				44D17D542BEFDE7800F5C073 /* SignInViewController.swift */,
+				752E818B2BF26985004DABC3 /* SignUpViewController.swift */,
+				44D17D4F2BEFA85200F5C073 /* HomeViewController.swift */,
 			);
 			path = StartScreen;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				44D17D802BF2380800F5C073 /* SignIn.swift in Sources */,
 				44D17D3B2BEF9B6A00F5C073 /* SceneDelegate.swift in Sources */,
 				75AF2FB72BF256DC00F0165E /* ThirdViewController.swift in Sources */,
+				752E818C2BF26985004DABC3 /* SignUpViewController.swift in Sources */,
 				44D17D502BEFA85200F5C073 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
