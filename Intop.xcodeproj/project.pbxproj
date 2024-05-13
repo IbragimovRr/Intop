@@ -18,7 +18,6 @@
 		44D17D7E2BF235CA00F5C073 /* TFPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D7D2BF235CA00F5C073 /* TFPhone.swift */; };
 		44D17D802BF2380800F5C073 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D7F2BF2380800F5C073 /* SignIn.swift */; };
 		44D17D832BF2382E00F5C073 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44D17D822BF2382E00F5C073 /* Alamofire */; };
-		44D17D852BF2382E00F5C073 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 44D17D842BF2382E00F5C073 /* AlamofireDynamic */; };
 		757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */; };
 		75AF2FAB2BEFD1FC00F0165E /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FAA2BEFD1FC00F0165E /* Border.swift */; };
 		75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */; };
@@ -58,7 +57,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				44D17D832BF2382E00F5C073 /* Alamofire in Frameworks */,
-				44D17D852BF2382E00F5C073 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,9 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				75AF2FB22BEFE65100F0165E /* FirstViewController.swift */,
-				44D17D542BEFDE7800F5C073 /* SignInViewController.swift */,
 				75AF2FB42BF23A2100F0165E /* SecondViewController.swift */,
 				75AF2FB62BF256DC00F0165E /* ThirdViewController.swift */,
+				44D17D542BEFDE7800F5C073 /* SignInViewController.swift */,
 			);
 			path = StartScreen;
 			sourceTree = "<group>";
@@ -165,7 +163,6 @@
 			name = Intop;
 			packageProductDependencies = (
 				44D17D822BF2382E00F5C073 /* Alamofire */,
-				44D17D842BF2382E00F5C073 /* AlamofireDynamic */,
 			);
 			productName = Intop;
 			productReference = 44D17D352BEF9B6A00F5C073 /* Intop.app */;
@@ -489,11 +486,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 44D17D812BF2382E00F5C073 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		44D17D842BF2382E00F5C073 /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 44D17D812BF2382E00F5C073 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

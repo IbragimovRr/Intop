@@ -16,6 +16,6 @@ class StartViewController: UIViewController {
         Border().addViewBorder(view: viewNumber)
         
     }
-
+    
 
 }
