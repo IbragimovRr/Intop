@@ -21,6 +21,7 @@
 		75AF2FAF2BEFE17A00F0165E /* Mulish-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75AF2FAE2BEFE17A00F0165E /* Mulish-Bold.ttf */; };
 		75AF2FB12BEFE18400F0165E /* Mulish-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75AF2FB02BEFE18400F0165E /* Mulish-Regular.ttf */; };
 		75AF2FB32BEFE65100F0165E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FB22BEFE65100F0165E /* FirstViewController.swift */; };
+		75AF2FB52BF23A2100F0165E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FB42BF23A2100F0165E /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		75AF2FAE2BEFE17A00F0165E /* Mulish-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Bold.ttf"; sourceTree = "<group>"; };
 		75AF2FB02BEFE18400F0165E /* Mulish-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Regular.ttf"; sourceTree = "<group>"; };
 		75AF2FB22BEFE65100F0165E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		75AF2FB42BF23A2100F0165E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				44D17D542BEFDE7800F5C073 /* SignInViewController.swift */,
+				75AF2FB42BF23A2100F0165E /* SecondViewController.swift */,
 			);
 			path = StartScreen;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				44D17D552BEFDE7800F5C073 /* SignInViewController.swift in Sources */,
 				75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */,
 				44D17D392BEF9B6A00F5C073 /* AppDelegate.swift in Sources */,
+				75AF2FB52BF23A2100F0165E /* SecondViewController.swift in Sources */,
 				44D17D572BEFE08F00F5C073 /* Segment.swift in Sources */,
 				75AF2FAB2BEFD1FC00F0165E /* Border.swift in Sources */,
 				75AF2FB32BEFE65100F0165E /* FirstViewController.swift in Sources */,
