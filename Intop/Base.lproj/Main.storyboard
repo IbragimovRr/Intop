@@ -26,23 +26,23 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="Intop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWn-7E-2uN">
-                                <rect key="frame" x="1" y="84" width="391" height="767"/>
+                                <rect key="frame" x="1" y="72" width="373" height="739"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sG-mh-iUr">
-                                        <rect key="frame" x="150.33333333333334" y="126.00000000000001" width="90.666666666666657" height="37.666666666666671"/>
+                                        <rect key="frame" x="141.33333333333334" y="126.00000000000001" width="90.666666666666657" height="37.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHd-Wo-uWI" customClass="Border" customModule="Intop" customModuleProvider="target">
-                                        <rect key="frame" x="56" y="233.66666666666669" width="279" height="38"/>
+                                        <rect key="frame" x="52" y="233.66666666666669" width="269" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти через номер телефона" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmL-Od-vE5">
-                                                <rect key="frame" x="69" y="12" width="165" height="14"/>
+                                                <rect key="frame" x="69" y="12" width="155" height="14.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aZ-zV-2tK">
-                                                <rect key="frame" x="0.0" y="0.0" width="279" height="38"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="269" height="38"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
                                                     <segue destination="GHe-8A-Kk6" kind="show" id="U9Y-Mm-e1F"/>
@@ -84,7 +84,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Или войдите с помощью" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duo-3u-t8F">
-                                        <rect key="frame" x="119.66666666666667" y="306.66666666666669" width="151.66666666666663" height="15.333333333333314"/>
+                                        <rect key="frame" x="110.66666666666667" y="306.66666666666669" width="151.66666666666663" height="15.333333333333314"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                         <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -93,7 +93,7 @@
                                         <rect key="frame" x="63" y="345" width="265" height="130"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIk-Eb-9jp" customClass="Border" customModule="Intop" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="265" height="38"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="269" height="38"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти через Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wME-Ea-9MC">
                                                         <rect key="frame" x="98" y="12" width="122" height="14.333333333333336"/>
@@ -108,7 +108,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WfP-OW-v84">
-                                                        <rect key="frame" x="0.0" y="0.0" width="265" height="38"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="269" height="38"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     </button>
                                                 </subviews>
@@ -134,9 +134,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEi-DF-UVC" customClass="Border" customModule="Intop" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="46" width="265" height="38"/>
+                                                <rect key="frame" x="0.0" y="46" width="269" height="38"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти через Gmail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxc-yB-M5y">
+
                                                         <rect key="frame" x="98" y="12" width="122" height="14.333333333333336"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -149,7 +150,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTd-2R-oNg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="265" height="38"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="269" height="38"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     </button>
                                                 </subviews>
@@ -175,10 +176,12 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQk-ki-GGe" customClass="Border" customModule="Intop" customModuleProvider="target">
+
                                                 <rect key="frame" x="0.0" y="92" width="265" height="38"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти через Telegtam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCA-Dp-MsB">
                                                         <rect key="frame" x="98" y="12" width="122" height="14.333333333333336"/>
+
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -190,7 +193,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KB3-hN-BqV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="265" height="38"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="269" height="38"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     </button>
                                                 </subviews>
@@ -257,11 +260,11 @@
             <objects>
                 <viewController id="GHe-8A-Kk6" customClass="SignInViewController" customModule="Intop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oMU-zn-jI0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WM-vk-rZ6">
-                                <rect key="frame" x="1" y="84" width="391" height="767"/>
+                                <rect key="frame" x="1" y="72" width="373" height="739"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9F0-58-hqN">
                                         <rect key="frame" x="150.33333333333334" y="169" width="90.666666666666657" height="37.666666666666657"/>
@@ -278,10 +281,12 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zRM-19-WEP">
+
                                         <rect key="frame" x="57" y="223.66666666666669" width="278" height="36"/>
+
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCS-bo-ATL">
-                                                <rect key="frame" x="0.0" y="0.0" width="139" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="36"/>
                                                 <color key="backgroundColor" name="BlueMain"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Продавец">
@@ -292,7 +297,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohW-oU-KLJ">
-                                                <rect key="frame" x="139" y="0.0" width="139" height="36"/>
+                                                <rect key="frame" x="130" y="0.0" width="130" height="36"/>
                                                 <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Покупатель">
@@ -308,27 +313,36 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите ваш номер  и пароль для входа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iak-5g-MNE">
+
                                         <rect key="frame" x="101.00000000000001" y="268.66666666666669" width="189.33333333333337" height="12"/>
+
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                         <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Номер тел." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2J-Bh-chz">
+
                                         <rect key="frame" x="53" y="321.66666666666669" width="52" height="12"/>
+
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZb-59-cHH" customClass="Border" customModule="Intop" customModuleProvider="target">
+
                                         <rect key="frame" x="52" y="341.66666666666669" width="287" height="44"/>
+
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="ZGf-jq-9dN">
                                                 <rect key="frame" x="13" y="15.333333333333314" width="13" height="13"/>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+998" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cna-JX-Qd2">
-                                                <rect key="frame" x="36" y="0.0" width="241" height="44"/>
+                                                <rect key="frame" x="36" y="0.0" width="223" height="44"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
+                                                <connections>
+                                                    <action selector="phoneTF:" destination="59V-rr-C44" eventType="editingDidEnd" id="1ta-aL-ZOy"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -349,19 +363,23 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Db-Pk-KpB">
+
                                         <rect key="frame" x="53" y="407.66666666666669" width="35.333333333333343" height="12"/>
+
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ar-eW-ksR" customClass="Border" customModule="Intop" customModuleProvider="target">
+
                                         <rect key="frame" x="52" y="427.66666666666669" width="287" height="44"/>
+
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="DXS-BB-HkI">
                                                 <rect key="frame" x="13" y="15.333333333333314" width="13" height="13"/>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9X9-ya-Ys1">
-                                                <rect key="frame" x="36" y="0.0" width="241" height="44"/>
+                                                <rect key="frame" x="36" y="0.0" width="223" height="44"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
@@ -384,7 +402,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ADc-kr-mfg">
+
                                         <rect key="frame" x="51.999999999999986" y="482.66666666666663" width="176.66666666666663" height="25"/>
+
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нет акаунта?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuX-bj-kWE">
                                                 <rect key="frame" x="0.0" y="0.0" width="67.666666666666671" height="25"/>
@@ -399,11 +419,16 @@
                                                 <state key="normal" title="Зарегестрироваться">
                                                     <color key="titleColor" name="BlueMain"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="YO5-il-qRJ" kind="show" id="3J5-XO-Bwj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cG4-Je-6TB">
+
                                         <rect key="frame" x="52" y="541.66666666666663" width="287" height="46"/>
+
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="dSC-Da-ruv"/>
                                         </constraints>
@@ -472,6 +497,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEB-tD-VtS" sceneMemberID="firstResponder"/>
+                <exit id="59V-rr-C44" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="bqa-H8-M4S">
                     <connections>
                         <action selector="tap:" destination="GHe-8A-Kk6" id="CSM-OD-wXb"/>
@@ -485,7 +511,7 @@
             <objects>
                 <viewController id="ZYd-MK-Dcl" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pjh-xR-U1C">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="8im-Sm-ccQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -501,11 +527,11 @@
             <objects>
                 <viewController id="up0-t5-hfN" customClass="HomeViewController" customModule="Intop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DgK-0D-zC4">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bch-VU-Nla" customClass="Border" customModule="Intop" customModuleProvider="target">
-                                <rect key="frame" x="23" y="84" width="268" height="54"/>
+                                <rect key="frame" x="23" y="72" width="250" height="54"/>
                                 <color key="backgroundColor" name="WhiteMain"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="Moj-Dx-EYu"/>
@@ -518,7 +544,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pkn-0A-FKe">
-                                <rect key="frame" x="307" y="102" width="66" height="29"/>
+                                <rect key="frame" x="289" y="90" width="66" height="29"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufu-nz-Sz0">
                                         <rect key="frame" x="0.0" y="0.0" width="21" height="29"/>
@@ -576,11 +602,13 @@
             <objects>
                 <viewController id="G6i-GW-vwM" customClass="CodeVerificationViewController" customModule="Intop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Jp-DP-ZtX">
+
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2b-kE-w8d">
                                 <rect key="frame" x="1" y="84" width="391" height="767"/>
+
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c48-fj-MNE">
                                         <rect key="frame" x="22" y="23" width="35" height="35"/>
@@ -591,19 +619,25 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Верификация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92s-nX-1Ru">
+
                                         <rect key="frame" x="93.333333333333329" y="197" width="204.66666666666669" height="37.666666666666657"/>
+
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите код подтверждения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnd-qc-KNd">
+
                                         <rect key="frame" x="128.33333333333337" y="241.66666666666669" width="134.66666666666663" height="12"/>
+
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="UXo-1o-3Bu">
+
                                         <rect key="frame" x="55" y="283.66666666666669" width="281" height="41"/>
+
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d14-Vs-gGg" customClass="Border" customModule="Intop" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="41" height="41"/>
@@ -758,7 +792,9 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="w7d-Ky-uZ7">
+
                                         <rect key="frame" x="56" y="341.66666666666669" width="240" height="24"/>
+
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Если вы не получили код," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CO8-ew-5YL">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="24"/>
@@ -779,7 +815,9 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aW-my-aTC">
+
                                         <rect key="frame" x="52" y="428.66666666666663" width="287" height="46"/>
+
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="Pbb-b0-oHq"/>
                                         </constraints>
@@ -852,20 +890,20 @@
             <objects>
                 <viewController id="Hnl-1b-Fhj" customClass="FirstViewController" customModule="Intop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ka-fZ-T1V">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurchaseOnline" translatesAutoresizingMaskIntoConstraints="NO" id="WB3-vk-E0T">
-                                <rect key="frame" x="82.666666666666686" y="99" width="228" height="279"/>
+                                <rect key="frame" x="73.666666666666686" y="87" width="228" height="279"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Покупайте онлайн" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTf-0b-dPg">
-                                <rect key="frame" x="48" y="457.33333333333331" width="297" height="37.666666666666686"/>
+                                <rect key="frame" x="48" y="418.33333333333331" width="279" height="75.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nu-ua-Rp1">
-                                <rect key="frame" x="50" y="516" width="293" height="60.333333333333371"/>
+                                <rect key="frame" x="50" y="514.66666666666663" width="275" height="60.333333333333371"/>
                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing,
 sed do eiusmod tempor ut labore</string>
                                 <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="16"/>
@@ -873,7 +911,7 @@ sed do eiusmod tempor ut labore</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SUx-nr-xMY">
-                                <rect key="frame" x="116" y="731" width="161" height="2"/>
+                                <rect key="frame" x="107" y="691" width="161" height="2"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pwu-qo-Keh">
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="2"/>
@@ -902,10 +940,10 @@ sed do eiusmod tempor ut labore</string>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVb-6f-vKg">
-                                <rect key="frame" x="30" y="758" width="333" height="50"/>
+                                <rect key="frame" x="30" y="718" width="315" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXd-OB-qRJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="333" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
                                         <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Следующий">
@@ -950,7 +988,7 @@ sed do eiusmod tempor ut labore</string>
                     <navigationItem key="navigationItem" id="3Dw-iK-Jke"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <segue destination="aZt-rI-fck" kind="show" identifier="goToSecond" id="6cF-g0-l6O"/>
+                        <segue destination="aZt-rI-fck" kind="show" identifier="goToSecond" animates="NO" id="6cF-g0-l6O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5WT-R7-ai1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -962,7 +1000,7 @@ sed do eiusmod tempor ut labore</string>
             <objects>
                 <viewController id="cI6-ib-tbM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W9i-Pc-3yC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="uCE-bu-U2E"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -978,7 +1016,7 @@ sed do eiusmod tempor ut labore</string>
             <objects>
                 <viewController id="EW1-yV-ISm" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fak-tm-RmR">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="rRd-yV-V9v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -994,7 +1032,7 @@ sed do eiusmod tempor ut labore</string>
             <objects>
                 <viewController id="bWG-PX-YCX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Egi-7U-MK6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="dU4-K3-Z1p"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1010,20 +1048,20 @@ sed do eiusmod tempor ut labore</string>
             <objects>
                 <viewController id="aZt-rI-fck" customClass="SecondViewController" customModule="Intop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jTh-TP-nnJ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trackOrder" translatesAutoresizingMaskIntoConstraints="NO" id="OiP-G3-Rfw">
-                                <rect key="frame" x="75.666666666666686" y="99" width="242" height="214"/>
+                                <rect key="frame" x="66.666666666666686" y="87" width="242" height="214"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Гарантия безопасной доставки" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkX-TA-CuQ">
-                                <rect key="frame" x="10" y="388.33333333333331" width="373" height="75.333333333333314"/>
-                                <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="30"/>
+                                <rect key="frame" x="10" y="373.33333333333331" width="355" height="65.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqI-Qm-tH1">
-                                <rect key="frame" x="51" y="484.66666666666669" width="291" height="60.333333333333314"/>
+                                <rect key="frame" x="51" y="459.66666666666669" width="273" height="60.333333333333314"/>
                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing,
 sed do eiusmod tempor ut labore</string>
                                 <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="16"/>
@@ -1031,7 +1069,7 @@ sed do eiusmod tempor ut labore</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Z04-ey-WEB">
-                                <rect key="frame" x="116" y="731" width="161" height="2"/>
+                                <rect key="frame" x="107" y="691" width="161" height="2"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q3P-s1-Omh">
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="2"/>
@@ -1060,10 +1098,10 @@ sed do eiusmod tempor ut labore</string>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pg0-Mh-aLC">
-                                <rect key="frame" x="30" y="758" width="333" height="50"/>
+                                <rect key="frame" x="30" y="718" width="315" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeD-mO-ZTC">
-                                        <rect key="frame" x="0.0" y="0.0" width="333" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
                                         <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Следующий">
@@ -1082,6 +1120,9 @@ sed do eiusmod tempor ut labore</string>
                                     <constraint firstAttribute="trailing" secondItem="OeD-mO-ZTC" secondAttribute="trailing" id="GOJ-M7-cum"/>
                                     <constraint firstAttribute="height" constant="50" id="xgj-YR-a23"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="24"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dgK-iH-qYY"/>
@@ -1104,7 +1145,7 @@ sed do eiusmod tempor ut labore</string>
                     </view>
                     <navigationItem key="navigationItem" id="S0a-3O-4oR"/>
                     <connections>
-                        <segue destination="4af-FQ-BCw" kind="show" identifier="goToThird" id="f8B-zc-M2r"/>
+                        <segue destination="4af-FQ-BCw" kind="show" identifier="goToThird" animates="NO" id="f8B-zc-M2r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KO3-vk-SON" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1116,14 +1157,14 @@ sed do eiusmod tempor ut labore</string>
             <objects>
                 <viewController id="4af-FQ-BCw" customClass="ThirdViewController" customModule="Intop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h8g-75-BAg">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-9N-eJ6">
-                                <rect key="frame" x="77" y="99" width="239" height="228"/>
+                                <rect key="frame" x="68" y="87" width="239" height="228"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeB-UE-XvW">
-                                <rect key="frame" x="51" y="466" width="291" height="60.333333333333371"/>
+                                <rect key="frame" x="51" y="459.66666666666669" width="273" height="60.333333333333314"/>
                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing,
 sed do eiusmod tempor ut labore</string>
                                 <fontDescription key="fontDescription" name="Mulish-Regular" family="Mulish" pointSize="16"/>
@@ -1131,7 +1172,7 @@ sed do eiusmod tempor ut labore</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="sYt-hb-21v">
-                                <rect key="frame" x="116" y="731" width="161" height="2"/>
+                                <rect key="frame" x="107" y="691" width="161" height="2"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzO-Ib-QxL">
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="2"/>
@@ -1160,10 +1201,10 @@ sed do eiusmod tempor ut labore</string>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fA-V8-YO5">
-                                <rect key="frame" x="30" y="758" width="333" height="50"/>
+                                <rect key="frame" x="30" y="718" width="315" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFW-A9-jxB">
-                                        <rect key="frame" x="0.0" y="0.0" width="333" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
                                         <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Следующий">
@@ -1182,10 +1223,13 @@ sed do eiusmod tempor ut labore</string>
                                     <constraint firstAttribute="trailing" secondItem="bFW-A9-jxB" secondAttribute="trailing" id="bGw-lX-4pm"/>
                                     <constraint firstAttribute="height" constant="50" id="iuh-PM-lNx"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="24"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Товар прибыл вовремя" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ud-b7-FkM">
-                                <rect key="frame" x="22" y="407.33333333333331" width="349.33333333333331" height="37.666666666666686"/>
-                                <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="30"/>
+                                <rect key="frame" x="50" y="373.33333333333331" width="275" height="65.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Mulish-Bold" family="Mulish" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1198,6 +1242,8 @@ sed do eiusmod tempor ut labore</string>
                             <constraint firstItem="UeB-UE-XvW" firstAttribute="leading" secondItem="QtE-7y-yPB" secondAttribute="leading" constant="51" id="Aze-Y5-Tyi"/>
                             <constraint firstItem="sYt-hb-21v" firstAttribute="centerX" secondItem="h8g-75-BAg" secondAttribute="centerX" id="Cy3-QF-Jbi"/>
                             <constraint firstItem="QtE-7y-yPB" firstAttribute="trailing" secondItem="UeB-UE-XvW" secondAttribute="trailing" constant="51" id="GTt-az-Rqt"/>
+                            <constraint firstItem="5Ud-b7-FkM" firstAttribute="leading" secondItem="QtE-7y-yPB" secondAttribute="leading" constant="50" id="O2W-rt-q5q"/>
+                            <constraint firstItem="QtE-7y-yPB" firstAttribute="trailing" secondItem="5Ud-b7-FkM" secondAttribute="trailing" constant="50" id="Qih-RC-yHE"/>
                             <constraint firstItem="QtE-7y-yPB" firstAttribute="trailing" secondItem="4fA-V8-YO5" secondAttribute="trailing" constant="30" id="TQL-ue-tss"/>
                             <constraint firstItem="4fA-V8-YO5" firstAttribute="leading" secondItem="QtE-7y-yPB" secondAttribute="leading" constant="30" id="YlX-rc-Ka0"/>
                             <constraint firstItem="5Ud-b7-FkM" firstAttribute="centerY" secondItem="h8g-75-BAg" secondAttribute="centerY" id="Zcy-Bd-Unr"/>
@@ -1233,11 +1279,235 @@ sed do eiusmod tempor ut labore</string>
             </objects>
             <point key="canvasLocation" x="345.80152671755724" y="111.9718309859155"/>
         </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="yuh-bC-nyn">
+            <objects>
+                <viewController id="YO5-il-qRJ" customClass="SignUpViewController" customModule="Intop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6IZ-8H-0xS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wAv-5C-qBd">
+                                <rect key="frame" x="1" y="72" width="373" height="739"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Зарегистрироваться" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sW4-QS-Q4j">
+                                        <rect key="frame" x="70" y="164.33333333333334" width="233" height="28.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stE-qx-IIV">
+                                        <rect key="frame" x="22" y="23" width="35" height="35"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="" image="back"/>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZHf-y8-KV2">
+                                        <rect key="frame" x="57" y="209.66666666666669" width="260" height="36"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2b-Fc-efi">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="36"/>
+                                                <color key="backgroundColor" name="BlueMain"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Продавец">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="seller:" destination="YO5-il-qRJ" eventType="touchUpInside" id="r7q-Zp-oqI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nT0-yX-jyd">
+                                                <rect key="frame" x="130" y="0.0" width="130" height="36"/>
+                                                <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Покупатель">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buyer:" destination="YO5-il-qRJ" eventType="touchUpInside" id="Gcn-Is-fZW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="shO-6l-LVU"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите ваш номер  и пароль для входа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTk-uW-uMG">
+                                        <rect key="frame" x="92.000000000000014" y="254.66666666666669" width="189.33333333333337" height="12"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                        <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Номер тел." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZj-AN-eyw">
+                                        <rect key="frame" x="53" y="307.66666666666669" width="52" height="12"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VMF-4Q-0bp" customClass="Border" customModule="Intop" customModuleProvider="target">
+                                        <rect key="frame" x="52" y="327.66666666666669" width="269" height="44"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="e6j-JB-fsX">
+                                                <rect key="frame" x="13" y="15.333333333333314" width="13" height="13"/>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+998" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cwn-HC-oml">
+                                                <rect key="frame" x="36" y="0.0" width="223" height="44"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="cwn-HC-oml" firstAttribute="top" secondItem="VMF-4Q-0bp" secondAttribute="top" id="6hR-zx-i4E"/>
+                                            <constraint firstAttribute="trailing" secondItem="cwn-HC-oml" secondAttribute="trailing" constant="10" id="Gkr-vq-caV"/>
+                                            <constraint firstItem="e6j-JB-fsX" firstAttribute="leading" secondItem="VMF-4Q-0bp" secondAttribute="leading" constant="13" id="apS-Nw-Y1p"/>
+                                            <constraint firstItem="e6j-JB-fsX" firstAttribute="centerY" secondItem="VMF-4Q-0bp" secondAttribute="centerY" id="d7Y-Th-08Z"/>
+                                            <constraint firstItem="cwn-HC-oml" firstAttribute="leading" secondItem="e6j-JB-fsX" secondAttribute="trailing" constant="10" id="drY-4g-4kF"/>
+                                            <constraint firstAttribute="height" constant="44" id="ohq-yT-7tG"/>
+                                            <constraint firstAttribute="bottom" secondItem="cwn-HC-oml" secondAttribute="bottom" id="otn-Oc-fb1"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="border">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="7"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKU-lR-DRT">
+                                        <rect key="frame" x="53" y="393.66666666666669" width="35.333333333333343" height="12"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWV-G0-ssD" customClass="Border" customModule="Intop" customModuleProvider="target">
+                                        <rect key="frame" x="52" y="413.66666666666669" width="269" height="44"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="HEv-ZX-5og">
+                                                <rect key="frame" x="13" y="15.333333333333314" width="13" height="13"/>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dhm-ZX-Gkn">
+                                                <rect key="frame" x="36" y="0.0" width="223" height="44"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="HEv-ZX-5og" firstAttribute="centerY" secondItem="aWV-G0-ssD" secondAttribute="centerY" id="1qa-3B-fsE"/>
+                                            <constraint firstAttribute="height" constant="44" id="8oh-6c-wIs"/>
+                                            <constraint firstItem="dhm-ZX-Gkn" firstAttribute="top" secondItem="aWV-G0-ssD" secondAttribute="top" id="JsM-9s-y8M"/>
+                                            <constraint firstItem="HEv-ZX-5og" firstAttribute="leading" secondItem="aWV-G0-ssD" secondAttribute="leading" constant="13" id="LMu-UJ-wQm"/>
+                                            <constraint firstAttribute="trailing" secondItem="dhm-ZX-Gkn" secondAttribute="trailing" constant="10" id="d5E-MW-6QR"/>
+                                            <constraint firstAttribute="bottom" secondItem="dhm-ZX-Gkn" secondAttribute="bottom" id="m2r-wo-EuZ"/>
+                                            <constraint firstItem="dhm-ZX-Gkn" firstAttribute="leading" secondItem="HEv-ZX-5og" secondAttribute="trailing" constant="10" id="vJ5-Ir-HFQ"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="border">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.CornerRadius" value="7"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVX-l0-6mp">
+                                        <rect key="frame" x="52" y="523.66666666666663" width="269" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="qUW-8h-GyM"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Войти">
+                                            <color key="baseBackgroundColor" name="BlueMain"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="signUpBtn:" destination="YO5-il-qRJ" eventType="touchUpInside" id="8bv-kZ-up4"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Запомнить меня" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYP-oC-lPo">
+                                        <rect key="frame" x="71" y="467.66666666666663" width="86.333333333333314" height="22"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
+                                        <color key="textColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BiS-Cd-K1I">
+                                        <rect key="frame" x="51" y="467.66666666666663" width="14" height="22"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="borderedBtn"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="WhiteMain"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="VZj-AN-eyw" firstAttribute="leading" secondItem="wAv-5C-qBd" secondAttribute="leading" constant="53" id="2UT-Qn-sqN"/>
+                                    <constraint firstItem="oYP-oC-lPo" firstAttribute="leading" secondItem="BiS-Cd-K1I" secondAttribute="trailing" constant="6" id="3ls-IO-oc5"/>
+                                    <constraint firstAttribute="trailing" secondItem="VMF-4Q-0bp" secondAttribute="trailing" constant="52" id="3p5-iv-Oqf"/>
+                                    <constraint firstItem="DKU-lR-DRT" firstAttribute="top" secondItem="VMF-4Q-0bp" secondAttribute="bottom" constant="22" id="4Ms-pI-eiC"/>
+                                    <constraint firstAttribute="trailing" secondItem="aWV-G0-ssD" secondAttribute="trailing" constant="52" id="H0e-y4-oVr"/>
+                                    <constraint firstItem="DKU-lR-DRT" firstAttribute="centerY" secondItem="wAv-5C-qBd" secondAttribute="centerY" constant="30" id="Ies-gf-g4e"/>
+                                    <constraint firstItem="ZHf-y8-KV2" firstAttribute="top" secondItem="sW4-QS-Q4j" secondAttribute="bottom" constant="17" id="JTf-gG-cZf"/>
+                                    <constraint firstItem="BiS-Cd-K1I" firstAttribute="top" secondItem="aWV-G0-ssD" secondAttribute="bottom" constant="10" id="KQO-cS-hID"/>
+                                    <constraint firstItem="ZHf-y8-KV2" firstAttribute="leading" secondItem="wAv-5C-qBd" secondAttribute="leading" constant="57" id="M9x-LX-NtV"/>
+                                    <constraint firstItem="rTk-uW-uMG" firstAttribute="top" secondItem="ZHf-y8-KV2" secondAttribute="bottom" constant="9" id="NGq-wY-qbT"/>
+                                    <constraint firstItem="DKU-lR-DRT" firstAttribute="leading" secondItem="wAv-5C-qBd" secondAttribute="leading" constant="53" id="SWw-Dl-HRv"/>
+                                    <constraint firstItem="stE-qx-IIV" firstAttribute="leading" secondItem="wAv-5C-qBd" secondAttribute="leading" constant="22" id="Uo7-op-myN"/>
+                                    <constraint firstItem="rTk-uW-uMG" firstAttribute="centerX" secondItem="wAv-5C-qBd" secondAttribute="centerX" id="X8W-0E-avF"/>
+                                    <constraint firstItem="aWV-G0-ssD" firstAttribute="leading" secondItem="wAv-5C-qBd" secondAttribute="leading" constant="52" id="dEy-rZ-FZa"/>
+                                    <constraint firstItem="VMF-4Q-0bp" firstAttribute="top" secondItem="VZj-AN-eyw" secondAttribute="bottom" constant="8" id="dT1-8y-a5p"/>
+                                    <constraint firstItem="VZj-AN-eyw" firstAttribute="top" secondItem="rTk-uW-uMG" secondAttribute="bottom" constant="41" id="egF-td-D9h"/>
+                                    <constraint firstItem="stE-qx-IIV" firstAttribute="top" secondItem="wAv-5C-qBd" secondAttribute="top" constant="23" id="fdE-b3-K5R"/>
+                                    <constraint firstItem="oYP-oC-lPo" firstAttribute="top" secondItem="aWV-G0-ssD" secondAttribute="bottom" constant="10" id="fia-IB-wse"/>
+                                    <constraint firstItem="aWV-G0-ssD" firstAttribute="top" secondItem="DKU-lR-DRT" secondAttribute="bottom" constant="8" id="gLF-XL-T8h"/>
+                                    <constraint firstItem="IVX-l0-6mp" firstAttribute="leading" secondItem="wAv-5C-qBd" secondAttribute="leading" constant="52" id="gkR-M2-NtQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="IVX-l0-6mp" secondAttribute="trailing" constant="52" id="ix3-JM-Ppz"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZHf-y8-KV2" secondAttribute="trailing" constant="56" id="nBo-wY-xPH"/>
+                                    <constraint firstItem="BiS-Cd-K1I" firstAttribute="leading" secondItem="wAv-5C-qBd" secondAttribute="leading" constant="51" id="o92-XJ-9Ud"/>
+                                    <constraint firstItem="IVX-l0-6mp" firstAttribute="top" secondItem="BiS-Cd-K1I" secondAttribute="bottom" constant="34" id="t2I-uI-nDc"/>
+                                    <constraint firstItem="VMF-4Q-0bp" firstAttribute="leading" secondItem="wAv-5C-qBd" secondAttribute="leading" constant="52" id="trr-YC-F5A"/>
+                                    <constraint firstItem="IVX-l0-6mp" firstAttribute="top" secondItem="oYP-oC-lPo" secondAttribute="bottom" constant="34" id="uWf-Ap-pYj"/>
+                                    <constraint firstItem="sW4-QS-Q4j" firstAttribute="centerX" secondItem="wAv-5C-qBd" secondAttribute="centerX" id="w1H-6X-Zkg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="30"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Fbn-Ko-a9P" appends="YES" id="V7p-vT-7ua"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lwC-Vd-Aon"/>
+                        <color key="backgroundColor" name="BlueMain"/>
+                        <constraints>
+                            <constraint firstItem="lwC-Vd-Aon" firstAttribute="trailing" secondItem="wAv-5C-qBd" secondAttribute="trailing" constant="1" id="GFm-DF-eAM"/>
+                            <constraint firstItem="wAv-5C-qBd" firstAttribute="leading" secondItem="lwC-Vd-Aon" secondAttribute="leading" constant="1" id="Lst-ud-0Pr"/>
+                            <constraint firstItem="wAv-5C-qBd" firstAttribute="top" secondItem="lwC-Vd-Aon" secondAttribute="top" constant="25" id="qVI-k8-fnj"/>
+                            <constraint firstAttribute="bottom" secondItem="wAv-5C-qBd" secondAttribute="bottom" constant="1" id="z8O-Qh-8vG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Zq9-68-dsN"/>
+                    <connections>
+                        <outlet property="buyerBtn" destination="nT0-yX-jyd" id="ooE-YE-wOa"/>
+                        <outlet property="passwordTF" destination="dhm-ZX-Gkn" id="la0-6m-TGl"/>
+                        <outlet property="phoneTF" destination="cwn-HC-oml" id="iKL-1h-oqg"/>
+                        <outlet property="sellerBtn" destination="G2b-Fc-efi" id="rOY-YH-6Be"/>
+                        <segue destination="G6i-GW-vwM" kind="show" identifier="code" id="UFF-IG-VIj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nuG-WE-RmV" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Fbn-Ko-a9P">
+                    <connections>
+                        <action selector="tap:" destination="YO5-il-qRJ" id="KlS-aO-iSw"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="4714" y="781"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="A9l-dP-QhF"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Group" width="239" height="228"/>
         <image name="PurchaseOnline" width="228" height="279"/>
         <image name="back" width="35" height="35"/>
+        <image name="borderedBtn" width="14" height="14"/>
         <image name="cart" width="30" height="29"/>
         <image name="category" width="29" height="29"/>
         <image name="categoryFull" width="29" height="29"/>
