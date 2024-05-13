@@ -23,7 +23,7 @@ class SignInViewController: UIViewController {
     @IBAction func SignInBtn(_ sender: UIButton) {
         guard let phone = phoneTF.text else { return }
         guard let password = passwordTF.text else { return }
-        SignIn().signInPhone(phoneNumber: phone, password: password) { result, error in
+        Sign().signInPhone(phoneNumber: phone, password: password) { result, error in
             if error == nil {
                 self.performSegue(withIdentifier: "code", sender: self)
             }else{
@@ -51,5 +51,9 @@ class SignInViewController: UIViewController {
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
         phoneTF.resignFirstResponder()
         passwordTF.resignFirstResponder()
+    }
+    
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
