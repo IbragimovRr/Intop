@@ -15,24 +15,48 @@ class SignIn {
         "Content-Type": "application/json"
     ]
     
-    func signInPhone(phoneNumber:String,password:String) {
+    func signInPhone(phoneNumber:String,password:String,completion:@escaping (_ result:String?,_ error:String?) -> ()) {
         url += "users/login"
         AF.upload(multipartFormData: { multipartFormData in
             
             multipartFormData.append(Data("\(phoneNumber)".utf8), withName: "user_phone_number")
-            multipartFormData.append(Data("RU".utf8), withName: "lang_code")
             multipartFormData.append(Data("\(password)".utf8), withName: "app_password")
             
-        }, to: "https://api.intop.uz/monolith/users/register",
+        }, to: url,
                   method: .post,
                   headers: headers).responseData { responseData in
-            
+            switch responseData.result {
+            case .success(let value):
+                self.jsonInData(value) { result in
+                    if result == "No user with this user_phone_number in database or you entered a wrong password"{
+                        completion(nil,"Неправильный логин или пароль")
+                    }else {
+                        completion(result,nil)
+                    }
+                }
+            case .failure(_):
+                completion(nil,"Ошибка повторите попытку позже")
+            }
         }
     }
     
-    private func jsonInData(_ responseData: Data) {
-        //Commit
+    private func jsonInData(_ responseData: Data,completion:@escaping (String) -> ()) {
+        do {
+            let json = try JSONDecoder().decode(JSONSign.self, from: responseData)
+            completion(json.details)
+        }catch let error {
+            print(error)
+        }
     }
     
+    private func errorSignUp(_ phoneNumber:String,_ password:String) -> Bool {
+        guard phoneNumber.count == 13 else { return false }
+        guard password.count >= 8 else { return false }
+        return true
+    }
     
+}
+
+struct JSONSign: Decodable {
+    var details:String
 }
