@@ -18,12 +18,12 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         design()
-        
     }
     
     @IBAction func SignInBtn(_ sender: UIButton) {
-        performSegue(withIdentifier: "next", sender: self)
+        
     }
+    
     @IBAction func registrBtn(_ sender: UIButton) {
         
     }
@@ -40,6 +40,7 @@ class SignInViewController: UIViewController {
         segment = SegmentSettings(firstBtn: sellerBtn, secondBtn: buyerBtn)
         segment!.cornerRadiusSegment()
         segment!.onFirst()
+        phoneTF.delegate = self
     }
 
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
