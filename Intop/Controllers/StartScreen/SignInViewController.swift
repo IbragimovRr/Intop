@@ -21,12 +21,17 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func SignInBtn(_ sender: UIButton) {
-        
+        guard let phone = phoneTF.text else { return }
+        guard let password = passwordTF.text else { return }
+        SignIn().signInPhone(phoneNumber: phone, password: password) { result, error in
+            if error == nil {
+                self.performSegue(withIdentifier: "code", sender: self)
+            }else{
+                print(error!)
+            }
+        }
     }
     
-    @IBAction func registrBtn(_ sender: UIButton) {
-        
-    }
     
     @IBAction func seller(_ sender: UIButton) {
         segment?.onFirst()
