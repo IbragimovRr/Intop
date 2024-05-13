@@ -110,9 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				75AF2FB22BEFE65100F0165E /* FirstViewController.swift */,
-				44D17D542BEFDE7800F5C073 /* SignInViewController.swift */,
 				75AF2FB42BF23A2100F0165E /* SecondViewController.swift */,
 				75AF2FB62BF256DC00F0165E /* ThirdViewController.swift */,
+				44D17D542BEFDE7800F5C073 /* SignInViewController.swift */,
 			);
 			path = StartScreen;
 			sourceTree = "<group>";

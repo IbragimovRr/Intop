@@ -14,6 +14,9 @@ class FirstViewController: UIViewController {
     }
     
     
+    @IBAction func btn(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToSecond", sender: self)
+    }
     
 
 }
