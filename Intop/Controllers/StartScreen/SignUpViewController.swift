@@ -23,14 +23,26 @@ class SignUpViewController: UIViewController {
       
     }
     
+    @IBAction func rememberBtn(_ sender: UIButton) {
+        if sender.tag == 0 {
+            sender.tag = 1
+            sender.setImage(UIImage(named: "openBox"), for: .normal)
+            UD().saveRemember(true)
+        }else {
+            sender.tag = 0
+            sender.setImage(UIImage(named: "closeBox"), for: .normal)
+            UD().saveRemember(false)
+        }
+    }
+    
     @IBAction func signUpBtn(_ sender: UIButton) {
         guard let phone = phoneTF.text else {return}
         guard let password = passwordTF.text else {return}
-        SignIn().signUpPhone(phoneNumber: phone, password: password)  { result, error in
+        Sign().signUpPhone(phoneNumber: phone, password: password)  { result, error in
             if error == nil {
                 self.performSegue(withIdentifier: "code", sender: self)
-            }else{
-                print(error!)
+            }else if let error = error{
+                Error().alert(error, self)
             }
         }
     }
@@ -51,6 +63,9 @@ class SignUpViewController: UIViewController {
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
         phoneTF.resignFirstResponder()
         passwordTF.resignFirstResponder()
+    }
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

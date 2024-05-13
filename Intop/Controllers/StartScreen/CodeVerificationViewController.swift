@@ -44,7 +44,8 @@ class CodeVerificationViewController: UIViewController {
         if timeRestart == 0 {
             sendCode()
         }else{
-            print("Слишком часто")
+            Error().alert("Слишком часто. Следующий раз можно попробовать через \(timeRestart) секунд", self)
+            return
         }
         timeRestart = 60
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
@@ -56,9 +57,10 @@ class CodeVerificationViewController: UIViewController {
     }
     
     @IBAction func sendBtn(_ sender: UIButton) {
-        print(code,codeInScreen)
         if code == codeInScreen {
-            print("Успешно")
+            performSegue(withIdentifier: "succes", sender: self)
+        }else {
+            Error().alert("Неправильный код", self)
         }
     }
     

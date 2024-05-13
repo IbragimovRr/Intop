@@ -43,11 +43,6 @@ extension CodeVerificationViewController: UITextFieldDelegate {
             else if textField == fivethTF {
                 sixthTF.becomeFirstResponder()
             }
-            else {
-                let code = firstTF.text! + secondTF.text! + thirdTF.text! + fourthTF.text! + fivethTF.text! + sixthTF.text!
-                //authUser(code: code)
-                
-            }
             return false
         }else{
             textField.text = string
