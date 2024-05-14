@@ -9,6 +9,7 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
+    @IBOutlet weak var flag: UIImageView!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
     @IBOutlet weak var buyerBtn: UIButton!
