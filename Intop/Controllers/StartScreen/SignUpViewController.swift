@@ -9,6 +9,7 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var flag: UIImageView!
     
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
