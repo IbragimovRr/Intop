@@ -7,6 +7,7 @@
 		<string>Mulish-Bold.ttf</string>
 		<string>Roboto-Regular.ttf</string>
 		<string>Mulish-Regular.ttf</string>
+		<string>Poppins-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
@@ -27,7 +28,5 @@
 			</array>
 		</dict>
 	</dict>
-    <key>UIUserInterfaceStyle</key>
-    <string>Light</string>
 </dict>
 </plist>
