@@ -16,6 +16,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var sellerBtn: UIButton!
     var segment: SegmentSettings?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         design()
@@ -31,11 +32,13 @@ class SignInViewController: UIViewController {
                 Error().alert(error, self)
             }
         }
+        
     }
     
     
     @IBAction func seller(_ sender: UIButton) {
         segment?.onFirst()
+        
     }
     
     @IBAction func buyer(_ sender: UIButton) {
