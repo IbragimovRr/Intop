@@ -10,7 +10,6 @@ import Alamofire
 
 class Sign {
     
-    private var url = "https://api.intop.uz/monolith/"
     private let headers:HTTPHeaders = [
         "Content-Type": "application/json"
     ]
@@ -30,7 +29,7 @@ class Sign {
             completion(nil, errorValidate.1)
             return }
         
-        let url = url + "users/register"
+        let url = Constants.url + "users/register"
         
         AF.upload(multipartFormData: { multipartFormData in
             
@@ -61,7 +60,7 @@ class Sign {
 
     
     func signInPhone(phoneNumber:String,password:String,completion:@escaping (_ result:String?,_ error:String?) -> ()) {
-        let url = url + "users/login"
+        let url = Constants.url + "users/login"
         AF.upload(multipartFormData: { multipartFormData in
             
             multipartFormData.append(Data("\(phoneNumber)".utf8), withName: "user_phone_number")
@@ -88,7 +87,7 @@ class Sign {
     }
     
     func checkRole(_ phoneNumber:String,completion:@escaping (_ result:Bool) -> ()) {
-        let url = url + "users/\(phoneNumber)"
+        let url = Constants.url + "users/\(phoneNumber)"
         
         AF.request(url,method: .get).responseData { responseData in
             switch responseData.result {
@@ -124,7 +123,7 @@ class Sign {
     // MARK: - Code
     
     func sendCode(_ phoneNumber:String, completion: @escaping (_ code:String) -> ()) {
-        let url = url + "get_code_send_sms/\(phoneNumber)"
+        let url = Constants.url + "get_code_send_sms/\(phoneNumber)"
         AF.request(url).responseData { responseData in
             switch responseData.result {
             case .success(let value):

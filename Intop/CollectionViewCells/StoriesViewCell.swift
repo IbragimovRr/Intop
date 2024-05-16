@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatCollectionViewCell: UICollectionViewCell {
+class StoriesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var lbl: UILabel!
