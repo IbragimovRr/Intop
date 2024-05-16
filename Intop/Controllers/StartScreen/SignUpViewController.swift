@@ -10,12 +10,12 @@ import UIKit
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var flag: UIImageView!
-    
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
     @IBOutlet weak var sellerBtn: UIButton!
     @IBOutlet weak var buyerBtn: UIButton!
     var segment: SegmentSettings?
+    var shopRole: ShopRole = .sellerLegal
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpBtn(_ sender: UIButton) {
         guard let phone = phoneTF.text else {return}
         guard let password = passwordTF.text else {return}
-        Sign().signUpPhone(phoneNumber: phone, password: password)  { result, error in
+        Sign().signUpPhone(phoneNumber: phone, password: password, shopRole: shopRole)  { result, error in
             if error == nil {
                 self.performSegue(withIdentifier: "code", sender: self)
             }else if let error = error{
@@ -50,10 +50,12 @@ class SignUpViewController: UIViewController {
     
     @IBAction func seller(_ sender: UIButton) {
         segment?.onFirst()
+        shopRole = .sellerLegal
     }
     
     @IBAction func buyer(_ sender: UIButton) {
         segment?.onSecond()
+        shopRole = .buyerLegal
     }
     func design() {
         segment = SegmentSettings(firstBtn: sellerBtn, secondBtn: buyerBtn)

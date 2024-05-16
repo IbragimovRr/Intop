@@ -15,6 +15,7 @@ class SegmentSettings {
     var firstBtn:UIButton!
     var secondBtn:UIButton!
     
+    
     func cornerRadiusSegment() {
         firstBtn.clipsToBounds = true
         firstBtn.layer.cornerRadius = 7

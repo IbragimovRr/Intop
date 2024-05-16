@@ -24,7 +24,7 @@ class Sign {
     }
     
     
-    func signUpPhone(phoneNumber:String, password: String, completion:@escaping (_ result:String?, _ error:String?) -> ()) {
+    func signUpPhone(phoneNumber:String, password: String, shopRole: ShopRole,  completion:@escaping (_ result:String?, _ error:String?) -> ()) {
         let errorValidate = errorSignUp(phoneNumber, password)
         guard errorValidate.0 else {
             completion(nil, errorValidate.1)
@@ -46,6 +46,7 @@ class Sign {
                         completion(nil, "Номер уже был зарегистрирован")
                         
                     }else {
+                        UD().saveShopRole(shopRole.rawValue)
                         completion(result, nil)
                     }
                 }
