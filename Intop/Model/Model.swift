@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct JSONUser: Decodable {
+    var isSeller:Bool
+    var id:Int
+}
+
 struct JSONSign: Decodable {
     var details:String
 }

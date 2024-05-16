@@ -55,6 +55,6 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func back(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: false)
     }
 }
