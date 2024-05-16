@@ -14,6 +14,11 @@ enum ShopRole:String {
     case buyerLegal = "buyer_legal"
 }
 
+struct JSONUser: Decodable {
+    var isSeller:Bool
+    var id:Int
+}
+
 struct JSONSign: Decodable {
     var details:String
 }

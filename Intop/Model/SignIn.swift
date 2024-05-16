@@ -30,7 +30,7 @@ class Sign {
             completion(nil, errorValidate.1)
             return }
         
-        url += "users/register"
+        let url = url + "users/register"
         
         AF.upload(multipartFormData: { multipartFormData in
             
@@ -61,7 +61,7 @@ class Sign {
 
     
     func signInPhone(phoneNumber:String,password:String,completion:@escaping (_ result:String?,_ error:String?) -> ()) {
-        url += "users/login"
+        let url = url + "users/login"
         AF.upload(multipartFormData: { multipartFormData in
             
             multipartFormData.append(Data("\(phoneNumber)".utf8), withName: "user_phone_number")
@@ -87,10 +87,34 @@ class Sign {
         }
     }
     
-    private func jsonInData(_ responseData: Data,completion:@escaping (String) -> ()) {
+    func checkRole(_ phoneNumber:String,completion:@escaping (_ result:Bool) -> ()) {
+        let url = url + "users/\(phoneNumber)"
+        
+        AF.request(url,method: .get).responseData { responseData in
+            switch responseData.result {
+            case .success(let value):
+                self.jsonInDataRole(value) { bool in
+                    completion(bool)
+                }
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    private func jsonInData(_ responseData: Data ,completion:@escaping (String) -> ()) {
         do {
             let json = try JSONDecoder().decode(JSONSign.self, from: responseData)
             completion(json.details)
+        }catch let error {
+            print(error)
+        }
+    }
+    
+    private func jsonInDataRole(_ responseData: Data ,completion:@escaping (Bool) -> ()) {
+        do {
+            let json = try JSONDecoder().decode(JSONUser.self, from: responseData)
+            completion(json.isSeller)
         }catch let error {
             print(error)
         }
@@ -100,7 +124,7 @@ class Sign {
     // MARK: - Code
     
     func sendCode(_ phoneNumber:String, completion: @escaping (_ code:String) -> ()) {
-        url += "get_code_send_sms/\(phoneNumber)"
+        let url = url + "get_code_send_sms/\(phoneNumber)"
         AF.request(url).responseData { responseData in
             switch responseData.result {
             case .success(let value):
