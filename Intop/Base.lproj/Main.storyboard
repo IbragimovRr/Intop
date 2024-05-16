@@ -583,7 +583,7 @@
                                                     <inset key="sectionInset" minX="18" minY="0.0" maxX="18" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="story" id="KhY-17-Ikj">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="story" id="KhY-17-Ikj" customClass="StoriesCollectionViewCell" customModule="Intop" customModuleProvider="target">
                                                         <rect key="frame" x="18" y="0.0" width="63" height="85"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ta0-3n-L5X">
@@ -658,11 +658,11 @@
                                                     <size key="itemSize" width="117" height="86"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="sectionInset" minX="24" minY="0.0" maxX="24" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categories" id="HRI-J3-tIr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="86"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categories" id="HRI-J3-tIr" customClass="CategoriesCollectionViewCell" customModule="Intop" customModuleProvider="target">
+                                                        <rect key="frame" x="24" y="0.0" width="117" height="86"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ozv-ov-2dq">
                                                             <rect key="frame" x="0.0" y="0.0" width="117" height="86"/>
@@ -691,6 +691,10 @@
                                                         </collectionViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <size key="customSize" width="117" height="86"/>
+                                                        <connections>
+                                                            <outlet property="im" destination="riP-Bf-POH" id="Ceb-WZ-FY3"/>
+                                                            <outlet property="text" destination="klv-e9-G8V" id="SIS-WS-2ec"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -1265,7 +1269,7 @@ sed do eiusmod tempor ut labore</string>
                                     <inset key="sectionInset" minX="18" minY="0.0" maxX="18" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="chat" id="KXq-jd-mci" customClass="ChatCollectionViewCell" customModule="Intop" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="story" id="KXq-jd-mci" customClass="StoriesCollectionViewCell" customModule="Intop" customModuleProvider="target">
                                         <rect key="frame" x="18" y="0.0" width="63" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yLA-Vp-SNW">

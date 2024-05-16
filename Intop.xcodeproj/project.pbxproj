@@ -15,6 +15,7 @@
 		44ACB5492BF2BD7C00A75F3A /* SuccesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ACB5482BF2BD7C00A75F3A /* SuccesViewController.swift */; };
 		44ACB54B2BF3913200A75F3A /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44ACB54A2BF3913200A75F3A /* Poppins-Regular.ttf */; };
 		44ACB54D2BF636EC00A75F3A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ACB54C2BF636EC00A75F3A /* User.swift */; };
+		44ACB5512BF646C400A75F3A /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ACB5502BF646C400A75F3A /* CategoriesCollectionViewCell.swift */; };
 		44D17D392BEF9B6A00F5C073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D382BEF9B6A00F5C073 /* AppDelegate.swift */; };
 		44D17D3B2BEF9B6A00F5C073 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D3A2BEF9B6A00F5C073 /* SceneDelegate.swift */; };
 		44D17D402BEF9B6A00F5C073 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D17D3E2BEF9B6A00F5C073 /* Main.storyboard */; };
@@ -29,7 +30,7 @@
 		752E818C2BF26985004DABC3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E818B2BF26985004DABC3 /* SignUpViewController.swift */; };
 		752E818F2BF63C30004DABC3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E818E2BF63C30004DABC3 /* ChatViewController.swift */; };
 		752E81912BF63D69004DABC3 /* CVChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E81902BF63D69004DABC3 /* CVChat.swift */; };
-		752E81942BF63FB0004DABC3 /* ChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E81932BF63FB0004DABC3 /* ChatCollectionViewCell.swift */; };
+		752E81942BF63FB0004DABC3 /* StoriesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E81932BF63FB0004DABC3 /* StoriesViewCell.swift */; };
 		752E81962BF642C3004DABC3 /* Stories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E81952BF642C3004DABC3 /* Stories.swift */; };
 		757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */; };
 		75AF2FAB2BEFD1FC00F0165E /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FAA2BEFD1FC00F0165E /* Border.swift */; };
@@ -50,6 +51,7 @@
 		44ACB5482BF2BD7C00A75F3A /* SuccesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccesViewController.swift; sourceTree = "<group>"; };
 		44ACB54A2BF3913200A75F3A /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		44ACB54C2BF636EC00A75F3A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		44ACB5502BF646C400A75F3A /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		44D17D352BEF9B6A00F5C073 /* Intop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D17D382BEF9B6A00F5C073 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44D17D3A2BEF9B6A00F5C073 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 		752E818B2BF26985004DABC3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		752E818E2BF63C30004DABC3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		752E81902BF63D69004DABC3 /* CVChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVChat.swift; sourceTree = "<group>"; };
-		752E81932BF63FB0004DABC3 /* ChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewCell.swift; sourceTree = "<group>"; };
+		752E81932BF63FB0004DABC3 /* StoriesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewCell.swift; sourceTree = "<group>"; };
 		752E81952BF642C3004DABC3 /* Stories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stories.swift; sourceTree = "<group>"; };
 		757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		75AF2FAA2BEFD1FC00F0165E /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
@@ -159,7 +161,8 @@
 		752E81922BF63F87004DABC3 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				752E81932BF63FB0004DABC3 /* ChatCollectionViewCell.swift */,
+				752E81932BF63FB0004DABC3 /* StoriesViewCell.swift */,
+				44ACB5502BF646C400A75F3A /* CategoriesCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				44ACB5432BF2708700A75F3A /* Model.swift in Sources */,
 				44D17D552BEFDE7800F5C073 /* SignInViewController.swift in Sources */,
 				75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */,
+				44ACB5512BF646C400A75F3A /* CategoriesCollectionViewCell.swift in Sources */,
 				44D17D392BEF9B6A00F5C073 /* AppDelegate.swift in Sources */,
 				75AF2FB52BF23A2100F0165E /* SecondViewController.swift in Sources */,
 				44D17D7E2BF235CA00F5C073 /* TFPhone.swift in Sources */,
@@ -295,7 +299,7 @@
 				75AF2FAB2BEFD1FC00F0165E /* Border.swift in Sources */,
 				75AF2FB32BEFE65100F0165E /* FirstViewController.swift in Sources */,
 				44D17D802BF2380800F5C073 /* SignIn.swift in Sources */,
-				752E81942BF63FB0004DABC3 /* ChatCollectionViewCell.swift in Sources */,
+				752E81942BF63FB0004DABC3 /* StoriesViewCell.swift in Sources */,
 				44ACB5492BF2BD7C00A75F3A /* SuccesViewController.swift in Sources */,
 				44D17D3B2BEF9B6A00F5C073 /* SceneDelegate.swift in Sources */,
 				44ACB5452BF2748B00A75F3A /* UD.swift in Sources */,
