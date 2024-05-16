@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cI6-ib-tbM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NYs-ev-kit">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -61,7 +61,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="279" height="38"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <connections>
-                                                    <segue destination="GHe-8A-Kk6" kind="show" id="U9Y-Mm-e1F"/>
+                                                    <segue destination="GHe-8A-Kk6" kind="show" animates="NO" id="U9Y-Mm-e1F"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -87,13 +87,13 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Или войдите с помощью" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duo-3u-t8F">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Или войдите с помощью" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duo-3u-t8F">
                                         <rect key="frame" x="120.66666666666667" y="306.66666666666669" width="151.66666666666663" height="15.333333333333314"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                         <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pCP-Re-DNH">
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pCP-Re-DNH">
                                         <rect key="frame" x="62" y="345" width="269" height="130"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIk-Eb-9jp" customClass="Border" customModule="Intop" customModuleProvider="target">
@@ -407,7 +407,7 @@
                                                     <color key="titleColor" name="BlueMain"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="YO5-il-qRJ" kind="show" id="3J5-XO-Bwj"/>
+                                                    <segue destination="YO5-il-qRJ" kind="show" animates="NO" id="3J5-XO-Bwj"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -479,7 +479,7 @@
                         <outlet property="passwordTF" destination="9X9-ya-Ys1" id="9d4-kq-r6V"/>
                         <outlet property="phoneTF" destination="Cna-JX-Qd2" id="4lA-4z-ilq"/>
                         <outlet property="sellerBtn" destination="VCS-bo-ATL" id="oJ5-d2-298"/>
-                        <segue destination="G6i-GW-vwM" kind="show" identifier="code" id="A9l-dP-QhF"/>
+                        <segue destination="G6i-GW-vwM" kind="show" identifier="code" animates="NO" id="A9l-dP-QhF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEB-tD-VtS" sceneMemberID="firstResponder"/>
@@ -568,7 +568,7 @@
                                 <rect key="frame" x="0.0" y="138" width="393" height="714"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0a-vv-INv">
-                                        <rect key="frame" x="0.0" y="187" width="393" height="1062"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1062"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tgq-Vh-xF8">
                                                 <rect key="frame" x="0.0" y="26" width="393" height="85"/>
@@ -1063,7 +1063,7 @@
                         <outlet property="secondTF" destination="iKJ-PS-gdS" id="ea9-mp-yfx"/>
                         <outlet property="sixthTF" destination="skI-mF-xlm" id="Xu6-1Y-OkF"/>
                         <outlet property="thirdTF" destination="O93-lm-Z2W" id="wte-A0-0CZ"/>
-                        <segue destination="dBa-6s-e1L" kind="show" identifier="succes" id="cqM-fT-2UV"/>
+                        <segue destination="dBa-6s-e1L" kind="show" identifier="succes" animates="NO" id="cqM-fT-2UV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdH-1G-j2T" sceneMemberID="firstResponder"/>
@@ -1366,7 +1366,6 @@ sed do eiusmod tempor ut labore</string>
                             <constraint firstItem="NAK-cP-TIx" firstAttribute="top" secondItem="53i-do-8bv" secondAttribute="bottom" constant="24" id="m48-vL-i1I"/>
                             <constraint firstItem="Z3N-8e-2Y9" firstAttribute="leading" secondItem="uCE-bu-U2E" secondAttribute="leading" id="yMc-e2-jbJ"/>
                         </constraints>
-                        <color key="backgroundColor" name="WhiteMain"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="chat" selectedImage="chatFull" id="jSh-u7-A7Z"/>
                 </viewController>
@@ -1620,7 +1619,7 @@ sed do eiusmod tempor ut labore</string>
                     </view>
                     <navigationItem key="navigationItem" id="nTC-ah-LXZ"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToStartViewController" id="jhM-aw-fKy"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToStartViewController" animates="NO" id="jhM-aw-fKy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hza-fd-xvd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1859,7 +1858,7 @@ sed do eiusmod tempor ut labore</string>
                         <outlet property="passwordTF" destination="dhm-ZX-Gkn" id="la0-6m-TGl"/>
                         <outlet property="phoneTF" destination="cwn-HC-oml" id="iKL-1h-oqg"/>
                         <outlet property="sellerBtn" destination="G2b-Fc-efi" id="rOY-YH-6Be"/>
-                        <segue destination="G6i-GW-vwM" kind="show" identifier="code" id="UFF-IG-VIj"/>
+                        <segue destination="G6i-GW-vwM" kind="show" identifier="code" animates="NO" id="UFF-IG-VIj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nuG-WE-RmV" sceneMemberID="firstResponder"/>
