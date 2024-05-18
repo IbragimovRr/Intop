@@ -15,7 +15,7 @@ enum ShopRole:String {
 }
 
 struct JSONUser: Decodable {
-    var is_seller:Bool
+    var is_seller:Bool = false
     var id:Int
 }
 

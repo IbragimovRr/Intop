@@ -10,6 +10,12 @@ import Alamofire
 
 class User {
     
+    static var phoneNumber:String {
+        get {
+            return UD().getPhone() ?? ""
+        }
+    }
+    
     func getInfoUser(_ phoneNumber:String, completion:@escaping (_ info:JSONUser) -> ()) {
         let url = Constants.url + "users/\(phoneNumber)"
         
