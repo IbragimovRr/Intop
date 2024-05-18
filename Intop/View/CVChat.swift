@@ -1,30 +1,13 @@
 //
-//  ChatViewController.swift
+//  CVChat.swift
 //  Intop
 //
 //  Created by Ибрагимов Эльдар on 16.05.2024.
 //
 
+import Foundation
 import UIKit
 
-class ChatViewController: UIViewController {
-
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var tableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-    }
-    
-
-    
-
-}
 extension ChatViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -46,5 +29,6 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatTableViewCell
         return cell
     }
+    
     
 }

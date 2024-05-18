@@ -29,10 +29,14 @@
 		44D17D832BF2382E00F5C073 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44D17D822BF2382E00F5C073 /* Alamofire */; };
 		752E818C2BF26985004DABC3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E818B2BF26985004DABC3 /* SignUpViewController.swift */; };
 		752E818F2BF63C30004DABC3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E818E2BF63C30004DABC3 /* ChatViewController.swift */; };
-		752E81912BF63D69004DABC3 /* CVChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E81902BF63D69004DABC3 /* CVChat.swift */; };
 		752E81942BF63FB0004DABC3 /* StoriesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E81932BF63FB0004DABC3 /* StoriesViewCell.swift */; };
 		752E81962BF642C3004DABC3 /* Stories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E81952BF642C3004DABC3 /* Stories.swift */; };
+		752E819B2BF64A0E004DABC3 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E819A2BF64A0E004DABC3 /* ChatTableViewCell.swift */; };
+		752E819D2BF64E95004DABC3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752E819C2BF64E95004DABC3 /* Roboto-Light.ttf */; };
 		757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */; };
+		7598C9712BF8F0250077AD14 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598C9702BF8F0250077AD14 /* WishlistViewController.swift */; };
+		7598C9732BF8F1580077AD14 /* WishlistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598C9722BF8F1580077AD14 /* WishlistCollectionViewCell.swift */; };
+		7598C9752BF8F4A40077AD14 /* Mulish-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7598C9742BF8F4A40077AD14 /* Mulish-Light.ttf */; };
 		75AF2FAB2BEFD1FC00F0165E /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FAA2BEFD1FC00F0165E /* Border.swift */; };
 		75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */; };
 		75AF2FAF2BEFE17A00F0165E /* Mulish-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75AF2FAE2BEFE17A00F0165E /* Mulish-Bold.ttf */; };
@@ -66,10 +70,14 @@
 		44D17D7F2BF2380800F5C073 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		752E818B2BF26985004DABC3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		752E818E2BF63C30004DABC3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		752E81902BF63D69004DABC3 /* CVChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVChat.swift; sourceTree = "<group>"; };
 		752E81932BF63FB0004DABC3 /* StoriesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewCell.swift; sourceTree = "<group>"; };
 		752E81952BF642C3004DABC3 /* Stories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stories.swift; sourceTree = "<group>"; };
+		752E819A2BF64A0E004DABC3 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		752E819C2BF64E95004DABC3 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		7598C9702BF8F0250077AD14 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		7598C9722BF8F1580077AD14 /* WishlistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistCollectionViewCell.swift; sourceTree = "<group>"; };
+		7598C9742BF8F4A40077AD14 /* Mulish-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Light.ttf"; sourceTree = "<group>"; };
 		75AF2FAA2BEFD1FC00F0165E /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
 		75AF2FAC2BEFD2EB00F0165E /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		75AF2FAE2BEFE17A00F0165E /* Mulish-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Bold.ttf"; sourceTree = "<group>"; };
@@ -91,14 +99,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		44ACB5522BF6484F00A75F3A /* ExCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				752E81902BF63D69004DABC3 /* CVChat.swift */,
-			);
-			path = ExCollectionView;
-			sourceTree = "<group>";
-		};
 		44D17D2C2BEF9B6A00F5C073 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +126,7 @@
 				44D17D382BEF9B6A00F5C073 /* AppDelegate.swift */,
 				44D17D412BEF9B6B00F5C073 /* Assets.xcassets */,
 				44D17D432BEF9B6B00F5C073 /* LaunchScreen.storyboard */,
+				752E81992BF649DE004DABC3 /* TableViewCells */,
 				752E81922BF63F87004DABC3 /* CollectionViewCells */,
 				44D17D462BEF9B6B00F5C073 /* Info.plist */,
 				757043112BEFAC7C00DDC3E9 /* Fonts */,
@@ -138,6 +139,7 @@
 			children = (
 				752E818D2BF63C01004DABC3 /* TabBarScreen */,
 				44D17D532BEFDE5900F5C073 /* StartScreen */,
+				7598C9702BF8F0250077AD14 /* WishlistViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,17 +173,28 @@
 			children = (
 				752E81932BF63FB0004DABC3 /* StoriesViewCell.swift */,
 				44ACB5502BF646C400A75F3A /* CategoriesCollectionViewCell.swift */,
+				7598C9722BF8F1580077AD14 /* WishlistCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		752E81992BF649DE004DABC3 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				752E819A2BF64A0E004DABC3 /* ChatTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		757043112BEFAC7C00DDC3E9 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				752E819C2BF64E95004DABC3 /* Roboto-Light.ttf */,
 				44ACB54A2BF3913200A75F3A /* Poppins-Regular.ttf */,
 				757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */,
 				75AF2FAE2BEFE17A00F0165E /* Mulish-Bold.ttf */,
 				75AF2FB02BEFE18400F0165E /* Mulish-Regular.ttf */,
+				7598C9742BF8F4A40077AD14 /* Mulish-Light.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -194,7 +207,6 @@
 				44D17D7D2BF235CA00F5C073 /* TFPhone.swift */,
 				44ACB53C2BF26A1300A75F3A /* CodeTF.swift */,
 				44ACB5462BF2B6B700A75F3A /* Error.swift */,
-				44ACB5522BF6484F00A75F3A /* ExCollectionView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,6 +293,8 @@
 				757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */,
 				75AF2FB12BEFE18400F0165E /* Mulish-Regular.ttf in Resources */,
 				75AF2FAF2BEFE17A00F0165E /* Mulish-Bold.ttf in Resources */,
+				752E819D2BF64E95004DABC3 /* Roboto-Light.ttf in Resources */,
+				7598C9752BF8F4A40077AD14 /* Mulish-Light.ttf in Resources */,
 				44D17D402BEF9B6A00F5C073 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,18 +311,20 @@
 				44D17D552BEFDE7800F5C073 /* SignInViewController.swift in Sources */,
 				75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */,
 				44ACB5512BF646C400A75F3A /* CategoriesCollectionViewCell.swift in Sources */,
+				7598C9732BF8F1580077AD14 /* WishlistCollectionViewCell.swift in Sources */,
 				44D17D392BEF9B6A00F5C073 /* AppDelegate.swift in Sources */,
 				75AF2FB52BF23A2100F0165E /* SecondViewController.swift in Sources */,
 				44D17D7E2BF235CA00F5C073 /* TFPhone.swift in Sources */,
 				44D17D572BEFE08F00F5C073 /* Segment.swift in Sources */,
 				44ACB53D2BF26A1300A75F3A /* CodeTF.swift in Sources */,
-				752E81912BF63D69004DABC3 /* CVChat.swift in Sources */,
+				752E819B2BF64A0E004DABC3 /* ChatTableViewCell.swift in Sources */,
 				44ACB54D2BF636EC00A75F3A /* User.swift in Sources */,
 				75AF2FAB2BEFD1FC00F0165E /* Border.swift in Sources */,
 				75AF2FB32BEFE65100F0165E /* FirstViewController.swift in Sources */,
 				44D17D802BF2380800F5C073 /* SignIn.swift in Sources */,
 				752E81942BF63FB0004DABC3 /* StoriesViewCell.swift in Sources */,
 				44ACB5492BF2BD7C00A75F3A /* SuccesViewController.swift in Sources */,
+				7598C9712BF8F0250077AD14 /* WishlistViewController.swift in Sources */,
 				44D17D3B2BEF9B6A00F5C073 /* SceneDelegate.swift in Sources */,
 				44ACB5452BF2748B00A75F3A /* UD.swift in Sources */,
 				44ACB5472BF2B6B700A75F3A /* Error.swift in Sources */,
