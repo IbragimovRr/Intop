@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VU2-ij-a4v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VU2-ij-a4v">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1385,7 +1385,7 @@ sed do eiusmod tempor ut labore</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2r-fy-Ny0">
-                                                    <rect key="frame" x="74" y="32" width="29" height="15"/>
+                                                    <rect key="frame" x="74" y="32" width="29" height="14"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                     <color key="textColor" red="0.67843137254901964" green="0.70980392156862748" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1466,7 +1466,7 @@ sed do eiusmod tempor ut labore</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Избранные" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfg-b0-o7C">
-                                <rect key="frame" x="35" y="79" width="128" height="29"/>
+                                <rect key="frame" x="35" y="79" width="128" height="28"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1479,7 +1479,7 @@ sed do eiusmod tempor ut labore</string>
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fi4-IM-2rY">
-                                <rect key="frame" x="0.0" y="148" width="393" height="621"/>
+                                <rect key="frame" x="0.0" y="147" width="393" height="622"/>
                                 <color key="backgroundColor" name="WhiteMain"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GKk-U9-SMj">
                                     <size key="itemSize" width="310" height="90"/>
@@ -1521,19 +1521,19 @@ sed do eiusmod tempor ut labore</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeN-K6-PlT">
-                                                    <rect key="frame" x="125.00000000000001" y="50.333333333333336" width="16.666666666666671" height="14.333333333333336"/>
+                                                    <rect key="frame" x="125" y="50.333333333333336" width="17" height="14.000000000000007"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="350 reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJe-4s-9SL">
-                                                    <rect key="frame" x="151.66666666666666" y="50.333333333333336" width="63" height="15.000000000000007"/>
+                                                    <rect key="frame" x="152" y="50.333333333333336" width="64" height="14.000000000000007"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                     <color key="textColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$805,10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMa-43-boc">
-                                                    <rect key="frame" x="109" y="69.666666666666671" width="43" height="15"/>
+                                                    <rect key="frame" x="109" y="69.333333333333329" width="43" height="14"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2122,7 +2122,7 @@ sed do eiusmod tempor ut labore</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="A9l-dP-QhF"/>
+        <segue reference="UFF-IG-VIj"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Group" width="239" height="228"/>
