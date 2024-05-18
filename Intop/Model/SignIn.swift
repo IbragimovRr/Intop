@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class Sign {
     
@@ -37,23 +38,25 @@ class Sign {
             multipartFormData.append(Data("\(password)".utf8), withName: "app_password")
         }, to: url,
                   method: .post,
-                  headers: headers).responseData { responseData in
+                  headers: headers).response { responseData in
             switch responseData.result {
             case .success(let value):
-                self.jsonInData(value) { result in
-                    if result == "User with this number already exists!" {
-                        completion(nil, "Номер уже был зарегистрирован")
-                        
-                    }else {
-                        UD().savePhone(phoneNumber)
-                        UD().saveShopRole(shopRole.rawValue)
-                        self.signUpRoleByUser(phoneNumber, shopRole: shopRole)
-                        completion(result, nil)
-                    }
+                let json = JSON(value)
+                let result = json["details"].stringValue
+                
+                if result == "User with this number already exists!" {
+                    completion(nil, "Номер уже был зарегистрирован")
+                    
+                }else {
+                    UD().savePhone(phoneNumber)
+                    UD().saveShopRole(shopRole.rawValue)
+                    self.signUpRoleByUser(phoneNumber, shopRole: shopRole)
+                    completion(result, nil)
                 }
             case .failure(_):
                 completion(nil, "Ошибка повторите попытку позже")
             }
+        
         }
         
     }
@@ -96,7 +99,8 @@ class Sign {
                   headers: headers).responseData { responseData in
             switch responseData.result {
             case .success(let value):
-                self.jsonInData(value) { result in
+                let json = JSON(value)
+                let result = json["details"].stringValue
                     if result == "No user with this user_phone_number in database or you entered a wrong password"{
                         completion(nil,"Неправильный логин или пароль")
                     }else {
@@ -112,26 +116,12 @@ class Sign {
                         }
                         
                     }
-        
-                }
             case .failure(_):
                 completion(nil,"Ошибка повторите попытку позже")
             }
         }
     }
-    
-    
-    private func jsonInData(_ responseData: Data ,completion:@escaping (String) -> ()) {
-        do {
-            let json = try JSONDecoder().decode(JSONSign.self, from: responseData)
-            completion(json.details)
-        }catch let error {
-            print(error)
-        }
-    }
-    
-    
-    
+
     // MARK: - Code
     
     func sendCode(_ phoneNumber:String, completion: @escaping (_ code:String) -> ()) {
