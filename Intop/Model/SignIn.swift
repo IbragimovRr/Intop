@@ -56,9 +56,7 @@ class Sign {
         
     }
     
-    func signUpRoleByUser() {
-        AF.request(<#T##convertible: URLRequestConvertible##URLRequestConvertible#>)
-    }
+    
 
     // MARK: - Sign In
 
