@@ -45,7 +45,9 @@ class Sign {
                         completion(nil, "Номер уже был зарегистрирован")
                         
                     }else {
+                        UD().savePhone(phoneNumber)
                         UD().saveShopRole(shopRole.rawValue)
+                        self.signUpRoleByUser(phoneNumber, shopRole: shopRole)
                         completion(result, nil)
                     }
                 }
@@ -56,7 +58,27 @@ class Sign {
         
     }
     
+    private func signUpRoleByUser(_ phoneNumber:String,shopRole:ShopRole) {
+        //Регистрация под покупателя
+        User().getInfoUser(phoneNumber) { info in
+            let url = Constants.url + "update_user_phone_number"
+            let parametrs = [
+                "user_id":info.id,
+                "user_phone_number":phoneNumber,
+                "shop_role":shopRole.rawValue
+            ]
+            AF.request(url, method: .put, parameters: parametrs).responseString { response in }
+            // Регистраиця под продавца
+            if shopRole == .sellerIndividual || shopRole == .buyerLegal {
+                self.signUpSeller(phoneNumber, shopRole: shopRole)
+            }
+        }
+    }
     
+    private func signUpSeller(_ phoneNumber:String,shopRole:ShopRole) {
+        let url = Constants.url + "become_seller/\(phoneNumber)?shop_role=\(shopRole.rawValue)"
+        AF.request(url, method: .get).responseString { response in }
+    }
 
     // MARK: - Sign In
 
@@ -114,7 +136,7 @@ class Sign {
     
     func sendCode(_ phoneNumber:String, completion: @escaping (_ code:String) -> ()) {
         let url = Constants.url + "get_code_send_sms/\(phoneNumber)"
-        AF.request(url).responseData { responseData in
+        AF.request(url,method: .get).responseData { responseData in
             switch responseData.result {
             case .success(let value):
                 self.jsonInDataCode(value) { code in

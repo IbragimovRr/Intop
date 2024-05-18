@@ -33,10 +33,13 @@ class User {
     
     private func jsonInData(_ responseData:Data, completion:@escaping (_ result: JSONUser) -> ()) {
         do {
-            let json = try JSONDecoder().decode(JSONUser.self, from: responseData)
+            var json = try JSONDecoder().decode(JSONUser.self, from: responseData)
+            if json.is_seller == nil {
+                json.is_seller = false
+            }
             completion(json)
         }catch let error {
-            print(error)
+            print("error \(error)")
         }
     }
     
