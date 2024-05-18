@@ -59,8 +59,9 @@ class Sign {
     // MARK: - Sign In
 
     
-    func signInPhone(phoneNumber:String,password:String,completion:@escaping (_ result:String?,_ error:String?) -> ()) {
+    func signInPhone(phoneNumber:String,password:String, isSeller:Bool ,completion:@escaping (_ result:String?,_ error:String?) -> ()) {
         let url = Constants.url + "users/login"
+        
         AF.upload(multipartFormData: { multipartFormData in
             
             multipartFormData.append(Data("\(phoneNumber)".utf8), withName: "user_phone_number")
@@ -75,10 +76,19 @@ class Sign {
                     if result == "No user with this user_phone_number in database or you entered a wrong password"{
                         completion(nil,"Неправильный логин или пароль")
                     }else {
+                        //Успешный логин пароль
                         UD().savePhone(phoneNumber)
                         UD().saveRemember(true)
-                        completion(result,nil)
+                        User().getInfoUser(phoneNumber) { info in
+                            if info.is_seller == isSeller {
+                                completion(result,nil)
+                            }else {
+                                completion(nil,"Ошибка данных")
+                            }
+                        }
+                        
                     }
+        
                 }
             case .failure(_):
                 completion(nil,"Ошибка повторите попытку позже")
@@ -86,20 +96,6 @@ class Sign {
         }
     }
     
-    func checkRole(_ phoneNumber:String,completion:@escaping (_ result:Bool) -> ()) {
-        let url = Constants.url + "users/\(phoneNumber)"
-        
-        AF.request(url,method: .get).responseData { responseData in
-            switch responseData.result {
-            case .success(let value):
-                self.jsonInDataRole(value) { bool in
-                    completion(bool)
-                }
-            case .failure(_):
-                break
-            }
-        }
-    }
     
     private func jsonInData(_ responseData: Data ,completion:@escaping (String) -> ()) {
         do {
@@ -110,14 +106,6 @@ class Sign {
         }
     }
     
-    private func jsonInDataRole(_ responseData: Data ,completion:@escaping (Bool) -> ()) {
-        do {
-            let json = try JSONDecoder().decode(JSONUser.self, from: responseData)
-            completion(json.isSeller)
-        }catch let error {
-            print(error)
-        }
-    }
     
     
     // MARK: - Code

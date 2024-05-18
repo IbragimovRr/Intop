@@ -8,12 +8,20 @@
 import Foundation
 import UIKit
 
-
-
-class SegmentSettings {
+protocol Segment {
+    var firstBtn:UIButton { get set }
+    var secondBtn:UIButton { get set }
     
-    var firstBtn:UIButton!
-    var secondBtn:UIButton!
+    func onFirst()
+    func onSecond()
+}
+
+class SegmentSettings:Segment {
+    
+    
+    var firstBtn:UIButton = UIButton()
+    var secondBtn:UIButton = UIButton()
+    var isSeller: Bool = true
     
     
     func cornerRadiusSegment() {
@@ -30,6 +38,7 @@ class SegmentSettings {
         firstBtn.setTitleColor(UIColor.white, for: .normal)
         secondBtn.backgroundColor = UIColor(named: "BorderColor")
         secondBtn.setTitleColor(UIColor.black, for: .normal)
+        isSeller = true
     }
     
     func onSecond() {
@@ -37,6 +46,28 @@ class SegmentSettings {
         secondBtn.setTitleColor(UIColor.white, for: .normal)
         firstBtn.backgroundColor = UIColor(named: "BorderColor")
         firstBtn.setTitleColor(UIColor.black, for: .normal)
+        isSeller = false
+    }
+    
+    init(firstBtn: UIButton!, secondBtn: UIButton!) {
+        self.firstBtn = firstBtn
+        self.secondBtn = secondBtn
+    }
+}
+
+class SegmentFilter:Segment {
+    var firstBtn: UIButton = UIButton()
+    
+    var secondBtn: UIButton = UIButton()
+    
+    func onFirst() {
+        firstBtn.setImage(UIImage(named: "instagramFull"), for: .normal)
+        secondBtn.setImage(UIImage(named: "multimedia"), for: .normal)
+    }
+    
+    func onSecond() {
+        firstBtn.setImage(UIImage(named: "instagram"), for: .normal)
+        secondBtn.setImage(UIImage(named: "multimediaFull"), for: .normal)
     }
     
     init(firstBtn: UIButton!, secondBtn: UIButton!) {

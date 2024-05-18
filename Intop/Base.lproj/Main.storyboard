@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NYs-ev-kit">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VU2-ij-a4v">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -513,7 +513,7 @@
             <objects>
                 <viewController id="up0-t5-hfN" customClass="HomeViewController" customModule="Intop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DgK-0D-zC4">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bch-VU-Nla" customClass="Border" customModule="Intop" customModuleProvider="target">
@@ -556,19 +556,25 @@
                                         <rect key="frame" x="0.0" y="0.0" width="21" height="29"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="" image="like"/>
+                                        <connections>
+                                            <action selector="favoritesBtn:" destination="up0-t5-hfN" eventType="touchUpInside" id="Nlw-Xy-bwI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8H2-aS-ts8">
                                         <rect key="frame" x="36" y="0.0" width="30" height="29"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="" image="cart"/>
+                                        <connections>
+                                            <action selector="cartBtn:" destination="up0-t5-hfN" eventType="touchUpInside" id="4eG-Mc-b1F"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaW-G4-1lz">
-                                <rect key="frame" x="0.0" y="138" width="393" height="714"/>
+                                <rect key="frame" x="0.0" y="138" width="393" height="1062"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0a-vv-INv">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1062"/>
+                                        <rect key="frame" x="0.0" y="348" width="393" height="1062"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tgq-Vh-xF8">
                                                 <rect key="frame" x="0.0" y="26" width="393" height="85"/>
@@ -576,7 +582,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="85" id="rGZ-aP-Z4c"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gCW-fJ-M7A">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gCW-fJ-M7A">
                                                     <size key="itemSize" width="63" height="85"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -647,6 +653,9 @@
                                                 <state key="normal" title="Посмотреть всё">
                                                     <color key="titleColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="seeAllCategoriesBtn:" destination="up0-t5-hfN" eventType="touchUpInside" id="Ue0-UN-vV0"/>
+                                                </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rd8-2s-zV6">
                                                 <rect key="frame" x="0.0" y="195" width="393" height="86"/>
@@ -654,7 +663,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="86" id="9e5-vR-O1O"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="i30-hh-a4T">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="i30-hh-a4T">
                                                     <size key="itemSize" width="117" height="86"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -711,6 +720,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="19"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="filterBtn:" destination="up0-t5-hfN" eventType="touchUpInside" id="gOG-aP-uUT"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="oJI-xi-4ou">
                                                 <rect key="frame" x="316" y="332" width="51" height="22"/>
@@ -719,23 +731,67 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="21" height="22"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="" image="instagramFull"/>
+                                                        <connections>
+                                                            <action selector="instagramBtn:" destination="up0-t5-hfN" eventType="touchUpInside" id="MYC-cb-b76"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWt-lT-ExL">
                                                         <rect key="frame" x="30" y="0.0" width="21" height="22"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="" image="multimedia"/>
+                                                        <connections>
+                                                            <action selector="multimediaBtn:" destination="up0-t5-hfN" eventType="touchUpInside" id="dfq-69-Syl"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JUI-1h-gb7">
+                                                <rect key="frame" x="0.0" y="385" width="393" height="677"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="50" id="MhW-tn-q9b">
+                                                    <size key="itemSize" width="393" height="520"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8ec-7P-yiW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="520"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q0b-3n-SqH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="520"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DpC-Es-gbh">
+                                                                    <rect key="frame" x="18" y="0.0" width="46" height="46"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="46" id="5gA-1u-iAL"/>
+                                                                        <constraint firstAttribute="width" constant="46" id="Mdd-Wu-iUv"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="DpC-Es-gbh" firstAttribute="leading" secondItem="q0b-3n-SqH" secondAttribute="leading" constant="18" id="BpS-H5-uYr"/>
+                                                                <constraint firstItem="DpC-Es-gbh" firstAttribute="top" secondItem="q0b-3n-SqH" secondAttribute="top" id="mWI-kv-mf6"/>
+                                                            </constraints>
+                                                        </collectionViewCellContentView>
+                                                        <size key="customSize" width="393" height="520"/>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" name="WhiteMain"/>
                                         <constraints>
                                             <constraint firstItem="Tgq-Vh-xF8" firstAttribute="top" secondItem="O0a-vv-INv" secondAttribute="top" constant="26" id="3Zt-vo-SNq"/>
                                             <constraint firstItem="UCa-N3-q9b" firstAttribute="leading" secondItem="O0a-vv-INv" secondAttribute="leading" constant="26" id="6g3-RR-ncE"/>
+                                            <constraint firstAttribute="bottom" secondItem="JUI-1h-gb7" secondAttribute="bottom" id="7tx-Sh-Llp"/>
+                                            <constraint firstItem="JUI-1h-gb7" firstAttribute="leading" secondItem="O0a-vv-INv" secondAttribute="leading" id="ANW-pi-b3t"/>
                                             <constraint firstAttribute="bottom" secondItem="Tgq-Vh-xF8" secondAttribute="bottom" constant="951" id="JI3-yd-aHC"/>
                                             <constraint firstItem="Rm7-wv-u8Q" firstAttribute="top" secondItem="Tgq-Vh-xF8" secondAttribute="bottom" constant="37" id="MlY-RW-3od"/>
                                             <constraint firstAttribute="trailing" secondItem="Tgq-Vh-xF8" secondAttribute="trailing" id="OFc-hk-HBv"/>
                                             <constraint firstItem="gx2-7K-sJW" firstAttribute="top" secondItem="Tgq-Vh-xF8" secondAttribute="bottom" constant="45" id="OOs-JT-HG4"/>
+                                            <constraint firstItem="JUI-1h-gb7" firstAttribute="top" secondItem="UCa-N3-q9b" secondAttribute="bottom" constant="30" id="P7y-hK-gvD"/>
+                                            <constraint firstAttribute="trailing" secondItem="JUI-1h-gb7" secondAttribute="trailing" id="RFc-OA-wSP"/>
                                             <constraint firstAttribute="trailing" secondItem="Rd8-2s-zV6" secondAttribute="trailing" id="Rae-ek-Iai"/>
                                             <constraint firstAttribute="trailing" secondItem="gx2-7K-sJW" secondAttribute="trailing" constant="12" id="Wpy-A7-9rj"/>
                                             <constraint firstItem="Rd8-2s-zV6" firstAttribute="top" secondItem="gx2-7K-sJW" secondAttribute="bottom" constant="25" id="eqv-RQ-QAJ"/>
@@ -774,6 +830,14 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home" selectedImage="homeFull" id="Nsy-PK-hu9"/>
+                    <size key="freeformSize" width="393" height="1200"/>
+                    <connections>
+                        <outlet property="categoryCollectionView" destination="Rd8-2s-zV6" id="oXZ-SH-mfZ"/>
+                        <outlet property="instagram" destination="9FX-wW-29U" id="Ns7-UQ-WXA"/>
+                        <outlet property="multimedia" destination="dWt-lT-ExL" id="vM3-uD-eoX"/>
+                        <outlet property="searchText" destination="jvC-rN-BHM" id="GiS-lR-LvF"/>
+                        <outlet property="storiesCollectionView" destination="Tgq-Vh-xF8" id="eia-ip-716"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Pi-Ch-rOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -788,6 +852,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="OrangeMain"/>
                     </tabBar>
                     <connections>
                         <segue destination="up0-t5-hfN" kind="relationship" relationship="viewControllers" id="cg1-aL-Uh5"/>
