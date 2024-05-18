@@ -116,8 +116,8 @@ class Sign {
                         }
                         
                     }
-            case .failure(_):
-                completion(nil,"Ошибка повторите попытку позже")
+                    case .failure(_):
+            completion(nil,"Ошибка повторите попытку позже")
             }
         }
     }
@@ -129,24 +129,18 @@ class Sign {
         AF.request(url,method: .get).responseData { responseData in
             switch responseData.result {
             case .success(let value):
-                self.jsonInDataCode(value) { code in
-                    print(code)
-                    completion(code)
-                }
+                let json = JSON(value)
+                let result = json["code"].stringValue
+                    print(result)
+                    completion(result)
+                
             case .failure(let error):
                 print(error)
             }
         }
     }
     
-    private func jsonInDataCode(_ responseData: Data,completion:@escaping (String) -> ()) {
-        do {
-            let json = try JSONDecoder().decode(JSONCode.self, from: responseData)
-            completion(json.code)
-        }catch let error {
-            print(error)
-        }
-    }
+
     
 }
 

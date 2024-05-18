@@ -10,6 +10,12 @@ import Alamofire
 import SwiftyJSON
 
 class Wishlist {
+    
+    private let headers:HTTPHeaders = [
+        "Content-Type": "application/json"
+    ]
+    
+    
     func getFavorites() {
         User().getInfoUser(User.phoneNumber) { info in
             let id = info.id
@@ -23,13 +29,34 @@ class Wishlist {
                     print("error")
                     
                 }
-            
+                
             }
         }
     }
-    func addFavorites() {
-        
+    func addFavorites(product: String){
+        User().getInfoUser(User.phoneNumber) { info in
+            let id = "8132"
+            let url = Constants.url + "favorites"
+            let parameters = [
+                "user_id": id,
+                "product_id": product
+            ]
+            AF.request(url, method: .post, parameters: parameters, headers: self.headers).response { responseData in
+                switch responseData.result {
+                    
+                case .success(let value):
+                    let json = JSON(value)
+                    let result = json["details"].stringValue
+                        
+                case .failure(_):
+                    print("Oшибка")
+                }
+                
+                
+                
+                
+                
+            }
+        }
     }
-    
-
 }

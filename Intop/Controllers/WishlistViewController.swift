@@ -14,7 +14,6 @@ class WishlistViewController: UIViewController {
         super.viewDidLoad()
         wishlistCollectionView.delegate = self
         wishlistCollectionView.dataSource = self
-        Wishlist().getFavorites()
        
     }
     

@@ -24,7 +24,6 @@ class User {
             switch responseData.result {
             case .success(let value):
                 let json = JSON(value)
-                
                 let result = json
             
             case .failure(_):
