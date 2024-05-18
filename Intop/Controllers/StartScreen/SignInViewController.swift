@@ -25,7 +25,8 @@ class SignInViewController: UIViewController {
     @IBAction func SignInBtn(_ sender: UIButton) {
         guard let phone = phoneTF.text else { return }
         guard let password = passwordTF.text else { return }
-        Sign().signInPhone(phoneNumber: phone, password: password) { result, error in
+        guard let segment = segment else { return }
+        Sign().signInPhone(phoneNumber: phone, password: password, isSeller: segment.isSeller) { result, error in
             if error == nil {
                 self.performSegue(withIdentifier: "code", sender: self)
             }else if let error = error{
