@@ -14,9 +14,9 @@ enum ShopRole:String {
     case buyerLegal = "buyer_legal"
 }
 
-struct JSONUser: Decodable {
+struct JSONUser {
     var is_seller:Bool?
-    var id:Int
+    var id:Int?
 }
 
 

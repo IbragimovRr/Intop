@@ -63,6 +63,7 @@ class Sign {
     
     private func signUpRoleByUser(_ phoneNumber:String,shopRole:ShopRole) {
         //Регистрация под покупателя
+        print(shopRole)
         User().getInfoUser(phoneNumber) { info in
             let url = Constants.url + "update_user_phone_number"
             let parametrs = [
@@ -72,7 +73,7 @@ class Sign {
             ]
             AF.request(url, method: .put, parameters: parametrs).responseString { response in }
             // Регистраиця под продавца
-            if shopRole == .sellerIndividual || shopRole == .buyerLegal {
+            if shopRole == .sellerIndividual || shopRole == .sellerLegal {
                 self.signUpSeller(phoneNumber, shopRole: shopRole)
             }
         }
@@ -109,6 +110,8 @@ class Sign {
                         UD().saveRemember(true)
                         User().getInfoUser(phoneNumber) { info in
                             if info.is_seller == isSeller {
+                                completion(result,nil)
+                            }else if info.is_seller == true && isSeller == false {
                                 completion(result,nil)
                             }else {
                                 completion(nil,"Ошибка данных")
