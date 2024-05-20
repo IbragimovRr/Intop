@@ -19,14 +19,6 @@ struct JSONUser: Decodable {
     var id:Int
 }
 
-struct JSONSign: Decodable {
-    var details:String
-}
-
-struct JSONCode: Decodable {
-    var code: String
-    var details:String
-}
 
 class Constants {
     static let url = "https://api.intop.uz/monolith/"

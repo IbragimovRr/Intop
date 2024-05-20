@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class User {
     
@@ -22,26 +23,15 @@ class User {
         AF.request(url).responseData { responseData in
             switch responseData.result {
             case .success(let value):
-                self.jsonInData(value) { result in
-                    completion(result)
-                }
+                let json = JSON(value)
+                let result = json
+            
             case .failure(_):
                 print("Error")
             }
         }
     }
     
-    private func jsonInData(_ responseData:Data, completion:@escaping (_ result: JSONUser) -> ()) {
-        do {
-            var json = try JSONDecoder().decode(JSONUser.self, from: responseData)
-            if json.is_seller == nil {
-                json.is_seller = false
-            }
-            completion(json)
-        }catch let error {
-            print("error \(error)")
-        }
-    }
     
     
 }
