@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 enum ShopRole:String {
     case sellerIndividual = "seller_individual"
     case sellerLegal = "seller_legal"
@@ -14,8 +15,14 @@ enum ShopRole:String {
     case buyerLegal = "buyer_legal"
 }
 
-struct JSONUser: Decodable {
+struct JSONUser {
     var is_seller:Bool?
+    var id:Int?
+}
+
+struct Favorites {
+    var mainImage:String
+    var title:String
     var id:Int
 }
 

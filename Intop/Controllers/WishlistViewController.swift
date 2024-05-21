@@ -14,7 +14,10 @@ class WishlistViewController: UIViewController {
         super.viewDidLoad()
         wishlistCollectionView.delegate = self
         wishlistCollectionView.dataSource = self
-       
+        Wishlist().getFavorites { result in
+            
+            
+        }
     }
     
     @IBAction func likeBtn(_ sender: UIButton) {
@@ -32,6 +35,8 @@ extension WishlistViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = wishlistCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WishlistCollectionViewCell
+        
+        
         return cell
     }
     

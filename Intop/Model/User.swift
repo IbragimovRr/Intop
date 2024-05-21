@@ -25,12 +25,17 @@ class User {
             case .success(let value):
                 let json = JSON(value)
                 let result = json
-            
+                var jsonUser = JSONUser()
+                jsonUser.is_seller = json["is_seller"].boolValue
+                jsonUser.id = json["id"].intValue
+                completion(jsonUser)
             case .failure(_):
                 print("Error")
             }
         }
     }
+    
+    
     
     
     
