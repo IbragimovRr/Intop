@@ -11,6 +11,9 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UD().getCurrentUser() == true {
+            performSegue(withIdentifier: "current", sender: self)
+        }
     }
     
     

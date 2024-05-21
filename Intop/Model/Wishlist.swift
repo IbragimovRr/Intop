@@ -16,26 +16,28 @@ class Wishlist {
     ]
     
     
-    func getFavorites() {
+    func getFavorites(completion: @escaping (_ result:Favorites) -> ()) {
         User().getInfoUser(User.phoneNumber) { info in
-            let id = info.id
-            let url = Constants.url + "favorites/products/8132?limit=10"
+            let id = "8132"
+            let url = Constants.url + "favorites/products/\(id)?limit=10"
             AF.request(url, method: .get).responseData { responseData in
                 switch responseData.result {
                 case .success(let value):
                     let json = JSON(value)
-                    print(json[0]["description"].stringValue)
+                    let title = json[0]["title"].stringValue
+                    let tovarId = json[0]["id"].intValue
+                    let mainImage = json[0]["main_image_url"].stringValue
+                    let favorites = Favorites(mainImage: mainImage, title: title, id: tovarId)
+                    completion(favorites)
                 case .failure(_):
                     print("error")
-                    
                 }
-                
             }
         }
     }
-    func addFavorites(product: String){
+    func addFavorites(product: String, id: String){
         User().getInfoUser(User.phoneNumber) { info in
-            let id = "8132"
+            let id = info.id
             let url = Constants.url + "favorites"
             let parameters = [
                 "user_id": id,
@@ -51,11 +53,6 @@ class Wishlist {
                 case .failure(_):
                     print("Oшибка")
                 }
-                
-                
-                
-                
-                
             }
         }
     }

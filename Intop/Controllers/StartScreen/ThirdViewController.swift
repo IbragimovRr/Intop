@@ -9,14 +9,17 @@ import UIKit
 
 class ThirdViewController: UIViewController {
 
+    var current:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
      
     }
     
     @IBAction func btnNext(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToStartViewController", sender: self)
+        current = true
+        performSegue(withIdentifier: "goToTabBar", sender: self)
+        UD().saveCurrentUser(current)
     }
     
 }
