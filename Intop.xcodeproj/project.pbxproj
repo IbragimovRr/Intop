@@ -29,6 +29,7 @@
 		44D17D832BF2382E00F5C073 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44D17D822BF2382E00F5C073 /* Alamofire */; };
 		44D19BC62BFDE8D300FF3122 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D19BC52BFDE8D300FF3122 /* CategoriesViewController.swift */; };
 		44D19BC82BFDF23E00FF3122 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D19BC72BFDF23E00FF3122 /* PlusViewController.swift */; };
+		44D19BCA2BFE4A8300FF3122 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D19BC92BFE4A8300FF3122 /* Categories.swift */; };
 		752E818C2BF26985004DABC3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E818B2BF26985004DABC3 /* SignUpViewController.swift */; };
 		752E818F2BF63C30004DABC3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E818E2BF63C30004DABC3 /* ChatViewController.swift */; };
 		752E81942BF63FB0004DABC3 /* StoriesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E81932BF63FB0004DABC3 /* StoriesViewCell.swift */; };
@@ -74,6 +75,7 @@
 		44D17D7F2BF2380800F5C073 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		44D19BC52BFDE8D300FF3122 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		44D19BC72BFDF23E00FF3122 /* PlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
+		44D19BC92BFE4A8300FF3122 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		752E818B2BF26985004DABC3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		752E818E2BF63C30004DABC3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		752E81932BF63FB0004DABC3 /* StoriesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewCell.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				752E81952BF642C3004DABC3 /* Stories.swift */,
 				44ACB54C2BF636EC00A75F3A /* User.swift */,
 				7598C9782BF902280077AD14 /* Wishlist.swift */,
+				44D19BC92BFE4A8300FF3122 /* Categories.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				75AF2FB32BEFE65100F0165E /* FirstViewController.swift in Sources */,
 				44D17D802BF2380800F5C073 /* SignIn.swift in Sources */,
 				752E81942BF63FB0004DABC3 /* StoriesViewCell.swift in Sources */,
+				44D19BCA2BFE4A8300FF3122 /* Categories.swift in Sources */,
 				44ACB5492BF2BD7C00A75F3A /* SuccesViewController.swift in Sources */,
 				7598C9712BF8F0250077AD14 /* WishlistViewController.swift in Sources */,
 				44D17D3B2BEF9B6A00F5C073 /* SceneDelegate.swift in Sources */,

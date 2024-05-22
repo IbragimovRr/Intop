@@ -35,6 +35,7 @@ class Wishlist {
             }
         }
     }
+    
     func addFavorites(product: String, id: String){
         User().getInfoUser(User.phoneNumber) { info in
             let id = info.id
