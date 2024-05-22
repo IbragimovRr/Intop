@@ -25,7 +25,6 @@ extension CodeVerificationViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         if !(string == "") {
             textField.text = string
             if textField == firstTF {
@@ -46,22 +45,13 @@ extension CodeVerificationViewController: UITextFieldDelegate {
             return false
         }else{
             textField.text = string
-            if textField == secondTF {
-                firstTF.becomeFirstResponder()
-            }
-            else if textField == thirdTF {
-                secondTF.becomeFirstResponder()
-            }
-            else if textField == fourthTF {
-                thirdTF.becomeFirstResponder()
-            }
-            else if textField == fivethTF {
-                fourthTF.becomeFirstResponder()
-            }
-            else if textField == sixthTF {
-                fivethTF.becomeFirstResponder()
-            }
-            
+            firstTF.text = ""
+            secondTF.text = ""
+            thirdTF.text = ""
+            fourthTF.text = ""
+            fivethTF.text = ""
+            sixthTF.text = ""
+            firstTF.becomeFirstResponder()
             return false
         }
     }
