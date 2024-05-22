@@ -9,7 +9,6 @@ import UIKit
 
 class ThirdViewController: UIViewController {
 
-    var current:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,9 +16,9 @@ class ThirdViewController: UIViewController {
     }
     
     @IBAction func btnNext(_ sender: UIButton) {
-        current = true
+        UD().saveCurrentUser(true)
+        UD().saveSignUser(false)
         performSegue(withIdentifier: "goToTabBar", sender: self)
-        UD().saveCurrentUser(current)
     }
     
 }

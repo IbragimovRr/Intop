@@ -8,9 +8,20 @@
 import Foundation
 
 class UD {
+    
+    func saveSignUser(_ current: Bool) {
+        UserDefaults.standard.set(current, forKey: "sign")
+    }
+    
+    func getSignUser() -> Bool? {
+        let current = UserDefaults.standard.bool(forKey: "sign")
+        return current
+    }
+    
     func saveCurrentUser(_ current: Bool) {
         UserDefaults.standard.set(current, forKey: "current")
     }
+    
     func getCurrentUser() -> Bool? {
         let current = UserDefaults.standard.bool(forKey: "current")
         return current
@@ -19,6 +30,7 @@ class UD {
     func saveShopRole(_ shopRole: String) {
         UserDefaults.standard.set(shopRole, forKey: "shopRole")
     }
+    
     func getShopRole() -> String? {
         guard let shopRole = UserDefaults.standard.string(forKey: "shopRole") else {
             return nil }

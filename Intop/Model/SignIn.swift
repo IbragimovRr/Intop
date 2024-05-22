@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import UIKit
 
 class Sign {
     
@@ -144,6 +145,15 @@ class Sign {
     }
     
 
+    // MARK: - Other
+    
+    func goToSign(_ viewController:UIViewController,completion: (() -> ())?) {
+        if UD().getSignUser() == false {
+            viewController.performSegue(withIdentifier: "vhod", sender: self)
+        }else {
+            completion?()
+        }
+    }
     
 }
 

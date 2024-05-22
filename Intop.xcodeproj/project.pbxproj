@@ -27,6 +27,8 @@
 		44D17D7E2BF235CA00F5C073 /* TFPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D7D2BF235CA00F5C073 /* TFPhone.swift */; };
 		44D17D802BF2380800F5C073 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D7F2BF2380800F5C073 /* SignIn.swift */; };
 		44D17D832BF2382E00F5C073 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44D17D822BF2382E00F5C073 /* Alamofire */; };
+		44D19BC62BFDE8D300FF3122 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D19BC52BFDE8D300FF3122 /* CategoriesViewController.swift */; };
+		44D19BC82BFDF23E00FF3122 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D19BC72BFDF23E00FF3122 /* PlusViewController.swift */; };
 		752E818C2BF26985004DABC3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E818B2BF26985004DABC3 /* SignUpViewController.swift */; };
 		752E818F2BF63C30004DABC3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E818E2BF63C30004DABC3 /* ChatViewController.swift */; };
 		752E81942BF63FB0004DABC3 /* StoriesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E81932BF63FB0004DABC3 /* StoriesViewCell.swift */; };
@@ -70,6 +72,8 @@
 		44D17D562BEFE08F00F5C073 /* Segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
 		44D17D7D2BF235CA00F5C073 /* TFPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFPhone.swift; sourceTree = "<group>"; };
 		44D17D7F2BF2380800F5C073 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		44D19BC52BFDE8D300FF3122 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		44D19BC72BFDF23E00FF3122 /* PlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
 		752E818B2BF26985004DABC3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		752E818E2BF63C30004DABC3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		752E81932BF63FB0004DABC3 /* StoriesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewCell.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 			children = (
 				752E818E2BF63C30004DABC3 /* ChatViewController.swift */,
 				44D17D4F2BEFA85200F5C073 /* HomeViewController.swift */,
+				44D19BC52BFDE8D300FF3122 /* CategoriesViewController.swift */,
+				44D19BC72BFDF23E00FF3122 /* PlusViewController.swift */,
 			);
 			path = TabBarScreen;
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 				44ACB5432BF2708700A75F3A /* Model.swift in Sources */,
 				44D17D552BEFDE7800F5C073 /* SignInViewController.swift in Sources */,
 				75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */,
+				44D19BC62BFDE8D300FF3122 /* CategoriesViewController.swift in Sources */,
 				44ACB5512BF646C400A75F3A /* CategoriesCollectionViewCell.swift in Sources */,
 				7598C9732BF8F1580077AD14 /* WishlistCollectionViewCell.swift in Sources */,
 				44D17D392BEF9B6A00F5C073 /* AppDelegate.swift in Sources */,
@@ -338,6 +345,7 @@
 				44ACB5472BF2B6B700A75F3A /* Error.swift in Sources */,
 				75AF2FB72BF256DC00F0165E /* ThirdViewController.swift in Sources */,
 				752E818C2BF26985004DABC3 /* SignUpViewController.swift in Sources */,
+				44D19BC82BFDF23E00FF3122 /* PlusViewController.swift in Sources */,
 				44ACB53F2BF26A8700A75F3A /* CodeVerificationViewController.swift in Sources */,
 				752E818F2BF63C30004DABC3 /* ChatViewController.swift in Sources */,
 				44D17D502BEFA85200F5C073 /* HomeViewController.swift in Sources */,
@@ -491,8 +499,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DKHFV79UK7;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 68XM2PNK9Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Intop/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Intop;
@@ -507,12 +515,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shop.Intop;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shops.Intop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -525,8 +534,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DKHFV79UK7;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 68XM2PNK9Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Intop/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Intop;
@@ -541,12 +550,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shop.Intop;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shops.Intop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

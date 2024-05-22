@@ -14,6 +14,20 @@ class HomeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-
-
+    
+    
+    
+    @IBAction func wishlist(_ sender: UIButton) {
+        Sign().goToSign(self, completion: {
+            self.performSegue(withIdentifier: "wishlist", sender: self)
+        })
+    }
+    
+    @IBAction func cart(_ sender: Any) {
+        Sign().goToSign(self, completion: nil)
+    }
+    
+    @IBAction func checkCategories(_ sender: Any) {
+        Sign().goToSign(self, completion: nil)
+    }
 }
