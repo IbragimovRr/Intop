@@ -16,7 +16,7 @@ class Wishlist {
     ]
     
     
-    func getFavorites(completion: @escaping (_ result:Favorites) -> ()) {
+    func getFavorites(completion: @escaping (_ result:[Favorites]) -> ()) {
         User().getInfoUser(User.phoneNumber) { info in
             let id = "8132"
             let url = Constants.url + "favorites/products/\(id)?limit=10"
@@ -24,11 +24,19 @@ class Wishlist {
                 switch responseData.result {
                 case .success(let value):
                     let json = JSON(value)
-                    let title = json[0]["title"].stringValue
-                    let tovarId = json[0]["id"].intValue
-                    let mainImage = json[0]["main_image_url"].stringValue
-                    let favorites = Favorites(mainImage: mainImage, title: title, id: tovarId)
-                    completion(favorites)
+                    let count = json.count
+                    var arrayFavorites = [Favorites]()
+                    for x in 0...count - 1 {
+                        let title = json[x]["title"].stringValue
+                        let tovarId = json[x]["id"].intValue
+                        let mainImage = json[x]["main_image_url"].stringValue
+                        let price = json[x]["price"].intValue
+                        let reviews = json[x]["reviews"].intValue
+                        let favorites = Favorites(price: price, mainImage: mainImage, title: title, tovarId: tovarId, reviews: reviews)
+                        arrayFavorites.append(favorites)
+                    }
+                    completion(arrayFavorites)
+                    print(arrayFavorites)
                 case .failure(_):
                     print("error")
                 }
