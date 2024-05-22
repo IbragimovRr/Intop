@@ -49,6 +49,9 @@
 		75AF2FB32BEFE65100F0165E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FB22BEFE65100F0165E /* FirstViewController.swift */; };
 		75AF2FB52BF23A2100F0165E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FB42BF23A2100F0165E /* SecondViewController.swift */; };
 		75AF2FB72BF256DC00F0165E /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AF2FB62BF256DC00F0165E /* ThirdViewController.swift */; };
+		75D6AB442BFE4FAE00A87852 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 75D6AB432BFE4FAE00A87852 /* SDWebImageSwiftUI */; };
+		75D6AB462BFE62F400A87852 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6AB452BFE62F400A87852 /* ProductViewController.swift */; };
+		75D6AB482BFE637000A87852 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6AB472BFE637000A87852 /* ImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +97,8 @@
 		75AF2FB22BEFE65100F0165E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		75AF2FB42BF23A2100F0165E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		75AF2FB62BF256DC00F0165E /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		75D6AB452BFE62F400A87852 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		75D6AB472BFE637000A87852 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75D6AB442BFE4FAE00A87852 /* SDWebImageSwiftUI in Frameworks */,
 				7598C97C2BF91D3E0077AD14 /* SwiftyJSON in Frameworks */,
 				44D17D832BF2382E00F5C073 /* Alamofire in Frameworks */,
 			);
@@ -176,6 +182,7 @@
 				44D17D4F2BEFA85200F5C073 /* HomeViewController.swift */,
 				44D19BC52BFDE8D300FF3122 /* CategoriesViewController.swift */,
 				44D19BC72BFDF23E00FF3122 /* PlusViewController.swift */,
+				75D6AB452BFE62F400A87852 /* ProductViewController.swift */,
 			);
 			path = TabBarScreen;
 			sourceTree = "<group>";
@@ -186,6 +193,7 @@
 				752E81932BF63FB0004DABC3 /* StoriesViewCell.swift */,
 				44ACB5502BF646C400A75F3A /* CategoriesCollectionViewCell.swift */,
 				7598C9722BF8F1580077AD14 /* WishlistCollectionViewCell.swift */,
+				75D6AB472BFE637000A87852 /* ImageCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 			packageProductDependencies = (
 				44D17D822BF2382E00F5C073 /* Alamofire */,
 				7598C97B2BF91D3E0077AD14 /* SwiftyJSON */,
+				75D6AB432BFE4FAE00A87852 /* SDWebImageSwiftUI */,
 			);
 			productName = Intop;
 			productReference = 44D17D352BEF9B6A00F5C073 /* Intop.app */;
@@ -288,6 +297,7 @@
 			packageReferences = (
 				44D17D812BF2382E00F5C073 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				7598C97A2BF91D3E0077AD14 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				75D6AB422BFE4FAE00A87852 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 44D17D362BEF9B6A00F5C073 /* Products */;
 			projectDirPath = "";
@@ -324,6 +334,7 @@
 			files = (
 				7598C9792BF902280077AD14 /* Wishlist.swift in Sources */,
 				752E81962BF642C3004DABC3 /* Stories.swift in Sources */,
+				75D6AB482BFE637000A87852 /* ImageCollectionViewCell.swift in Sources */,
 				44ACB5432BF2708700A75F3A /* Model.swift in Sources */,
 				44D17D552BEFDE7800F5C073 /* SignInViewController.swift in Sources */,
 				75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */,
@@ -333,6 +344,7 @@
 				44D17D392BEF9B6A00F5C073 /* AppDelegate.swift in Sources */,
 				75AF2FB52BF23A2100F0165E /* SecondViewController.swift in Sources */,
 				44D17D7E2BF235CA00F5C073 /* TFPhone.swift in Sources */,
+				75D6AB462BFE62F400A87852 /* ProductViewController.swift in Sources */,
 				44D17D572BEFE08F00F5C073 /* Segment.swift in Sources */,
 				44ACB53D2BF26A1300A75F3A /* CodeTF.swift in Sources */,
 				752E819B2BF64A0E004DABC3 /* ChatTableViewCell.swift in Sources */,
@@ -607,6 +619,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		75D6AB422BFE4FAE00A87852 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -619,6 +639,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7598C97A2BF91D3E0077AD14 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		75D6AB432BFE4FAE00A87852 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75D6AB422BFE4FAE00A87852 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -21,9 +21,11 @@ struct JSONUser {
 }
 
 struct Favorites {
+    var price:Int
     var mainImage:String
     var title:String
-    var id:Int
+    var tovarId:Int
+    var reviews:Int
 }
 
 struct Category {
