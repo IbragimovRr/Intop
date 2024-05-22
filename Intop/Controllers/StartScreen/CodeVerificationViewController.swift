@@ -58,6 +58,7 @@ class CodeVerificationViewController: UIViewController {
     
     @IBAction func sendBtn(_ sender: UIButton) {
         if code == codeInScreen {
+            UD().saveSignUser(true)
             performSegue(withIdentifier: "succes", sender: self)
         }else {
             Error().alert("Неправильный код", self)

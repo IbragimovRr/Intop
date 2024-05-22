@@ -18,7 +18,7 @@ class ChatViewController: UIViewController {
         collectionView.dataSource = self
         tableView.dataSource = self
         tableView.delegate = self
-        
+        Sign().goToSign(self, completion: nil)
     }
     
 
