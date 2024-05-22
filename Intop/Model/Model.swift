@@ -28,6 +28,17 @@ struct Favorites {
     var reviews:Int
 }
 
+struct Category {
+    var image:String
+    var name:String
+    var subCategories: [SubCategories]
+}
+
+struct SubCategories {
+    var image:String
+    var name:String
+}
+
 
 class Constants {
     static let url = "https://api.intop.uz/monolith/"

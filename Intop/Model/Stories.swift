@@ -8,6 +8,6 @@
 import Foundation
 import Alamofire
 
-class Stories{
+class Stories {
     
 }
