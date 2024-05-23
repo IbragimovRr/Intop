@@ -18,9 +18,12 @@ class ChatViewController: UIViewController {
         collectionView.dataSource = self
         tableView.dataSource = self
         tableView.delegate = self
-        Sign().goToSign(self, completion: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Sign().goToSign(self, completion: nil)
+    }
 
     
 
