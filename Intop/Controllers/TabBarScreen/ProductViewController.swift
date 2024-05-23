@@ -33,18 +33,25 @@ class ProductViewController: UIViewController {
         Tovar().getTovarById(productId: idProduct!) { result in
             self.product = result
             self.addAuthorInfo()
+            self.addTovarInfo()
         }
         
                 
     }
     func addAuthorInfo() {
         guard let product = product else {return}
-        firstName.text = product.author.firstName
-        avatar.sd_setImage(with: URL(string: product.author.avatar))
+        firstName.text = product.author?.firstName
+        avatar.sd_setImage(with: URL(string: product.author!.avatar))
 
     }
     func addTovarInfo() {
         guard let product = product else {return}
+        priceUSDLbl.text = "\(product.priceUSD!)"
+        titleLbl.text = product.title
+        reviewsLbl.text = "\(product.reviews!)"
+        descriptionLbl.text = product.description
+        imageCollectionView.reloadData()
+        
         
     }
     
@@ -52,11 +59,13 @@ class ProductViewController: UIViewController {
 
 extension ProductViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        15
+        guard product?.image != nil else {return 0}
+        return product!.image!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "image", for: indexPath) as! ImageCollectionViewCell
+            cell.image.sd_setImage(with: URL(string: (product!.image![indexPath.row])))
         return cell
     }
     

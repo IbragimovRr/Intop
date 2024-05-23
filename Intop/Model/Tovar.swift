@@ -24,8 +24,14 @@ class Tovar {
                 let authorId = json["author"]["id"].intValue
                 let firstNameAuthor = json["author"]["first_name"].stringValue
                 let avatarAuthor = json["author"]["avatar_url"].stringValue
+                var images = [String]()
+                for x in 0...json["images"].count - 1 {
+                    let image = json["images"][x]["cloud_link"].stringValue
+                    images.append(image)
+                }
+                
                 let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor)
-                let products = Product(title: title, priceUSD: priceUSD, reviews: reviews, description: description, author: author)
+                let products = Product(title: title, priceUSD: priceUSD, image: images, reviews: reviews, description: description, author: author)
                 completion(products)
             case .failure(_):
                 print("error")
