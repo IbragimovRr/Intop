@@ -32,4 +32,29 @@ class Tovar {
             }
         }
     }
+    
+    func getAllTovars(completion:@escaping ([Product]) -> ()) {
+        let url = Constants.url + "products"
+        AF.request(url, method: .get).responseData { responseData in
+            switch responseData.result {
+                
+            case .success(let value):
+                let json = JSON(value)
+                var products = [Product]()
+                for x in 0...json.count - 1 {
+                    let title = json[x]["title"].stringValue
+                    let price = json[x]["price"].intValue
+                    let image = json[x]["main_image_url"].stringValue
+                    let id = json[x]["product_id"].intValue
+                    let likes = json[x]["likes_count"].intValue
+                    let product = Product(title: title, priceUSD: price, image: [image], productID: id, likes: likes)
+                    products.append(product)
+                }
+                completion(products)
+            case .failure(_):
+                print("")
+            }
+        }
+    }
+    
 }
