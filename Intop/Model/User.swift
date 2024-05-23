@@ -18,16 +18,17 @@ class User {
     }
     
     func getInfoUser(_ phoneNumber:String, completion:@escaping (_ info:JSONUser) -> ()) {
-        let url = Constants.url + "users/\(phoneNumber)"
+        var url = Constants.url + "users/\(phoneNumber)"
         
         AF.request(url).responseData { responseData in
             switch responseData.result {
             case .success(let value):
                 let json = JSON(value)
-                let result = json
-                var jsonUser = JSONUser()
-                jsonUser.is_seller = json["is_seller"].boolValue
-                jsonUser.id = json["id"].intValue
+                let seller = json["is_seller"].boolValue
+                let id = json["id"].intValue
+                let name = json["first_name"].stringValue
+                let avatar = json["avatar_url"].stringValue
+                var jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar)
                 completion(jsonUser)
             case .failure(_):
                 print("Error")
@@ -35,7 +36,24 @@ class User {
         }
     }
     
-    
+    func getInfoUserById(_ userId:String, completion:@escaping (_ info:JSONUser) -> ()) {
+        var url = Constants.url + "users/id/\(userId)"
+        
+        AF.request(url).responseData { responseData in
+            switch responseData.result {
+            case .success(let value):
+                let json = JSON(value)
+                let seller = json["is_seller"].boolValue
+                let id = json["id"].intValue
+                let name = json["first_name"].stringValue
+                let avatar = json["avatar_url"].stringValue
+                var jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar)
+                completion(jsonUser)
+            case .failure(_):
+                print("Error")
+            }
+        }
+    }
     
     
     

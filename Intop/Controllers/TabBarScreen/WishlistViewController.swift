@@ -13,6 +13,7 @@ class WishlistViewController: UIViewController {
     @IBOutlet weak var wishlistCollectionView: UICollectionView!
     
     var wishlists = [Favorites]()
+    var selectId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,5 +46,15 @@ extension WishlistViewController: UICollectionViewDelegate, UICollectionViewData
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectId = wishlists[indexPath.row].tovarId
+        performSegue(withIdentifier: "goToProduct", sender: self)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToProduct" {
+            let vc = segue.destination as! ProductViewController
+            vc.idProduct = selectId
+        }
+    }
 }

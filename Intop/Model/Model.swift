@@ -17,9 +17,15 @@ enum ShopRole:String {
 
 struct JSONUser {
     var is_seller:Bool?
-    var id:Int?
+    var id:Int
+    var name:String
+    var avatar:String
 }
-
+struct Product {
+    var title: String
+    var priceUSD: Int
+    var reviews: Int
+}
 struct Favorites {
     var price:Int
     var mainImage:String
@@ -51,4 +57,5 @@ extension String {
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: self)
     }
 }
+
 
