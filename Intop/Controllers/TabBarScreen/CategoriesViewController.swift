@@ -11,9 +11,12 @@ class CategoriesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Sign().goToSign(self, completion: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Sign().goToSign(self, completion: nil)
+    }
 
 
 }
