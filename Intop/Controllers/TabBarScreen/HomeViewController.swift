@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var storiesCollectionView: UICollectionView!
     
     var segment: SegmentFilter!
+    var products = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,12 @@ class HomeViewController: UIViewController {
         Categories().getCategories { result in
             
         }
+        Tovar().getAllTovars { products in
+            self.products = products
+            self.lentaTovarsCollectionView.reloadData()
+        }
+        
         self.view.layoutSubviews()
-        self.view.setNeedsLayout()
     }
     
     override func viewDidLayoutSubviews() {
@@ -75,7 +80,11 @@ class HomeViewController: UIViewController {
 }
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if collectionView == lentaTovarsCollectionView {
+            return products.count
+        }else {
+            return 10
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -97,7 +106,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func instagramCell(_ indexPath: IndexPath,_ collectionView:UICollectionView) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "instagram", for: indexPath) as! WishlistCollectionViewCell
-        
+        cell.image.sd_setImage(with: URL(string: products[indexPath.row].image![0]))
         return cell
     }
     

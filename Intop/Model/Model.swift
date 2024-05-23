@@ -23,17 +23,21 @@ struct JSONUser {
 }
 
 struct Product {
-    var title: String
-    var priceUSD: Int
-    var reviews: Int
-    var description: String
-    var author: Author
+    var title: String?
+    var priceUSD: Int?
+    var image: [String]?
+    var reviews: Int?
+    var productID:Int?
+    var likes: Int?
+    var description: String?
+    var author: Author?
 }
 
 
 struct Author {
     var authorId:Int
 }
+
 struct Favorites {
     var price:Int
     var mainImage:String
