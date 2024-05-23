@@ -59,15 +59,18 @@ class SegmentFilter:Segment {
     var firstBtn: UIButton = UIButton()
     
     var secondBtn: UIButton = UIButton()
+    var select: SegmentInst = .instagram
     
     func onFirst() {
         firstBtn.setImage(UIImage(named: "instagramFull"), for: .normal)
         secondBtn.setImage(UIImage(named: "multimedia"), for: .normal)
+        select = .instagram
     }
     
     func onSecond() {
         firstBtn.setImage(UIImage(named: "instagram"), for: .normal)
         secondBtn.setImage(UIImage(named: "multimediaFull"), for: .normal)
+        select = .multimedia
     }
     
     init(firstBtn: UIButton!, secondBtn: UIButton!) {
