@@ -39,8 +39,8 @@ class ProductViewController: UIViewController {
     }
     func addAuthorInfo() {
         guard let product = product else {return}
-        firstName.text = product.author.firstName
-        avatar.sd_setImage(with: URL(string: product.author.avatar))
+        firstName.text = product.author?.firstName
+        avatar.sd_setImage(with: URL(string: product.author!.avatar))
 
     }
     func addTovarInfo() {
