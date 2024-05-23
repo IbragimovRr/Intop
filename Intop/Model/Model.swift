@@ -45,6 +45,11 @@ struct SubCategories {
     var name:String
 }
 
+enum SegmentInst {
+    case instagram
+    case multimedia
+}
+
 
 class Constants {
     static let url = "https://api.intop.uz/monolith/"

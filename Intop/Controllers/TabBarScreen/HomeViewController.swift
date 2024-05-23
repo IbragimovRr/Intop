@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
+        
         lentaTovarsCollectionView.delegate = self
         lentaTovarsCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
@@ -34,15 +35,27 @@ class HomeViewController: UIViewController {
         Categories().getCategories { result in
             
         }
-        
+        self.view.layoutSubviews()
+        self.view.setNeedsLayout()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        changeHeightCollection()
+    }
+    
+    func changeHeightCollection() {
+        lentaHeight.constant = lentaTovarsCollectionView.contentSize.height
     }
     
     @IBAction func instagramBtn(_ sender: Any) {
         segment.onFirst()
+        lentaTovarsCollectionView.reloadData()
     }
     
     @IBAction func multimedia(_ sender: Any) {
         segment.onSecond()
+        lentaTovarsCollectionView.reloadData()
     }
     
     
@@ -62,13 +75,17 @@ class HomeViewController: UIViewController {
 }
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == lentaTovarsCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "multimedia", for: indexPath) as! WishlistCollectionViewCell
-            return cell
+            if segment.select == .instagram {
+                return instagramCell(indexPath, collectionView)
+            }else {
+                return multimediaCell(indexPath, collectionView)
+            }
+            
         }else if collectionView == storiesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "story", for: indexPath) as! StoriesCollectionViewCell
             return cell
@@ -78,11 +95,40 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
+    func instagramCell(_ indexPath: IndexPath,_ collectionView:UICollectionView) -> UICollectionViewCell{
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "instagram", for: indexPath) as! WishlistCollectionViewCell
+        
+        return cell
+    }
+    
+    func multimediaCell(_ indexPath: IndexPath,_ collectionView:UICollectionView) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "multimedia", for: indexPath) as! WishlistCollectionViewCell
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if collectionView == lentaTovarsCollectionView {
+            if segment.select == .instagram {
+                return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            }else {
+                return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+            }
+        }else {
+            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        }
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == lentaTovarsCollectionView {
-            let widthScreen = UIScreen.main.bounds.width
-            let result = (widthScreen / 2) - 40
-            return CGSize(width: result, height: 215)
+            if segment.select == .instagram {
+                return CGSize(width: UIScreen.main.bounds.width, height: 519)
+            }else {
+                let widthScreen = UIScreen.main.bounds.width
+                let result = (widthScreen / 2) - 40
+                return CGSize(width: result, height: 215)
+            }
         }else if collectionView == storiesCollectionView {
             return CGSize(width: 63, height: 85)
         }else {
@@ -92,11 +138,3 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 }
 
-extension HomeViewController: UIScrollViewDelegate {
-    
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        self.scrollView.contentSize.height = lentaTovarsCollectionView.contentSize.height + 20
-//        lentaHeight.constant = lentaTovarsCollectionView.contentSize.height + 20
-//        lentaTovarsCollectionView.layoutIfNeeded()
-//    }
-}
