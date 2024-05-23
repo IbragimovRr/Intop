@@ -25,14 +25,18 @@ class Tovar {
                 let authorId = json["author"]["id"].intValue
                 let firstNameAuthor = json["author"]["first_name"].stringValue
                 let avatarAuthor = json["author"]["avatar_url"].stringValue
+                let likes = json["likes_count"].intValue
                 var images = [String]()
-                for x in 0...json["images"].count - 1 {
-                    let image = json["images"][x]["cloud_link"].stringValue
-                    images.append(image)
+                let count = json["additional_images_json"].count
+                if count != 0 {
+                    for x in 0...count - 1 {
+                        let image = json["additional_images_json"][x].stringValue
+                        images.append(image)
+                    }
                 }
-                
                 let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor)
-                let products = Product(title: title, priceUSD: priceUSD, image: images, reviews: reviews, description: description, author: author)
+                let products = Product(title: title, priceUSD: priceUSD, image: images, reviews: reviews, likes: likes, description: description, author: author)
+                print(products)
                 completion(products)
             case .failure(_):
                 print("error")
@@ -40,26 +44,20 @@ class Tovar {
         }
     }
     
-    func getAllTovars(completion:@escaping ([Product]) -> ()) {
+    func getAllTovars(completion:@escaping (Product) -> ()) {
         let url = Constants.url + "products"
         AF.request(url, method: .get).responseData { responseData in
             switch responseData.result {
                 
             case .success(let value):
                 let json = JSON(value)
-                var products = [Product]()
                 for x in 0...json.count - 1 {
-//                    let title = json[x]["title"].stringValue
-//                    let price = json[x]["price"].intValue
-//                    let image = json[x]["main_image_url"].stringValue
                     let id = json[x]["product_id"].intValue
-//                    let likes = json[x]["likes_count"].intValue
                     self.getTovarById(productId: id) { product in
                         let product = Product(title: product.title, priceUSD: product.priceUSD, image: product.image, productID: id, likes: product.likes, author: product.author)
-                        products.append(product)
+                        completion(product)
                     }
                 }
-                completion(products)
             case .failure(_):
                 print("")
             }
