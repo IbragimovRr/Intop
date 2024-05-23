@@ -14,8 +14,15 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var firstName: UILabel!
+    @IBOutlet weak var likesCountLbl: UILabel!
+    @IBOutlet weak var priceUSDLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var reviewsLbl: UILabel!
+    @IBOutlet weak var ratingLbl: UILabel!
+    @IBOutlet weak var sizeLbl: UILabel!
+    @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var conditionLbl: UILabel!
     
-
     var idProduct:Int?
     var product: Product?
     
@@ -23,15 +30,23 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
+        Tovar().getTovarById(productId: idProduct!) { result in
+            self.product = result
+            self.addAuthorInfo()
+        }
         
                 
     }
-//    func addInfo() {
-//        guard let user = user else {return}
-//        firstName.text = user.name
-//        avatar.sd_setImage(with: URL(string: user.avatar))
-//
-//    }
+    func addAuthorInfo() {
+        guard let product = product else {return}
+        firstName.text = product.author.firstName
+        avatar.sd_setImage(with: URL(string: product.author.avatar))
+
+    }
+    func addTovarInfo() {
+        guard let product = product else {return}
+        
+    }
     
 }
 

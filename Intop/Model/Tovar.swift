@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 class Tovar {
-    func getTovar(productId: Int, completion: @escaping (_ result: Product) -> ()) {
+    func getTovarById(productId: Int, completion: @escaping (_ result: Product) -> ()) {
         let url = Constants.url + "products/\(productId)"
         AF.request(url, method: .get).responseData { responseData in
             switch responseData.result {
@@ -22,7 +22,9 @@ class Tovar {
                 let reviews = json["reviews"].intValue
                 let description = json["description"].stringValue
                 let authorId = json["author"]["id"].intValue
-                let author = Author(authorId: authorId)
+                let firstNameAuthor = json["author"]["first_name"].stringValue
+                let avatarAuthor = json["author"]["avatar_url"].stringValue
+                let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor)
                 let products = Product(title: title, priceUSD: priceUSD, reviews: reviews, description: description, author: author)
                 completion(products)
             case .failure(_):
