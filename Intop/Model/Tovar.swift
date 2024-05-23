@@ -30,4 +30,19 @@ class Tovar {
             }
         }
     }
+    
+    func getAllTovars() {
+        let url = Constants.url + "products"
+        AF.request(url, method: .get).responseData { responseData in
+            switch responseData.result {
+                
+            case .success(let value):
+                let json = JSON(value)
+                
+            case .failure(_):
+                print("")
+            }
+        }
+    }
+    
 }

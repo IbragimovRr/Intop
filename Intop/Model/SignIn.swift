@@ -129,6 +129,7 @@ class Sign {
     // MARK: - Code
     
     func sendCode(_ phoneNumber:String, completion: @escaping (_ code:String) -> ()) {
+        print(phoneNumber)
         let url = Constants.url + "get_code_send_sms/\(phoneNumber)"
         AF.request(url,method: .get).responseData { responseData in
             switch responseData.result {

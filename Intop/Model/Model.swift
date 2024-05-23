@@ -21,6 +21,7 @@ struct JSONUser {
     var name:String
     var avatar:String
 }
+
 struct Product {
     var title: String
     var priceUSD: Int
@@ -29,10 +30,10 @@ struct Product {
     var author: Author
 }
 
+
 struct Author {
     var authorId:Int
 }
-
 struct Favorites {
     var price:Int
     var mainImage:String
