@@ -20,8 +20,13 @@ class Tovar {
                 let title = json["title"].stringValue
                 let priceUSD = json["price_USD"].intValue
                 let reviews = json["reviews"].intValue
+                let description = json["description"].stringValue
+                let authorId = json["author"]["id"].intValue
+                let author = Author(authorId: authorId)
+                let products = Product(title: title, priceUSD: priceUSD, reviews: reviews, description: description, author: author)
+                completion(products)
             case .failure(_):
-                print("")
+                print("error")
             }
         }
     }
