@@ -36,6 +36,8 @@ struct Product {
 
 struct Author {
     var authorId:Int
+    var firstName:String
+    var avatar: String
 }
 
 struct Favorites {

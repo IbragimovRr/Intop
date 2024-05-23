@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NYs-ev-kit">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NYs-ev-kit">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -926,8 +926,16 @@
                     <size key="freeformSize" width="393" height="1463"/>
                     <connections>
                         <outlet property="avatar" destination="N5N-6N-1Yu" id="179-eh-czc"/>
+                        <outlet property="conditionLbl" destination="9dD-Yb-RQE" id="pHc-b8-i0h"/>
+                        <outlet property="descriptionLbl" destination="eUZ-Dn-Njb" id="Dj3-Q1-dxf"/>
                         <outlet property="firstName" destination="q6c-9s-9JM" id="0ed-K3-4nK"/>
                         <outlet property="imageCollectionView" destination="CTn-bT-tH1" id="mjq-bG-JN2"/>
+                        <outlet property="likesCountLbl" destination="w49-40-AzP" id="Iid-Dl-4bA"/>
+                        <outlet property="priceUSDLbl" destination="XfV-7x-xhD" id="80t-8E-VJn"/>
+                        <outlet property="ratingLbl" destination="7gm-V1-wra" id="mgP-2v-BSU"/>
+                        <outlet property="reviewsLbl" destination="XQe-WS-AQy" id="LAy-cs-Pba"/>
+                        <outlet property="sizeLbl" destination="0rn-Lh-9rg" id="IJ0-v7-bWM"/>
+                        <outlet property="titleLbl" destination="Pfh-bk-xqD" id="rcd-gS-wxM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2nU-0W-fqO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3018,7 +3026,7 @@ sed do eiusmod tempor ut labore</string>
             <color red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
