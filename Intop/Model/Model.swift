@@ -21,11 +21,13 @@ struct JSONUser {
     var name:String
     var avatar:String
 }
+
 struct Product {
     var title: String
     var priceUSD: Int
     var reviews: Int
 }
+
 struct Favorites {
     var price:Int
     var mainImage:String
