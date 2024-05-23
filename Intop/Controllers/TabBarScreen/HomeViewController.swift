@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
         }
         Tovar().getAllTovars { products in
             self.products = products
+            print(products)
             self.lentaTovarsCollectionView.reloadData()
         }
         
@@ -106,13 +107,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func instagramCell(_ indexPath: IndexPath,_ collectionView:UICollectionView) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "instagram", for: indexPath) as! WishlistCollectionViewCell
-        cell.image.sd_setImage(with: URL(string: products[indexPath.row].image![0]))
+       // cell.image.sd_setImage(with: URL(string: products[indexPath.row].image![0]))
         return cell
     }
     
     func multimediaCell(_ indexPath: IndexPath,_ collectionView:UICollectionView) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "multimedia", for: indexPath) as! WishlistCollectionViewCell
-        
+        cell.image.sd_setImage(with: URL(string: products[indexPath.row].image![0]))
+        cell.itemName.text = products[indexPath.row].title
+        cell.priceLbl.text = "$\(products[indexPath.row].priceUSD!)"
+        //cell.reviewsCountLbl.text = products[indexPath.row].reviews
         return cell
     }
     
