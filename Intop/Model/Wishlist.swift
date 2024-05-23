@@ -18,13 +18,14 @@ class Wishlist {
     
     func getFavorites(completion: @escaping (_ result:[Favorites]) -> ()) {
         User().getInfoUser(User.phoneNumber) { info in
-            let id = "8132"
+            let id = info.id
             let url = Constants.url + "favorites/products/\(id)?limit=10"
             AF.request(url, method: .get).responseData { responseData in
                 switch responseData.result {
                 case .success(let value):
                     let json = JSON(value)
                     let count = json.count
+                    guard count != 0 else {return}
                     var arrayFavorites = [Favorites]()
                     for x in 0...count - 1 {
                         let title = json[x]["title"].stringValue
@@ -36,7 +37,6 @@ class Wishlist {
                         arrayFavorites.append(favorites)
                     }
                     completion(arrayFavorites)
-                    print(arrayFavorites)
                 case .failure(_):
                     print("error")
                 }
