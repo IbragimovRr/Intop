@@ -57,7 +57,7 @@ class ProductViewController: UIViewController {
     
 }
 
-extension ProductViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ProductViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard product?.image != nil else {return 0}
         return product!.image!.count

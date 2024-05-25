@@ -26,6 +26,7 @@ class Tovar {
                 let firstNameAuthor = json["author"]["first_name"].stringValue
                 let avatarAuthor = json["author"]["avatar_url"].stringValue
                 let likes = json["likes_count"].intValue
+                let imageMain = json["main_image_url"].stringValue
                 var images = [String]()
                 let count = json["additional_images_json"].count
                 if count != 0 {
@@ -35,8 +36,7 @@ class Tovar {
                     }
                 }
                 let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor)
-                let products = Product(title: title, priceUSD: priceUSD, image: images, reviews: reviews, likes: likes, description: description, author: author)
-                print(products)
+                let products = Product(title: title, priceUSD: priceUSD, image: images, reviews: reviews, productID: productId, mainImages: imageMain, likes: likes, description: description, author: author)
                 completion(products)
             case .failure(_):
                 print("error")
@@ -51,10 +51,12 @@ class Tovar {
                 
             case .success(let value):
                 let json = JSON(value)
-                for x in 0...json.count - 1 {
+                let count = json.count
+                guard count != 0 else {return}
+                for x in 0...count - 1 {
                     let id = json[x]["product_id"].intValue
                     self.getTovarById(productId: id) { product in
-                        let product = Product(title: product.title, priceUSD: product.priceUSD, image: product.image, productID: id, likes: product.likes, author: product.author)
+                        let product = Product(title: product.title, priceUSD: product.priceUSD, productID: id, mainImages: product.mainImages, likes: product.likes, author: product.author)
                         completion(product)
                     }
                 }

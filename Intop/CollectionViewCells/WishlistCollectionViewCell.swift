@@ -9,6 +9,9 @@ import UIKit
 
 class WishlistCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var imageAuthor: UIImageView!
+    @IBOutlet weak var nameAuthor: UILabel!
+    @IBOutlet weak var likes: UILabel!
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var reviewsCountLbl: UILabel!
     @IBOutlet weak var ratingLbl: UILabel!

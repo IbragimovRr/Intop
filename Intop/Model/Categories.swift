@@ -19,7 +19,7 @@ class Categories {
             switch responseData.result {
             case .success(let value):
                 let json = JSON(value)
-                print(json["1"]["subcategories"])
+                //print(json["1"]["subcategories"])
                 let categoriesName = json["1"]["name"].stringValue
                 
             case .failure(_):
