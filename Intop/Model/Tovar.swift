@@ -44,7 +44,7 @@ class Tovar {
         }
     }
     
-    func getAllTovars(completion:@escaping (Product) -> ()) {
+    func getAllTovars(completion:@escaping ([Product]) -> ()) {
         let url = Constants.url + "products"
         AF.request(url, method: .get).responseData { responseData in
             switch responseData.result {
@@ -53,12 +53,17 @@ class Tovar {
                 let json = JSON(value)
                 let count = json.count
                 guard count != 0 else {return}
+                var products = [Product]()
                 for x in 0...count - 1 {
                     let id = json[x]["product_id"].intValue
                     self.getTovarById(productId: id) { product in
                         let product = Product(title: product.title, priceUSD: product.priceUSD, productID: id, mainImages: product.mainImages, likes: product.likes, author: product.author)
-                        completion(product)
+                        products.append(product)
+                        if x == count - 1{
+                            completion(products)
+                        }
                     }
+                    
                 }
             case .failure(_):
                 print("")

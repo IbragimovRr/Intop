@@ -19,12 +19,12 @@ class HomeViewController: UIViewController {
     
     var segment: SegmentFilter!
     var products = [Product]()
-    var selectID = 0
+    var selectProduct = Product(productID: 0)
+    var selectLike = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
         
         lentaTovarsCollectionView.delegate = self
         lentaTovarsCollectionView.dataSource = self
@@ -34,14 +34,24 @@ class HomeViewController: UIViewController {
         storiesCollectionView.dataSource = self
         scrollView.delegate = self
         segment = SegmentFilter(firstBtn: instagram, secondBtn: multimedia)
+        
         Categories().getCategories { result in
             
         }
         Tovar().getAllTovars { product in
-            self.products.append(product)
+            self.products = product
             self.lentaTovarsCollectionView.reloadData()
+            self.lentaTovarsCollectionView.reloadSections(IndexSet(integer: 0))
         }
+        
         self.view.layoutSubviews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        lentaTovarsCollectionView.reloadData()
+        lentaTovarsCollectionView.reloadSections(IndexSet(integer: 0))
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -88,6 +98,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print(lentaTovarsCollectionView == collectionView)
         if collectionView == lentaTovarsCollectionView {
             if segment.select == .instagram {
                 return instagramCell(indexPath, collectionView)
@@ -108,10 +119,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
         cell.likes.text = "Лайкнули \(products[indexPath.row].likes!)"
-        cell.nameAuthor.text = products[indexPath.row].author!.firstName
-        cell.imageAuthor.sd_setImage(with: URL(string: products[indexPath.row].author!.avatar))
+        cell.nameAuthor.text = products[indexPath.row].author.firstName
+        cell.imageAuthor.sd_setImage(with: URL(string: products[indexPath.row].author.avatar))
+        //Button
+        cell.like.setImage(UIImage(named: "like2"), for: .normal)
+        
+        cell.like.addTarget(self, action: #selector(clickLike), for: .touchUpInside)
+        cell.imBtn.addTarget(self, action: #selector(clickProduct), for: .touchUpInside)
+        
+        cell.imBtn.tag = indexPath.row
+        cell.like.tag = indexPath.row
+        
         return cell
     }
+    
+    
     
     func multimediaCell(_ indexPath: IndexPath,_ collectionView:UICollectionView) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "multimedia", for: indexPath) as! WishlistCollectionViewCell
@@ -119,20 +141,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.itemName.text = products[indexPath.row].title
         cell.priceLbl.text = "$\(products[indexPath.row].priceUSD!)"
         cell.reviewsCountLbl.text = "\(products[indexPath.row].reviews!) reviews"
+        //Button
+        cell.imBtn.addTarget(self, action: #selector(clickProduct), for: .touchUpInside)
+        cell.imBtn.tag = indexPath.row
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if collectionView == lentaTovarsCollectionView {
-            if segment.select == .instagram {
-                return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            }else {
-                return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-            }
-        }else {
-            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        }
-    }
+    
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -151,18 +166,33 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectID = products[indexPath.row].productID
-        performSegue(withIdentifier: "product", sender: self)
-    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "product" {
             let vc = segue.destination as! ProductViewController
-            vc.idProduct = selectID
+            vc.idProduct = selectProduct.productID
         }
         
     }
+    
+    // MARK: - UIButton instagram Cell
+    
+    @objc func clickLike(sender: UIButton){
+        if sender.imageView!.image == UIImage(named: "like2") {
+            Wishlist().addFavorites(products[sender.tag])
+            sender.setImage(UIImage(named: "likeFull2"), for: .normal)
+        }else {
+            sender.setImage(UIImage(named: "like2"), for: .normal)
+        }
+    }
+    
+    @objc func clickProduct(sender: UIButton) {
+        selectProduct = products[sender.tag]
+        performSegue(withIdentifier: "product", sender: self)
+    }
+    
+    
 }
 
