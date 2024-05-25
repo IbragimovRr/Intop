@@ -24,12 +24,13 @@ struct JSONUser {
 
 struct Product {
     var title: String?
-    var priceUSD: Int?
+    var priceUSD: Int? = 0
     var image: [String]?
-    var reviews: Int?
-    var productID:Int?
-    var likes: Int?
-    var description: String?
+    var reviews: Int? = 0
+    var productID:Int
+    var mainImages:String?
+    var likes: Int? = 0
+    var description: String? = ""
     var author: Author?
 }
 

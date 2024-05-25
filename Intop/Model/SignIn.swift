@@ -25,7 +25,7 @@ class Sign {
     }
     
     
-    func signUpPhone(phoneNumber:String, password: String, shopRole: ShopRole,  completion:@escaping (_ result:String?, _ error:String?) -> ()) {
+    func signUpPhone(phoneNumber:String, password: String, shopRole: ShopRole,  completion:@escaping (_ code:Int?, _ error:String?) -> ()) {
         let errorValidate = errorSignUp(phoneNumber, password)
         guard errorValidate.0 else {
             completion(nil, errorValidate.1)
@@ -42,17 +42,16 @@ class Sign {
                   headers: headers).response { responseData in
             switch responseData.result {
             case .success(let value):
-                let json = JSON(value)
-                let result = json["details"].stringValue
+                let code = responseData.response!.statusCode
                 
-                if result == "User with this number already exists!" {
+                if code != 201 {
                     completion(nil, "Номер уже был зарегистрирован")
                     
                 }else {
                     UD().savePhone(phoneNumber)
                     UD().saveShopRole(shopRole.rawValue)
                     self.signUpRoleByUser(phoneNumber, shopRole: shopRole)
-                    completion(result, nil)
+                    completion(code, nil)
                 }
             case .failure(_):
                 completion(nil, "Ошибка повторите попытку позже")
@@ -64,7 +63,6 @@ class Sign {
     
     private func signUpRoleByUser(_ phoneNumber:String,shopRole:ShopRole) {
         //Регистрация под покупателя
-        print(shopRole)
         User().getInfoUser(phoneNumber) { info in
             let url = Constants.url + "update_user_phone_number"
             let parametrs = [
@@ -88,7 +86,7 @@ class Sign {
     // MARK: - Sign In
 
     
-    func signInPhone(phoneNumber:String,password:String, isSeller:Bool ,completion:@escaping (_ result:String?,_ error:String?) -> ()) {
+    func signInPhone(phoneNumber:String,password:String, isSeller:Bool ,completion:@escaping (_ resultCode:Int?,_ error:String?) -> ()) {
         let url = Constants.url + "users/login"
         
         AF.upload(multipartFormData: { multipartFormData in
@@ -101,19 +99,19 @@ class Sign {
                   headers: headers).responseData { responseData in
             switch responseData.result {
             case .success(let value):
-                let json = JSON(value)
-                let result = json["details"].stringValue
-                    if result == "No user with this user_phone_number in database or you entered a wrong password"{
+                
+                let code = responseData.response!.statusCode
+                    if code == 403{
                         completion(nil,"Неправильный логин или пароль")
-                    }else {
+                    }else if code == 201 {
                         //Успешный логин пароль
                         UD().savePhone(phoneNumber)
                         UD().saveRemember(true)
                         User().getInfoUser(phoneNumber) { info in
                             if info.is_seller == isSeller {
-                                completion(result,nil)
+                                completion(code,nil)
                             }else if info.is_seller == true && isSeller == false {
-                                completion(result,nil)
+                                completion(code,nil)
                             }else {
                                 completion(nil,"Ошибка данных")
                             }
@@ -129,13 +127,12 @@ class Sign {
     // MARK: - Code
     
     func sendCode(_ phoneNumber:String, completion: @escaping (_ code:String) -> ()) {
-        print(phoneNumber)
         let url = Constants.url + "get_code_send_sms/\(phoneNumber)"
         AF.request(url,method: .get).responseData { responseData in
             switch responseData.result {
             case .success(let value):
                 let json = JSON(value)
-                let result = json["code"].stringValue
+                let result = json["code_will_be_REMOVED"].stringValue
                     print(result)
                     completion(result)
                 
