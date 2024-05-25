@@ -18,7 +18,7 @@ class User {
     }
     
     func getInfoUser(_ phoneNumber:String, completion:@escaping (_ info:JSONUser) -> ()) {
-        var url = Constants.url + "users/\(phoneNumber)"
+        let url = Constants.url + "users/\(phoneNumber)"
         
         AF.request(url).responseData { responseData in
             switch responseData.result {
@@ -28,7 +28,7 @@ class User {
                 let id = json["id"].intValue
                 let name = json["first_name"].stringValue
                 let avatar = json["avatar_url"].stringValue
-                var jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar)
+                let jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar)
                 completion(jsonUser)
             case .failure(_):
                 print("Error")

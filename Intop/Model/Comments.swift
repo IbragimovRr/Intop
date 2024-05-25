@@ -1,0 +1,38 @@
+//
+//  Comments.swift
+//  Intop
+//
+//  Created by Ибрагимов Эльдар on 25.05.2024.
+//
+
+import Foundation
+import Alamofire
+import SwiftyJSON
+
+class Comments {
+    func getCommentsByProductId(productId: Int, completion: @escaping (_ result: [CommentsStruct]) -> ()) {
+            let url = Constants.url + "comments/\(productId)"
+            AF.request(url, method: .get).responseData { responseData in
+                switch responseData.result {
+                    
+                case .success(let value):
+                    let json = JSON(value)
+                    var arrayComments = [CommentsStruct]()
+                    let count = json.count
+                    guard count != 0 else {return}
+                    for x in 0...count - 1{
+                        let comment = json[x]["text"].stringValue
+                        let createdAt = json[x]["created_at"].stringValue
+                        let phoneNumber = json[x]["user_phone_number"].stringValue
+                        let comments = CommentsStruct(comment: comment, createdAt: createdAt, phoneNumber: phoneNumber)
+                        arrayComments.append(comments)
+                    }
+                    completion(arrayComments)
+                case .failure(_):
+                    print("error")
+                }
+                
+            }
+            
+        }
+    }
