@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 
 class WishlistViewController: UIViewController {
-
+    
     @IBOutlet weak var wishlistCollectionView: UICollectionView!
     
     var wishlists = [Favorites]()
@@ -22,39 +22,48 @@ class WishlistViewController: UIViewController {
         Wishlist().getFavorites { result in
             self.wishlists = result
             self.wishlistCollectionView.reloadData()
+            
         }
     }
-    
-    @IBAction func likeBtn(_ sender: UIButton) {
+        //    override func viewDidAppear(_ animated: Bool) {
+        //        super.viewDidAppear(animated)
+        //        Wishlist().getFavorites { result in
+        //            self.wishlists = result
+        //            self.wishlistCollectionView.reloadData()
+        //        }
+        //    }
+        //
+        @IBAction func likeBtn(_ sender: UIButton) {
+            
+        }
+        
+        
         
     }
-    
-
-
-}
-extension WishlistViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return wishlists.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = wishlistCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WishlistCollectionViewCell
-        cell.priceLbl.text = "$\(wishlists[indexPath.row].price)"
-        cell.itemName.text = wishlists[indexPath.row].title
-        cell.reviewsCountLbl.text = "\(wishlists[indexPath.row].reviews) reviews"
-        cell.image.sd_setImage(with: URL(string: wishlists[indexPath.row].mainImage) )
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectId = wishlists[indexPath.row].tovarId
-        performSegue(withIdentifier: "goToProduct", sender: self)
+    extension WishlistViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            return wishlists.count
+        }
         
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToProduct" {
-            let vc = segue.destination as! ProductViewController
-            vc.idProduct = selectId
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = wishlistCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WishlistCollectionViewCell
+            cell.priceLbl.text = "$\(wishlists[indexPath.row].price)"
+            cell.itemName.text = wishlists[indexPath.row].title
+            cell.reviewsCountLbl.text = "\(wishlists[indexPath.row].reviews) reviews"
+            cell.image.sd_setImage(with: URL(string: wishlists[indexPath.row].mainImage) )
+            return cell
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            selectId = wishlists[indexPath.row].tovarId
+            performSegue(withIdentifier: "goToProduct", sender: self)
+            
+        }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "goToProduct" {
+                let vc = segue.destination as! ProductViewController
+                vc.idProduct = selectId
+            }
         }
     }
-}
+

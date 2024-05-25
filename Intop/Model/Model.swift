@@ -15,6 +15,12 @@ enum ShopRole:String {
     case buyerLegal = "buyer_legal"
 }
 
+struct CommentsStruct {
+    var comment: String
+    var createdAt: String
+    var phoneNumber: String
+}
+
 struct JSONUser {
     var is_seller:Bool?
     var id:Int
