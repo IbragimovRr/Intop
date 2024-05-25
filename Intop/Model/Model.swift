@@ -29,22 +29,22 @@ struct JSONUser {
 }
 
 struct Product {
-    var title: String?
+    var title: String? = ""
     var priceUSD: Int? = 0
-    var image: [String]?
+    var image: [String]? = [""]
     var reviews: Int? = 0
     var productID:Int
-    var mainImages:String?
+    var mainImages:String? = ""
     var likes: Int? = 0
     var description: String? = ""
-    var author: Author?
+    var author: Author = Author()
 }
 
 
 struct Author {
-    var authorId:Int
-    var firstName:String
-    var avatar: String
+    var authorId:Int = 0
+    var firstName:String = ""
+    var avatar: String = ""
 }
 
 struct Favorites {
