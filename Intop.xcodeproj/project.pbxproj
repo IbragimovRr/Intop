@@ -49,6 +49,8 @@
 		75C17DBC2C04EB8A006EB02B /* Mulish-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C17DBB2C04EB8A006EB02B /* Mulish-Light.ttf */; };
 		75C17DBE2C04EB93006EB02B /* Mulish-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C17DBD2C04EB93006EB02B /* Mulish-Bold.ttf */; };
 		75C17DC02C04EB9C006EB02B /* Mulish-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C17DBF2C04EB9C006EB02B /* Mulish-Regular.ttf */; };
+		75C17DC22C04EED4006EB02B /* Mulish-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C17DC12C04EED4006EB02B /* Mulish-SemiBold.ttf */; };
+		75C17DC42C04EFE1006EB02B /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C17DC32C04EFE1006EB02B /* Roboto-Medium.ttf */; };
 		75D6AB442BFE4FAE00A87852 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 75D6AB432BFE4FAE00A87852 /* SDWebImageSwiftUI */; };
 		75D6AB462BFE62F400A87852 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6AB452BFE62F400A87852 /* ProductViewController.swift */; };
 		75D6AB482BFE637000A87852 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6AB472BFE637000A87852 /* ImageCollectionViewCell.swift */; };
@@ -101,6 +103,8 @@
 		75C17DBB2C04EB8A006EB02B /* Mulish-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Mulish-Light.ttf"; path = "../../../../Downloads/Mulish 2/static/Mulish-Light.ttf"; sourceTree = "<group>"; };
 		75C17DBD2C04EB93006EB02B /* Mulish-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Mulish-Bold.ttf"; path = "../../../../Downloads/Mulish 2/static/Mulish-Bold.ttf"; sourceTree = "<group>"; };
 		75C17DBF2C04EB9C006EB02B /* Mulish-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Mulish-Regular.ttf"; path = "../../../../Downloads/Mulish 2/static/Mulish-Regular.ttf"; sourceTree = "<group>"; };
+		75C17DC12C04EED4006EB02B /* Mulish-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-SemiBold.ttf"; sourceTree = "<group>"; };
+		75C17DC32C04EFE1006EB02B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		75D6AB452BFE62F400A87852 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		75D6AB472BFE637000A87852 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		75D6AB4B2BFF6A8300A87852 /* Tovar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tovar.swift; sourceTree = "<group>"; };
@@ -219,12 +223,14 @@
 		757043112BEFAC7C00DDC3E9 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				75C17DC32C04EFE1006EB02B /* Roboto-Medium.ttf */,
 				752E819C2BF64E95004DABC3 /* Roboto-Light.ttf */,
 				44ACB54A2BF3913200A75F3A /* Poppins-Regular.ttf */,
 				757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */,
 				75C17DBB2C04EB8A006EB02B /* Mulish-Light.ttf */,
 				75C17DBD2C04EB93006EB02B /* Mulish-Bold.ttf */,
 				75C17DBF2C04EB9C006EB02B /* Mulish-Regular.ttf */,
+				75C17DC12C04EED4006EB02B /* Mulish-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -333,7 +339,9 @@
 				757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */,
 				75C17DC02C04EB9C006EB02B /* Mulish-Regular.ttf in Resources */,
 				752E819D2BF64E95004DABC3 /* Roboto-Light.ttf in Resources */,
+				75C17DC42C04EFE1006EB02B /* Roboto-Medium.ttf in Resources */,
 				44D17D402BEF9B6A00F5C073 /* Main.storyboard in Resources */,
+				75C17DC22C04EED4006EB02B /* Mulish-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
