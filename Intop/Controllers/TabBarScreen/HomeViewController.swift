@@ -183,15 +183,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     // MARK: - UIButton instagram Cell
     
     @objc func clickLike(sender: UIButton){
-        print(products[sender.tag].meLike)
         if products[sender.tag].meLike == false {
-            Wishlist().addFavorites(products[sender.tag], method: .post)
             products[sender.tag].meLike = true
+            Wishlist().addFavorites(products[sender.tag], method: .post) {
+                self.lentaTovarsCollectionView.reloadData()
+            }
         }else {
-            Wishlist().addFavorites(products[sender.tag], method: .delete)
             products[sender.tag].meLike = false
+            Wishlist().addFavorites(products[sender.tag], method: .delete) {
+                self.lentaTovarsCollectionView.reloadData()
+            }
         }
-        lentaTovarsCollectionView.reloadData()
+        
     }
     
     @objc func clickProduct(sender: UIButton) {
