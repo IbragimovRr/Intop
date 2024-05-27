@@ -98,7 +98,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(lentaTovarsCollectionView == collectionView)
         if collectionView == lentaTovarsCollectionView {
             if segment.select == .instagram {
                 return instagramCell(indexPath, collectionView)
@@ -118,18 +117,22 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "instagram", for: indexPath) as! WishlistCollectionViewCell
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
-        cell.likes.text = "Лайкнули \(products[indexPath.row].likes!)"
+        Wishlist().getFavoritesByID(products[indexPath.row].productID) { likesCount in
+            cell.likes.text = "Лайкнули \(likesCount)"
+        }
         cell.nameAuthor.text = products[indexPath.row].author.firstName
         cell.imageAuthor.sd_setImage(with: URL(string: products[indexPath.row].author.avatar))
         //Button
-        cell.like.setImage(UIImage(named: "like2"), for: .normal)
-        
         cell.like.addTarget(self, action: #selector(clickLike), for: .touchUpInside)
         cell.imBtn.addTarget(self, action: #selector(clickProduct), for: .touchUpInside)
         
         cell.imBtn.tag = indexPath.row
         cell.like.tag = indexPath.row
-        
+        if products[indexPath.row].meLike == true {
+            cell.like.setImage(UIImage(named: "likeFull2"), for: .normal)
+        }else {
+            cell.like.setImage(UIImage(named: "like2"), for: .normal)
+        }
         return cell
     }
     
@@ -180,12 +183,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     // MARK: - UIButton instagram Cell
     
     @objc func clickLike(sender: UIButton){
-        if sender.imageView!.image == UIImage(named: "like2") {
-            Wishlist().addFavorites(products[sender.tag])
-            sender.setImage(UIImage(named: "likeFull2"), for: .normal)
+        print(products[sender.tag].meLike)
+        if products[sender.tag].meLike == false {
+            Wishlist().addFavorites(products[sender.tag], method: .post)
+            products[sender.tag].meLike = true
         }else {
-            sender.setImage(UIImage(named: "like2"), for: .normal)
+            Wishlist().addFavorites(products[sender.tag], method: .delete)
+            products[sender.tag].meLike = false
         }
+        lentaTovarsCollectionView.reloadData()
     }
     
     @objc func clickProduct(sender: UIButton) {
