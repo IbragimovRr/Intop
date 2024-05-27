@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NYs-ev-kit">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NYs-ev-kit">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,11 +20,17 @@
         <array key="Mulish-Regular.ttf">
             <string>Mulish-Regular</string>
         </array>
+        <array key="Mulish-SemiBold.ttf">
+            <string>Mulish-SemiBold</string>
+        </array>
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
         </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
@@ -699,30 +705,30 @@
                                                 <rect key="frame" x="26" y="422.99999999999994" width="341" height="85.666666666666686"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w49-40-AzP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="15.333333333333334"/>
-                                                        <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="12"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="31" height="15.333333333333334"/>
+                                                        <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="12"/>
                                                         <color key="textColor" red="0.47843137254901957" green="0.47843137254901957" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfV-7x-xhD">
-                                                        <rect key="frame" x="0.0" y="27.333333333333371" width="47.333333333333336" height="23.666666666666671"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
+                                                        <rect key="frame" x="0.0" y="27.333333333333371" width="49" height="23.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfh-bk-xqD">
-                                                        <rect key="frame" x="0.0" y="62.999999999999993" width="45" height="22.666666666666664"/>
-                                                        <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="18"/>
+                                                        <rect key="frame" x="0.0" y="62.999999999999993" width="46.333333333333336" height="22.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="18"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zdO-cT-cEg">
-                                                <rect key="frame" x="26" y="517.66666666666674" width="166.66666666666666" height="11"/>
+                                                <rect key="frame" x="26" y="517.66666666666674" width="167.66666666666666" height="11"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="G5Q-WP-JcO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128.33333333333334" height="11"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="129.33333333333334" height="11"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Tt8-eL-pwG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="79" height="11"/>
@@ -765,15 +771,15 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gm-V1-wra">
-                                                                <rect key="frame" x="100" y="0.0" width="28.333333333333343" height="11"/>
-                                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
+                                                                <rect key="frame" x="100" y="0.0" width="29.333333333333343" height="11"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQe-WS-AQy">
-                                                        <rect key="frame" x="138.33333333333334" y="0.0" width="28.333333333333343" height="11"/>
+                                                        <rect key="frame" x="139.33333333333334" y="0.0" width="28.333333333333343" height="11"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                         <color key="textColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -781,8 +787,8 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Размер" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-Lh-9rg">
-                                                <rect key="frame" x="25.999999999999996" y="556.66666666666674" width="56.666666666666657" height="20.333333333333371"/>
-                                                <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="16"/>
+                                                <rect key="frame" x="25.999999999999996" y="556.66666666666674" width="58.666666666666657" height="20.333333333333371"/>
+                                                <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="16"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -811,7 +817,7 @@
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdY-7v-WSE">
                                                                             <rect key="frame" x="12.666666666666668" y="12.333333333333332" width="14.666666666666668" height="15.333333333333332"/>
-                                                                            <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="12"/>
+                                                                            <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="12"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -845,38 +851,38 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Характеристика продукта" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPV-aM-1mQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="357" height="17.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUZ-Dn-Njb">
                                                         <rect key="frame" x="0.0" y="22.666666666666742" width="357" height="17.666666666666671"/>
-                                                        <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="14"/>
                                                         <color key="textColor" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fNz-SN-vAB">
-                                                <rect key="frame" x="26" y="715.33333333333337" width="70.333333333333329" height="40.333333333333371"/>
+                                                <rect key="frame" x="26" y="715.33333333333337" width="72.333333333333329" height="40.333333333333371"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Состояние" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmI-KK-APl">
-                                                        <rect key="frame" x="0.0" y="0.0" width="70.333333333333329" height="17.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="14"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="72.333333333333329" height="17.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dD-Yb-RQE">
-                                                        <rect key="frame" x="0.0" y="22.666666666666629" width="70.333333333333329" height="17.666666666666671"/>
-                                                        <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="14"/>
+                                                        <rect key="frame" x="0.0" y="22.666666666666629" width="72.333333333333329" height="17.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="14"/>
                                                         <color key="textColor" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Отзывы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJC-mx-zC0">
-                                                <rect key="frame" x="26.000000000000004" y="802.66666666666674" width="59.333333333333343" height="20.333333333333371"/>
-                                                <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="16"/>
+                                                <rect key="frame" x="26" y="802.66666666666674" width="62" height="20.333333333333371"/>
+                                                <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="16"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -894,18 +900,19 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="UDf-Yz-tTu"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FjK-Bf-2rQ">
-                                                    <size key="itemSize" width="341" height="97"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FjK-Bf-2rQ">
+                                                    <size key="itemSize" width="341" height="128"/>
+                                                    <size key="estimatedItemSize" width="341" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="commentCell" id="EsW-Zi-lb6" customClass="CommentCollectionViewCell" customModule="Intop" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="341" height="97"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="341" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="341" height="97"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="341" height="128"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-AC-voZ">
@@ -923,11 +930,11 @@
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hd5-Dd-xbP">
                                                                             <rect key="frame" x="0.0" y="0.0" width="71" height="15.333333333333334"/>
-                                                                            <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="12"/>
+                                                                            <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="12"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <color key="highlightedColor" systemColor="labelColor"/>
                                                                         </label>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="b8g-ya-q0j">
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="b8g-ya-q0j">
                                                                             <rect key="frame" x="0.0" y="25.333333333333332" width="71" height="10.999999999999996"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="UBz-k9-B6V">
@@ -939,31 +946,15 @@
                                                                                 </imageView>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="G68-Ph-fWy">
                                                                                     <rect key="frame" x="15" y="0.0" width="11" height="11"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="width" constant="11" id="4F9-9M-qr4"/>
-                                                                                        <constraint firstAttribute="height" constant="11" id="FXf-3E-wvU"/>
-                                                                                    </constraints>
                                                                                 </imageView>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Nf2-18-Acy">
                                                                                     <rect key="frame" x="30" y="0.0" width="11" height="11"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="width" constant="11" id="iUk-Hd-MYd"/>
-                                                                                        <constraint firstAttribute="height" constant="11" id="rn5-qs-CdM"/>
-                                                                                    </constraints>
                                                                                 </imageView>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="z0u-b7-r0j">
                                                                                     <rect key="frame" x="45" y="0.0" width="11" height="11"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="11" id="GH8-Po-mSv"/>
-                                                                                        <constraint firstAttribute="width" constant="11" id="Ht3-Vq-FkW"/>
-                                                                                    </constraints>
                                                                                 </imageView>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="tcw-kL-peE">
                                                                                     <rect key="frame" x="60" y="0.0" width="11" height="11"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="11" id="09s-qv-as5"/>
-                                                                                        <constraint firstAttribute="width" constant="11" id="GvJ-U3-w7C"/>
-                                                                                    </constraints>
                                                                                 </imageView>
                                                                             </subviews>
                                                                         </stackView>
@@ -971,6 +962,9 @@
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKE-po-gNe">
                                                                     <rect key="frame" x="303.33333333333331" y="0.0" width="32.666666666666686" height="16.333333333333332"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="16.333333333333332" id="Ali-uM-zDP"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="13"/>
                                                                     <color key="textColor" red="0.82352941176470584" green="0.82352941176470584" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -987,14 +981,16 @@
                                                             <constraint firstItem="6Mc-Li-wyc" firstAttribute="leading" secondItem="EsW-Zi-lb6" secondAttribute="leading" constant="61" id="0kz-Zn-yhN"/>
                                                             <constraint firstItem="dKE-po-gNe" firstAttribute="top" secondItem="EsW-Zi-lb6" secondAttribute="top" id="6bV-hZ-mcl"/>
                                                             <constraint firstItem="hbc-AC-voZ" firstAttribute="top" secondItem="EsW-Zi-lb6" secondAttribute="top" id="78f-Ve-o44"/>
+                                                            <constraint firstItem="6Mc-Li-wyc" firstAttribute="top" secondItem="dKE-po-gNe" secondAttribute="bottom" constant="32.666666666666671" id="JZg-rT-vaw"/>
                                                             <constraint firstAttribute="trailing" secondItem="dKE-po-gNe" secondAttribute="trailing" constant="5" id="UIW-r6-Zc1"/>
                                                             <constraint firstItem="HZk-Ic-68v" firstAttribute="leading" secondItem="hbc-AC-voZ" secondAttribute="trailing" constant="15" id="UKS-Gh-yrU"/>
                                                             <constraint firstItem="6Mc-Li-wyc" firstAttribute="top" secondItem="HZk-Ic-68v" secondAttribute="bottom" constant="13" id="Zpe-ar-wwI"/>
                                                             <constraint firstItem="HZk-Ic-68v" firstAttribute="top" secondItem="EsW-Zi-lb6" secondAttribute="top" id="bw8-14-EtS"/>
                                                             <constraint firstItem="hbc-AC-voZ" firstAttribute="leading" secondItem="EsW-Zi-lb6" secondAttribute="leading" id="fUP-Is-Ajh"/>
                                                             <constraint firstAttribute="trailing" secondItem="6Mc-Li-wyc" secondAttribute="trailing" constant="10" id="iyB-AX-Z3R"/>
+                                                            <constraint firstItem="6Mc-Li-wyc" firstAttribute="bottom" secondItem="EsW-Zi-lb6" secondAttribute="bottomMargin" id="pdp-cI-aLa"/>
                                                         </constraints>
-                                                        <size key="customSize" width="341" height="97"/>
+                                                        <size key="customSize" width="341" height="128"/>
                                                         <connections>
                                                             <outlet property="author" destination="Hd5-Dd-xbP" id="5Gc-SA-RBA"/>
                                                             <outlet property="avatar" destination="hbc-AC-voZ" id="Cgs-F5-G1c"/>
@@ -1218,11 +1214,11 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категории" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rm7-wv-u8Q">
-                                                <rect key="frame" x="32.000000000000007" y="148" width="77.666666666666686" height="19"/>
+                                                <rect key="frame" x="32" y="148" width="78" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="19" id="yuo-HK-39E"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1375,10 +1371,10 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="J1k-HZ-Gli">
-                                                                            <rect key="frame" x="0.0" y="20.666666666666657" width="105.66666666666667" height="11"/>
+                                                                            <rect key="frame" x="0.0" y="20.666666666666657" width="106" height="11"/>
                                                                             <subviews>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oiQ-qT-1py">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="32.666666666666664" height="11"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="33" height="11"/>
                                                                                     <subviews>
                                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="iCW-Ol-P4K">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="11" height="11"/>
@@ -1388,15 +1384,15 @@
                                                                                             </constraints>
                                                                                         </imageView>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWH-GI-sSc">
-                                                                                            <rect key="frame" x="16" y="0.0" width="16.666666666666671" height="11"/>
-                                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                                                            <rect key="frame" x="16" y="0.0" width="17" height="11"/>
+                                                                                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                     </subviews>
                                                                                 </stackView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="350 reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxF-2g-P9F">
-                                                                                    <rect key="frame" x="42.666666666666657" y="0.0" width="63" height="11"/>
+                                                                                    <rect key="frame" x="43" y="0.0" width="63" height="11"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                                     <nil key="highlightedColor"/>
@@ -1404,11 +1400,11 @@
                                                                             </subviews>
                                                                         </stackView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$805,10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpe-rI-CYL">
-                                                                            <rect key="frame" x="0.0" y="35.666666666666657" width="43" height="14.333333333333336"/>
+                                                                            <rect key="frame" x="0.0" y="35.666666666666657" width="43.666666666666664" height="14.333333333333336"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="14.333333333333336" id="uQi-Jj-6tr"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -1465,8 +1461,8 @@
                                                                     <rect key="frame" x="79" y="2.9999999999999982" width="180" height="26.333333333333329"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfK-mT-M4F">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="15.333333333333334"/>
-                                                                            <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="12"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="31" height="15.333333333333334"/>
+                                                                            <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="12"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <color key="highlightedColor" systemColor="labelColor"/>
                                                                         </label>
@@ -1511,8 +1507,8 @@
                                                                             </subviews>
                                                                         </stackView>
                                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EkY-e5-hjK">
-                                                                            <rect key="frame" x="0.0" y="26.333333333333332" width="22.666666666666668" height="0.0"/>
-                                                                            <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="9"/>
+                                                                            <rect key="frame" x="0.0" y="26.333333333333332" width="23.333333333333332" height="0.0"/>
+                                                                            <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="9"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -1573,23 +1569,23 @@
                                                                     <state key="normal" image="cart"/>
                                                                 </button>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="LE4-OW-KCq">
-                                                                    <rect key="frame" x="24" y="450" width="266" height="65.333333333333371"/>
+                                                                    <rect key="frame" x="24" y="450" width="266" height="66.666666666666629"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лайкнули" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1A-mn-RVw">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="56.666666666666664" height="15.333333333333334"/>
-                                                                            <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="12"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="58.666666666666664" height="15.333333333333334"/>
+                                                                            <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="12"/>
                                                                             <color key="textColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RK-vA-ZWC">
-                                                                            <rect key="frame" x="0.0" y="18.333333333333314" width="45" height="22.666666666666671"/>
-                                                                            <fontDescription key="fontDescription" name="Mulish-Light" family="Mulish" pointSize="18"/>
+                                                                            <rect key="frame" x="0.0" y="18.333333333333314" width="46.333333333333336" height="22.666666666666671"/>
+                                                                            <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="18"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZE-lJ-QyY">
-                                                                            <rect key="frame" x="0.0" y="44" width="13" height="21.333333333333329"/>
-                                                                            <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
+                                                                            <rect key="frame" x="0.0" y="44" width="13" height="22.666666666666671"/>
+                                                                            <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="18"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -3213,7 +3209,7 @@ sed do eiusmod tempor ut labore</string>
             <color red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
