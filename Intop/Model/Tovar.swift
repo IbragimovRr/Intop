@@ -57,7 +57,7 @@ class Tovar {
                 for x in 0...count - 1 {
                     let id = json[x]["product_id"].intValue
                     self.getTovarById(productId: id) { product in
-                        let product = Product(title: product.title, priceUSD: product.priceUSD, productID: id, mainImages: product.mainImages, likes: product.likes, author: product.author)
+                        let product = Product(title: product.title, priceUSD: product.priceUSD, productID: id, mainImages: product.mainImages, likes: product.likes, meLike: false , author: product.author)
                         products.append(product)
                         if x == count - 1{
                             completion(products)

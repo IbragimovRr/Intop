@@ -37,6 +37,7 @@ struct Product {
     var mainImages:String? = ""
     var likes: Int? = 0
     var description: String? = ""
+    var meLike: Bool = false
     var author: Author = Author()
 }
 

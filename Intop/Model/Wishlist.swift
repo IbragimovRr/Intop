@@ -44,7 +44,21 @@ class Wishlist {
         }
     }
     
-    func addFavorites(_ product: Product){
+    func getFavoritesByID(_ productID:Int, completion: @escaping (_ likesCount:Int) -> ()) {
+            let url = Constants.url + "likes_count/\(productID)"
+        AF.request(url, method: .get).responseData { responseData in
+            switch responseData.result {
+            case .success(let value):
+                let json = JSON(value)
+                let likesCount = json["likes_count"].intValue
+                completion(likesCount)
+            case .failure(_):
+                print("error")
+            }
+        }
+    }
+    
+    func addFavorites(_ product: Product, method:HTTPMethod){
         User().getInfoUser(User.phoneNumber) { info in
             let id = info.id
             let url = Constants.url + "likes"
@@ -52,15 +66,10 @@ class Wishlist {
                 "user_id": id,
                 "product_id": product.productID
             ]
-            print(url,parameters,self.headers)
-            AF.request(url, method: .post, parameters: parameters, headers: self.headers).responseData { responseData in
-                print(id,product.productID)
-                print(responseData.response?.statusCode)
+            AF.request(url, method: method, parameters: parameters,encoding: JSONEncoding.default, headers: self.headers).responseData { responseData in
                 switch responseData.result {
                 case .success(let value):
-                    let json = JSON(value)
-                    let result = json["details"].stringValue
-                    print(result)
+                    print(method)
                 case .failure(_):
                     print("Oшибка")
                 }
