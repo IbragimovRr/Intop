@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 class Comments {
-    func getCommentsByProductId(productId: Int, completion: @escaping (_ result: [CommentsStruct]) -> ()) {
+    func getCommentsByProductId(limit: Int, productId: Int, completion: @escaping (_ result: [CommentsStruct]) -> ()) {
             let url = Constants.url + "comments/\(productId)"
             AF.request(url, method: .get).responseData { responseData in
                 switch responseData.result {
@@ -20,14 +20,21 @@ class Comments {
                     var arrayComments = [CommentsStruct]()
                     let count = json.count
                     guard count != 0 else {return}
+                    
                     for x in 0...count - 1{
                         let comment = json[x]["text"].stringValue
                         let createdAt = json[x]["created_at"].stringValue
                         let phoneNumber = json[x]["user_phone_number"].stringValue
-                        let comments = CommentsStruct(comment: comment, createdAt: createdAt, phoneNumber: phoneNumber)
+                        let commentsCount = json[x]["comments_count"].intValue
+                        let comments = CommentsStruct(comment: comment, createdAt: createdAt, phoneNumber: phoneNumber, commentsCount: commentsCount)
                         arrayComments.append(comments)
+                        if x == limit && limit != 0 {
+                            completion(arrayComments)
+                        }
                     }
-                    completion(arrayComments)
+                    if limit == 0{
+                        completion(arrayComments)
+                    }
                 case .failure(_):
                     print("error")
                 }

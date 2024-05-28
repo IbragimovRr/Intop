@@ -35,6 +35,8 @@ class HomeViewController: UIViewController {
         scrollView.delegate = self
         segment = SegmentFilter(firstBtn: instagram, secondBtn: multimedia)
         
+        
+        
         Categories().getCategories { result in
             
         }
@@ -149,7 +151,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
         cell.priceLbl.text = "$\(products[indexPath.row].priceUSD!)"
-        cell.reviewsCountLbl.text = "\(products[indexPath.row].reviews!) reviews"
+        Rating().getRatingByProductId(productId: products[indexPath.row].productID) { result in
+            cell.reviewsCountLbl.text = "\(result.totalVotes) reviews"
+            cell.ratingLbl.text = "\(result.rating)"
+        }
+        
         //Button
         cell.imBtn.addTarget(self, action: #selector(clickProduct), for: .touchUpInside)
         cell.imBtn.tag = indexPath.row

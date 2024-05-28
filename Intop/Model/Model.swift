@@ -15,10 +15,15 @@ enum ShopRole:String {
     case buyerLegal = "buyer_legal"
 }
 
+struct RatingStruct {
+    var rating: Float
+    var totalVotes: Int
+}
 struct CommentsStruct {
     var comment: String
     var createdAt: String
     var phoneNumber: String
+    var commentsCount: Int
 }
 
 struct JSONUser {
@@ -32,7 +37,6 @@ struct Product {
     var title: String? = ""
     var priceUSD: Int? = 0
     var image: [String]? = [""]
-    var reviews: Int? = 0
     var productID:Int
     var mainImages:String? = ""
     var likes: Int? = 0
