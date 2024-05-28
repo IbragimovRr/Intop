@@ -11,6 +11,11 @@ import SDWebImage
 class ProductViewController: UIViewController {
     
     
+    @IBOutlet weak var sizeCollectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var commentLbl: UILabel!
+    @IBOutlet weak var ConditionIfNil: UILabel!
+    @IBOutlet weak var descriptionIfNil: UILabel!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var commentHeight: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -31,9 +36,13 @@ class ProductViewController: UIViewController {
     var idProduct: Int?
     var product: Product?
     var comments = [CommentsStruct]()
+    var sizes = [String]()
+    var rating: RatingStruct?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(idProduct, 232)
         performSegue(withIdentifier: "loading", sender: self)
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
@@ -42,47 +51,96 @@ class ProductViewController: UIViewController {
         commentCollectionView.dataSource = self
         commentCollectionView.delegate = self
         scrollView.delegate = self
+        getComments(limit: 1)
+        getTovar()
+        getRating()
+        
+        self.view.layoutSubviews()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        changeCollectionViewHeight()
+        sizeCollectionViewHeight.constant = 0
+    }
+    
+    func getRating() {
+        Rating().getRatingByProductId(productId: idProduct!) { result in
+            print(result)
+            self.rating = result
+        }
+    }
+    
+    func getTovar() {
         Tovar().getTovarById(productId: idProduct!) { result in
             self.product = result
             self.addAuthorInfo()
             self.addTovarInfo()
             self.dismiss(animated: false)
         }
-        Comments().getCommentsByProductId(productId: idProduct!) { result in
+    }
+    func getComments(limit: Int) {
+        Comments().getCommentsByProductId(limit: limit, productId: idProduct!) { result in
             self.comments = result
             self.commentCollectionView.reloadData()
         }
-        
-        self.view.layoutSubviews()
     }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        changeCollectionViewHeight()
-    }
+    
     func addAuthorInfo() {
         guard let product = product else {return}
         firstName.text = product.author.firstName
         avatar.sd_setImage(with: URL(string: product.author.avatar))
 
     }
+    
     func addTovarInfo() {
         guard let product = product else {return}
+        guard let rating = rating else {return}
         priceUSDLbl.text = "$\(product.priceUSD!)"
         titleLbl.text = product.title
-        reviewsLbl.text = "\(product.reviews!) reviews"
-        descriptionLbl.text = product.description
-        if product.likes! > 0 {
-            likesCountLbl.text = "Лайкнул кто-то и \(product.likes!) других"
+        reviewsLbl.text = "\(rating.totalVotes) reviews"
+        ratingLbl.text = "\(rating.rating)"
+        
+        design()
+        imageCollectionView.reloadData()
+    }
+    
+    func design() {
+        guard let product = product else {return}
+        
+        if sizes.count == 0 {
+            sizeLbl.isHidden = true
+            sizeCollectionView.isHidden = true
         }else {
-            likesCountLbl.text = "Никто не лайкнул"
+            sizeLbl.isHidden = false
+            sizeCollectionView.isHidden = false
         }
+        
         if product.meLike == true {
             likeBtn.setImage(UIImage(named: "likeFull2"), for: .normal)
         }else {
             likeBtn.setImage(UIImage(named: "like2"), for: .normal)
         }
-        imageCollectionView.reloadData()
+        
+        
+        
+
+        ConditionIfNil.isHidden = true
+        
+        if product.description != "" || product.description != nil {
+            descriptionLbl.text = product.description
+        }else {
+            descriptionIfNil.isHidden = true
+        }
+        
+        if product.likes! > 0 {
+            likesCountLbl.text = "Лайкнул кто-то и \(product.likes!) других"
+        }else {
+            likesCountLbl.text = "Никто не лайкнул"
+        }
+        self.view.layoutSubviews()
     }
+    
     func changeCollectionViewHeight() {
         commentHeight.constant = commentCollectionView.contentSize.height
     }
@@ -98,14 +156,19 @@ class ProductViewController: UIViewController {
             Wishlist().addFavorites(product, method: .delete, completion: nil)
             likeBtn.setImage(UIImage(named: "like2"), for: .normal)
         }
-//        Wishlist().getFavoritesByID(product.productID) { likesCount in
-//            DispatchQueue.main.async {
-//                self.product!.likes = likesCount
-//                self.addTovarInfo()
-//            }
-//        }
+
     }
     
+    @IBAction func allCommentsBtn(_ sender: UIButton) {
+        getComments(limit: 0)
+        stackView.isHidden = true
+            
+    }
+    
+    @IBAction func allCommentsBtn2(_ sender: UIButton) {
+        getComments(limit: 0)
+        stackView.isHidden = true
+    }
 }
 
 extension ProductViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -115,7 +178,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
             guard product?.image != nil else {return 0}
             return product!.image!.count
         }else if collectionView == sizeCollectionView {
-            return 10
+            return 2
         }else {
             return comments.count
         }
@@ -136,7 +199,12 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
                 cell.author.text = info.name
                 cell.avatar.sd_setImage(with: URL(string: info.avatar))
             })
-            cell.createdAt.text = comments[indexPath.row].createdAt
+            let dateStr = comments[indexPath.row].createdAt
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "DDD, dd MMM yyyy HH:mm:ss GMT"
+            let date = dateFormatter.date(from: dateStr)
+            dateFormatter.dateFormat = "h:mm a"
+//            print(dateFormatter.string(from:date!))
             return cell
         }
     }
@@ -152,4 +220,3 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
     
     
 }
-

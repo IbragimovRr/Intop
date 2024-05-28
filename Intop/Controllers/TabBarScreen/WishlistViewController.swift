@@ -14,11 +14,18 @@ class WishlistViewController: UIViewController {
     
     var wishlists = [Favorites]()
     var selectId = 0
+    var products = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         wishlistCollectionView.delegate = self
         wishlistCollectionView.dataSource = self
+        
+        Tovar().getAllTovars { product in
+            self.products = product
+            self.wishlistCollectionView.reloadData()
+        }
+        
         Wishlist().getFavorites { result in
             self.wishlists = result
             self.wishlistCollectionView.reloadData()
@@ -49,7 +56,11 @@ class WishlistViewController: UIViewController {
             let cell = wishlistCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WishlistCollectionViewCell
             cell.priceLbl.text = "$\(wishlists[indexPath.row].price)"
             cell.itemName.text = wishlists[indexPath.row].title
-            cell.reviewsCountLbl.text = "\(wishlists[indexPath.row].reviews) reviews"
+            Rating().getRatingByProductId(productId: wishlists[indexPath.row].tovarId) { result in
+                cell.reviewsCountLbl.text = "\(result.totalVotes) reviews"
+                cell.ratingLbl.text = "\(result.rating)"
+            }
+            
             cell.image.sd_setImage(with: URL(string: wishlists[indexPath.row].mainImage) )
             return cell
         }

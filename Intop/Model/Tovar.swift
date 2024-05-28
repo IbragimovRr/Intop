@@ -36,7 +36,7 @@ class Tovar {
                     }
                 }
                 let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor)
-                var products = Product(title: title, priceUSD: priceUSD, image: images, reviews: reviews, productID: productId, mainImages: imageMain, likes: likes, description: description, author: author)
+                var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, description: description, author: author)
                 
                 self.checkMeLikeProduct(products) { meLike in
                     products.meLike = meLike
