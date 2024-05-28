@@ -64,13 +64,17 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func instagramBtn(_ sender: Any) {
-        segment.onFirst()
-        lentaTovarsCollectionView.reloadData()
+        DispatchQueue.main.async {
+            self.segment.onFirst()
+            self.lentaTovarsCollectionView.reloadData()
+        }
     }
     
     @IBAction func multimedia(_ sender: Any) {
-        segment.onSecond()
-        lentaTovarsCollectionView.reloadData()
+        DispatchQueue.main.async {
+            self.segment.onSecond()
+            self.lentaTovarsCollectionView.reloadData()
+        }
     }
     
     
@@ -118,7 +122,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
         Wishlist().getFavoritesByID(products[indexPath.row].productID) { likesCount in
-            cell.likes.text = "Лайкнули \(likesCount)"
+            DispatchQueue.main.async {
+                cell.likes.text = "Лайкнули \(likesCount)"
+            }
         }
         cell.nameAuthor.text = products[indexPath.row].author.firstName
         cell.imageAuthor.sd_setImage(with: URL(string: products[indexPath.row].author.avatar))
@@ -170,6 +176,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

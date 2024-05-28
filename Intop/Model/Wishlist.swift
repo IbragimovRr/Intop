@@ -25,7 +25,7 @@ class Wishlist {
                 case .success(let value):
                     let json = JSON(value)
                     let count = json.count
-                    guard count != 0 else {return}
+                    guard count != 0 else {completion([]); return}
                     var arrayFavorites = [Favorites]()
                     for x in 0...count - 1 {
                         let title = json[x]["title"].stringValue
@@ -45,15 +45,17 @@ class Wishlist {
     }
     
     func getFavoritesByID(_ productID:Int, completion: @escaping (_ likesCount:Int) -> ()) {
+        DispatchQueue.global(qos: .userInteractive).async {
             let url = Constants.url + "likes_count/\(productID)"
-        AF.request(url, method: .get).responseData { responseData in
-            switch responseData.result {
-            case .success(let value):
-                let json = JSON(value)
-                let likesCount = json["likes_count"].intValue
-                completion(likesCount)
-            case .failure(_):
-                print("error")
+            AF.request(url, method: .get).responseData { responseData in
+                switch responseData.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    let likesCount = json["likes_count"].intValue
+                    completion(likesCount)
+                case .failure(_):
+                    print("error")
+                }
             }
         }
     }
@@ -69,7 +71,7 @@ class Wishlist {
             AF.request(url, method: method, parameters: parameters,encoding: JSONEncoding.default, headers: self.headers).responseData { responseData in
                 switch responseData.result {
                 case .success(let value):
-                    completion!()
+                    completion?()
                 case .failure(_):
                     print("Oшибка")
                 }
