@@ -78,3 +78,6 @@ class SegmentFilter:Segment {
         self.secondBtn = secondBtn
     }
 }
+
+
+

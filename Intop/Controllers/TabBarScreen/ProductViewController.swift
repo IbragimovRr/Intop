@@ -11,6 +11,7 @@ import SDWebImage
 class ProductViewController: UIViewController {
     
     
+    @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var commentHeight: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var commentCollectionView: UICollectionView!
@@ -33,6 +34,7 @@ class ProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        performSegue(withIdentifier: "loading", sender: self)
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
         sizeCollectionView.dataSource = self
@@ -44,6 +46,7 @@ class ProductViewController: UIViewController {
             self.product = result
             self.addAuthorInfo()
             self.addTovarInfo()
+            self.dismiss(animated: false)
         }
         Comments().getCommentsByProductId(productId: idProduct!) { result in
             self.comments = result
@@ -73,11 +76,36 @@ class ProductViewController: UIViewController {
         }else {
             likesCountLbl.text = "Никто не лайкнул"
         }
+        if product.meLike == true {
+            likeBtn.setImage(UIImage(named: "likeFull2"), for: .normal)
+        }else {
+            likeBtn.setImage(UIImage(named: "like2"), for: .normal)
+        }
         imageCollectionView.reloadData()
     }
     func changeCollectionViewHeight() {
         commentHeight.constant = commentCollectionView.contentSize.height
     }
+    
+    @IBAction func addLike(_ sender: UIButton) {
+        guard let product = product else {return}
+        if product.meLike == false {
+            self.product!.meLike = true
+            Wishlist().addFavorites(product, method: .post, completion: nil)
+            likeBtn.setImage(UIImage(named: "likeFull2"), for: .normal)
+        }else {
+            self.product!.meLike = false
+            Wishlist().addFavorites(product, method: .delete, completion: nil)
+            likeBtn.setImage(UIImage(named: "like2"), for: .normal)
+        }
+//        Wishlist().getFavoritesByID(product.productID) { likesCount in
+//            DispatchQueue.main.async {
+//                self.product!.likes = likesCount
+//                self.addTovarInfo()
+//            }
+//        }
+    }
+    
 }
 
 extension ProductViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

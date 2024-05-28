@@ -15,7 +15,6 @@ class Tovar {
         let url = Constants.url + "products/\(productId)"
         AF.request(url, method: .get).responseData { responseData in
             switch responseData.result {
-                
             case .success(let value):
                 let json = JSON(value)
                 let title = json["title"].stringValue
@@ -29,6 +28,7 @@ class Tovar {
                 let imageMain = json["main_image_url"].stringValue
                 var images = [String]()
                 let count = json["additional_images_json"].count
+                
                 if count != 0 {
                     for x in 0...count - 1 {
                         let image = json["additional_images_json"][x].stringValue
@@ -37,6 +37,7 @@ class Tovar {
                 }
                 let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor)
                 var products = Product(title: title, priceUSD: priceUSD, image: images, reviews: reviews, productID: productId, mainImages: imageMain, likes: likes, description: description, author: author)
+                
                 self.checkMeLikeProduct(products) { meLike in
                     products.meLike = meLike
                     completion(products)
@@ -50,10 +51,9 @@ class Tovar {
     func checkMeLikeProduct(_ product: Product, completion:@escaping (_ meLike:Bool) -> ()) {
         Wishlist().getFavorites { result in
             var resultBool = false
-            for x in 0...result.count - 1 {
-                if product.productID == result[x].tovarId {
+            for x in result {
+                if product.productID == x.tovarId {
                     resultBool = true
-                    print(true)
                 }
             }
             completion(resultBool)
@@ -64,7 +64,6 @@ class Tovar {
         let url = Constants.url + "products"
         AF.request(url, method: .get).responseData { responseData in
             switch responseData.result {
-                
             case .success(let value):
                 let json = JSON(value)
                 let count = json.count
@@ -73,16 +72,14 @@ class Tovar {
                 for x in 0...count - 1 {
                     let id = json[x]["product_id"].intValue
                     self.getTovarById(productId: id) { product in
-                        let product = Product(title: product.title, priceUSD: product.priceUSD, productID: id, mainImages: product.mainImages, likes: product.likes, author: product.author)
+                        let product = Product(title: product.title, priceUSD: product.priceUSD, productID: id, mainImages: product.mainImages,likes: product.likes, meLike: product.meLike, author: product.author)
                         products.append(product)
-                        if x == count - 1{
-                            completion(products)
-                        }
+                        if x == count - 1{ completion(products) }
                     }
                     
                 }
-            case .failure(_):
-                print("")
+            case .failure(let error):
+                print(error)
             }
         }
     }
