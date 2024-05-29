@@ -40,6 +40,9 @@ struct Product {
     var productID:Int
     var mainImages:String? = ""
     var likes: Int? = 0
+    var viewsCount: Int? = 0
+    var commentsCount: Int? = 0
+    var sharesCount: Int? = 0
     var description: String? = ""
     var meLike: Bool = false
     var author: Author = Author()
