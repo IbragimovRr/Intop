@@ -26,6 +26,9 @@ class Tovar {
                 let avatarAuthor = json["author"]["avatar_url"].stringValue
                 let likes = json["likes_count"].intValue
                 let imageMain = json["main_image_url"].stringValue
+                let viewsCount = json["views_count"].intValue
+                let commentsCount = json["comments_count"].intValue
+                let sharesCount = json["shares_count"].intValue
                 var images = [String]()
                 let count = json["additional_images_json"].count
                 
@@ -36,7 +39,7 @@ class Tovar {
                     }
                 }
                 let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor)
-                var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, description: description, author: author)
+                var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, viewsCount: viewsCount,commentsCount: commentsCount,sharesCount: sharesCount, description: description, author: author)
                 
                 self.checkMeLikeProduct(products) { meLike in
                     products.meLike = meLike
@@ -72,7 +75,7 @@ class Tovar {
                 for x in 0...count - 1 {
                     let id = json[x]["product_id"].intValue
                     self.getTovarById(productId: id) { product in
-                        let product = Product(title: product.title, priceUSD: product.priceUSD, productID: id, mainImages: product.mainImages,likes: product.likes, meLike: product.meLike, author: product.author)
+                        let product = Product(title: product.title, priceUSD: product.priceUSD, productID: id, mainImages: product.mainImages, likes: product.likes,viewsCount: product.viewsCount,commentsCount: product.commentsCount,sharesCount: product.sharesCount,  meLike: product.meLike, author: product.author)
                         products.append(product)
                         if x == count - 1{ completion(products) }
                     }
