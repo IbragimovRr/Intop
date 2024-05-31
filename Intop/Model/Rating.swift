@@ -27,4 +27,8 @@ class Rating {
             }
         }
     }
+    
+    func getRatingByUserId(productId: Int, completion: @escaping (_ result:RatingStruct) ->()) {
+        let url = Constants.url + "products/rating?product_id=\(productId)"
+    }
 }
