@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 
 enum ShopRole:String {
@@ -65,10 +66,24 @@ struct Favorites {
 }
 
 struct Category {
-    var image:String?
-    var name:String
-    var subCategories: [Category]?
+    var id: Int
+    var image: String?
+    var name: String
+    var parentID: Int
+    var subCategories = [Category]()
+    
+    init(json: JSON) {
+        id = json["id"].intValue
+        image = json["image_url"].string
+        name = json["name"].stringValue
+        parentID = json["parent_category_id"].intValue
+        
+        if let subcategories = json["subcategories"].dictionary {
+            subCategories = subcategories.map { Category(json: $0.1) }
+        }
+    }
 }
+
 
 
 enum SegmentInst {

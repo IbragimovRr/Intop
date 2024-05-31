@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     
     var segment: SegmentFilter!
     var products = [Product]()
+    var category = [Category]()
     var selectProduct = Product(productID: 0)
     var selectLike = UIButton()
     
@@ -38,8 +39,10 @@ class HomeViewController: UIViewController {
         
         
         Categories().getCategories { result in
-            
+            self.category = result
+            self.categoriesCollectionView.reloadData()
         }
+        
         Tovar().getAllTovars { product in
             self.products = product
             self.lentaTovarsCollectionView.reloadData()
@@ -98,6 +101,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == lentaTovarsCollectionView {
             return products.count
+        }else if collectionView == categoriesCollectionView {
+            return category.count
         }else {
             return 10
         }
@@ -115,6 +120,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categories", for: indexPath) as! CategoriesCollectionViewCell
+            cell.im.sd_setImage(with: URL(string: category[indexPath.row].image ?? ""))
+            cell.text.text = category[indexPath.row].name
             return cell
         }
     }
@@ -192,6 +199,19 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
     }
+    
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
+//        if bottomEdge >= scrollView.contentSize.height {
+//            
+//            Tovar().getAllTovars { productsNew in
+//                self.products += productsNew
+//                self.lentaTovarsCollectionView.reloadData()
+//                self.lentaTovarsCollectionView.reloadSections(IndexSet(integer: 0))
+//            }
+//        }
+//    }
+
     
     // MARK: - UIButton instagram Cell
     
