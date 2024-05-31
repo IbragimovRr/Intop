@@ -19,6 +19,7 @@ struct RatingStruct {
     var rating: Float
     var totalVotes: Int
 }
+
 struct CommentsStruct {
     var comment: String
     var createdAt: String
@@ -64,15 +65,11 @@ struct Favorites {
 }
 
 struct Category {
-    var image:String
+    var image:String?
     var name:String
-    var subCategories: [SubCategories]
+    var subCategories: [Category]?
 }
 
-struct SubCategories {
-    var image:String
-    var name:String
-}
 
 enum SegmentInst {
     case instagram
