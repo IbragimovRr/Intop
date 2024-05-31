@@ -21,7 +21,8 @@ class WishlistCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ratingLbl: UILabel!
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var like: UIButton!
+    @IBOutlet weak var goToAccount: UIButton!
     @IBOutlet weak var image: UIImageView!
-    
+
     
 }

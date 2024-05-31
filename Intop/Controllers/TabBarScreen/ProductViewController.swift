@@ -30,6 +30,7 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var conditionLbl: UILabel!
     
+    var userId = 0
     var idProduct: Int?
     var product: Product?
     var comments = [CommentsStruct]()
@@ -128,6 +129,10 @@ class ProductViewController: UIViewController {
         commentHeight.constant = commentCollectionView.contentSize.height
     }
     
+    @IBAction func goToAccount(_ sender: UIButton) {
+        userId = (product?.author.authorId)!
+    }
+    
     @IBAction func addLike(_ sender: UIButton) {
         guard let product = product else {return}
         if product.meLike == false {
@@ -182,7 +187,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
             dateFormatter.dateFormat = "DDD, dd MMM yyyy HH:mm:ss GMT"
             let date = dateFormatter.date(from: dateStr)
             dateFormatter.dateFormat = "h:mm a"
-//            print(dateFormatter.string(from:date!))
+            //            print(dateFormatter.string(from:date!))
             return cell
         }
     }
@@ -194,5 +199,12 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToAccount" {
+            let vc = segue.destination as! AccountViewController
+            vc.userId = userId
+        }
+        
+    }
 }

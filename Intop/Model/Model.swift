@@ -32,6 +32,11 @@ struct JSONUser {
     var id:Int
     var name:String
     var avatar:String
+    var subscribers: Int? = 0
+    var subscriptions: Int? = 0
+    var posts: Int? = 0
+    var phoneNumber: String? = ""
+    var shopName: String
 }
 
 struct Product {
@@ -54,6 +59,7 @@ struct Author {
     var authorId:Int = 0
     var firstName:String = ""
     var avatar: String = ""
+    
 }
 
 struct Favorites {

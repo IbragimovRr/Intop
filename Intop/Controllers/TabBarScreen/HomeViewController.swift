@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var storiesCollectionView: UICollectionView!
     
+    var userId: Int?
     var segment: SegmentFilter!
     var products = [Product]()
     var selectProduct = Product(productID: 0)
@@ -64,6 +65,7 @@ class HomeViewController: UIViewController {
     func changeHeightCollection() {
         lentaHeight.constant = lentaTovarsCollectionView.contentSize.height
     }
+    
     
     @IBAction func instagramBtn(_ sender: Any) {
         DispatchQueue.main.async {
@@ -133,7 +135,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         //Button
         cell.like.addTarget(self, action: #selector(clickLike), for: .touchUpInside)
         cell.imBtn.addTarget(self, action: #selector(clickProduct), for: .touchUpInside)
-        
+        cell.goToAccount.addTarget(self, action: #selector(clickAccount), for: .touchUpInside)
+        cell.goToAccount.tag = indexPath.row
         cell.imBtn.tag = indexPath.row
         cell.like.tag = indexPath.row
         if products[indexPath.row].meLike == true {
@@ -181,7 +184,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == instagram {
+            userId = products[indexPath.row].productID
+            performSegue(withIdentifier: "goToAccount2", sender: self)
+        }
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -190,8 +198,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let vc = segue.destination as! ProductViewController
             vc.idProduct = selectProduct.productID
         }
+        if segue.identifier == "goToAccount2" {
+            let vc = segue.destination as! AccountViewController
+            vc.userId = userId
+        }
         
     }
+   
+        
+        
     
     // MARK: - UIButton instagram Cell
     
@@ -213,6 +228,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     @objc func clickProduct(sender: UIButton) {
         selectProduct = products[sender.tag]
         performSegue(withIdentifier: "product", sender: self)
+    }
+    @objc func clickAccount(sender: UIButton) {
+        userId = products[sender.tag].author.authorId
+        performSegue(withIdentifier: "goToAccount2", sender: self)
     }
     
     
