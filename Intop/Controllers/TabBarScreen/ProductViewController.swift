@@ -11,6 +11,7 @@ import SDWebImage
 class ProductViewController: UIViewController {
     
     
+    @IBOutlet weak var emptyComment: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var commentLbl: UILabel!
     @IBOutlet weak var ConditionIfNil: UILabel!
@@ -40,7 +41,6 @@ class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(idProduct, 232)
         performSegue(withIdentifier: "loading", sender: self)
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
@@ -57,6 +57,18 @@ class ProductViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         changeCollectionViewHeight()
+    }
+    
+    func isEmptyComments(comments: [CommentsStruct]) {
+        if comments.isEmpty {
+            emptyComment.isHidden = false
+            commentCollectionView.isHidden = true
+            stackView.isHidden = true
+        }else{
+            emptyComment.isHidden = true
+            commentCollectionView.isHidden = false
+            stackView.isHidden = false
+        }
     }
     
     func getRating() {
@@ -76,6 +88,7 @@ class ProductViewController: UIViewController {
     }
     func getComments(limit: Int) {
         Comments().getCommentsByProductId(limit: limit, productId: idProduct!) { result in
+            self.isEmptyComments(comments: result)
             self.comments = result
             self.commentCollectionView.reloadData()
         }
@@ -122,6 +135,7 @@ class ProductViewController: UIViewController {
         }else {
             likesCountLbl.text = "Никто не лайкнул"
         }
+        
         self.view.layoutSubviews()
     }
     

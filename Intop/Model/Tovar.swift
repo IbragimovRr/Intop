@@ -64,7 +64,8 @@ class Tovar {
     }
     
     func getAllTovars(completion:@escaping ([Product]) -> ()) {
-        let url = Constants.url + "products"
+        let url = Constants.url + "products?prod_name=\(Filter.search ?? "")&currency=\(Filter.valuta ?? "")&is_ascending\(String(describing: Filter.isAscending))=&limit=&price_min=\(Filter.priceOt ?? 0)&price_max=\(Filter.priceDo ?? 1000000)&is_negotiable\(String(describing: Filter.isNegotiable))=&is_nearby=\(String(describing: Filter.isNearby))&is_wholesale=&is_installment=&is_retail=&is_new=\(String(describing: Filter.isNew))&is_seller_verified=\(String(describing: Filter.isSellerVerified))"
+        print(url)
         AF.request(url, method: .get).responseData { responseData in
             switch responseData.result {
             case .success(let value):
