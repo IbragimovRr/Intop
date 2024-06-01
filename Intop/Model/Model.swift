@@ -90,6 +90,17 @@ struct Category {
     }
 }
 
+struct Filter {
+    static var search:String?
+    static var isAscending: Bool?
+    static var isNearby:Bool?
+    static var priceOt:Int?
+    static var priceDo: Int?
+    static var isNegotiable: Bool?
+    static var valuta: String?
+    static var isNew: Bool?
+    static var isSellerVerified:Bool?
+}
 
 
 enum SegmentInst {

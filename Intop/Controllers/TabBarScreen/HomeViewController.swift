@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var search: UITextField!
     @IBOutlet weak var lentaHeight: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var lentaTovarsCollectionView: UICollectionView!
@@ -36,7 +37,7 @@ class HomeViewController: UIViewController {
         storiesCollectionView.dataSource = self
         scrollView.delegate = self
         segment = SegmentFilter(firstBtn: instagram, secondBtn: multimedia)
-        
+        search.delegate = self
         
         
         Categories().getCategories { result in
@@ -44,12 +45,7 @@ class HomeViewController: UIViewController {
             self.categoriesCollectionView.reloadData()
         }
         
-        Tovar().getAllTovars { product in
-            self.products = product
-            self.lentaTovarsCollectionView.reloadData()
-            self.lentaTovarsCollectionView.reloadSections(IndexSet(integer: 0))
-        }
-        
+        getAllTovars()
         self.view.layoutSubviews()
     }
     
@@ -63,6 +59,15 @@ class HomeViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         changeHeightCollection()
+    }
+    
+    func getAllTovars() {
+        Tovar().getAllTovars { product in
+            self.products = product
+            self.lentaTovarsCollectionView.reloadData()
+            self.lentaTovarsCollectionView.reloadSections(IndexSet(integer: 0))
+        }
+        self.view.layoutSubviews()
     }
     
     func changeHeightCollection() {
@@ -98,6 +103,11 @@ class HomeViewController: UIViewController {
     @IBAction func checkCategories(_ sender: Any) {
         Sign().goToSign(self, completion: nil)
     }
+    
+    @IBAction func tap(_ sender: UITapGestureRecognizer) {
+        search.resignFirstResponder()
+    }
+    
 }
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -219,11 +229,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 //        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
 //        if bottomEdge >= scrollView.contentSize.height {
 //            
-//            Tovar().getAllTovars { productsNew in
-//                self.products += productsNew
-//                self.lentaTovarsCollectionView.reloadData()
-//                self.lentaTovarsCollectionView.reloadSections(IndexSet(integer: 0))
-//            }
+//            getAllTovars()
 //        }
 //    }
 
@@ -256,4 +262,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
 }
-
+extension HomeViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        Filter.search = textField.text
+        getAllTovars()
+        textField.resignFirstResponder()
+        return true
+    }
+    
+}
