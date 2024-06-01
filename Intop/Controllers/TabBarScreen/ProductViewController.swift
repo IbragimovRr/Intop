@@ -11,6 +11,8 @@ import SDWebImage
 class ProductViewController: UIViewController {
     
     
+    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var viewComment: Border!
     @IBOutlet weak var emptyComment: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var commentLbl: UILabel!
@@ -42,12 +44,13 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
         
         performSegue(withIdentifier: "loading", sender: self)
+        viewComment.layer.borderColor = UIColor(named: "GrayMain")?.cgColor
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
         commentCollectionView.dataSource = self
         commentCollectionView.delegate = self
         scrollView.delegate = self
-        getComments(limit: 1)
+        getComments(limit: 0)
         getTovar()
         getRating()
         
@@ -67,7 +70,11 @@ class ProductViewController: UIViewController {
         }else{
             emptyComment.isHidden = true
             commentCollectionView.isHidden = false
-            stackView.isHidden = false
+            if comments.count <= 2 {
+                stackView.isHidden = true
+            }else {
+                stackView.isHidden = false
+            }
         }
     }
     
@@ -136,6 +143,7 @@ class ProductViewController: UIViewController {
             likesCountLbl.text = "Никто не лайкнул"
         }
         
+        
         self.view.layoutSubviews()
     }
     
@@ -161,6 +169,23 @@ class ProductViewController: UIViewController {
 
     }
     
+    @IBAction func postComment(_ sender: UIButton) {
+        if UD().getCurrentUser() == true {
+            if commentTextField.text != "" {
+                Comments().postComment(productId: idProduct!, phoneNumber: User.phoneNumber, text: commentTextField.text!)
+                commentTextField.text = ""
+                commentCollectionView.reloadData()
+            }
+        }else{
+            let alert = UIAlertController(title: "Требуется регистрация", message: "Зарегистрируйтесь, чтобы оставить отзыв", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "регистрация", style: .default, handler: { _ in
+                self.performSegue(withIdentifier: "goToRegister", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
     @IBAction func allCommentsBtn(_ sender: UIButton) {
         getComments(limit: 0)
         stackView.isHidden = true
@@ -170,6 +195,10 @@ class ProductViewController: UIViewController {
     @IBAction func allCommentsBtn2(_ sender: UIButton) {
         getComments(limit: 0)
         stackView.isHidden = true
+    }
+    
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -196,12 +225,19 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
                 cell.author.text = info.name
                 cell.avatar.sd_setImage(with: URL(string: info.avatar))
             })
-            let dateStr = comments[indexPath.row].createdAt
+            let dateString = "Sat, 01 Jan 2022 18:30:00 GMT"
+
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "DDD, dd MMM yyyy HH:mm:ss GMT"
-            let date = dateFormatter.date(from: dateStr)
-            dateFormatter.dateFormat = "h:mm a"
-            //            print(dateFormatter.string(from:date!))
+            dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+            let date = dateFormatter.date(from: dateString)
+
+            dateFormatter.dateFormat = "dd/MM"
+            if let formattedDate = date {
+                let finalDate = dateFormatter.string(from: formattedDate)
+                print(finalDate)
+            }else{
+                print("Error")
+            }
             return cell
         }
     }
@@ -209,7 +245,10 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
         if collectionView == imageCollectionView {
             return CGSize(width: UIScreen.main.bounds.width, height: 375)
         }else {
-            return CGSize(width: UIScreen.main.bounds.width - 52, height: 128)
+            let text = comments[indexPath.row].comment
+            let width = UIScreen.main.bounds.width - 52
+            let height = text.height(withConstrainedWidth: width, font: UIFont.systemFont(ofSize: 13)) + 60
+            return CGSize(width: width, height: height)
         }
     }
     

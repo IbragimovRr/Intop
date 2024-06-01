@@ -29,6 +29,7 @@ class Comments {
                         let comments = CommentsStruct(comment: comment, createdAt: createdAt, phoneNumber: phoneNumber, commentsCount: commentsCount)
                         arrayComments.append(comments)
                         if x == limit && limit != 0 {
+                            print(limit)
                             completion(arrayComments)
                         }
                     }
@@ -42,4 +43,23 @@ class Comments {
             }
             
         }
+    func postComment(productId: Int, phoneNumber: String, text: String) {
+        let url = Constants.url + "comments"
+        let parameters = [
+            "product_id": productId,
+            "user_phone_number":phoneNumber,
+            "text":text
+        ] as [String : Any]
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseData { responseData in
+            switch responseData.result {
+                
+            case .success(let value):
+                print(55)
+            case .failure(_):
+                print("error")
+            }
+        }
+        
+        
+    }
     }
