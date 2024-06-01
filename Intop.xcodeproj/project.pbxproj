@@ -37,6 +37,7 @@
 		752E81962BF642C3004DABC3 /* Stories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E81952BF642C3004DABC3 /* Stories.swift */; };
 		752E819B2BF64A0E004DABC3 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E819A2BF64A0E004DABC3 /* ChatTableViewCell.swift */; };
 		752E819D2BF64E95004DABC3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752E819C2BF64E95004DABC3 /* Roboto-Light.ttf */; };
+		756AEC072C0B8D1D004E0469 /* Ex String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AEC062C0B8D1D004E0469 /* Ex String.swift */; };
 		757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */; };
 		7586A21C2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7586A21B2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift */; };
 		7586A2202C0A6D22002C8157 /* ProductsAnAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7586A21F2C0A6D22002C8157 /* ProductsAnAccountCollectionViewCell.swift */; };
@@ -94,6 +95,7 @@
 		752E81952BF642C3004DABC3 /* Stories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stories.swift; sourceTree = "<group>"; };
 		752E819A2BF64A0E004DABC3 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		752E819C2BF64E95004DABC3 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		756AEC062C0B8D1D004E0469 /* Ex String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex String.swift"; sourceTree = "<group>"; };
 		757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		7586A21B2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAnAccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		7586A21F2C0A6D22002C8157 /* ProductsAnAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAnAccountCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				44D17D7D2BF235CA00F5C073 /* TFPhone.swift */,
 				44ACB53C2BF26A1300A75F3A /* CodeTF.swift */,
 				44ACB5462BF2B6B700A75F3A /* Error.swift */,
+				756AEC062C0B8D1D004E0469 /* Ex String.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				44D17D572BEFE08F00F5C073 /* Segment.swift in Sources */,
 				44ACB53D2BF26A1300A75F3A /* CodeTF.swift in Sources */,
 				752E819B2BF64A0E004DABC3 /* ChatTableViewCell.swift in Sources */,
+				756AEC072C0B8D1D004E0469 /* Ex String.swift in Sources */,
 				75E162782C02380300296003 /* CommentCollectionViewCell.swift in Sources */,
 				44ACB54D2BF636EC00A75F3A /* User.swift in Sources */,
 				75AF2FAB2BEFD1FC00F0165E /* Border.swift in Sources */,
