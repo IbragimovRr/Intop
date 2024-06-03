@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var storiesEmpty: UILabel!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var search: UITextField!
     @IBOutlet weak var lentaHeight: NSLayoutConstraint!
@@ -25,6 +26,7 @@ class HomeViewController: UIViewController {
     var category = [Category]()
     var selectProduct = Product(productID: 0)
     var selectLike = UIButton()
+    var stories = [Story]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,11 @@ class HomeViewController: UIViewController {
         segment = SegmentFilter(firstBtn: instagram, secondBtn: multimedia)
         search.delegate = self
         
+        Stories().getStories { story in
+            self.stories = story
+            self.storiesCollectionView.reloadData()
+            self.emptyStories()
+        }
         
         Categories().getCategories { result in
             self.category = result
@@ -74,6 +81,17 @@ class HomeViewController: UIViewController {
         loading.isHidden = true
         lentaTovarsCollectionView.isHidden = false
         loading.stopAnimating()
+    }
+    
+    func emptyStories() {
+        if stories.count != 0{
+            storiesCollectionView.isHidden = false
+            storiesEmpty.isHidden = true
+        }else {
+            storiesCollectionView.isHidden = true
+            storiesEmpty.isHidden = false
+        }
+        
     }
     
     func getAllTovars() {
@@ -142,7 +160,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }else if collectionView == categoriesCollectionView {
             return category.count
         }else {
-            return 10
+            return stories.count
         }
     }
     
@@ -155,6 +173,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }else if collectionView == storiesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "story", for: indexPath) as! StoriesCollectionViewCell
+            if stories[indexPath.row].isViwed == false {
+                cell.designViews(isViewed: false)
+            }else {
+                cell.designViews(isViewed: false)
+            }
+            cell.lbl.text = stories[indexPath.row].content
+            cell.image.sd_setImage(with: URL(string: stories[indexPath.row].avatar))
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categories", for: indexPath) as! CategoriesCollectionViewCell
