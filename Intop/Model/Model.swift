@@ -25,7 +25,7 @@ struct CommentsStruct {
     var comment: String
     var createdAt: String
     var phoneNumber: String
-    var commentsCount: Int
+    
 }
 
 struct JSONUser {
@@ -44,7 +44,7 @@ struct Product {
     var title: String? = ""
     var priceUSD: Int? = 0
     var image: [String]? = [""]
-    var productID:Int
+    var productID:Int? 
     var mainImages:String? = ""
     var likes: Int? = 0
     var viewsCount: Int? = 0
@@ -60,7 +60,6 @@ struct Author {
     var authorId:Int = 0
     var firstName:String = ""
     var avatar: String = ""
-    
 }
 
 struct Favorites {

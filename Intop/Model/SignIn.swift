@@ -133,7 +133,6 @@ class Sign {
             case .success(let value):
                 let json = JSON(value)
                 let result = json["code_will_be_REMOVED"].stringValue
-                    print(result)
                     completion(result)
                 
             case .failure(let error):

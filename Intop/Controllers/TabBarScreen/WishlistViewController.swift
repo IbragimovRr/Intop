@@ -13,8 +13,8 @@ class WishlistViewController: UIViewController {
     @IBOutlet weak var wishlistCollectionView: UICollectionView!
     
     var wishlists = [Favorites]()
-    var selectId = 0
     var products = [Product]()
+    var selectId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,19 +32,14 @@ class WishlistViewController: UIViewController {
             
         }
     }
-        //    override func viewDidAppear(_ animated: Bool) {
-        //        super.viewDidAppear(animated)
-        //        Wishlist().getFavorites { result in
-        //            self.wishlists = result
-        //            self.wishlistCollectionView.reloadData()
-        //        }
-        //    }
-        //
-        @IBAction func likeBtn(_ sender: UIButton) {
-            
-        }
+    @IBAction func likeBtn(_ sender: UIButton) {
         
+    }
         
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
         
     }
     extension WishlistViewController: UICollectionViewDelegate, UICollectionViewDataSource {

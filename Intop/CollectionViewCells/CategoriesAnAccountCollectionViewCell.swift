@@ -8,5 +8,6 @@
 import UIKit
 
 class CategoriesAnAccountCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var lbl: UILabel!
     
 }
