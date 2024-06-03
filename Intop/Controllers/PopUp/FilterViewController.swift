@@ -31,7 +31,10 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         designSbros()
+        designStart()
     }
+    
+    
     
     func designAction(_ actionBtn:UIButton,_ secondBtn:UIButton,_ thirdBtn:UIButton = UIButton()) {
         actionBtn.setTitleColor(UIColor.white, for: .normal)
@@ -92,10 +95,63 @@ class FilterViewController: UIViewController {
         valutaUZS.layer.borderWidth = 1.5
         upMoney.layer.borderWidth = 1.5
         downMoney.layer.borderWidth = 1.5
+        priceDo.text = ""
+        priceOt.text = ""
     }
     
-    @IBAction func onFirst(_ sender: UIButton) {
-        switch sender.tag {
+    func designStart() {
+        if Filter.priceDo != nil{
+            priceDo.text = "\(Filter.priceDo!)"
+        }
+        if Filter.priceOt != nil {
+            priceOt.text = "\(Filter.priceOt!)"
+        }
+        if Filter.isAscending == true {
+            firstSelected(tag: downMoney.tag)
+        }else if Filter.isAscending == false  {
+            secondSelected(tag: upMoney.tag)
+        }
+        if Filter.valuta == "UZS" {
+            firstSelected(tag: valutaUZS.tag)
+        }else if Filter.valuta == "USD" {
+            secondSelected(tag: valutaUSD.tag)
+        }
+        if Filter.isNew == true{
+            firstSelected(tag: new.tag)
+        }else if Filter.isNew == false{
+            secondSelected(tag: old.tag)
+        }
+        if Filter.isSellerVerified == true{
+            firstSelected(tag: verify.tag)
+        }else if Filter.isSellerVerified == false {
+            secondSelected(tag: notVerify.tag)
+        }
+        if Filter.isNearby == false {
+            blisko.setImage(UIImage(named: "switchOff"), for: .normal)
+            segmentBlisko = false
+        }else if Filter.isNearby == true {
+            blisko.setImage(UIImage(named: "switchOn"), for: .normal)
+            segmentBlisko = true
+        }
+        if Filter.isNegotiable == false {
+            torg.setImage(UIImage(named: "switchOff"), for: .normal)
+            segmentTorg = false
+        }else if Filter.isNegotiable == true {
+            torg.setImage(UIImage(named: "switchOn"), for: .normal)
+            segmentTorg = true
+        }
+        
+        if Filter.opt == true {
+            secondSelected(tag: opt.tag)
+        }else if Filter.rasrochka == true {
+            firstSelected(tag: rasrochka.tag)
+        }else if Filter.roznica == true {
+            thirdSelect()
+        }
+    }
+    
+    func firstSelected(tag:Int) {
+        switch tag {
         case downMoney.tag:
             Filter.isAscending = true
             designAction(downMoney, upMoney)
@@ -103,6 +159,9 @@ class FilterViewController: UIViewController {
             Filter.valuta = "UZS"
             designAction(valutaUZS, valutaUSD)
         case rasrochka.tag:
+            Filter.opt = nil
+            Filter.roznica = nil
+            Filter.rasrochka = true
             designAction(rasrochka, opt, roznica)
         case new.tag:
             Filter.isNew = true
@@ -115,8 +174,8 @@ class FilterViewController: UIViewController {
         }
     }
     
-    @IBAction func onSecond(_ sender: UIButton) {
-        switch sender.tag {
+    func secondSelected(tag:Int) {
+        switch tag {
         case upMoney.tag:
             Filter.isAscending = false
             designAction(upMoney, downMoney)
@@ -124,6 +183,9 @@ class FilterViewController: UIViewController {
             Filter.valuta = "USD"
             designAction(valutaUSD, valutaUZS)
         case opt.tag:
+            Filter.opt = true
+            Filter.roznica = nil
+            Filter.rasrochka = nil
             designAction(opt, rasrochka, roznica)
         case old.tag:
             Filter.isNew = false
@@ -136,9 +198,20 @@ class FilterViewController: UIViewController {
         }
     }
     
-    @IBAction func onThird(_ sender: UIButton) {
+    func thirdSelect() {
+        Filter.opt = nil
+        Filter.roznica = true
+        Filter.rasrochka = nil
         designAction(roznica, opt, rasrochka)
     }
+    
+    @IBAction func onFirst(_ sender: UIButton) { firstSelected(tag: sender.tag) }
+    
+    
+    
+    @IBAction func onSecond(_ sender: UIButton) { secondSelected(tag: sender.tag) }
+    
+    @IBAction func onThird(_ sender: UIButton) { thirdSelect() }
     
     
     @IBAction func switchBtn(_ sender: UIButton) {
@@ -166,7 +239,11 @@ class FilterViewController: UIViewController {
     }
     
     @IBAction func start(_ sender: UIButton) {
-        
+        Filter.priceDo = Int(priceDo.text ?? "")
+        Filter.priceOt = Int(priceOt.text ?? "")
+        dismiss(animated: false) {
+            NotificationCenter.default.post(name: Notification.Name("filterReloadTovars"), object: nil)
+        }
     }
     
     @IBAction func sbros(_ sender: UIButton) {
@@ -178,6 +255,9 @@ class FilterViewController: UIViewController {
         Filter.priceDo = nil
         Filter.priceOt = nil
         Filter.valuta = nil
+        Filter.opt = nil
+        Filter.rasrochka = nil
+        Filter.roznica = nil
         designSbros()
     }
     
@@ -187,6 +267,7 @@ class FilterViewController: UIViewController {
     }
     
     @IBAction func back(_ sender: Any) {
+        designSbros()
         dismiss(animated: false)
     }
 }

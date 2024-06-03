@@ -17,8 +17,8 @@ enum ShopRole:String {
 }
 
 struct RatingStruct {
-    var rating: Float
-    var totalVotes: Int
+    var rating: Float = 0.0
+    var totalVotes: Int = 0
 }
 
 struct CommentsStruct {
@@ -26,6 +26,7 @@ struct CommentsStruct {
     var createdAt: String
     var phoneNumber: String
     var commentsCount: Int
+    var author:Author = Author()
 }
 
 struct JSONUser {
@@ -47,12 +48,14 @@ struct Product {
     var productID:Int
     var mainImages:String? = ""
     var likes: Int? = 0
+    var rating = RatingStruct()
     var viewsCount: Int? = 0
     var commentsCount: Int? = 0
     var sharesCount: Int? = 0
     var description: String? = ""
     var meLike: Bool = false
     var author: Author = Author()
+    var comments: [CommentsStruct] = [CommentsStruct]()
 }
 
 
@@ -63,13 +66,6 @@ struct Author {
     
 }
 
-struct Favorites {
-    var price:Int
-    var mainImage:String
-    var title:String
-    var tovarId:Int
-    var reviews:Int
-}
 
 struct Category {
     var id: Int
@@ -100,6 +96,9 @@ struct Filter {
     static var valuta: String?
     static var isNew: Bool?
     static var isSellerVerified:Bool?
+    static var opt:Bool?
+    static var rasrochka:Bool?
+    static var roznica:Bool?
 }
 
 

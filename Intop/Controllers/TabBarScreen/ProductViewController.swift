@@ -80,7 +80,6 @@ class ProductViewController: UIViewController {
     
     func getRating() {
         Rating().getRatingByProductId(productId: idProduct!) { result in
-            print(result)
             self.rating = result
         }
     }
@@ -225,7 +224,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
                 cell.author.text = info.name
                 cell.avatar.sd_setImage(with: URL(string: info.avatar))
             })
-            let dateString = "Sat, 01 Jan 2022 18:30:00 GMT"
+            let dateString = comments[indexPath.row].createdAt
 
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
@@ -234,9 +233,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
             dateFormatter.dateFormat = "dd/MM"
             if let formattedDate = date {
                 let finalDate = dateFormatter.string(from: formattedDate)
-                print(finalDate)
-            }else{
-                print("Error")
+                cell.createdAt.text = finalDate
             }
             return cell
         }
