@@ -134,6 +134,7 @@ class Sign {
                 let json = JSON(value)
                 let result = json["code_will_be_REMOVED"].stringValue
                     completion(result)
+                print(result)
                 
             case .failure(let error):
                 print(error)

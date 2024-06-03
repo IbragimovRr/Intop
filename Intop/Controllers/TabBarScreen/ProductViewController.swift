@@ -11,6 +11,7 @@ import SDWebImage
 class ProductViewController: UIViewController {
     
     
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var viewComment: Border!
     @IBOutlet weak var emptyComment: UILabel!
@@ -44,6 +45,7 @@ class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        pageControl.currentPage = 0
         performSegue(withIdentifier: "loading", sender: self)
         viewComment.layer.borderColor = UIColor(named: "GrayMain")?.cgColor
         imageCollectionView.dataSource = self
@@ -125,7 +127,8 @@ class ProductViewController: UIViewController {
     
     func design() {
         guard let product = product else {return}
-    
+        
+        pageControl.numberOfPages = product.image!.count
         if product.meLike == true {
             likeBtn.setImage(UIImage(named: "likeFull2"), for: .normal)
         }else {
@@ -206,6 +209,11 @@ class ProductViewController: UIViewController {
     @IBAction func back(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func commentBtn(_ sender: Any) {
+        let result =  commentLbl.frame.origin.y - (UIScreen.main.bounds.height / 1.515)
+        scrollView.setContentOffset(CGPoint(x: 0, y: result), animated: true)
+    }
 }
 
 extension ProductViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -222,6 +230,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
         if collectionView == imageCollectionView {
             let cell = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "image", for: indexPath) as! ImageCollectionViewCell
             cell.image.sd_setImage(with: URL(string: (product!.image![indexPath.row])))
+            
             return cell
         }else {
             let cell = commentCollectionView.dequeueReusableCell(withReuseIdentifier: "commentCell", for: indexPath) as! CommentCollectionViewCell
@@ -257,6 +266,12 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView == imageCollectionView{
+            pageControl.currentPage = indexPath.row
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToAccount" {
@@ -265,5 +280,11 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
 
         }
         
+    }
+}
+
+extension ProductViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
     }
 }
