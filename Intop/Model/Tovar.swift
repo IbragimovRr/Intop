@@ -55,7 +55,7 @@ class Tovar {
         Wishlist().getFavorites { result in
             var resultBool = false
             for x in result {
-                if product.productID == x.tovarId {
+                if product.productID == x.productID {
                     resultBool = true
                 }
             }
@@ -65,6 +65,19 @@ class Tovar {
     
     func getAllTovars(completion:@escaping ([Product]) -> ()) {
         let url = Constants.url + "products?prod_name=\(Filter.search ?? "")&currency=\(Filter.valuta ?? "")&is_ascending\(String(describing: Filter.isAscending))=&limit=&price_min=\(Filter.priceOt ?? 0)&price_max=\(Filter.priceDo ?? 1000000)&is_negotiable\(String(describing: Filter.isNegotiable))=&is_nearby=\(String(describing: Filter.isNearby))&is_wholesale=&is_installment=&is_retail=&is_new=\(String(describing: Filter.isNew))&is_seller_verified=\(String(describing: Filter.isSellerVerified))"
+        let name = "?prod_name=\(Filter.search ?? "")"
+        let currency = "&currency=\(Filter.valuta ?? "")"
+        let ascending = "&is_ascending=\(boolInString(Filter.isAscending))"
+        let price = "&price_min=\(IntInString(Filter.priceOt) )&price_max=\(IntInString(Filter.priceDo))"
+        let negotiable = "&is_negotiable=\(boolInString(Filter.isNegotiable))"
+        let nearby = "&is_nearby=\(boolInString(Filter.isNearby))"
+        let wholesale = "&is_wholesale=\(boolInString(Filter.opt))"
+        let installment = "&is_installment=\(boolInString(Filter.rasrochka))"
+        let retail = "&is_retail=\(boolInString(Filter.roznica))"
+        let new = "&is_new=\(boolInString(Filter.isNew))"
+        let sellerVerified = "&is_seller_verified=\(boolInString(Filter.isSellerVerified))"
+        let url = Constants.url + "products" + name  + currency + ascending + price + negotiable + nearby + wholesale + installment + retail + new + sellerVerified
+        print(url)
         AF.request(url, method: .get).responseData { responseData in
             switch responseData.result {
             case .success(let value):
@@ -116,6 +129,25 @@ class Tovar {
             case .failure(_):
                 print("error")
             }
+    
+
+    
+}
+
+extension Tovar {
+    private func boolInString(_ bool: Bool?) -> String {
+        if bool == nil {
+            return ""
+        }else {
+            return "\(bool!)"
+        }
+    }
+    
+    private func IntInString(_ int: Int?) -> String {
+        if int == nil {
+            return ""
+        }else {
+            return "\(int!)"
         }
     }
 }

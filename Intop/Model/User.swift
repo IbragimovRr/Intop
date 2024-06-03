@@ -16,6 +16,7 @@ class User {
             return UD().getPhone() ?? ""
         }
     }
+
     
     func getInfoUser(_ phoneNumber:String, completion:@escaping (_ info:JSONUser) -> ()) {
         let url = Constants.url + "users/\(phoneNumber)"
@@ -33,7 +34,7 @@ class User {
                 let posts = json["products_count"].intValue
                 let phoneNumber = json["user_phone_number"].stringValue
                 let shopName = json["shop_name"].stringValue
-                let jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar, subscribers: subscribers,subscriptions: subscriptions, posts: posts, phoneNumber: phoneNumber, shopName: shopName)
+                let jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar, subscribers: subscribers, subscriptions: subscriptions, posts: posts, phoneNumber: phoneNumber, shopName: shopName)
                 completion(jsonUser)
             case .failure(_):
                 print("Error")

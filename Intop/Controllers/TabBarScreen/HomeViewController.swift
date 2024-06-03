@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var search: UITextField!
     @IBOutlet weak var lentaHeight: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -29,6 +30,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
+        addObserverInFilter()
         lentaTovarsCollectionView.delegate = self
         lentaTovarsCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
@@ -56,18 +58,42 @@ class HomeViewController: UIViewController {
         
     }
     
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         changeHeightCollection()
     }
     
+    func startLoading() {
+        loading.isHidden = false
+        lentaTovarsCollectionView.isHidden = true
+        loading.startAnimating()
+    }
+    
+    func stopLoading() {
+        loading.isHidden = true
+        lentaTovarsCollectionView.isHidden = false
+        loading.stopAnimating()
+    }
+    
     func getAllTovars() {
+        startLoading()
         Tovar().getAllTovars { product in
             self.products = product
             self.lentaTovarsCollectionView.reloadData()
             self.lentaTovarsCollectionView.reloadSections(IndexSet(integer: 0))
+            self.stopLoading()
         }
         self.view.layoutSubviews()
+    }
+    
+    func addObserverInFilter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(acceptedFilter), name: NSNotification.Name("filterReloadTovars"), object: nil)
+
+    }
+    
+    @objc func acceptedFilter() {
+        getAllTovars()
     }
     
     func changeHeightCollection() {

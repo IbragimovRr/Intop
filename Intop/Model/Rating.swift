@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 class Rating {
+    
     func getRatingByProductId(productId: Int, completion: @escaping (_ result:RatingStruct) ->()) {
         let url = Constants.url + "products/rating?product_id=\(productId)"
         AF.request(url, method: .get).responseData {responseData in
@@ -30,4 +31,5 @@ class Rating {
     func getRatingByUserId(productId: Int, completion: @escaping (_ result:RatingStruct) ->()) {
         let url = Constants.url + "products/rating?product_id=\(productId)"
     }
+    
 }

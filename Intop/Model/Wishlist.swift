@@ -16,7 +16,7 @@ class Wishlist {
     ]
     
     
-    func getFavorites(completion: @escaping (_ result:[Favorites]) -> ()) {
+    func getFavorites(completion: @escaping (_ result:[Product]) -> ()) {
         User().getInfoUser(User.phoneNumber) { info in
             let id = info.id
             let url = Constants.url + "likes/products/\(id)"
@@ -26,17 +26,19 @@ class Wishlist {
                     let json = JSON(value)
                     let count = json.count
                     guard count != 0 else {completion([]); return}
-                    var arrayFavorites = [Favorites]()
+                    var arrayFavorites = [Product]()
                     for x in 0...count - 1 {
                         let title = json[x]["title"].stringValue
-                        let tovarId = json[x]["id"].intValue
                         let mainImage = json[x]["main_image_url"].stringValue
                         let price = json[x]["price"].intValue
-                        let reviews = json[x]["reviews"].intValue
-                        let favorites = Favorites(price: price, mainImage: mainImage, title: title, tovarId: tovarId, reviews: reviews)
-                        arrayFavorites.append(favorites)
+                        let productID = json[x]["id"].intValue
+                        Rating().getRatingByProductId(productId: productID) { result in
+                            let favorites = Product(title: title,priceUSD: price, productID: productID, mainImages: mainImage, rating: RatingStruct(rating: result.rating, totalVotes: result.totalVotes))
+                            arrayFavorites.append(favorites)
+                            if x == count - 1 { completion(arrayFavorites) }
+                        }
                     }
-                    completion(arrayFavorites)
+                    
                 case .failure(_):
                     print("error")
                 }
