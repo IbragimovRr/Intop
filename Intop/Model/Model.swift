@@ -16,6 +16,14 @@ enum ShopRole:String {
     case buyerLegal = "buyer_legal"
 }
 
+struct Story {
+    var avatar:String
+    var content:String
+    var id:Int
+    var isViwed:Bool
+    var mainImage:String
+}
+
 struct RatingStruct {
     var rating: Float = 0.0
     var totalVotes: Int = 0

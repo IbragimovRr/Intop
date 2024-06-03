@@ -37,9 +37,7 @@ class ProductViewController: UIViewController {
     var userId = 0
     var idProduct: Int?
     var product: Product?
-    var comments = [CommentsStruct]()
     var sizes = [String]()
-    var rating: RatingStruct?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +82,7 @@ class ProductViewController: UIViewController {
     
     func getRating() {
         Rating().getRatingByProductId(productId: idProduct!) { result in
-            self.rating = result
+            self.product!.rating = result
         }
     }
     
@@ -99,7 +97,7 @@ class ProductViewController: UIViewController {
     func getComments(limit: Int) {
         Comments().getCommentsByProductId(limit: limit, productId: idProduct!) { result in
             self.isEmptyComments(comments: result)
-            self.comments = result
+            self.product!.comments = result
             self.commentCollectionView.reloadData()
         }
     }
@@ -113,11 +111,10 @@ class ProductViewController: UIViewController {
     
     func addTovarInfo() {
         guard let product = product else {return}
-        guard let rating = rating else {return}
         priceUSDLbl.text = "$\(product.priceUSD!)"
         titleLbl.text = product.title
-        reviewsLbl.text = "\(rating.totalVotes) reviews"
-        ratingLbl.text = "\(rating.rating)"
+        reviewsLbl.text = "\(product.rating.totalVotes) reviews"
+        ratingLbl.text = "\(product.rating.rating)"
         
         design()
         imageCollectionView.reloadData()
@@ -177,7 +174,7 @@ class ProductViewController: UIViewController {
         if UD().getCurrentUser() == true {
             if commentTextField.text != "" {
                 Comments().postComment(productId: idProduct!, phoneNumber: User.phoneNumber, text: commentTextField.text!)
-                comments.insert((CommentsStruct(comment: commentTextField.text!, createdAt: "", phoneNumber: User.phoneNumber)), at: 0)
+                product!.comments.insert((CommentsStruct(comment: commentTextField.text!, createdAt: "", phoneNumber: User.phoneNumber)), at: 0)
                 commentTextField.text = ""
                 commentCollectionView.reloadData()
                 
@@ -215,7 +212,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
             guard product?.image != nil else {return 0}
             return product!.image!.count
         }else {
-            return comments.count
+            return product!.comments.count
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -226,12 +223,12 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
         }else {
             let cell = commentCollectionView.dequeueReusableCell(withReuseIdentifier: "commentCell", for: indexPath) as! CommentCollectionViewCell
             
-            cell.comment.text = comments[indexPath.row].comment
-            User().getInfoUser(comments[indexPath.row].phoneNumber, completion: { info in
+            cell.comment.text = product!.comments[indexPath.row].comment
+            User().getInfoUser(product!.comments[indexPath.row].phoneNumber, completion: { info in
                 cell.author.text = info.name
                 cell.avatar.sd_setImage(with: URL(string: info.avatar))
             })
-            let dateString = comments[indexPath.row].createdAt
+            let dateString = product!.comments[indexPath.row].createdAt
 
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
@@ -250,7 +247,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
         if collectionView == imageCollectionView {
             return CGSize(width: UIScreen.main.bounds.width, height: 375)
         }else {
-            let text = comments[indexPath.row].comment
+            let text = product!.comments[indexPath.row].comment
             let width = UIScreen.main.bounds.width - 52
             let height = text.height(withConstrainedWidth: width, font: UIFont.systemFont(ofSize: 13)) + 60
             return CGSize(width: width, height: height)
