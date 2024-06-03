@@ -38,9 +38,9 @@
 		752E819B2BF64A0E004DABC3 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E819A2BF64A0E004DABC3 /* ChatTableViewCell.swift */; };
 		752E819D2BF64E95004DABC3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752E819C2BF64E95004DABC3 /* Roboto-Light.ttf */; };
 		756AEC072C0B8D1D004E0469 /* Ex String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AEC062C0B8D1D004E0469 /* Ex String.swift */; };
+		756AEC0B2C0E1E72004E0469 /* ProductsAnAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AEC0A2C0E1E72004E0469 /* ProductsAnAccountCollectionViewCell.swift */; };
 		757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */; };
 		7586A21C2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7586A21B2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift */; };
-		7586A2202C0A6D22002C8157 /* ProductsAnAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7586A21F2C0A6D22002C8157 /* ProductsAnAccountCollectionViewCell.swift */; };
 		7598C9712BF8F0250077AD14 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598C9702BF8F0250077AD14 /* WishlistViewController.swift */; };
 		7598C9732BF8F1580077AD14 /* WishlistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598C9722BF8F1580077AD14 /* WishlistCollectionViewCell.swift */; };
 		7598C9792BF902280077AD14 /* Wishlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598C9782BF902280077AD14 /* Wishlist.swift */; };
@@ -96,9 +96,9 @@
 		752E819A2BF64A0E004DABC3 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		752E819C2BF64E95004DABC3 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		756AEC062C0B8D1D004E0469 /* Ex String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex String.swift"; sourceTree = "<group>"; };
+		756AEC0A2C0E1E72004E0469 /* ProductsAnAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAnAccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		7586A21B2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAnAccountCollectionViewCell.swift; sourceTree = "<group>"; };
-		7586A21F2C0A6D22002C8157 /* ProductsAnAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAnAccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		7598C9702BF8F0250077AD14 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		7598C9722BF8F1580077AD14 /* WishlistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistCollectionViewCell.swift; sourceTree = "<group>"; };
 		7598C9782BF902280077AD14 /* Wishlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishlist.swift; sourceTree = "<group>"; };
@@ -225,7 +225,7 @@
 				75D6AB472BFE637000A87852 /* ImageCollectionViewCell.swift */,
 				75E162772C02380300296003 /* CommentCollectionViewCell.swift */,
 				7586A21B2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift */,
-				7586A21F2C0A6D22002C8157 /* ProductsAnAccountCollectionViewCell.swift */,
+				756AEC0A2C0E1E72004E0469 /* ProductsAnAccountCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -369,9 +369,9 @@
 				7586A21C2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift in Sources */,
 				7598C9792BF902280077AD14 /* Wishlist.swift in Sources */,
 				752E81962BF642C3004DABC3 /* Stories.swift in Sources */,
+				756AEC0B2C0E1E72004E0469 /* ProductsAnAccountCollectionViewCell.swift in Sources */,
 				75D6AB482BFE637000A87852 /* ImageCollectionViewCell.swift in Sources */,
 				44ACB5432BF2708700A75F3A /* Model.swift in Sources */,
-				7586A2202C0A6D22002C8157 /* ProductsAnAccountCollectionViewCell.swift in Sources */,
 				44D17D552BEFDE7800F5C073 /* SignInViewController.swift in Sources */,
 				75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */,
 				44D19BC62BFDE8D300FF3122 /* CategoriesViewController.swift in Sources */,

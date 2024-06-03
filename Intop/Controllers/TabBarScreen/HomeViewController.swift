@@ -168,7 +168,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "instagram", for: indexPath) as! WishlistCollectionViewCell
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
-        Wishlist().getFavoritesByID(products[indexPath.row].productID) { likesCount in
+        Wishlist().getFavoritesByID(products[indexPath.row].productID!) { likesCount in
             DispatchQueue.main.async {
                 cell.likes.text = "Лайкнули \(likesCount)"
             }
@@ -197,7 +197,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
         cell.priceLbl.text = "$\(products[indexPath.row].priceUSD!)"
-        Rating().getRatingByProductId(productId: products[indexPath.row].productID) { result in
+        Rating().getRatingByProductId(productId: products[indexPath.row].productID!) { result in
             cell.reviewsCountLbl.text = "\(result.totalVotes) reviews"
             cell.ratingLbl.text = "\(result.rating)"
         }

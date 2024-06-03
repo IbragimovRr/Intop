@@ -64,6 +64,7 @@ class Tovar {
     }
     
     func getAllTovars(completion:@escaping ([Product]) -> ()) {
+        let url = Constants.url + "products?prod_name=\(Filter.search ?? "")&currency=\(Filter.valuta ?? "")&is_ascending\(String(describing: Filter.isAscending))=&limit=&price_min=\(Filter.priceOt ?? 0)&price_max=\(Filter.priceDo ?? 1000000)&is_negotiable\(String(describing: Filter.isNegotiable))=&is_nearby=\(String(describing: Filter.isNearby))&is_wholesale=&is_installment=&is_retail=&is_new=\(String(describing: Filter.isNew))&is_seller_verified=\(String(describing: Filter.isSellerVerified))"
         let name = "?prod_name=\(Filter.search ?? "")"
         let currency = "&currency=\(Filter.valuta ?? "")"
         let ascending = "&is_ascending=\(boolInString(Filter.isAscending))"
@@ -99,6 +100,35 @@ class Tovar {
         }
     }
     
+    func getTovarByUserId(_ userId: Int, completion: @escaping(_ result: [Product]) -> ()) {
+        let url = Constants.url + "products?user_id=\(userId)"
+        AF.request(url, method: .get).responseData {responseData in
+            switch responseData.result {
+                
+            case .success(let value):
+                let json = JSON(value)
+                let count = json.count
+
+                var productsArray = [Product]()
+                guard count != 0 else {return}
+                for x in 0...count - 1 {
+                    let likes = json[x]["likes_count"].intValue
+                    let viewsCount = json[x]["views_count"].intValue
+                    let imageMain = json[x]["main_image_url"].stringValue
+                    let sharesCount = json[x]["shares_count"].intValue
+                    let commentsCount = json[x]["comments_count"].intValue
+                    let title = json[x]["title"].stringValue
+                    print(viewsCount,title)
+                    let products = Product(title: title, mainImages:imageMain, likes: likes, viewsCount: viewsCount, commentsCount: commentsCount, sharesCount: sharesCount)
+                    productsArray.append(products)
+                    
+                }
+                completion(productsArray)
+               
+                
+            case .failure(_):
+                print("error")
+            }
     
 
     

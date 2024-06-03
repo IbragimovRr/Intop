@@ -21,7 +21,6 @@ class Rating {
                 let averageRating = json["rating_stats"]["rating_stats"]["average_rating"].floatValue
                 let totalVotes = json["rating_stats"]["rating_stats"]["total_votes"].intValue
                 let rating = RatingStruct(rating: averageRating, totalVotes: totalVotes)
-                print(averageRating,productId)
                 completion(rating)
             case .failure(_):
                 print("error")

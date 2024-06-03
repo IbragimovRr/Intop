@@ -28,6 +28,16 @@ class WishlistViewController: UIViewController {
             
         }
     }
+  
+    @IBAction func likeBtn(_ sender: UIButton) {
+        
+    }
+        
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+
     
     
     
@@ -45,6 +55,7 @@ extension WishlistViewController: UICollectionViewDelegate, UICollectionViewData
         
         cell.reviewsCountLbl.text = "\(wishlists[indexPath.row].rating.totalVotes) reviews"
         cell.ratingLbl.text = "\(wishlists[indexPath.row].rating.rating)"
+
         
         cell.image.sd_setImage(with: URL(string: wishlists[indexPath.row].mainImages!) )
         return cell

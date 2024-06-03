@@ -43,7 +43,7 @@ class User {
     }
     
     func getInfoUserById(_ userId:String, completion:@escaping (_ info:JSONUser) -> ()) {
-        var url = Constants.url + "users/id/\(userId)"
+        let url = Constants.url + "users/id/\(userId)"
         
         AF.request(url).responseData { responseData in
             switch responseData.result {
@@ -57,7 +57,7 @@ class User {
                 let subscribers = json["subscribers_count"].intValue
                 let posts = json["products_count"].intValue
                 let shopName = json["shop_name"].stringValue
-                var jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar, subscribers: subscribers, subscriptions: subscriptions, posts: posts, shopName: shopName)
+                let jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar, subscribers: subscribers, subscriptions: subscriptions, posts: posts, shopName: shopName)
                 completion(jsonUser)
             case .failure(_):
                 print("Error")

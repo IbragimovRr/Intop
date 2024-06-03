@@ -45,7 +45,7 @@ struct Product {
     var title: String? = ""
     var priceUSD: Int? = 0
     var image: [String]? = [""]
-    var productID:Int
+    var productID:Int? 
     var mainImages:String? = ""
     var likes: Int? = 0
     var rating = RatingStruct()
@@ -63,7 +63,6 @@ struct Author {
     var authorId:Int = 0
     var firstName:String = ""
     var avatar: String = ""
-    
 }
 
 

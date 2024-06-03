@@ -33,6 +33,7 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var conditionLbl: UILabel!
     
+    var userPhoneNumber: String?
     var userId = 0
     var idProduct: Int?
     var product: Product?
@@ -53,6 +54,9 @@ class ProductViewController: UIViewController {
         getComments(limit: 0)
         getTovar()
         getRating()
+        
+        
+        
         
         self.view.layoutSubviews()
     }
@@ -152,6 +156,7 @@ class ProductViewController: UIViewController {
     
     @IBAction func goToAccount(_ sender: UIButton) {
         userId = (product?.author.authorId)!
+        userPhoneNumber = product?.author.firstName
     }
     
     @IBAction func addLike(_ sender: UIButton) {
@@ -172,8 +177,10 @@ class ProductViewController: UIViewController {
         if UD().getCurrentUser() == true {
             if commentTextField.text != "" {
                 Comments().postComment(productId: idProduct!, phoneNumber: User.phoneNumber, text: commentTextField.text!)
+                comments.insert((CommentsStruct(comment: commentTextField.text!, createdAt: "", phoneNumber: User.phoneNumber)), at: 0)
                 commentTextField.text = ""
                 commentCollectionView.reloadData()
+                
             }
         }else{
             let alert = UIAlertController(title: "Требуется регистрация", message: "Зарегистрируйтесь, чтобы оставить отзыв", preferredStyle: .alert)
@@ -235,6 +242,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
                 let finalDate = dateFormatter.string(from: formattedDate)
                 cell.createdAt.text = finalDate
             }
+
             return cell
         }
     }
@@ -254,6 +262,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
         if segue.identifier == "goToAccount" {
             let vc = segue.destination as! AccountViewController
             vc.userId = userId
+
         }
         
     }
