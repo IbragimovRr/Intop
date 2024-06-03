@@ -19,7 +19,6 @@ class Tovar {
                 let json = JSON(value)
                 let title = json["title"].stringValue
                 let priceUSD = json["price_USD"].intValue
-                let reviews = json["reviews"].intValue
                 let description = json["description"].stringValue
                 let authorId = json["author"]["id"].intValue
                 let firstNameAuthor = json["author"]["first_name"].stringValue
