@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 class Comments {
+    
     func getCommentsByProductId(limit: Int, productId: Int, completion: @escaping (_ result: [CommentsStruct]) -> ()) {
             let url = Constants.url + "comments/\(productId)"
             AF.request(url, method: .get).responseData { responseData in
@@ -43,6 +44,7 @@ class Comments {
             }
             
         }
+    
     func postComment(productId: Int, phoneNumber: String, text: String) {
         let url = Constants.url + "comments"
         let parameters = [
