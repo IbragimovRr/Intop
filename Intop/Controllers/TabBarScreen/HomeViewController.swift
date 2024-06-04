@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var storiesCollectionView: UICollectionView!
     
+    var me: Bool = true
     var userId: Int?
     var segment: SegmentFilter!
     var products = [Product]()
@@ -210,8 +211,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "instagram", for: indexPath) as! WishlistCollectionViewCell
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
+        let id = products[indexPath.row].productID
         Task{
-            let likesCount = try await Wishlist().getFavoritesByID(products[indexPath.row].productID)
+            let likesCount = try await Wishlist().getFavoritesByID(id)
             DispatchQueue.main.async {
                 cell.likes.text = "Лайкнули \(likesCount)"
             }
@@ -268,13 +270,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == instagram {
-            userId = products[indexPath.row].productID
-            performSegue(withIdentifier: "goToAccount2", sender: self)
-        }
-    }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -285,6 +280,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if segue.identifier == "goToAccount2" {
             let vc = segue.destination as! AccountViewController
             vc.userId = userId
+            vc.me = me
         }
         
     }
@@ -306,14 +302,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     @objc func clickLike(sender: UIButton){
         if products[sender.tag].meLike == false {
             products[sender.tag].meLike = true
+            let product = products[sender.tag]
             Task{
-                try await Wishlist().addFavorites(products[sender.tag], method: .post)
+                try await Wishlist().addFavorites(product, method: .post)
                 self.lentaTovarsCollectionView.reloadData()
             }
         }else {
             products[sender.tag].meLike = false
+            let product = products[sender.tag]
             Task{
-                try await Wishlist().addFavorites(products[sender.tag], method: .delete)
+                try await Wishlist().addFavorites(product, method: .delete)
                 self.lentaTovarsCollectionView.reloadData()
             }
         }
@@ -326,7 +324,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     @objc func clickAccount(sender: UIButton) {
         userId = products[sender.tag].author.authorId
-        performSegue(withIdentifier: "goToAccount2", sender: self)
+        if products[sender.tag].author.phoneNumber == User.phoneNumber {
+            me = true
+            performSegue(withIdentifier: "goToAccount2", sender: self)
+        }else {
+            me = false
+            performSegue(withIdentifier: "goToAccount2", sender: self)
+        }
+        
     }
     
     

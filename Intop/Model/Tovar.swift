@@ -26,6 +26,7 @@ class Tovar {
         let viewsCount = json["views_count"].intValue
         let commentsCount = json["comments_count"].intValue
         let sharesCount = json["shares_count"].intValue
+        let phoneNumber = json["user_phone_number"].stringValue
         var images = [String]()
         let count = json["additional_images_json"].count
         
@@ -39,8 +40,9 @@ class Tovar {
         let rating = try await Rating().getRatingByProductId(productId: productId)
         let comments = try await Comments().getCommentsByProductId(limit: 0, productId: productId)
         
-        let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor)
-        var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, rating: rating, viewsCount: viewsCount,commentsCount: commentsCount,sharesCount: sharesCount, description: description, author: author,comments: comments)
+        let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor, phoneNumber: phoneNumber)
+        var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, rating: rating, viewsCount: viewsCount,commentsCount: commentsCount,sharesCount: sharesCount, description: description, author: author)
+
         
         let meLike = try await checkMeLikeProduct(products)
         products.meLike = meLike

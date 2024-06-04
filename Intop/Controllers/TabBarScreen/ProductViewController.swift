@@ -238,8 +238,9 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
         }else {
             let cell = commentCollectionView.dequeueReusableCell(withReuseIdentifier: "commentCell", for: indexPath) as! CommentCollectionViewCell
             cell.comment.text = product.comments[indexPath.row].comment
+            let phone = product.comments[indexPath.row].phoneNumber
             Task{
-                let info = try await User().getInfoUser(product.comments[indexPath.row].phoneNumber)
+                let info = try await User().getInfoUser(phone)
                 DispatchQueue.main.async {
                     cell.author.text = info.name
                     cell.avatar.sd_setImage(with: URL(string: info.avatar))

@@ -55,7 +55,6 @@
 		75C17DC22C04EED4006EB02B /* Mulish-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C17DC12C04EED4006EB02B /* Mulish-SemiBold.ttf */; };
 		75C17DC42C04EFE1006EB02B /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C17DC32C04EFE1006EB02B /* Roboto-Medium.ttf */; };
 		75C17DC62C063827006EB02B /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C17DC52C063827006EB02B /* Rating.swift */; };
-		75C17DC82C076F64006EB02B /* YourAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C17DC72C076F64006EB02B /* YourAccountViewController.swift */; };
 		75C17DCA2C077041006EB02B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C17DC92C077041006EB02B /* AccountViewController.swift */; };
 		75D6AB442BFE4FAE00A87852 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 75D6AB432BFE4FAE00A87852 /* SDWebImageSwiftUI */; };
 		75D6AB462BFE62F400A87852 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6AB452BFE62F400A87852 /* ProductViewController.swift */; };
@@ -114,7 +113,6 @@
 		75C17DC12C04EED4006EB02B /* Mulish-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-SemiBold.ttf"; sourceTree = "<group>"; };
 		75C17DC32C04EFE1006EB02B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		75C17DC52C063827006EB02B /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
-		75C17DC72C076F64006EB02B /* YourAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourAccountViewController.swift; sourceTree = "<group>"; };
 		75C17DC92C077041006EB02B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		75D6AB452BFE62F400A87852 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		75D6AB472BFE637000A87852 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -215,7 +213,6 @@
 				44D19BC72BFDF23E00FF3122 /* PlusViewController.swift */,
 				75D6AB452BFE62F400A87852 /* ProductViewController.swift */,
 				7598C9702BF8F0250077AD14 /* WishlistViewController.swift */,
-				75C17DC72C076F64006EB02B /* YourAccountViewController.swift */,
 				75C17DC92C077041006EB02B /* AccountViewController.swift */,
 			);
 			path = TabBarScreen;
@@ -406,7 +403,6 @@
 				75C17DCA2C077041006EB02B /* AccountViewController.swift in Sources */,
 				7598C9712BF8F0250077AD14 /* WishlistViewController.swift in Sources */,
 				44D17D3B2BEF9B6A00F5C073 /* SceneDelegate.swift in Sources */,
-				75C17DC82C076F64006EB02B /* YourAccountViewController.swift in Sources */,
 				44ACB5452BF2748B00A75F3A /* UD.swift in Sources */,
 				44ACB5472BF2B6B700A75F3A /* Error.swift in Sources */,
 				75AF2FB72BF256DC00F0165E /* ThirdViewController.swift in Sources */,

@@ -71,6 +71,7 @@ struct Author {
     var authorId:Int = 0
     var firstName:String = ""
     var avatar: String = ""
+    var phoneNumber: String = ""
 }
 
 

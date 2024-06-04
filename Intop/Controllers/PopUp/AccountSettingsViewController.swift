@@ -24,6 +24,8 @@ class AccountSettingsViewController: UIViewController {
         roleView.isHidden = true
         design()
         super.viewDidLoad()
+        nameTextField.delegate = self
+        biographyTextField.delegate = self
         
 
     }
@@ -75,7 +77,16 @@ class AccountSettingsViewController: UIViewController {
         roleLbl.text = "Покупатель юр лицо"
         UD().saveShopRole(role!.rawValue)
     }
+
     
     
-    
+}
+extension AccountSettingsViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == nameTextField {
+            User().patchUserSettings(phoneNumber: User.phoneNumber, shopName: nameTextField.text ?? "", shopDescription: biographyTextField.text ?? "", shopRole: role ?? .buyerIndividual)
+        }else {
+            User().patchUserSettings(phoneNumber: User.phoneNumber, shopName: nameTextField.text ?? "", shopDescription: biographyTextField.text ?? "", shopRole: role ?? .buyerIndividual)
+        }
+    }
 }
