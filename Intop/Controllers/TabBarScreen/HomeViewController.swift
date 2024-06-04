@@ -89,7 +89,6 @@ class HomeViewController: UIViewController {
     func getAllStories() {
         Task {
             let story = try await Stories().getStories()
-            print(story)
             self.stories = story
             DispatchQueue.main.async {
                 self.storiesCollectionView.reloadData()
@@ -101,7 +100,6 @@ class HomeViewController: UIViewController {
     func getAllCategories() {
         Task{
             let categories = try await Categories().getCategories()
-            print(categories)
             self.category = categories
             DispatchQueue.main.async {
                 self.categoriesCollectionView.reloadData()
