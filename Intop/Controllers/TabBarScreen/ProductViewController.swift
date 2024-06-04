@@ -43,6 +43,8 @@ class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         pageControl.currentPage = 0
         performSegue(withIdentifier: "loading", sender: self)
         viewComment.layer.borderColor = UIColor(named: "GrayMain")?.cgColor
@@ -51,7 +53,6 @@ class ProductViewController: UIViewController {
         commentCollectionView.dataSource = self
         commentCollectionView.delegate = self
         scrollView.delegate = self
-        getComments(limit: 0)
         getTovar()
         getRating()
         
@@ -90,10 +91,12 @@ class ProductViewController: UIViewController {
     
     func getTovar() {
         Tovar().getTovarById(productId: idProduct!) { result in
+            print(result, 8888)
             self.product = result
             self.addAuthorInfo()
             self.addTovarInfo()
             self.dismiss(animated: false)
+            self.getComments(limit: 0)
         }
     }
     func getComments(limit: Int) {
