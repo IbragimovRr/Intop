@@ -21,11 +21,12 @@ class WishlistViewController: UIViewController {
         wishlistCollectionView.delegate = self
         wishlistCollectionView.dataSource = self
         
-        
-        Wishlist().getFavorites { result in
-            self.wishlists = result
-            self.wishlistCollectionView.reloadData()
-            
+        Task {
+            let result = try await Wishlist().getFavorites()
+            DispatchQueue.main.async {
+                self.wishlists = result
+                self.wishlistCollectionView.reloadData()
+            }
         }
     }
   

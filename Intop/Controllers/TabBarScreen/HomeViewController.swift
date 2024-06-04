@@ -43,17 +43,8 @@ class HomeViewController: UIViewController {
         segment = SegmentFilter(firstBtn: instagram, secondBtn: multimedia)
         search.delegate = self
         
-        Stories().getStories { story in
-            self.stories = story
-            self.storiesCollectionView.reloadData()
-            self.emptyStories()
-        }
-        
-        Categories().getCategories { result in
-            self.category = result
-            self.categoriesCollectionView.reloadData()
-        }
-        
+        getAllStories()
+        getAllCategories()
         getAllTovars()
         self.view.layoutSubviews()
     }
@@ -94,15 +85,42 @@ class HomeViewController: UIViewController {
         
     }
     
+    func getAllStories() {
+        Task {
+            let story = try await Stories().getStories()
+            print(story)
+            self.stories = story
+            DispatchQueue.main.async {
+                self.storiesCollectionView.reloadData()
+                self.emptyStories()
+            }
+        }
+    }
+    
+    func getAllCategories() {
+        Task{
+            let categories = try await Categories().getCategories()
+            print(categories)
+            self.category = categories
+            DispatchQueue.main.async {
+                self.categoriesCollectionView.reloadData()
+            }
+        }
+    }
+    
     func getAllTovars() {
+        
         startLoading()
-        Tovar().getAllTovars { product in
+        Task{
+            let product = try await Tovar().getAllTovars()
             self.products = product
             self.lentaTovarsCollectionView.reloadData()
             self.lentaTovarsCollectionView.reloadSections(IndexSet(integer: 0))
-            self.stopLoading()
+            DispatchQueue.main.async {
+                self.stopLoading()
+                self.view.layoutSubviews()
+            }
         }
-        self.view.layoutSubviews()
     }
     
     func addObserverInFilter() {
@@ -111,6 +129,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func acceptedFilter() {
+        
         getAllTovars()
     }
     
@@ -193,7 +212,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "instagram", for: indexPath) as! WishlistCollectionViewCell
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
-        Wishlist().getFavoritesByID(products[indexPath.row].productID) { likesCount in
+        Task{
+            let likesCount = try await Wishlist().getFavoritesByID(products[indexPath.row].productID)
             DispatchQueue.main.async {
                 cell.likes.text = "Лайкнули \(likesCount)"
             }
@@ -222,10 +242,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
         cell.priceLbl.text = "$\(products[indexPath.row].priceUSD!)"
-        Rating().getRatingByProductId(productId: products[indexPath.row].productID) { result in
-            cell.reviewsCountLbl.text = "\(result.totalVotes) reviews"
-            cell.ratingLbl.text = "\(result.rating)"
-        }
+        cell.reviewsCountLbl.text = "\(products[indexPath.row].rating.totalVotes) reviews"
+        cell.ratingLbl.text = "\(products[indexPath.row].rating)"
         
         //Button
         cell.imBtn.addTarget(self, action: #selector(clickProduct), for: .touchUpInside)
@@ -290,12 +308,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     @objc func clickLike(sender: UIButton){
         if products[sender.tag].meLike == false {
             products[sender.tag].meLike = true
-            Wishlist().addFavorites(products[sender.tag], method: .post) {
+            Task{
+                try await Wishlist().addFavorites(products[sender.tag], method: .post)
                 self.lentaTovarsCollectionView.reloadData()
             }
         }else {
             products[sender.tag].meLike = false
-            Wishlist().addFavorites(products[sender.tag], method: .delete) {
+            Task{
+                try await Wishlist().addFavorites(products[sender.tag], method: .delete)
                 self.lentaTovarsCollectionView.reloadData()
             }
         }

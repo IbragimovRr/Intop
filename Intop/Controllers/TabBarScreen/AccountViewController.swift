@@ -34,19 +34,18 @@ class AccountViewController: UIViewController {
         productsCollectionView.dataSource = self
         productsCollectionView.delegate = self
         
-        Categories().getCategories { result in
-            self.categories = result
+        Task {
+            let categories = try await Categories().getCategories()
+            self.categories = categories
             self.categoryCollectionView.reloadData()
-        }
-        Tovar().getTovarByUserId(userId!) { result in
-            self.products = result
+            
+            let tovar = try await Tovar().getTovarByUserId(userId!)
+            self.products = tovar
             self.productsCollectionView.reloadData()
-        }
-        
-        
-        
-        User().getInfoUserById("\(userId!)") { info in
-            self.users = info
+            
+            
+            let user = try await User().getInfoUserById("\(userId!)")
+            self.users = user
             self.addInfoUser()
         }
             

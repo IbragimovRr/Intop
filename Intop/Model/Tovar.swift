@@ -11,58 +11,53 @@ import SwiftyJSON
 
 class Tovar {
     
-    func getTovarById(productId: Int, completion: @escaping (_ result: Product) -> ()) {
+    func getTovarById(productId: Int) async throws -> Product{
         let url = Constants.url + "products/\(productId)"
-        AF.request(url, method: .get).responseData { responseData in
-            switch responseData.result {
-            case .success(let value):
-                let json = JSON(value)
-                let title = json["title"].stringValue
-                let priceUSD = json["price_USD"].intValue
-                let description = json["description"].stringValue
-                let authorId = json["author"]["id"].intValue
-                let firstNameAuthor = json["author"]["first_name"].stringValue
-                let avatarAuthor = json["author"]["avatar_url"].stringValue
-                let likes = json["likes_count"].intValue
-                let imageMain = json["main_image_url"].stringValue
-                let viewsCount = json["views_count"].intValue
-                let commentsCount = json["comments_count"].intValue
-                let sharesCount = json["shares_count"].intValue
-                var images = [String]()
-                let count = json["additional_images_json"].count
-                
-                if count != 0 {
-                    for x in 0...count - 1 {
-                        let image = json["additional_images_json"][x].stringValue
-                        images.append(image)
-                    }
-                }
-                let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor)
-                var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, viewsCount: viewsCount,commentsCount: commentsCount,sharesCount: sharesCount, description: description, author: author)
-                
-                self.checkMeLikeProduct(products) { meLike in
-                    products.meLike = meLike
-                    completion(products)
-                }
-            case .failure(_):
-                print("error")
+        let value = try await AF.request(url, method: .get).serializingData().value
+        let json = JSON(value)
+        let title = json["title"].stringValue
+        let priceUSD = json["price_USD"].intValue
+        let description = json["description"].stringValue
+        let authorId = json["author"]["id"].intValue
+        let firstNameAuthor = json["author"]["first_name"].stringValue
+        let avatarAuthor = json["author"]["avatar_url"].stringValue
+        let likes = json["likes_count"].intValue
+        let imageMain = json["main_image_url"].stringValue
+        let viewsCount = json["views_count"].intValue
+        let commentsCount = json["comments_count"].intValue
+        let sharesCount = json["shares_count"].intValue
+        var images = [String]()
+        let count = json["additional_images_json"].count
+        
+        if count != 0 {
+            for x in 0...count - 1 {
+                let image = json["additional_images_json"][x].stringValue
+                images.append(image)
             }
         }
+        
+        let rating = try await Rating().getRatingByProductId(productId: productId)
+        
+        let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor)
+        var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, rating: rating, viewsCount: viewsCount,commentsCount: commentsCount,sharesCount: sharesCount, description: description, author: author)
+        
+        let meLike = try await checkMeLikeProduct(products)
+        products.meLike = meLike
+        return products
     }
     
-    func checkMeLikeProduct(_ product: Product, completion:@escaping (_ meLike:Bool) -> ()) {
-        Wishlist().getFavorites { result in
-            var resultBool = false
-            for x in result {
-                if product.productID == x.productID {
-                    resultBool = true
-                }
+    func checkMeLikeProduct(_ product: Product) async throws -> Bool {
+        let result = try await Wishlist().getFavorites()
+        var resultBool = false
+        for x in result {
+            if product.productID == x.productID {
+                resultBool = true
             }
-            completion(resultBool)
         }
+        return resultBool
     }
     
-    func getAllTovars(completion:@escaping ([Product]) -> ()) {
+    func getAllTovars() async throws -> [Product]{
         let name = "?prod_name=\(Filter.search ?? "")"
         let currency = "&currency=\(Filter.valuta ?? "")"
         let ascending = "&is_ascending=\(boolInString(Filter.isAscending))"
@@ -75,60 +70,43 @@ class Tovar {
         let new = "&is_new=\(boolInString(Filter.isNew))"
         let sellerVerified = "&is_seller_verified=\(boolInString(Filter.isSellerVerified))"
         let url = Constants.url + "products" + name  + currency + ascending + price + negotiable + nearby + wholesale + installment + retail + new + sellerVerified
-        print(url)
-        AF.request(url, method: .get).responseData { responseData in
-            switch responseData.result {
-            case .success(let value):
-                let json = JSON(value)
-                let count = json.count
-                guard count != 0 else {return}
-                var products = [Product]()
-                for x in 0...count - 1 {
-                    let id = json[x]["product_id"].intValue
-                    self.getTovarById(productId: id) { product in
-                        let product = Product(title: product.title, priceUSD: product.priceUSD, productID: id, mainImages: product.mainImages, likes: product.likes,viewsCount: product.viewsCount,commentsCount: product.commentsCount,sharesCount: product.sharesCount,  meLike: product.meLike, author: product.author)
-                        products.append(product)
-                        if x == count - 1{ completion(products) }
-                    }
-                    
-                }
-            case .failure(let error):
-                print(error)
-            }
+        
+        let value = try await AF.request(url, method: .get).serializingData().value
+        let json = JSON(value)
+        let count = json.count
+        guard count != 0 else {throw NSError()}
+        var products = [Product]()
+        for x in 0...count - 1 {
+            let id = json[x]["product_id"].intValue
+            let product = try await getTovarById(productId: id)
+            let productResult = Product(title: product.title, priceUSD: product.priceUSD, productID: id, mainImages: product.mainImages, likes: product.likes,viewsCount: product.viewsCount,commentsCount: product.commentsCount,sharesCount: product.sharesCount,  meLike: product.meLike, author: product.author)
+            products.append(product)
         }
+        return products
     }
     
-    func getTovarByUserId(_ userId: Int, completion: @escaping(_ result: [Product]) -> ()) {
+    func getTovarByUserId(_ userId: Int) async throws -> [Product]{
         let url = Constants.url + "products?user_id=\(userId)"
-        AF.request(url, method: .get).responseData {responseData in
-            switch responseData.result {
-                
-            case .success(let value):
-                let json = JSON(value)
-                let count = json.count
-                
-                var productsArray = [Product]()
-                guard count != 0 else {return}
-                for x in 0...count - 1 {
-                    let likes = json[x]["likes_count"].intValue
-                    let viewsCount = json[x]["views_count"].intValue
-                    let imageMain = json[x]["main_image_url"].stringValue
-                    let sharesCount = json[x]["shares_count"].intValue
-                    let commentsCount = json[x]["comments_count"].intValue
-                    let productID = json[x]["product_id"].intValue
-                    let title = json[x]["title"].stringValue
-                    print(viewsCount,title)
-                    let products = Product(title: title, productID: productID, mainImages:imageMain, likes: likes, viewsCount: viewsCount, commentsCount: commentsCount, sharesCount: sharesCount)
-                    productsArray.append(products)
-                    
-                }
-                completion(productsArray)
-                
-                
-            case .failure(_):
-                print("error")
-            }
+        let value = try await AF.request(url, method: .get).serializingData().value
+        let json = JSON(value)
+        let count = json.count
+        
+        var productsArray = [Product]()
+        guard count != 0 else {throw NSError()}
+        for x in 0...count - 1 {
+            let likes = json[x]["likes_count"].intValue
+            let viewsCount = json[x]["views_count"].intValue
+            let imageMain = json[x]["main_image_url"].stringValue
+            let sharesCount = json[x]["shares_count"].intValue
+            let commentsCount = json[x]["comments_count"].intValue
+            let productID = json[x]["product_id"].intValue
+            let title = json[x]["title"].stringValue
+            print(viewsCount,title)
+            let products = Product(title: title, productID: productID, mainImages:imageMain, likes: likes, viewsCount: viewsCount, commentsCount: commentsCount, sharesCount: sharesCount)
+            productsArray.append(products)
+            
         }
+        return productsArray
     }
     
 
