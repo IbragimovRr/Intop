@@ -63,7 +63,7 @@ struct Product {
     var description: String? = ""
     var meLike: Bool = false
     var author: Author = Author()
-    var comments: [CommentsStruct] = [CommentsStruct]()
+    var comments = [CommentsStruct]()
 }
 
 
