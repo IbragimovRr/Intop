@@ -88,11 +88,16 @@ class HomeViewController: UIViewController {
     
     func getAllStories() {
         Task {
-            let story = try await Stories().getStories()
-            self.stories = story
-            DispatchQueue.main.async {
-                self.storiesCollectionView.reloadData()
-                self.emptyStories()
+            do {
+                let story = try await Stories().getStories()
+                print(story)
+                self.stories = story
+                DispatchQueue.main.async {
+                    self.storiesCollectionView.reloadData()
+                    self.emptyStories()
+                }
+            }catch {
+                print("error")
             }
         }
     }

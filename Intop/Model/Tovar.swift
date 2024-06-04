@@ -41,7 +41,7 @@ class Tovar {
         let comments = try await Comments().getCommentsByProductId(limit: 0, productId: productId)
         
         let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor, phoneNumber: phoneNumber)
-        var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, rating: rating, viewsCount: viewsCount,commentsCount: commentsCount,sharesCount: sharesCount, description: description, author: author)
+        var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, rating: rating, viewsCount: viewsCount,commentsCount: commentsCount,sharesCount: sharesCount, description: description, author: author, comments: comments)
 
         
         let meLike = try await checkMeLikeProduct(products)
@@ -73,7 +73,6 @@ class Tovar {
         let new = "&is_new=\(boolInString(Filter.isNew))"
         let sellerVerified = "&is_seller_verified=\(boolInString(Filter.isSellerVerified))"
         let url = Constants.url + "products" + name  + currency + ascending + price + negotiable + nearby + wholesale + installment + retail + new + sellerVerified
-        
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
         let count = json.count
@@ -83,7 +82,7 @@ class Tovar {
             let id = json[x]["product_id"].intValue
             let product = try await getTovarById(productId: id)
             let productResult = Product(title: product.title, priceUSD: product.priceUSD, productID: id, mainImages: product.mainImages, likes: product.likes,viewsCount: product.viewsCount,commentsCount: product.commentsCount,sharesCount: product.sharesCount,  meLike: product.meLike, author: product.author)
-            products.append(product)
+            products.append(productResult)
         }
         return products
     }
