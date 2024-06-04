@@ -51,7 +51,20 @@ class User {
         let jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar, subscribers: subscribers, subscriptions: subscriptions, posts: posts, shopName: shopName)
         return jsonUser
     }
-    
-    
-    
+    func patchUserSettings(phoneNumber: String, shopName: String, shopDescription: String,shopRole: ShopRole) {
+        let url = Constants.url + "settings/\(phoneNumber)"
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(Data("\(phoneNumber)".utf8), withName: "user_phone_number")
+            multipartFormData.append(Data("\(shopName)".utf8), withName: "shop_name")
+            multipartFormData.append(Data("\(shopDescription)".utf8), withName: "shop_description")
+            multipartFormData.append(Data("\(shopRole)".utf8), withName: "shop_role")
+        }, to: url, method: .patch).response { responseData in
+            switch responseData.result {
+            case .success(let value):
+                UD().saveShopRole(shopRole.rawValue)
+            case .failure(_):
+                print("error")
+            }
+        }
+    }
 }

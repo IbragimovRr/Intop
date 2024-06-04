@@ -22,10 +22,12 @@ class AccountViewController: UIViewController {
     var categories = [Category]()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getTovar()
+        
+        
         addInfoUser()
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
@@ -51,16 +53,13 @@ class AccountViewController: UIViewController {
         
     }
     
-    func getTovar() {
-        guard let userId = userId else {return}
-    }
 
     func addInfoUser() {
         imageUser.sd_setImage(with: URL(string: users?.avatar ?? ""))
         shopNameLbl.text = users?.shopName
         nameLbl.text = users?.name
         subscribersCountLbl.text = "\(users?.subscribers ?? 0)"
-        subscriptionCountLbl.text = "\(users?.subscribers ?? 0)"
+        subscriptionCountLbl.text = "\(users?.subscriptions ?? 0)"
         postsCountLbl.text = "\(users?.posts ?? 0)"
     }
     
@@ -115,5 +114,11 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
         
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSettings" {
+            let vc = segue.destination as! AccountSettingsViewController
+            vc.name = users?.name
+            vc.biography = users?.shopName
+        }
+    }
 }
