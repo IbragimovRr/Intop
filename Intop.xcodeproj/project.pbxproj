@@ -17,6 +17,7 @@
 		44ACB54B2BF3913200A75F3A /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44ACB54A2BF3913200A75F3A /* Poppins-Regular.ttf */; };
 		44ACB54D2BF636EC00A75F3A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ACB54C2BF636EC00A75F3A /* User.swift */; };
 		44ACB5512BF646C400A75F3A /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ACB5502BF646C400A75F3A /* CategoriesCollectionViewCell.swift */; };
+		44D05CAC2C0F669E00EABA4C /* Mulish-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44D05CAB2C0F669E00EABA4C /* Mulish-Light.ttf */; };
 		44D17D392BEF9B6A00F5C073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D382BEF9B6A00F5C073 /* AppDelegate.swift */; };
 		44D17D3B2BEF9B6A00F5C073 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D17D3A2BEF9B6A00F5C073 /* SceneDelegate.swift */; };
 		44D17D402BEF9B6A00F5C073 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D17D3E2BEF9B6A00F5C073 /* Main.storyboard */; };
@@ -40,7 +41,6 @@
 		756AEC072C0B8D1D004E0469 /* Ex String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AEC062C0B8D1D004E0469 /* Ex String.swift */; };
 		756AEC0B2C0E1E72004E0469 /* ProductsAnAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AEC0A2C0E1E72004E0469 /* ProductsAnAccountCollectionViewCell.swift */; };
 		756AEC0D2C0F34D1004E0469 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AEC0C2C0F34D1004E0469 /* AccountSettingsViewController.swift */; };
-		756AEC0F2C0F385C004E0469 /* Mulish-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 756AEC0E2C0F385C004E0469 /* Mulish-Light.ttf */; };
 		757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */; };
 		7586A21C2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7586A21B2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift */; };
 		7598C9712BF8F0250077AD14 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598C9702BF8F0250077AD14 /* WishlistViewController.swift */; };
@@ -76,6 +76,7 @@
 		44ACB54A2BF3913200A75F3A /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		44ACB54C2BF636EC00A75F3A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		44ACB5502BF646C400A75F3A /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		44D05CAB2C0F669E00EABA4C /* Mulish-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Light.ttf"; sourceTree = "<group>"; };
 		44D17D352BEF9B6A00F5C073 /* Intop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D17D382BEF9B6A00F5C073 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44D17D3A2BEF9B6A00F5C073 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +101,6 @@
 		756AEC062C0B8D1D004E0469 /* Ex String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex String.swift"; sourceTree = "<group>"; };
 		756AEC0A2C0E1E72004E0469 /* ProductsAnAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAnAccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		756AEC0C2C0F34D1004E0469 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
-		756AEC0E2C0F385C004E0469 /* Mulish-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Mulish-Light.ttf"; path = "../../../../Downloads/Mulish 2/static/Mulish-Light.ttf"; sourceTree = "<group>"; };
 		757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		7586A21B2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAnAccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		7598C9702BF8F0250077AD14 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 		757043112BEFAC7C00DDC3E9 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				756AEC0E2C0F385C004E0469 /* Mulish-Light.ttf */,
+				44D05CAB2C0F669E00EABA4C /* Mulish-Light.ttf */,
 				75C17DC32C04EFE1006EB02B /* Roboto-Medium.ttf */,
 				752E819C2BF64E95004DABC3 /* Roboto-Light.ttf */,
 				44ACB54A2BF3913200A75F3A /* Poppins-Regular.ttf */,
@@ -361,7 +361,7 @@
 				752E819D2BF64E95004DABC3 /* Roboto-Light.ttf in Resources */,
 				75C17DC42C04EFE1006EB02B /* Roboto-Medium.ttf in Resources */,
 				44D17D402BEF9B6A00F5C073 /* Main.storyboard in Resources */,
-				756AEC0F2C0F385C004E0469 /* Mulish-Light.ttf in Resources */,
+				44D05CAC2C0F669E00EABA4C /* Mulish-Light.ttf in Resources */,
 				75C17DC22C04EED4006EB02B /* Mulish-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

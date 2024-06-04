@@ -37,9 +37,10 @@ class Tovar {
         }
         
         let rating = try await Rating().getRatingByProductId(productId: productId)
+        let comments = try await Comments().getCommentsByProductId(limit: 0, productId: productId)
         
         let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor)
-        var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, rating: rating, viewsCount: viewsCount,commentsCount: commentsCount,sharesCount: sharesCount, description: description, author: author)
+        var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, rating: rating, viewsCount: viewsCount,commentsCount: commentsCount,sharesCount: sharesCount, description: description, author: author,comments: comments)
         
         let meLike = try await checkMeLikeProduct(products)
         products.meLike = meLike
