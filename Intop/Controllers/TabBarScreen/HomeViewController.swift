@@ -264,7 +264,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if segue.identifier == "product" {
             let vc = segue.destination as! ProductViewController
-            vc.idProduct = selectProduct.productID
+            vc.product.productID = selectProduct.productID
         }
         if segue.identifier == "goToAccount2" {
             let vc = segue.destination as! AccountViewController

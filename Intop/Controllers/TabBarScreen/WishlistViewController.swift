@@ -69,7 +69,7 @@ extension WishlistViewController: UICollectionViewDelegate, UICollectionViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToProduct" {
             let vc = segue.destination as! ProductViewController
-            vc.idProduct = selectId
+            vc.product.productID = selectId
         }
     }
 }
