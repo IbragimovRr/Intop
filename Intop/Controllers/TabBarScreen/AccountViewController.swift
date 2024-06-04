@@ -103,15 +103,24 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
             return cell
         }else{
             let cell = productsCollectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductsAnAccountCollectionViewCell
-            cell.viewsCountLbl.text = "\(products[indexPath.row].viewsCount ?? 0)"
-            cell.commentsCountLbl.text = "\(products[indexPath.row].commentsCount ?? 0)"
-            cell.sharesCountLbl.text = "\(products[indexPath.row].sharesCount ?? 0)"
-            cell.titleLbl.text = products[indexPath.row].title
-            cell.likesCountLbl.text = "\(products[indexPath.row].likes ?? 0)"
+//            cell.viewsCountLbl.text = "\(products[indexPath.row].viewsCount ?? 0)"
+//            cell.commentsCountLbl.text = "\(products[indexPath.row].commentsCount ?? 0)"
+//            cell.sharesCountLbl.text = "\(products[indexPath.row].sharesCount ?? 0)"
+//            cell.titleLbl.text = products[indexPath.row].title
+//            cell.likesCountLbl.text = "\(products[indexPath.row].likes ?? 0)"
             cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
             return cell
         }
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == productsCollectionView {
+            let width = UIScreen.main.bounds.width / 3 
+            return CGSize(width: width, height: width)
+        }else {
+            return CGSize(width: 71, height: 29)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

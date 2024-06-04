@@ -21,7 +21,6 @@ class Categories {
                 case .success(let value):
                     let json = JSON(value)
                     let categoriesArray = self.parseCategories(json: json)
-                    print(categoriesArray)
                     continuation.resume(returning: categoriesArray)
                     
                 case .failure(_):

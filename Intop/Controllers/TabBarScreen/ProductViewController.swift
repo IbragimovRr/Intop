@@ -51,7 +51,6 @@ class ProductViewController: UIViewController {
         imageCollectionView.delegate = self
         commentCollectionView.dataSource = self
         commentCollectionView.delegate = self
-        scrollView.delegate = self
         getTovar()
         
         
@@ -85,7 +84,6 @@ class ProductViewController: UIViewController {
         Task{
             do {
                 let result = try await Tovar().getTovarById(productId: product.productID)
-                await self.getComments(limit: 0)
                 self.product = result
                 self.addAuthorInfo()
                 self.addTovarInfo()
@@ -96,16 +94,10 @@ class ProductViewController: UIViewController {
         }
     }
     
-    func getComments(limit: Int) async {
-        do {
-            let result = try await Comments().getCommentsByProductId(limit: limit, productId: product.productID)
-            self.isEmptyComments(comments: result)
-            self.product.comments = result
-            self.commentCollectionView.reloadData()
-            self.view.layoutSubviews()
-        }catch  {
-            print("error")
-        }
+    func commetnsDesign(limit: Int) {
+        self.isEmptyComments(comments: product.comments)
+        self.commentCollectionView.reloadData()
+        self.view.layoutSubviews()
     }
     
     func addAuthorInfo() {
@@ -131,6 +123,8 @@ class ProductViewController: UIViewController {
         }else {
             likeBtn.setImage(UIImage(named: "like2"), for: .normal)
         }
+        
+        commetnsDesign(limit: 0)
         
         ConditionIfNil.isHidden = true
         
@@ -198,17 +192,13 @@ class ProductViewController: UIViewController {
     }
     
     @IBAction func allCommentsBtn(_ sender: UIButton) {
-        Task{
-            await getComments(limit: 0)
-        }
+        getTovar()
         stackView.isHidden = true
             
     }
     
     @IBAction func allCommentsBtn2(_ sender: UIButton) {
-        Task {
-            await getComments(limit: 0)
-        }
+        getTovar()
         stackView.isHidden = true
     }
     
@@ -220,6 +210,13 @@ class ProductViewController: UIViewController {
         let result =  commentLbl.frame.origin.y - (UIScreen.main.bounds.height / 1.515)
         scrollView.setContentOffset(CGPoint(x: 0, y: result), animated: true)
     }
+    
+    
+    
+    @IBAction func tap(_ sender: Any) {
+        commentTextField.resignFirstResponder()
+    }
+    
 }
 
 extension ProductViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -291,8 +288,3 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 }
 
-extension ProductViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
-    }
-}
