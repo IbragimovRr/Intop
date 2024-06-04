@@ -4,6 +4,9 @@ import SDWebImage
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var settingsBtn: UIButton!
+    @IBOutlet weak var contactsView: UIView!
+    @IBOutlet weak var chatView: UIView!
     @IBOutlet weak var imageUser: UIImageView!
     @IBOutlet weak var ratingLbl: UILabel!
     @IBOutlet weak var shopNameLbl: UILabel!
@@ -20,14 +23,14 @@ class AccountViewController: UIViewController {
     var rating: RatingStruct?
     var like = false
     var categories = [Category]()
-    
+    var me = true
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        
+        design()
         addInfoUser()
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
@@ -51,6 +54,18 @@ class AccountViewController: UIViewController {
             
         
         
+    }
+    
+    func design() {
+        if me == true {
+            chatView.isHidden = true
+            contactsView.isHidden = true
+            settingsBtn.isHidden = false
+        }else if me == false {
+            chatView.isHidden = false
+            contactsView.isHidden = false
+            settingsBtn.isHidden = true
+        }
     }
     
 
