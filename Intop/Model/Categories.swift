@@ -12,19 +12,21 @@ import SwiftyJSON
 class Categories {
     
     
-    func getCategories(completion: @escaping (_ result:[Category]) -> ()) {
+    func getCategories() async throws -> [Category] {
         
         let url = Constants.url + "categories/nested"
-        
-        AF.request(url, method: .get).responseData { responseData in
-            switch responseData.result {
-            case .success(let value):
-                let json = JSON(value)
-                let categoriesArray = self.parseCategories(json: json)
-                completion(categoriesArray)
-                
-            case .failure(_):
-                print("error")
+        return try await withCheckedThrowingContinuation { continuation in
+            AF.request(url, method: .get).responseData { responseData in
+                switch responseData.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    let categoriesArray = self.parseCategories(json: json)
+                    print(categoriesArray)
+                    continuation.resume(returning: categoriesArray)
+                    
+                case .failure(_):
+                    print("error")
+                }
             }
         }
     }

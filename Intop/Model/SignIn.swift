@@ -63,7 +63,8 @@ class Sign {
     
     private func signUpRoleByUser(_ phoneNumber:String,shopRole:ShopRole) {
         //Регистрация под покупателя
-        User().getInfoUser(phoneNumber) { info in
+        Task{
+            let info = try await User().getInfoUser(phoneNumber)
             let url = Constants.url + "update_user_phone_number"
             let parametrs = [
                 "user_id":info.id,
@@ -107,7 +108,8 @@ class Sign {
                         //Успешный логин пароль
                         UD().savePhone(phoneNumber)
                         UD().saveRemember(true)
-                        User().getInfoUser(phoneNumber) { info in
+                        Task{
+                            let info = try await User().getInfoUser(phoneNumber)
                             if info.is_seller == isSeller {
                                 completion(code,nil)
                             }else if info.is_seller == true && isSeller == false {
@@ -115,8 +117,9 @@ class Sign {
                             }else {
                                 completion(nil,"Ошибка данных")
                             }
+                            
+                            
                         }
-                        
                     }
                     case .failure(_):
             completion(nil,"Ошибка повторите попытку позже")

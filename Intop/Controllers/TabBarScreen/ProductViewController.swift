@@ -53,8 +53,6 @@ class ProductViewController: UIViewController {
         commentCollectionView.delegate = self
         scrollView.delegate = self
         getTovar()
-        getRating()
-        
         
         
         
@@ -82,29 +80,31 @@ class ProductViewController: UIViewController {
         }
     }
     
-    func getRating() {
-        Rating().getRatingByProductId(productId: product.productID) { result in
-            self.product.rating = result
-        }
-    }
     
     func getTovar() {
-        Tovar().getTovarById(productId: product.productID) { result in
-
-            self.product = result
-            self.getComments(limit: 0)
-            self.dismiss(animated: false)
-            self.getComments(limit: 0)
+        Task{
+            do {
+                let result = try await Tovar().getTovarById(productId: product.productID)
+                await self.getComments(limit: 0)
+                self.product = result
+                self.addAuthorInfo()
+                self.addTovarInfo()
+                self.dismiss(animated: false)
+            }catch {
+                print("error")
+            }
         }
     }
     
-    func getComments(limit: Int) {
-        Comments().getCommentsByProductId(limit: limit, productId: product.productID) { result in
+    func getComments(limit: Int) async {
+        do {
+            let result = try await Comments().getCommentsByProductId(limit: limit, productId: product.productID)
             self.isEmptyComments(comments: result)
             self.product.comments = result
-            self.addAuthorInfo()
-            self.addTovarInfo()
             self.commentCollectionView.reloadData()
+            self.view.layoutSubviews()
+        }catch  {
+            print("error")
         }
     }
     
@@ -119,7 +119,6 @@ class ProductViewController: UIViewController {
         titleLbl.text = product.title
         reviewsLbl.text = "\(product.rating.totalVotes) reviews"
         ratingLbl.text = "\(product.rating.rating)"
-        
         design()
         imageCollectionView.reloadData()
     }
@@ -163,11 +162,15 @@ class ProductViewController: UIViewController {
     @IBAction func addLike(_ sender: UIButton) {
         if product.meLike == false {
             self.product.meLike = true
-            Wishlist().addFavorites(product, method: .post, completion: nil)
+            Task {
+                try await Wishlist().addFavorites(product, method: .post)
+            }
             likeBtn.setImage(UIImage(named: "likeFull2"), for: .normal)
         }else {
             self.product.meLike = false
-            Wishlist().addFavorites(product, method: .delete, completion: nil)
+            Task {
+                try await Wishlist().addFavorites(product, method: .delete)
+            }
             likeBtn.setImage(UIImage(named: "like2"), for: .normal)
         }
 
@@ -176,7 +179,9 @@ class ProductViewController: UIViewController {
     @IBAction func postComment(_ sender: UIButton) {
         if UD().getCurrentUser() == true {
             if commentTextField.text != "" {
-                Comments().postComment(productId: product.productID, phoneNumber: User.phoneNumber, text: commentTextField.text!)
+                Task {
+                    try await Comments().postComment(productId: product.productID, phoneNumber: User.phoneNumber, text: commentTextField.text!)
+                }
                 product.comments.insert((CommentsStruct(comment: commentTextField.text!, createdAt: "", phoneNumber: User.phoneNumber)), at: 0)
                 commentTextField.text = ""
                 commentCollectionView.reloadData()
@@ -193,13 +198,17 @@ class ProductViewController: UIViewController {
     }
     
     @IBAction func allCommentsBtn(_ sender: UIButton) {
-        getComments(limit: 0)
+        Task{
+            await getComments(limit: 0)
+        }
         stackView.isHidden = true
             
     }
     
     @IBAction func allCommentsBtn2(_ sender: UIButton) {
-        getComments(limit: 0)
+        Task {
+            await getComments(limit: 0)
+        }
         stackView.isHidden = true
     }
     
@@ -219,7 +228,8 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
         if collectionView == imageCollectionView {
             return product.image!.count
         }else {
-            print(product.comments.count)
+            
+
             return product.comments.count
         }
     }
@@ -230,12 +240,14 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
             return cell
         }else {
             let cell = commentCollectionView.dequeueReusableCell(withReuseIdentifier: "commentCell", for: indexPath) as! CommentCollectionViewCell
-            
             cell.comment.text = product.comments[indexPath.row].comment
-            User().getInfoUser(product.comments[indexPath.row].phoneNumber, completion: { info in
-                cell.author.text = info.name
-                cell.avatar.sd_setImage(with: URL(string: info.avatar))
-            })
+            Task{
+                let info = try await User().getInfoUser(product.comments[indexPath.row].phoneNumber)
+                DispatchQueue.main.async {
+                    cell.author.text = info.name
+                    cell.avatar.sd_setImage(with: URL(string: info.avatar))
+                }
+            }
             let dateString = product.comments[indexPath.row].createdAt
 
             let dateFormatter = DateFormatter()
