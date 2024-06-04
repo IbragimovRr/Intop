@@ -39,6 +39,8 @@
 		752E819D2BF64E95004DABC3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752E819C2BF64E95004DABC3 /* Roboto-Light.ttf */; };
 		756AEC072C0B8D1D004E0469 /* Ex String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AEC062C0B8D1D004E0469 /* Ex String.swift */; };
 		756AEC0B2C0E1E72004E0469 /* ProductsAnAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AEC0A2C0E1E72004E0469 /* ProductsAnAccountCollectionViewCell.swift */; };
+		756AEC0D2C0F34D1004E0469 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756AEC0C2C0F34D1004E0469 /* AccountSettingsViewController.swift */; };
+		756AEC0F2C0F385C004E0469 /* Mulish-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 756AEC0E2C0F385C004E0469 /* Mulish-Light.ttf */; };
 		757043132BEFAC9100DDC3E9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */; };
 		7586A21C2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7586A21B2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift */; };
 		7598C9712BF8F0250077AD14 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598C9702BF8F0250077AD14 /* WishlistViewController.swift */; };
@@ -97,6 +99,8 @@
 		752E819C2BF64E95004DABC3 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		756AEC062C0B8D1D004E0469 /* Ex String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex String.swift"; sourceTree = "<group>"; };
 		756AEC0A2C0E1E72004E0469 /* ProductsAnAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAnAccountCollectionViewCell.swift; sourceTree = "<group>"; };
+		756AEC0C2C0F34D1004E0469 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
+		756AEC0E2C0F385C004E0469 /* Mulish-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Mulish-Light.ttf"; path = "../../../../Downloads/Mulish 2/static/Mulish-Light.ttf"; sourceTree = "<group>"; };
 		757043122BEFAC9100DDC3E9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		7586A21B2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAnAccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		7598C9702BF8F0250077AD14 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				44936CE12C0522FD0022E35A /* FilterViewController.swift */,
+				756AEC0C2C0F34D1004E0469 /* AccountSettingsViewController.swift */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 		757043112BEFAC7C00DDC3E9 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				756AEC0E2C0F385C004E0469 /* Mulish-Light.ttf */,
 				75C17DC32C04EFE1006EB02B /* Roboto-Medium.ttf */,
 				752E819C2BF64E95004DABC3 /* Roboto-Light.ttf */,
 				44ACB54A2BF3913200A75F3A /* Poppins-Regular.ttf */,
@@ -355,6 +361,7 @@
 				752E819D2BF64E95004DABC3 /* Roboto-Light.ttf in Resources */,
 				75C17DC42C04EFE1006EB02B /* Roboto-Medium.ttf in Resources */,
 				44D17D402BEF9B6A00F5C073 /* Main.storyboard in Resources */,
+				756AEC0F2C0F385C004E0469 /* Mulish-Light.ttf in Resources */,
 				75C17DC22C04EED4006EB02B /* Mulish-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +388,7 @@
 				75AF2FB52BF23A2100F0165E /* SecondViewController.swift in Sources */,
 				44D17D7E2BF235CA00F5C073 /* TFPhone.swift in Sources */,
 				75C17DC62C063827006EB02B /* Rating.swift in Sources */,
+				756AEC0D2C0F34D1004E0469 /* AccountSettingsViewController.swift in Sources */,
 				75D6AB462BFE62F400A87852 /* ProductViewController.swift in Sources */,
 				44D17D572BEFE08F00F5C073 /* Segment.swift in Sources */,
 				44ACB53D2BF26A1300A75F3A /* CodeTF.swift in Sources */,
