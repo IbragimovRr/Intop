@@ -35,8 +35,7 @@ class ProductViewController: UIViewController {
     
     var userPhoneNumber: String?
     var userId = 0
-    var idProduct: Int?
-    var product: Product?
+    var product = Product(productID: 0)
     var sizes = [String]()
     
     override func viewDidLoad() {
@@ -49,7 +48,6 @@ class ProductViewController: UIViewController {
         commentCollectionView.dataSource = self
         commentCollectionView.delegate = self
         scrollView.delegate = self
-        getComments(limit: 0)
         getTovar()
         getRating()
         
@@ -81,36 +79,36 @@ class ProductViewController: UIViewController {
     }
     
     func getRating() {
-        Rating().getRatingByProductId(productId: idProduct!) { result in
-            self.product!.rating = result
+        Rating().getRatingByProductId(productId: product.productID) { result in
+            self.product.rating = result
         }
     }
     
     func getTovar() {
-        Tovar().getTovarById(productId: idProduct!) { result in
+        Tovar().getTovarById(productId: product.productID) { result in
             self.product = result
-            self.addAuthorInfo()
-            self.addTovarInfo()
+            self.getComments(limit: 0)
             self.dismiss(animated: false)
         }
     }
+    
     func getComments(limit: Int) {
-        Comments().getCommentsByProductId(limit: limit, productId: idProduct!) { result in
+        Comments().getCommentsByProductId(limit: limit, productId: product.productID) { result in
             self.isEmptyComments(comments: result)
-            self.product!.comments = result
+            self.product.comments = result
+            self.addAuthorInfo()
+            self.addTovarInfo()
             self.commentCollectionView.reloadData()
         }
     }
     
     func addAuthorInfo() {
-        guard let product = product else {return}
         firstName.text = product.author.firstName
         avatar.sd_setImage(with: URL(string: product.author.avatar))
 
     }
     
     func addTovarInfo() {
-        guard let product = product else {return}
         priceUSDLbl.text = "$\(product.priceUSD!)"
         titleLbl.text = product.title
         reviewsLbl.text = "\(product.rating.totalVotes) reviews"
@@ -121,7 +119,6 @@ class ProductViewController: UIViewController {
     }
     
     func design() {
-        guard let product = product else {return}
     
         if product.meLike == true {
             likeBtn.setImage(UIImage(named: "likeFull2"), for: .normal)
@@ -152,18 +149,17 @@ class ProductViewController: UIViewController {
     }
     
     @IBAction func goToAccount(_ sender: UIButton) {
-        userId = (product?.author.authorId)!
-        userPhoneNumber = product?.author.firstName
+        userId = (product.author.authorId)
+        userPhoneNumber = product.author.firstName
     }
     
     @IBAction func addLike(_ sender: UIButton) {
-        guard let product = product else {return}
         if product.meLike == false {
-            self.product!.meLike = true
+            self.product.meLike = true
             Wishlist().addFavorites(product, method: .post, completion: nil)
             likeBtn.setImage(UIImage(named: "likeFull2"), for: .normal)
         }else {
-            self.product!.meLike = false
+            self.product.meLike = false
             Wishlist().addFavorites(product, method: .delete, completion: nil)
             likeBtn.setImage(UIImage(named: "like2"), for: .normal)
         }
@@ -173,8 +169,8 @@ class ProductViewController: UIViewController {
     @IBAction func postComment(_ sender: UIButton) {
         if UD().getCurrentUser() == true {
             if commentTextField.text != "" {
-                Comments().postComment(productId: idProduct!, phoneNumber: User.phoneNumber, text: commentTextField.text!)
-                product!.comments.insert((CommentsStruct(comment: commentTextField.text!, createdAt: "", phoneNumber: User.phoneNumber)), at: 0)
+                Comments().postComment(productId: product.productID, phoneNumber: User.phoneNumber, text: commentTextField.text!)
+                product.comments.insert((CommentsStruct(comment: commentTextField.text!, createdAt: "", phoneNumber: User.phoneNumber)), at: 0)
                 commentTextField.text = ""
                 commentCollectionView.reloadData()
                 
@@ -209,26 +205,26 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == imageCollectionView {
-            guard product?.image != nil else {return 0}
-            return product!.image!.count
+            return product.image!.count
         }else {
-            return product!.comments.count
+            print(product.comments.count)
+            return product.comments.count
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == imageCollectionView {
             let cell = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "image", for: indexPath) as! ImageCollectionViewCell
-            cell.image.sd_setImage(with: URL(string: (product!.image![indexPath.row])))
+            cell.image.sd_setImage(with: URL(string: (product.image![indexPath.row])))
             return cell
         }else {
             let cell = commentCollectionView.dequeueReusableCell(withReuseIdentifier: "commentCell", for: indexPath) as! CommentCollectionViewCell
             
-            cell.comment.text = product!.comments[indexPath.row].comment
-            User().getInfoUser(product!.comments[indexPath.row].phoneNumber, completion: { info in
+            cell.comment.text = product.comments[indexPath.row].comment
+            User().getInfoUser(product.comments[indexPath.row].phoneNumber, completion: { info in
                 cell.author.text = info.name
                 cell.avatar.sd_setImage(with: URL(string: info.avatar))
             })
-            let dateString = product!.comments[indexPath.row].createdAt
+            let dateString = product.comments[indexPath.row].createdAt
 
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
@@ -247,7 +243,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
         if collectionView == imageCollectionView {
             return CGSize(width: UIScreen.main.bounds.width, height: 375)
         }else {
-            let text = product!.comments[indexPath.row].comment
+            let text = product.comments[indexPath.row].comment
             let width = UIScreen.main.bounds.width - 52
             let height = text.height(withConstrainedWidth: width, font: UIFont.systemFont(ofSize: 13)) + 60
             return CGSize(width: width, height: height)
