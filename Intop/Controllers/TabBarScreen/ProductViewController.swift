@@ -42,6 +42,8 @@ class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         pageControl.currentPage = 0
         performSegue(withIdentifier: "loading", sender: self)
         viewComment.layer.borderColor = UIColor(named: "GrayMain")?.cgColor
@@ -88,9 +90,11 @@ class ProductViewController: UIViewController {
     
     func getTovar() {
         Tovar().getTovarById(productId: product.productID) { result in
+
             self.product = result
             self.getComments(limit: 0)
             self.dismiss(animated: false)
+            self.getComments(limit: 0)
         }
     }
     

@@ -4418,19 +4418,55 @@ sed do eiusmod tempor ut labore</string>
                                         <state key="normal" image="close"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Изменить язык" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnk-nh-y5z">
-                                        <rect key="frame" x="20.000000000000007" y="70" width="110.66666666666669" height="18"/>
+                                        <rect key="frame" x="25.000000000000007" y="70" width="110.66666666666669" height="18"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVe-Xf-bhU">
+                                        <rect key="frame" x="20" y="148" width="313" height="2"/>
+                                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="4Bi-Zp-mgn"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNh-9k-8zV">
+                                        <rect key="frame" x="25" y="104" width="303" height="34"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDZ-cU-VXu">
+                                        <rect key="frame" x="25" y="104" width="293" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down" translatesAutoresizingMaskIntoConstraints="NO" id="lMc-76-FS1">
+                                        <rect key="frame" x="300" y="115.66666666666669" width="9" height="9"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="9" id="DCX-Dp-ADJ"/>
+                                            <constraint firstAttribute="width" constant="9" id="JKB-IU-ybx"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="WhiteMain"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dNh-9k-8zV" secondAttribute="trailing" constant="25" id="0dg-ak-wPu"/>
+                                    <constraint firstItem="dDZ-cU-VXu" firstAttribute="trailing" secondItem="lMc-76-FS1" secondAttribute="trailing" constant="9" id="7gl-av-deX"/>
+                                    <constraint firstItem="NVe-Xf-bhU" firstAttribute="leading" secondItem="lHU-Bc-BJ4" secondAttribute="leading" constant="20" id="IDq-2y-HzQ"/>
+                                    <constraint firstItem="dNh-9k-8zV" firstAttribute="trailing" secondItem="dDZ-cU-VXu" secondAttribute="trailing" constant="10" id="IPb-vM-Rfu"/>
                                     <constraint firstAttribute="height" constant="450" id="ToA-Oh-96i"/>
+                                    <constraint firstItem="dNh-9k-8zV" firstAttribute="leading" secondItem="lHU-Bc-BJ4" secondAttribute="leading" constant="25" id="WIe-ya-g8Y"/>
                                     <constraint firstItem="tnk-nh-y5z" firstAttribute="top" secondItem="ieX-nO-djy" secondAttribute="bottom" constant="20" id="YIr-Vd-VTy"/>
                                     <constraint firstItem="ieX-nO-djy" firstAttribute="leading" secondItem="lHU-Bc-BJ4" secondAttribute="leading" constant="20" id="aFD-mz-0E3"/>
+                                    <constraint firstItem="dDZ-cU-VXu" firstAttribute="leading" secondItem="dNh-9k-8zV" secondAttribute="leading" id="cQn-PY-9y9"/>
+                                    <constraint firstItem="NVe-Xf-bhU" firstAttribute="bottom" secondItem="dNh-9k-8zV" secondAttribute="bottom" constant="12" id="car-km-hZ3"/>
+                                    <constraint firstItem="dDZ-cU-VXu" firstAttribute="top" secondItem="dNh-9k-8zV" secondAttribute="top" id="e6z-pb-Cmq"/>
+                                    <constraint firstAttribute="trailing" secondItem="NVe-Xf-bhU" secondAttribute="trailing" constant="20" id="fne-TA-oY0"/>
                                     <constraint firstItem="ieX-nO-djy" firstAttribute="top" secondItem="lHU-Bc-BJ4" secondAttribute="top" constant="20" id="hti-jg-BGT"/>
-                                    <constraint firstItem="tnk-nh-y5z" firstAttribute="leading" secondItem="lHU-Bc-BJ4" secondAttribute="leading" constant="20" id="xHy-9g-TA5"/>
+                                    <constraint firstItem="NVe-Xf-bhU" firstAttribute="top" secondItem="dDZ-cU-VXu" secondAttribute="bottom" constant="12" id="opo-hK-7KC"/>
+                                    <constraint firstItem="lMc-76-FS1" firstAttribute="centerY" secondItem="dDZ-cU-VXu" secondAttribute="centerY" id="qRS-zu-hEG"/>
+                                    <constraint firstItem="tnk-nh-y5z" firstAttribute="leading" secondItem="lHU-Bc-BJ4" secondAttribute="leading" constant="25" id="xHy-9g-TA5"/>
+                                    <constraint firstItem="dNh-9k-8zV" firstAttribute="top" secondItem="tnk-nh-y5z" secondAttribute="bottom" constant="16" id="zcu-FS-kQl"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -4446,11 +4482,11 @@ sed do eiusmod tempor ut labore</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFv-nP-wVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8490" y="3477"/>
+            <point key="canvasLocation" x="8489.3129770992364" y="3476.7605633802818"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rax-MT-Qy5"/>
+        <segue reference="9ml-ht-FnD"/>
         <segue reference="UFF-IG-VIj"/>
         <segue reference="ZqB-sD-1UV"/>
         <segue reference="L21-bH-Ta4"/>
