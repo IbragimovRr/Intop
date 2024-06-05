@@ -15,7 +15,7 @@ class Stories {
         let url = Constants.url + "stories"
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
-        guard json.count != 0 else { throw NSError() }
+        guard json.count != 0 else { return [Story]() }
         var stories = [Story]()
         for x in 0...json.count - 1 {
             let content = json[x]["content"].stringValue

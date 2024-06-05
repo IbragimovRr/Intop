@@ -23,7 +23,7 @@ class Wishlist {
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
         let count = json.count
-        guard count != 0 else { throw NSError()}
+        guard count != 0 else { return [Product]()}
         var arrayFavorites = [Product]()
         for x in 0...count - 1 {
             let title = json[x]["title"].stringValue

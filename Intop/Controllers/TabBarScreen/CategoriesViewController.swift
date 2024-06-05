@@ -25,7 +25,7 @@ class CategoriesViewController: UIViewController {
                 case .success(let value):
                     let json = JSON(value)
                     let count = json.count
-                    guard count != 0 else { return continuation.resume(throwing: NSError())}
+                    guard count != 0 else { return continuation.resume(returning: [Product]()) }
                     var arrayFavorites = [Product]()
                     for x in 0...count - 1 {
                         let title = json[x]["title"].stringValue

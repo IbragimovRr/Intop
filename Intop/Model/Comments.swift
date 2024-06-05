@@ -17,7 +17,7 @@ class Comments {
         let json = JSON(value)
         var arrayComments = [CommentsStruct]()
         let count = json.count
-        guard count != 0 else {throw NSError()}
+        guard count != 0 else {return [CommentsStruct]()}
         
         for x in 0...count - 1{
             let comment = json[x]["text"].stringValue
