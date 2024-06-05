@@ -175,6 +175,8 @@ class HomeViewController: UIViewController {
     
 }
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == lentaTovarsCollectionView {
             return products.count

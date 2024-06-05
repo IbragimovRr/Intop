@@ -114,7 +114,7 @@ class AccountViewController: UIViewController {
             self.categoryCollectionView.reloadData()
         }
         Task {
-            let tovar = try await Tovar().getTovarByUserId(userId!)
+            let tovar = try await Tovar().getTovarByUserId(userId!, limit: limitProduct)
             self.products = tovar
             self.productsCollectionView.reloadData()
             
