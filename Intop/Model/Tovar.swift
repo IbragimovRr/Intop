@@ -39,7 +39,7 @@ class Tovar {
         
         let rating = try await Rating().getRatingByProductId(productId: productId)
         let comments = try await Comments().getCommentsByProductId(limit: 0, productId: productId)
-        
+
         let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor, phoneNumber: phoneNumber)
         var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, rating: rating, viewsCount: viewsCount,commentsCount: commentsCount,sharesCount: sharesCount, description: description, author: author, comments: comments)
 
@@ -73,16 +73,17 @@ class Tovar {
         let new = "&is_new=\(boolInString(Filter.isNew))"
         let sellerVerified = "&is_seller_verified=\(boolInString(Filter.isSellerVerified))"
         let url = Constants.url + "products" + name  + currency + ascending + price + negotiable + nearby + wholesale + installment + retail + new + sellerVerified
+        print(url)
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
         let count = json.count
-        guard count != 0 else {throw NSError()}
+        print(count)
+        guard count != 0 else {return [Product]()}
         var products = [Product]()
         for x in 0...count - 1 {
             let id = json[x]["product_id"].intValue
             let product = try await getTovarById(productId: id)
-            let productResult = Product(title: product.title, priceUSD: product.priceUSD, productID: id, mainImages: product.mainImages, likes: product.likes,viewsCount: product.viewsCount,commentsCount: product.commentsCount,sharesCount: product.sharesCount,  meLike: product.meLike, author: product.author)
-            products.append(productResult)
+            products.append(product)
         }
         return products
     }
@@ -94,7 +95,7 @@ class Tovar {
         let count = json.count
         
         var productsArray = [Product]()
-        guard count != 0 else {throw NSError()}
+        guard count != 0 else {return [Product]()}
         for x in 0...count - 1 {
             let likes = json[x]["likes_count"].intValue
             let viewsCount = json[x]["views_count"].intValue
