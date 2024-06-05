@@ -141,8 +141,8 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToSettings" {
             let vc = segue.destination as! AccountSettingsViewController
-            vc.name = users?.name
-            vc.biography = users?.shopName
+            vc.nameTextField.text = users?.name
+            vc.nameTextField.text = users?.shopName
         }
     }
 }
