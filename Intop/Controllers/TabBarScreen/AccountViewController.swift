@@ -4,6 +4,7 @@ import SDWebImage
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var back: UIButton!
     @IBOutlet weak var settingsBtn: UIButton!
     @IBOutlet weak var contactsView: UIView!
     @IBOutlet weak var chatView: UIView!
@@ -29,7 +30,7 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        infoAboutMe()
         design()
         addInfoUser()
         categoryCollectionView.delegate = self
@@ -51,9 +52,15 @@ class AccountViewController: UIViewController {
             self.users = user
             self.addInfoUser()
         }
-            
-        
-        
+    }
+    
+    func infoAboutMe() {
+        Task {
+            if me == true {
+                let user = try await User().getInfoUser(User.phoneNumber)
+                userId = user.id
+            }
+        }
     }
     
     func design() {
@@ -61,11 +68,17 @@ class AccountViewController: UIViewController {
             chatView.isHidden = true
             contactsView.isHidden = true
             settingsBtn.isHidden = false
+            back.isHidden = true
         }else if me == false {
             chatView.isHidden = false
             contactsView.isHidden = false
             settingsBtn.isHidden = true
+            back.isHidden = false
         }
+        if UD().getCurrentUser() == false {
+            performSegue(withIdentifier: "vhod", sender: self)
+        }
+        
     }
     
 

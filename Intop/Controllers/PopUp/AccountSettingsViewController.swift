@@ -57,21 +57,25 @@ class AccountSettingsViewController: UIViewController {
         role = .sellerIndividual
         roleLbl.text = "Продавец физ лицо"
         UD().saveShopRole(role!.rawValue)
+        roleView.isHidden = true
     }
     @IBAction func sellerUr(_ sender: UIButton) {
         role = .sellerLegal
         roleLbl.text = "Продавец юр лицо"
         UD().saveShopRole(role!.rawValue)
+        roleView.isHidden = true
     }
     @IBAction func buyerFiz(_ sender: UIButton) {
         role = .buyerIndividual
         roleLbl.text = "Покупатель физ лицо"
         UD().saveShopRole(role!.rawValue)
+        roleView.isHidden = true
     }
     @IBAction func buyerUr(_ sender: UIButton) {
         role = .buyerLegal
         roleLbl.text = "Покупатель юр лицо"
         UD().saveShopRole(role!.rawValue)
+        roleView.isHidden = true
     }
 
     
