@@ -60,10 +60,11 @@ class Tovar {
         return resultBool
     }
     
-    func getAllTovars() async throws -> [Product]{
+    func getAllTovars(limit: Int) async throws -> [Product]{
         let name = "?prod_name=\(Filter.search ?? "")"
         let currency = "&currency=\(Filter.valuta ?? "")"
         let ascending = "&is_ascending=\(boolInString(Filter.isAscending))"
+        let limitURL = "&limit=\(limit)"
         let price = "&price_min=\(IntInString(Filter.priceOt))&price_max=\(IntInString(Filter.priceDo))"
         let negotiable = "&is_negotiable=\(boolInString(Filter.isNegotiable))"
         let nearby = "&is_nearby=\(boolInString(Filter.isNearby))"
@@ -72,7 +73,7 @@ class Tovar {
         let retail = "&is_retail=\(boolInString(Filter.roznica))"
         let new = "&is_new=\(boolInString(Filter.isNew))"
         let sellerVerified = "&is_seller_verified=\(boolInString(Filter.isSellerVerified))"
-        let url = Constants.url + "products" + name  + currency + ascending + price + negotiable + nearby + wholesale + installment + retail + new + sellerVerified
+        let url = Constants.url + "products" + name  + currency + ascending + limitURL + price + negotiable + nearby + wholesale + installment + retail + new + sellerVerified
         print(url)
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
@@ -100,8 +101,8 @@ class Tovar {
         return products
     }
     
-    func getTovarByUserId(_ userId: Int) async throws -> [Product]{
-        let url = Constants.url + "products?user_id=\(userId)"
+    func getTovarByUserId(_ userId: Int,limit:Int) async throws -> [Product]{
+        let url = Constants.url + "products?user_id=\(userId)&limit=\(limit)"
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
         let count = json.count
