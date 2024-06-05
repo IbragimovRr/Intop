@@ -40,7 +40,7 @@ class Comments {
             "user_phone_number":phoneNumber,
             "text":text
         ] as [String : Any]
-        let value = try await AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).serializingData().value
+        let _ = try await AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).serializingData().value
         
         
     }

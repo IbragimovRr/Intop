@@ -19,8 +19,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var storiesCollectionView: UICollectionView!
     
+    var phoneNumber: String?
     var me: Bool = true
-    var userId: Int?
     var segment: SegmentFilter!
     var products = [Product]()
     var category = [Category]()
@@ -81,7 +81,8 @@ class HomeViewController: UIViewController {
     func getProductLikeMe() async throws {
         for x in 0...products.count - 1 {
             if x >= limitTovars - 5 {
-                products[x].meLike = try await Tovar().checkMeLikeProduct(products[x])
+                let product = products[x]
+                products[x].meLike = try await Tovar().checkMeLikeProduct(product)
             }
         }
     }
@@ -284,8 +285,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         if segue.identifier == "goToAccount2" {
             let vc = segue.destination as! AccountViewController
-            vc.userId = userId
             vc.me = me
+            vc.phoneNumber = phoneNumber
         }
         
     }
@@ -330,7 +331,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     @objc func clickAccount(sender: UIButton) {
-        userId = products[sender.tag].author.authorId
+    
+        phoneNumber = products[sender.tag].author.phoneNumber
         if products[sender.tag].author.phoneNumber == User.phoneNumber {
             me = true
             performSegue(withIdentifier: "goToAccount2", sender: self)
