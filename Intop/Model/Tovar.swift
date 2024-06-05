@@ -82,7 +82,19 @@ class Tovar {
         var products = [Product]()
         for x in 0...count - 1 {
             let id = json[x]["product_id"].intValue
-            let product = try await getTovarById(productId: id)
+            let title = json[x]["title"].stringValue
+            let priceUSD = json[x]["price_USD"].intValue
+            let description = json[x]["description"].stringValue
+            let authorId = json[x]["author"]["id"].intValue
+            let firstNameAuthor = json[x]["author"]["first_name"].stringValue
+            let avatarAuthor = json[x]["author"]["avatar_url"].stringValue
+            let likes = json[x]["likes_count"].intValue
+            let imageMain = json[x]["main_image_url"].stringValue
+            let viewsCount = json[x]["views_count"].intValue
+            let commentsCount = json[x]["comments_count"].intValue
+            let phoneNumber = json[x]["user_phone_number"].stringValue
+            let product = Product(title: title, priceUSD: priceUSD, productID: id, mainImages: imageMain, likes: likes, viewsCount: viewsCount, commentsCount: commentsCount, description: description, author: Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor, phoneNumber: phoneNumber))
+            
             products.append(product)
         }
         return products
@@ -107,7 +119,6 @@ class Tovar {
             print(viewsCount,title)
             let products = Product(title: title, productID: productID, mainImages:imageMain, likes: likes, viewsCount: viewsCount, commentsCount: commentsCount, sharesCount: sharesCount)
             productsArray.append(products)
-            
         }
         return productsArray
     }
