@@ -11,8 +11,6 @@ class AccountSettingsViewController: UIViewController {
 
     var country: String?
     var role: ShopRole?
-    var name: String?
-    var biography: String?
     
     @IBOutlet weak var roleView: UIView!
     @IBOutlet weak var roleLbl: UILabel!
@@ -32,8 +30,6 @@ class AccountSettingsViewController: UIViewController {
     
     
     func design() {
-        nameTextField.text = name
-        biographyTextField.text = biography
         roleLbl.text = UD().getShopRole()
         if roleLbl.text == "seller_individual" {
             roleLbl.text = "Продавец физ лицо"

@@ -34,10 +34,11 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var conditionLbl: UILabel!
     
-    var userPhoneNumber: String?
     var userId = 0
     var product = Product(productID: 0)
     var sizes = [String]()
+    var name: String?
+    var shopName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,7 +151,6 @@ class ProductViewController: UIViewController {
     
     @IBAction func goToAccount(_ sender: UIButton) {
         userId = (product.author.authorId)
-        userPhoneNumber = product.author.firstName
     }
     
     @IBAction func addLike(_ sender: UIButton) {
@@ -283,7 +283,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
         if segue.identifier == "goToAccount" {
             let vc = segue.destination as! AccountViewController
             vc.userId = userId
-
+           
         }
         
     }
