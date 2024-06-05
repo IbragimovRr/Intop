@@ -47,6 +47,7 @@ struct JSONUser {
     var posts: Int? = 0
     var phoneNumber: String? = ""
     var shopName: String
+    var shopDescription: String
 }
 
 struct Product {

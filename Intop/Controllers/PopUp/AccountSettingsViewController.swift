@@ -8,9 +8,6 @@
 import UIKit
 
 class AccountSettingsViewController: UIViewController {
-
-    var country: String?
-    var role: ShopRole?
     
     @IBOutlet weak var roleView: UIView!
     @IBOutlet weak var roleLbl: UILabel!
@@ -18,10 +15,16 @@ class AccountSettingsViewController: UIViewController {
     @IBOutlet weak var countryLbl: UILabel!
     @IBOutlet weak var biographyTextField: UITextField!
     
+    var country: String?
+    var role: ShopRole?
+    var biography = ""
+    var name = ""
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         roleView.isHidden = true
         design()
-        super.viewDidLoad()
         nameTextField.delegate = self
         biographyTextField.delegate = self
         
@@ -40,6 +43,8 @@ class AccountSettingsViewController: UIViewController {
         }else if roleLbl.text == "buyer_legal" {
             roleLbl.text = "Покупатель юр лицо"
         }
+        biographyTextField.text = biography
+        nameTextField.text = name
     }
     
     @IBAction func roleBtn(_ sender: UIButton) {
@@ -51,6 +56,7 @@ class AccountSettingsViewController: UIViewController {
         
     }
     @IBAction func back(_ sender: UIButton) {
+        NotificationCenter.default.post(name: Notification.Name("pathedInfoAccount"), object: nil)
         dismiss(animated: false)
     }
     @IBAction func sellerFiz(_ sender: UIButton) {
@@ -84,9 +90,9 @@ class AccountSettingsViewController: UIViewController {
 extension AccountSettingsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == nameTextField {
-            User().patchUserSettings(phoneNumber: User.phoneNumber, shopName: nameTextField.text ?? "", shopDescription: biographyTextField.text ?? "", shopRole: role ?? .buyerIndividual)
+            User().patchUserSettings(phoneNumber: User.phoneNumber, shopName: nameTextField.text!, shopDescription: biographyTextField.text!, shopRole: role ?? .buyerIndividual)
         }else {
-            User().patchUserSettings(phoneNumber: User.phoneNumber, shopName: nameTextField.text ?? "", shopDescription: biographyTextField.text ?? "", shopRole: role ?? .buyerIndividual)
+            User().patchUserSettings(phoneNumber: User.phoneNumber, shopName: nameTextField.text!, shopDescription: biographyTextField.text!, shopRole: role ?? .buyerIndividual)
         }
     }
 }

@@ -34,6 +34,7 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var conditionLbl: UILabel!
     
+    var me: Bool = false
     var userId = 0
     var product = Product(productID: 0)
     var sizes = [String]()
@@ -42,8 +43,6 @@ class ProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         pageControl.currentPage = 0
         performSegue(withIdentifier: "loading", sender: self)
@@ -150,7 +149,16 @@ class ProductViewController: UIViewController {
     }
     
     @IBAction func goToAccount(_ sender: UIButton) {
+        if product.author.phoneNumber == User.phoneNumber {
+            me = true
+            performSegue(withIdentifier: "goToAccount", sender: self)
+        }else {
+            me = false
+            performSegue(withIdentifier: "goToAccount", sender: self)
+        }
         userId = (product.author.authorId)
+        
+        
     }
     
     @IBAction func addLike(_ sender: UIButton) {
@@ -283,7 +291,7 @@ extension ProductViewController: UICollectionViewDataSource, UICollectionViewDel
         if segue.identifier == "goToAccount" {
             let vc = segue.destination as! AccountViewController
             vc.userId = userId
-           
+            vc.me = me
         }
         
     }

@@ -4,6 +4,7 @@ import SDWebImage
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var back: UIButton!
     @IBOutlet weak var settingsBtn: UIButton!
     @IBOutlet weak var contactsView: UIView!
@@ -30,15 +31,23 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        infoAboutMe()
-        design()
-        addInfoUser()
+        addObserverInAccount()
+        addInfo()
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         productsCollectionView.dataSource = self
         productsCollectionView.delegate = self
         
+    }
+    
+    
+    func addObserverInAccount() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pathedInfo), name: NSNotification.Name("pathedInfoAccount"), object: nil)
+    }
+    
+    @objc func pathedInfo() {
         Task {
+            try await infoAboutMe()
             let categories = try await Categories().getCategories()
             self.categories = categories
             self.categoryCollectionView.reloadData()
@@ -50,16 +59,15 @@ class AccountViewController: UIViewController {
             
             let user = try await User().getInfoUserById("\(userId!)")
             self.users = user
-            self.addInfoUser()
+            self.addInfo()
+            self.design()
         }
     }
     
-    func infoAboutMe() {
-        Task {
-            if me == true {
-                let user = try await User().getInfoUser(User.phoneNumber)
-                userId = user.id
-            }
+    func infoAboutMe() async throws {
+        if me == true {
+            let user = try await User().getInfoUser(User.phoneNumber)
+            userId = user.id
         }
     }
     
@@ -69,36 +77,51 @@ class AccountViewController: UIViewController {
             contactsView.isHidden = true
             settingsBtn.isHidden = false
             back.isHidden = true
+            likeBtn.isHidden = true
         }else if me == false {
             chatView.isHidden = false
             contactsView.isHidden = false
             settingsBtn.isHidden = true
             back.isHidden = false
+            likeBtn.isHidden = false
         }
         if UD().getCurrentUser() == false {
             performSegue(withIdentifier: "vhod", sender: self)
         }
-        
-    }
-    
-
-    func addInfoUser() {
         imageUser.sd_setImage(with: URL(string: users?.avatar ?? ""))
-        shopNameLbl.text = users?.shopName
-        nameLbl.text = users?.name
+        shopNameLbl.text = users?.shopDescription
+        nameLbl.text = users?.shopName
         subscribersCountLbl.text = "\(users?.subscribers ?? 0)"
         subscriptionCountLbl.text = "\(users?.subscriptions ?? 0)"
         postsCountLbl.text = "\(users?.posts ?? 0)"
     }
+  
+    func addInfo() {
+        Task {
+            try await infoAboutMe()
+            let categories = try await Categories().getCategories()
+            self.categories = categories
+            self.categoryCollectionView.reloadData()
+        }
+        Task {
+            let tovar = try await Tovar().getTovarByUserId(userId!)
+            self.products = tovar
+            self.productsCollectionView.reloadData()
+            
+        }
+        Task {
+            let user = try await User().getInfoUserById("\(userId!)")
+            self.users = user
+            self.design()
+        }
+    }
     
     
     @IBAction func like(_ sender: UIButton) {
-        
         if like == false {
             like = true
             sender.setImage(UIImage(named: "likeFull"), for: .normal)
         }else {
-            
             like = false
             sender.setImage(UIImage(named: "like 1"), for: .normal)
         }
@@ -106,8 +129,9 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func settings(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: "goToSettings", sender: self)
     }
+    
     @IBAction func back(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -154,8 +178,8 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToSettings" {
             let vc = segue.destination as! AccountSettingsViewController
-            vc.nameTextField.text = users?.name
-            vc.nameTextField.text = users?.shopName
+            vc.name = users!.shopName
+            vc.biography = users!.shopDescription
         }
     }
 }

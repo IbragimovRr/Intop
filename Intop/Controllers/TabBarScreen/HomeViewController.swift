@@ -83,7 +83,6 @@ class HomeViewController: UIViewController {
             storiesCollectionView.isHidden = true
             storiesEmpty.isHidden = false
         }
-        
     }
     
     func getAllStories() {
@@ -133,14 +132,12 @@ class HomeViewController: UIViewController {
     }
     
     @objc func acceptedFilter() {
-        
         getAllTovars()
     }
     
     func changeHeightCollection() {
         lentaHeight.constant = lentaTovarsCollectionView.contentSize.height
     }
-    
     
     @IBAction func instagramBtn(_ sender: Any) {
         DispatchQueue.main.async {
@@ -327,16 +324,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         selectProduct = products[sender.tag]
         performSegue(withIdentifier: "product", sender: self)
     }
+    
     @objc func clickAccount(sender: UIButton) {
         userId = products[sender.tag].author.authorId
         if products[sender.tag].author.phoneNumber == User.phoneNumber {
             me = true
             performSegue(withIdentifier: "goToAccount2", sender: self)
-        }else {
+        }else if products[sender.tag].author.phoneNumber != User.phoneNumber {
             me = false
             performSegue(withIdentifier: "goToAccount2", sender: self)
         }
-        
     }
     
     

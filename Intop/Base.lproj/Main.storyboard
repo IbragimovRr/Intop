@@ -1071,7 +1071,6 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <connections>
                                     <action selector="goToAccount:" destination="X1h-h9-wSb" eventType="touchUpInside" id="K9x-mp-e6k"/>
-                                    <segue destination="mnr-Qk-O3m" kind="show" identifier="goToAccount" id="9ml-ht-FnD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLu-kU-gbm">
@@ -1147,6 +1146,7 @@
                         <outlet property="viewComment" destination="15R-33-gwL" id="DXt-uP-JZd"/>
                         <segue destination="1XS-F4-wcu" kind="presentation" identifier="loading" animates="NO" modalPresentationStyle="overFullScreen" id="7sG-gQ-nz6"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToRegister" id="k9e-BW-udY"/>
+                        <segue destination="ysp-cm-KCv" kind="show" identifier="goToAccount" id="mLd-vT-R5F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2nU-0W-fqO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2368,7 +2368,7 @@
                         <segue destination="BYZ-38-t0r" kind="show" identifier="vhod" animates="NO" id="hzS-XS-Mle"/>
                         <segue destination="fr8-AK-gqn" kind="show" identifier="wishlist" id="vfv-aj-Ogr"/>
                         <segue destination="X1h-h9-wSb" kind="show" identifier="product" id="EMM-Ee-ckc"/>
-                        <segue destination="mnr-Qk-O3m" kind="show" identifier="goToAccount2" id="rax-MT-Qy5"/>
+                        <segue destination="ysp-cm-KCv" kind="show" identifier="goToAccount2" id="Bxh-7e-rdv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Pi-Ch-rOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3877,7 +3877,6 @@ sed do eiusmod tempor ut labore</string>
                                         <state key="normal" image="settings"/>
                                         <connections>
                                             <action selector="settings:" destination="ysp-cm-KCv" eventType="touchUpInside" id="Lls-dY-ekd"/>
-                                            <segue destination="ga0-bZ-aqB" kind="presentation" animates="NO" modalPresentationStyle="overFullScreen" id="Rpo-Ap-T0D"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8U-Pu-0zZ">
@@ -3903,56 +3902,65 @@ sed do eiusmod tempor ut labore</string>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mu9-y3-ed6">
-                                        <rect key="frame" x="146" y="112.33333333333331" width="31.666666666666657" height="34"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="IkU-eC-QOz">
+                                        <rect key="frame" x="139" y="112.33333333333331" width="210" height="34"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fz-Ga-KhJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="31.666666666666668" height="15.333333333333334"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Постов" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIc-cc-ZCL">
-                                                <rect key="frame" x="0.0" y="23.333333333333329" width="31.666666666666668" height="10.666666666666664"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mu9-y3-ed6">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fz-Ga-KhJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="49" height="15.333333333333334"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Постов" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIc-cc-ZCL">
+                                                        <rect key="frame" x="0.0" y="23.333333333333329" width="49" height="10.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3la-v0-6qQ">
+                                                <rect key="frame" x="74" y="0.0" width="66" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paf-4x-hez">
+                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="15.333333333333334"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подписчики" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuk-VD-jC4">
+                                                        <rect key="frame" x="0.0" y="23.333333333333329" width="66" height="10.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="abl-cW-thI">
+                                                <rect key="frame" x="165" y="0.0" width="45" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMg-Vv-8au">
+                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="15.333333333333334"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подписки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icx-KC-MH1">
+                                                        <rect key="frame" x="0.0" y="23.333333333333329" width="45" height="10.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3la-v0-6qQ">
-                                        <rect key="frame" x="206.66666666666666" y="112.33333333333331" width="51.999999999999972" height="34"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paf-4x-hez">
-                                                <rect key="frame" x="0.0" y="0.0" width="52" height="15.333333333333334"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подписчики" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuk-VD-jC4">
-                                                <rect key="frame" x="0.0" y="23.333333333333329" width="52" height="10.666666666666664"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="abl-cW-thI">
-                                        <rect key="frame" x="287.66666666666669" y="112" width="42" height="34"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMg-Vv-8au">
-                                                <rect key="frame" x="0.0" y="0.0" width="42" height="15.333333333333334"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подписки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icx-KC-MH1">
-                                                <rect key="frame" x="0.0" y="23.333333333333343" width="42" height="10.666666666666664"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="abl-cW-thI" firstAttribute="leading" secondItem="IkU-eC-QOz" secondAttribute="leading" constant="165" id="SWm-ws-0Ew"/>
+                                            <constraint firstItem="3la-v0-6qQ" firstAttribute="leading" secondItem="IkU-eC-QOz" secondAttribute="leading" constant="74" id="sIN-Ky-NAw"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="w13-k1-4El">
                                         <rect key="frame" x="139" y="159.33333333333334" width="174" height="28"/>
@@ -4129,11 +4137,11 @@ sed do eiusmod tempor ut labore</string>
                                             <size key="itemSize" width="71" height="29"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="Xd6-I0-0zB" customClass="CategoriesAnAccountCollectionViewCell" customModule="Intop" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="71" height="29"/>
+                                                <rect key="frame" x="16" y="0.0" width="71" height="29"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="71" height="29"/>
@@ -4194,8 +4202,8 @@ sed do eiusmod tempor ut labore</string>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Магазин одежды" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDS-2m-oVH">
-                                        <rect key="frame" x="34" y="197" width="145.33333333333334" height="21.666666666666657"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Магазин одежды" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDS-2m-oVH">
+                                        <rect key="frame" x="34" y="197" width="325" height="21.666666666666657"/>
                                         <fontDescription key="fontDescription" name="Mulish-SemiBold" family="Mulish" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -4203,39 +4211,36 @@ sed do eiusmod tempor ut labore</string>
                                 </subviews>
                                 <color key="backgroundColor" name="WhiteMain"/>
                                 <constraints>
+                                    <constraint firstItem="IkU-eC-QOz" firstAttribute="leading" secondItem="d8U-Pu-0zZ" secondAttribute="trailing" constant="30" id="4AA-GY-vXe"/>
                                     <constraint firstItem="fha-ne-0su" firstAttribute="top" secondItem="p0b-gO-Pwu" secondAttribute="top" constant="63" id="5ng-st-8hq"/>
                                     <constraint firstItem="gdJ-lu-NOv" firstAttribute="leading" secondItem="w13-k1-4El" secondAttribute="trailing" constant="8" id="6bl-XT-Hfk"/>
                                     <constraint firstAttribute="trailing" secondItem="fha-ne-0su" secondAttribute="trailing" constant="26" id="8kW-Io-F26"/>
                                     <constraint firstItem="ra7-2v-Ges" firstAttribute="leading" secondItem="p0b-gO-Pwu" secondAttribute="leading" constant="26" id="9fW-Zf-Fvo"/>
+                                    <constraint firstAttribute="trailing" secondItem="IDS-2m-oVH" secondAttribute="trailing" constant="34" id="9iG-dw-TZS"/>
                                     <constraint firstItem="wMM-qe-BZM" firstAttribute="top" secondItem="p0b-gO-Pwu" secondAttribute="top" constant="63" id="Afq-fb-gsh"/>
                                     <constraint firstItem="d8U-Pu-0zZ" firstAttribute="leading" secondItem="p0b-gO-Pwu" secondAttribute="leading" constant="34" id="BE7-c1-g8i"/>
                                     <constraint firstItem="wMM-qe-BZM" firstAttribute="centerX" secondItem="p0b-gO-Pwu" secondAttribute="centerX" id="CtX-T2-fg4"/>
-                                    <constraint firstItem="3la-v0-6qQ" firstAttribute="top" secondItem="wMM-qe-BZM" secondAttribute="bottom" constant="29" id="DhS-0h-FUo"/>
                                     <constraint firstItem="SeX-Cl-pbw" firstAttribute="leading" secondItem="p0b-gO-Pwu" secondAttribute="leading" constant="26" id="E37-TT-5VC"/>
                                     <constraint firstItem="rCL-cD-J60" firstAttribute="top" secondItem="ra7-2v-Ges" secondAttribute="bottom" constant="11" id="JeG-Me-bhn"/>
                                     <constraint firstItem="CLq-u1-NdV" firstAttribute="leading" secondItem="p0b-gO-Pwu" secondAttribute="leading" constant="36" id="Js2-Ky-pZz"/>
                                     <constraint firstAttribute="bottom" secondItem="ga6-xa-Mhf" secondAttribute="bottom" id="NdC-Tz-Zhn"/>
                                     <constraint firstItem="d8U-Pu-0zZ" firstAttribute="top" secondItem="SeX-Cl-pbw" secondAttribute="bottom" constant="19" id="OCf-Vn-lCu"/>
                                     <constraint firstItem="SeX-Cl-pbw" firstAttribute="top" secondItem="p0b-gO-Pwu" secondAttribute="top" constant="61" id="OQc-oc-oaD"/>
-                                    <constraint firstItem="w13-k1-4El" firstAttribute="top" secondItem="mu9-y3-ed6" secondAttribute="bottom" constant="13" id="PMq-Gm-QD3"/>
                                     <constraint firstAttribute="trailing" secondItem="rCL-cD-J60" secondAttribute="trailing" id="Rip-fx-fSh"/>
-                                    <constraint firstItem="abl-cW-thI" firstAttribute="leading" secondItem="3la-v0-6qQ" secondAttribute="trailing" constant="29" id="Ufd-gg-jAK"/>
                                     <constraint firstItem="IDS-2m-oVH" firstAttribute="top" secondItem="CLq-u1-NdV" secondAttribute="bottom" constant="6" id="W5i-9v-Xfh"/>
+                                    <constraint firstAttribute="trailing" secondItem="IkU-eC-QOz" secondAttribute="trailing" constant="44" id="XTu-Jz-Nct"/>
                                     <constraint firstItem="w13-k1-4El" firstAttribute="leading" secondItem="d8U-Pu-0zZ" secondAttribute="trailing" constant="30" id="Xm5-fS-qYc"/>
                                     <constraint firstItem="ra7-2v-Ges" firstAttribute="top" secondItem="IDS-2m-oVH" secondAttribute="bottom" constant="39" id="bbt-jm-tkE"/>
+                                    <constraint firstItem="w13-k1-4El" firstAttribute="top" secondItem="IkU-eC-QOz" secondAttribute="bottom" constant="13" id="dt1-fH-eFe"/>
                                     <constraint firstItem="ga6-xa-Mhf" firstAttribute="top" secondItem="rCL-cD-J60" secondAttribute="bottom" constant="40" id="fVU-ng-fJB"/>
                                     <constraint firstAttribute="trailing" secondItem="ga6-xa-Mhf" secondAttribute="trailing" id="iOK-OF-RAd"/>
                                     <constraint firstItem="rCL-cD-J60" firstAttribute="leading" secondItem="p0b-gO-Pwu" secondAttribute="leading" id="krW-bY-tYs"/>
                                     <constraint firstItem="CLq-u1-NdV" firstAttribute="top" secondItem="d8U-Pu-0zZ" secondAttribute="bottom" constant="9" id="lAr-Qw-1Da"/>
                                     <constraint firstItem="gdJ-lu-NOv" firstAttribute="top" secondItem="fha-ne-0su" secondAttribute="bottom" constant="80" id="lYr-hn-KWC"/>
-                                    <constraint firstItem="mu9-y3-ed6" firstAttribute="top" secondItem="wMM-qe-BZM" secondAttribute="bottom" constant="29" id="oPY-bt-oZe"/>
+                                    <constraint firstItem="IkU-eC-QOz" firstAttribute="top" secondItem="wMM-qe-BZM" secondAttribute="bottom" constant="29" id="nMW-ah-Xd8"/>
                                     <constraint firstItem="ga6-xa-Mhf" firstAttribute="leading" secondItem="p0b-gO-Pwu" secondAttribute="leading" id="qZG-jR-vGh"/>
-                                    <constraint firstItem="mu9-y3-ed6" firstAttribute="leading" secondItem="d8U-Pu-0zZ" secondAttribute="trailing" constant="37" id="sf0-LT-C8G"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IDS-2m-oVH" secondAttribute="trailing" constant="20" symbolic="YES" id="t57-b8-hgR"/>
                                     <constraint firstItem="ra7-2v-Ges" firstAttribute="centerX" secondItem="p0b-gO-Pwu" secondAttribute="centerX" id="tkP-gS-dob"/>
                                     <constraint firstItem="IDS-2m-oVH" firstAttribute="leading" secondItem="p0b-gO-Pwu" secondAttribute="leading" constant="34" id="wJh-7F-dVI"/>
-                                    <constraint firstItem="abl-cW-thI" firstAttribute="top" secondItem="fha-ne-0su" secondAttribute="bottom" constant="29" id="y3J-Et-JOS"/>
-                                    <constraint firstItem="3la-v0-6qQ" firstAttribute="leading" secondItem="mu9-y3-ed6" secondAttribute="trailing" constant="29" id="yVI-R7-BxB"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -4255,6 +4260,7 @@ sed do eiusmod tempor ut labore</string>
                         <outlet property="chatView" destination="7C3-pw-ASq" id="v3a-k0-131"/>
                         <outlet property="contactsView" destination="bpH-eo-JrD" id="XFt-MP-Tfd"/>
                         <outlet property="imageUser" destination="G7c-rf-4nQ" id="obc-wm-nlP"/>
+                        <outlet property="likeBtn" destination="gdJ-lu-NOv" id="tX2-Vo-9Kz"/>
                         <outlet property="nameLbl" destination="wMM-qe-BZM" id="5dj-yD-tDr"/>
                         <outlet property="postsCountLbl" destination="0fz-Ga-KhJ" id="ciq-sr-cET"/>
                         <outlet property="productsCollectionView" destination="ga6-xa-Mhf" id="l7q-e5-ZIN"/>
@@ -4264,6 +4270,7 @@ sed do eiusmod tempor ut labore</string>
                         <outlet property="subscribersCountLbl" destination="paf-4x-hez" id="1qt-xY-GUr"/>
                         <outlet property="subscriptionCountLbl" destination="aMg-Vv-8au" id="ish-SB-U2o"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="vhod" id="2Kf-Ne-VZt"/>
+                        <segue destination="ga0-bZ-aqB" kind="presentation" identifier="goToSettings" animates="NO" modalPresentationStyle="overFullScreen" id="pfK-63-dwu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxc-GC-hfN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4564,10 +4571,10 @@ sed do eiusmod tempor ut labore</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SOx-jE-Sod"/>
+        <segue reference="mLd-vT-R5F"/>
         <segue reference="UFF-IG-VIj"/>
         <segue reference="ZqB-sD-1UV"/>
-        <segue reference="L21-bH-Ta4"/>
+        <segue reference="EMM-Ee-ckc"/>
         <segue reference="2Kf-Ne-VZt"/>
     </inferredMetricsTieBreakers>
     <resources>
