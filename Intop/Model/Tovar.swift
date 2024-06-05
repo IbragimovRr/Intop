@@ -101,8 +101,8 @@ class Tovar {
         return products
     }
     
-    func getTovarByUserId(_ userId: Int,limit:Int) async throws -> [Product]{
-        let url = Constants.url + "products?user_id=\(userId)&limit=\(limit)"
+    func getTovarByUserId(_ phoneNumber: String,limit:Int) async throws -> [Product]{
+        let url = Constants.url + "products?user_phone_number=\(phoneNumber)&limit=\(limit)"
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
         let count = json.count
@@ -123,6 +123,7 @@ class Tovar {
         }
         return productsArray
     }
+    
     
 
     

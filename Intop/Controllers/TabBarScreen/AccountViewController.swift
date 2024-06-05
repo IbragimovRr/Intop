@@ -19,9 +19,9 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var productsCollectionView: UICollectionView!
     
+    var phoneNumber: String?
     var products = [Product]()
     var users: JSONUser?
-    var userId: Int?
     var rating: RatingStruct?
     var like = false
     var categories = [Category]()
@@ -53,7 +53,7 @@ class AccountViewController: UIViewController {
             self.categories = categories
             self.categoryCollectionView.reloadData()
             
-            let user = try await User().getInfoUserById("\(userId!)")
+            let user = try await User().getInfoUserById("\(phoneNumber!)")
             self.users = user
             self.addInfo()
             self.design()
@@ -63,9 +63,8 @@ class AccountViewController: UIViewController {
     func infoAboutMe() async throws {
         if me == true {
             let user = try await User().getInfoUser(User.phoneNumber)
-            userId = user.id
+            phoneNumber = user.phoneNumber
         }
-            
         getProductsByUser()
 
     }
@@ -73,7 +72,7 @@ class AccountViewController: UIViewController {
     func getProductsByUser() {
         Task{
             loadStatus = true
-            let tovar = try await Tovar().getTovarByUserId(userId!, limit: limitProduct)
+            let tovar = try await Tovar().getTovarByUserId(phoneNumber!, limit: limitProduct)
             self.products = tovar
             self.productsCollectionView.reloadData()
             loadStatus = false
@@ -112,16 +111,14 @@ class AccountViewController: UIViewController {
             let categories = try await Categories().getCategories()
             self.categories = categories
             self.categoryCollectionView.reloadData()
-        }
-        Task {
-            let tovar = try await Tovar().getTovarByUserId(userId!, limit: limitProduct)
+            
+            let tovar = try await Tovar().getTovarByUserId(phoneNumber!, limit: limitProduct)
             self.products = tovar
             self.productsCollectionView.reloadData()
             
-        }
-        Task {
-            let user = try await User().getInfoUserById("\(userId!)")
+            let user = try await User().getInfoUser(phoneNumber!)
             self.users = user
+            print(user)
             self.design()
         }
     }
