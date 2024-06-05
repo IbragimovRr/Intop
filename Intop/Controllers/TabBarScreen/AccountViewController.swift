@@ -24,7 +24,8 @@ class AccountViewController: UIViewController {
     var like = false
     var categories = [Category]()
     var me = true
-    
+    var limitProduct = 27
+    var loadStatus = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,19 +43,26 @@ class AccountViewController: UIViewController {
             self.categories = categories
             self.categoryCollectionView.reloadData()
             
-            let tovar = try await Tovar().getTovarByUserId(userId!)
-            self.products = tovar
-            self.productsCollectionView.reloadData()
-            
-            
             let user = try await User().getInfoUserById("\(userId!)")
             self.users = user
             self.addInfoUser()
         }
             
+        getProductsByUser()
         
         
     }
+    
+    func getProductsByUser() {
+        Task{
+            loadStatus = true
+            let tovar = try await Tovar().getTovarByUserId(userId!, limit: limitProduct)
+            self.products = tovar
+            self.productsCollectionView.reloadData()
+            loadStatus = false
+        }
+    }
+    
     
     func design() {
         if me == true {
@@ -118,11 +126,6 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
             return cell
         }else{
             let cell = productsCollectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductsAnAccountCollectionViewCell
-//            cell.viewsCountLbl.text = "\(products[indexPath.row].viewsCount ?? 0)"
-//            cell.commentsCountLbl.text = "\(products[indexPath.row].commentsCount ?? 0)"
-//            cell.sharesCountLbl.text = "\(products[indexPath.row].sharesCount ?? 0)"
-//            cell.titleLbl.text = products[indexPath.row].title
-//            cell.likesCountLbl.text = "\(products[indexPath.row].likes ?? 0)"
             cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
             return cell
         }
@@ -135,6 +138,15 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
             return CGSize(width: width, height: width)
         }else {
             return CGSize(width: 71, height: 29)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
+        if bottomEdge >= scrollView.contentSize.height && !loadStatus{
+            loadStatus = true
+            limitProduct += 27
+            getProductsByUser()
         }
     }
     

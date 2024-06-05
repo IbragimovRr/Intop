@@ -10,7 +10,6 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var storiesEmpty: UILabel!
-    @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var search: UITextField!
     @IBOutlet weak var lentaHeight: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -28,6 +27,9 @@ class HomeViewController: UIViewController {
     var selectProduct = Product(productID: 0)
     var selectLike = UIButton()
     var stories = [Story]()
+    var limitTovars = 5
+    var loadStatus = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,7 @@ class HomeViewController: UIViewController {
         categoriesCollectionView.dataSource = self
         storiesCollectionView.delegate = self
         storiesCollectionView.dataSource = self
+        
         scrollView.delegate = self
         segment = SegmentFilter(firstBtn: instagram, secondBtn: multimedia)
         search.delegate = self
@@ -62,18 +65,8 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         changeHeightCollection()
     }
+        
     
-    func startLoading() {
-        loading.isHidden = false
-        lentaTovarsCollectionView.isHidden = true
-        loading.startAnimating()
-    }
-    
-    func stopLoading() {
-        loading.isHidden = true
-        lentaTovarsCollectionView.isHidden = false
-        loading.stopAnimating()
-    }
     
     func emptyStories() {
         if stories.count != 0{
@@ -84,6 +77,14 @@ class HomeViewController: UIViewController {
             storiesEmpty.isHidden = false
         }
         
+    }
+    
+    func getProductLikeMe() async throws {
+        for x in 0...products.count - 1 {
+            if x >= limitTovars - 5 {
+                products[x].meLike = try await Tovar().checkMeLikeProduct(products[x])
+            }
+        }
     }
     
     func getAllStories() {
@@ -113,15 +114,15 @@ class HomeViewController: UIViewController {
     }
     
     func getAllTovars() {
-        
-        startLoading()
+        loadStatus = true
         Task{
-            let product = try await Tovar().getAllTovars()
+            let product = try await Tovar().getAllTovars(limit: limitTovars)
             self.products = product
+            try await getProductLikeMe()
             self.lentaTovarsCollectionView.reloadData()
             self.lentaTovarsCollectionView.reloadSections(IndexSet(integer: 0))
             DispatchQueue.main.async {
-                self.stopLoading()
+                self.loadStatus = false
                 self.view.layoutSubviews()
             }
         }
@@ -133,7 +134,6 @@ class HomeViewController: UIViewController {
     }
     
     @objc func acceptedFilter() {
-        
         getAllTovars()
     }
     
@@ -248,7 +248,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.itemName.text = products[indexPath.row].title
         cell.priceLbl.text = "$\(products[indexPath.row].priceUSD!)"
         cell.reviewsCountLbl.text = "\(products[indexPath.row].rating.totalVotes) reviews"
-        cell.ratingLbl.text = "\(products[indexPath.row].rating)"
+        cell.ratingLbl.text = "\(products[indexPath.row].rating.rating)"
         
         //Button
         cell.imBtn.addTarget(self, action: #selector(clickProduct), for: .touchUpInside)
@@ -276,6 +276,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "product" {
@@ -293,13 +295,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         
     
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
-//        if bottomEdge >= scrollView.contentSize.height {
-//            
-//            getAllTovars()
-//        }
-//    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
+        if bottomEdge >= scrollView.contentSize.height && !loadStatus{
+            loadStatus = true
+            limitTovars += 5
+            getAllTovars()
+        }
+    }
 
     
     // MARK: - UIButton instagram Cell
@@ -327,6 +330,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         selectProduct = products[sender.tag]
         performSegue(withIdentifier: "product", sender: self)
     }
+    
     @objc func clickAccount(sender: UIButton) {
         userId = products[sender.tag].author.authorId
         if products[sender.tag].author.phoneNumber == User.phoneNumber {

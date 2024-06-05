@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		448A35DE2C10A0820072CFF0 /* LoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448A35DD2C10A0820072CFF0 /* LoadingCollectionReusableView.swift */; };
 		44936CE22C0522FD0022E35A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44936CE12C0522FD0022E35A /* FilterViewController.swift */; };
 		44ACB53D2BF26A1300A75F3A /* CodeTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ACB53C2BF26A1300A75F3A /* CodeTF.swift */; };
 		44ACB53F2BF26A8700A75F3A /* CodeVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ACB53E2BF26A8700A75F3A /* CodeVerificationViewController.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		448A35DD2C10A0820072CFF0 /* LoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCollectionReusableView.swift; sourceTree = "<group>"; };
 		44936CE12C0522FD0022E35A /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		44ACB53C2BF26A1300A75F3A /* CodeTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTF.swift; sourceTree = "<group>"; };
 		44ACB53E2BF26A8700A75F3A /* CodeVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				75E162772C02380300296003 /* CommentCollectionViewCell.swift */,
 				7586A21B2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift */,
 				756AEC0A2C0E1E72004E0469 /* ProductsAnAccountCollectionViewCell.swift */,
+				448A35DD2C10A0820072CFF0 /* LoadingCollectionReusableView.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				75AF2FAD2BEFD2EB00F0165E /* StartViewController.swift in Sources */,
 				44D19BC62BFDE8D300FF3122 /* CategoriesViewController.swift in Sources */,
 				44ACB5512BF646C400A75F3A /* CategoriesCollectionViewCell.swift in Sources */,
+				448A35DE2C10A0820072CFF0 /* LoadingCollectionReusableView.swift in Sources */,
 				7598C9732BF8F1580077AD14 /* WishlistCollectionViewCell.swift in Sources */,
 				44D17D392BEF9B6A00F5C073 /* AppDelegate.swift in Sources */,
 				75AF2FB52BF23A2100F0165E /* SecondViewController.swift in Sources */,
