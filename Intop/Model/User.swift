@@ -32,7 +32,8 @@ class User {
         let posts = json["products_count"].intValue
         let phoneNumber = json["user_phone_number"].stringValue
         let shopName = json["shop_name"].stringValue
-        let jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar, subscribers: subscribers, subscriptions: subscriptions, posts: posts, phoneNumber: phoneNumber, shopName: shopName)
+        let shopDescription = json["shop_description"].stringValue
+        let jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar, subscribers: subscribers, subscriptions: subscriptions, posts: posts, phoneNumber: phoneNumber, shopName: shopName, shopDescription: shopDescription)
         return jsonUser
     }
     
@@ -48,10 +49,11 @@ class User {
         let subscribers = json["subscribers_count"].intValue
         let posts = json["products_count"].intValue
         let shopName = json["shop_name"].stringValue
-        let jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar, subscribers: subscribers, subscriptions: subscriptions, posts: posts, shopName: shopName)
+        let shopDescription = json["shop_description"].stringValue
+        let jsonUser = JSONUser(is_seller: seller, id: id, name: name, avatar: avatar, subscribers: subscribers, subscriptions: subscriptions, posts: posts, shopName: shopName, shopDescription: shopDescription)
         return jsonUser
     }
-    func patchUserSettings(phoneNumber: String, shopName: String, shopDescription: String ,shopRole: ShopRole) {
+    func patchUserSettings(phoneNumber: String, shopName: String, shopDescription: String, shopRole: ShopRole) {
         let url = Constants.url + "settings/\(phoneNumber)"
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(Data("\(phoneNumber)".utf8), withName: "user_phone_number")
