@@ -26,11 +26,18 @@ class SignInViewController: UIViewController {
         guard let phone = phoneTF.text else { return }
         guard let password = passwordTF.text else { return }
         guard let segment = segment else { return }
-        Sign().signInPhone(phoneNumber: phone, password: password, isSeller: segment.isSeller) { result, error in
-            if error == nil {
+        Task {
+            do {
+                let result = try await Sign().signInPhone(phoneNumber: phone, password: password, isSeller: segment.isSeller)
                 self.performSegue(withIdentifier: "code", sender: self)
-            }else if let error = error{
-                Error().alert(error, self)
+            }catch let error as ErrorSignIn {
+                DispatchQueue.main.async {
+                    Error().alert(error.rawValue, self)
+                }
+            }catch {
+                DispatchQueue.main.async {
+                    Error().alert(ErrorSignIn.tryAgainLater.rawValue, self)
+                }
             }
         }
         

@@ -35,7 +35,8 @@ class CodeVerificationViewController: UIViewController {
     
     func sendCode() {
         guard let phoneNumber = UD().getPhone() else { return }
-        Sign().sendCode(phoneNumber) { code in
+        Task{
+            let code = try await Sign().sendCode(phoneNumber)
             self.code = code
         }
     }

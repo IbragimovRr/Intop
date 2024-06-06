@@ -1691,6 +1691,7 @@
                     <connections>
                         <outlet property="blisko" destination="iAS-KN-qG7" id="GnW-sQ-QYF"/>
                         <outlet property="downMoney" destination="Vk5-1J-Tba" id="VFB-bH-VLW"/>
+                        <outlet property="filterSbrosBtn" destination="ZVi-fm-p9e" id="L3z-4D-SJ6"/>
                         <outlet property="new" destination="vxU-jn-ZxI" id="tpo-OH-DNi"/>
                         <outlet property="notVerify" destination="dqF-h6-gKq" id="txJ-O6-qLx"/>
                         <outlet property="old" destination="92z-Uz-GVc" id="s1L-lp-NfN"/>
@@ -4338,7 +4339,7 @@ sed do eiusmod tempor ut labore</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxc-GC-hfN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="B60-My-b8E">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="B60-My-b8E">
                     <connections>
                         <action selector="tap:" destination="ysp-cm-KCv" id="hHU-Di-scJ"/>
                     </connections>

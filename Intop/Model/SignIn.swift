@@ -18,47 +18,38 @@ class Sign {
     
     // MARK: - Sign Up
     
-    private func errorSignUp(_ phoneNumber:String,_ password:String) -> (Bool,String?) {
-        guard phoneNumber.count >= 11 else { return (false,"Неверный формат номера телефона") }
-        guard  password.isValidPassword() == true else { return (false,"Пароль должен содержать не менее 8 символов и включать как минимум 1 цифру, 1 прописную и 1 строчную ") }
-        return (true,nil)
+    private func errorSignUp(_ phoneNumber:String,_ password:String) async throws -> Bool {
+        guard phoneNumber.count >= 11 else { throw ErrorSignUp.invalidPhoneNumber }
+        guard  password.isValidPassword() == true else { throw ErrorSignUp.invalidPassword }
+        return true
     }
     
     
-    func signUpPhone(phoneNumber:String, password: String, shopRole: ShopRole,  completion:@escaping (_ code:Int?, _ error:String?) -> ()) {
-        let errorValidate = errorSignUp(phoneNumber, password)
-        guard errorValidate.0 else {
-            completion(nil, errorValidate.1)
-            return }
+    func signUpPhone(phoneNumber:String, password: String, shopRole: ShopRole) async throws -> Int {
+        _ = try await errorSignUp(phoneNumber, password)
         
         let url = Constants.url + "users/register"
         
-        AF.upload(multipartFormData: { multipartFormData in
+        let responseData = AF.upload(multipartFormData: { multipartFormData in
             
             multipartFormData.append(Data("\(phoneNumber)".utf8), withName: "user_phone_number")
             multipartFormData.append(Data("\(password)".utf8), withName: "app_password")
         }, to: url,
-                  method: .post,
-                  headers: headers).response { responseData in
-            switch responseData.result {
-            case .success(let value):
-                let code = responseData.response!.statusCode
-                
-                if code != 201 {
-                    completion(nil, "Номер уже был зарегистрирован")
-                    
-                }else {
-                    UD().savePhone(phoneNumber)
-                    UD().saveShopRole(shopRole.rawValue)
-                    self.signUpRoleByUser(phoneNumber, shopRole: shopRole)
-                    completion(code, nil)
-                }
-            case .failure(_):
-                completion(nil, "Ошибка повторите попытку позже")
-            }
+        method: .post,
+        headers: headers).serializingData()
+        let value = try await responseData.value
+
+        let code = await responseData.response.response!.statusCode
         
+        if code != 201 {
+            throw ErrorSignUp.namberRegister
+            
+        }else {
+            UD().savePhone(phoneNumber)
+            UD().saveShopRole(shopRole.rawValue)
+            self.signUpRoleByUser(phoneNumber, shopRole: shopRole)
+            return code
         }
-        
     }
     
     private func signUpRoleByUser(_ phoneNumber:String,shopRole:ShopRole) {
@@ -87,23 +78,23 @@ class Sign {
     // MARK: - Sign In
 
     
-    func signInPhone(phoneNumber:String,password:String, isSeller:Bool ,completion:@escaping (_ resultCode:Int?,_ error:String?) -> ()) {
+    func signInPhone(phoneNumber:String,password:String, isSeller:Bool) async throws -> Int {
         let url = Constants.url + "users/login"
-        
-        AF.upload(multipartFormData: { multipartFormData in
-            
-            multipartFormData.append(Data("\(phoneNumber)".utf8), withName: "user_phone_number")
-            multipartFormData.append(Data("\(password)".utf8), withName: "app_password")
-            
-        }, to: url,
-                  method: .post,
-                  headers: headers).responseData { responseData in
-            switch responseData.result {
-            case .success(let value):
+        return try await withCheckedThrowingContinuation { continuation in
+            AF.upload(multipartFormData: { multipartFormData in
                 
-                let code = responseData.response!.statusCode
+                multipartFormData.append(Data("\(phoneNumber)".utf8), withName: "user_phone_number")
+                multipartFormData.append(Data("\(password)".utf8), withName: "app_password")
+                
+            }, to: url,
+                      method: .post,
+                      headers: headers).responseData { responseData in
+                switch responseData.result {
+                case .success(let value):
+                    
+                    let code = responseData.response!.statusCode
                     if code == 403{
-                        completion(nil,"Неправильный логин или пароль")
+                        continuation.resume(throwing: ErrorSignIn.invalidLoginOrPassword)
                     }else if code == 201 {
                         //Успешный логин пароль
                         UD().savePhone(phoneNumber)
@@ -111,38 +102,32 @@ class Sign {
                         Task{
                             let info = try await User().getInfoUser(phoneNumber)
                             if info.is_seller == isSeller {
-                                completion(code,nil)
+                                continuation.resume(returning:code)
                             }else if info.is_seller == true && isSeller == false {
-                                completion(code,nil)
+                                continuation.resume(returning:code)
                             }else {
-                                completion(nil,"Ошибка данных")
+                                continuation.resume(throwing: ErrorSignIn.notFound)
                             }
                             
                             
                         }
                     }
-                    case .failure(_):
-            completion(nil,"Ошибка повторите попытку позже")
+                case .failure(_):
+                    continuation.resume(throwing: ErrorSignIn.tryAgainLater)
+                }
             }
         }
     }
 
     // MARK: - Code
     
-    func sendCode(_ phoneNumber:String, completion: @escaping (_ code:String) -> ()) {
+    func sendCode(_ phoneNumber:String) async throws -> String{
         let url = Constants.url + "get_code_send_sms/\(phoneNumber)"
-        AF.request(url,method: .get).responseData { responseData in
-            switch responseData.result {
-            case .success(let value):
-                let json = JSON(value)
-                let result = json["code_will_be_REMOVED"].stringValue
-                    completion(result)
-                print(result)
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
+        let value = try await AF.request(url,method: .get).serializingData().value
+        let json = JSON(value)
+        let result = json["code_will_be_REMOVED"].stringValue
+        print(result)
+        return result
     }
     
 
