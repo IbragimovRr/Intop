@@ -9,6 +9,10 @@ import UIKit
 
 class AccountSettingsViewController: UIViewController {
     
+    @IBOutlet weak var sellerIndividualBtn: UIButton!
+    @IBOutlet weak var sellerLegalBtn: UIButton!
+    @IBOutlet weak var buyerIndividualBtn: UIButton!
+    @IBOutlet weak var buyerLegalBtn: UIButton!
     @IBOutlet weak var roleView: UIView!
     @IBOutlet weak var roleLbl: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
@@ -23,6 +27,7 @@ class AccountSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        selectedRole()
         roleView.isHidden = true
         design()
         nameTextField.delegate = self
@@ -31,6 +36,24 @@ class AccountSettingsViewController: UIViewController {
 
     }
     
+    func selectedRole() {
+        if UD().getShopRole() == "seller_individual" {
+            sellerIndividualBtn.backgroundColor = .orange
+        }else if UD().getShopRole() == "seller_legal" {
+            sellerLegalBtn.backgroundColor = .orange
+        }else if UD().getShopRole() == "buyer_individual" {
+            buyerIndividualBtn.backgroundColor = .orange
+        }else if UD().getShopRole() == "buyer_legal" {
+            buyerLegalBtn.backgroundColor = .orange
+        }
+    }
+    
+    func changeButtons(btn: UIButton, otherBtns: [UIButton]) {
+        btn.backgroundColor = .orange
+        for x in 0 ... otherBtns.count - 1{
+            otherBtns[x].backgroundColor = .white
+        }
+    }
     
     func design() {
         roleLbl.text = UD().getShopRole()
@@ -66,15 +89,23 @@ class AccountSettingsViewController: UIViewController {
         case 0:
             role = .sellerIndividual
             roleLbl.text = "Продавец физ лицо"
+            sender.backgroundColor = UIColor(named: "OrangeMain")
+            changeButtons(btn: sellerIndividualBtn, otherBtns: [sellerLegalBtn, buyerLegalBtn, buyerIndividualBtn])
         case 1:
-            role = .sellerIndividual
-            roleLbl.text = "Продавец физ лицо"
+            role = .sellerLegal
+            roleLbl.text = "Продавец юр лицо"
+            sender.backgroundColor = UIColor(named: "OrangeMain")
+            changeButtons(btn: sellerLegalBtn, otherBtns: [sellerIndividualBtn, buyerIndividualBtn, buyerLegalBtn])
         case 2:
-            role = .sellerIndividual
-            roleLbl.text = "Продавец физ лицо"
+            role = .buyerIndividual
+            roleLbl.text = "Покупатель физ лицо"
+            sender.backgroundColor = UIColor(named: "OrangeMain")
+            changeButtons(btn: buyerIndividualBtn, otherBtns: [buyerLegalBtn, sellerIndividualBtn, sellerLegalBtn])
         case 3:
-            role = .sellerIndividual
-            roleLbl.text = "Продавец физ лицо"
+            role = .buyerLegal
+            roleLbl.text = "Покупатель юр лицо"
+            sender.backgroundColor = UIColor(named: "OrangeMain")
+            changeButtons(btn: buyerLegalBtn, otherBtns: [buyerIndividualBtn, sellerIndividualBtn, sellerLegalBtn])
         default:
             break
         }
