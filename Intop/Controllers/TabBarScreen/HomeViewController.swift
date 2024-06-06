@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     var selectProduct = Product(productID: 0)
     var selectLike = UIButton()
     var stories = [Story]()
-    var limitTovars = 5
+    var limitTovars = 20
     var loadStatus = true
     
     
@@ -55,9 +55,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        lentaTovarsCollectionView.reloadData()
         lentaTovarsCollectionView.reloadSections(IndexSet(integer: 0))
-        
+        lentaTovarsCollectionView.reloadData()
     }
     
     
@@ -79,12 +78,7 @@ class HomeViewController: UIViewController {
     }
     
     func getProductLikeMe() async throws {
-        for x in 0...products.count - 1 {
-            if x >= limitTovars - 5 {
-                let product = products[x]
-                products[x].meLike = try await Tovar().checkMeLikeProduct(product)
-            }
-        }
+        products = try await Tovar().checkMeLikeAllProducts(products)
     }
     
     func getAllStories() {
@@ -119,9 +113,9 @@ class HomeViewController: UIViewController {
             let product = try await Tovar().getAllTovars(limit: limitTovars)
             self.products = product
             try await getProductLikeMe()
-            self.lentaTovarsCollectionView.reloadData()
             self.lentaTovarsCollectionView.reloadSections(IndexSet(integer: 0))
-            DispatchQueue.main.async {
+            DispatchQueue.main.async{
+                self.lentaTovarsCollectionView.reloadData()
                 self.loadStatus = false
                 self.view.layoutSubviews()
             }
@@ -293,17 +287,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
     }
    
-        
-        
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height + 200
         if bottomEdge >= scrollView.contentSize.height && !loadStatus{
             loadStatus = true
-            limitTovars += 5
+            limitTovars += 20
             getAllTovars()
         }
     }
+        
 
     
     // MARK: - UIButton instagram Cell

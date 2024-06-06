@@ -4,6 +4,7 @@ import SDWebImage
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var searchText: UITextField!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var back: UIButton!
     @IBOutlet weak var settingsBtn: UIButton!
@@ -28,16 +29,19 @@ class AccountViewController: UIViewController {
     var me = true
     var limitProduct = 27
     var loadStatus = true
+    var selectProduct = Product(productID: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        performSegue(withIdentifier: "loading", sender: self)
         addObserverInAccount()
         addInfo()
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         productsCollectionView.dataSource = self
         productsCollectionView.delegate = self
+        searchText.delegate = self
         
     }
     
@@ -69,10 +73,10 @@ class AccountViewController: UIViewController {
 
     }
     
-    func getProductsByUser() {
+    func getProductsByUser(_ search:String = "") {
         Task{
             loadStatus = true
-            let tovar = try await Tovar().getTovarByUserId(phoneNumber!, limit: limitProduct)
+            let tovar = try await Tovar().getTovarByUserId(phoneNumber!, limit: limitProduct, search)
             self.products = tovar
             self.productsCollectionView.reloadData()
             loadStatus = false
@@ -118,8 +122,8 @@ class AccountViewController: UIViewController {
             
             let user = try await User().getInfoUser(phoneNumber!)
             self.users = user
-            print(user)
             self.design()
+            dismiss(animated: false)
         }
     }
     
@@ -143,7 +147,11 @@ class AccountViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-   
+    @IBAction func tap(_ sender: Any) {
+        getProductsByUser(searchText.text!)
+        searchText.resignFirstResponder()
+    }
+    
 }
 extension AccountViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -168,6 +176,13 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == productsCollectionView {
+            selectProduct = products[indexPath.row]
+            performSegue(withIdentifier: "product", sender: self)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == productsCollectionView {
             let width = UIScreen.main.bounds.width / 3 
@@ -176,8 +191,9 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
             return CGSize(width: 71, height: 29)
         }
     }
+
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
         if bottomEdge >= scrollView.contentSize.height && !loadStatus{
             loadStatus = true
@@ -186,11 +202,26 @@ extension AccountViewController: UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToSettings" {
             let vc = segue.destination as! AccountSettingsViewController
             vc.name = users!.shopName
             vc.biography = users!.shopDescription
+        }else if segue.identifier == "product" {
+            let vc = segue.destination as! ProductViewController
+            vc.product.productID = selectProduct.productID
         }
     }
+    
+    
+}
+extension AccountViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        getProductsByUser(textField.text!)
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
