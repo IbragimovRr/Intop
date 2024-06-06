@@ -9,6 +9,7 @@ import UIKit
 
 class AccountSettingsViewController: UIViewController {
     
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var sellerIndividualBtn: UIButton!
     @IBOutlet weak var sellerLegalBtn: UIButton!
     @IBOutlet weak var buyerIndividualBtn: UIButton!
@@ -23,6 +24,8 @@ class AccountSettingsViewController: UIViewController {
     var role: ShopRole?
     var biography = ""
     var name = ""
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,19 +42,25 @@ class AccountSettingsViewController: UIViewController {
     func selectedRole() {
         if UD().getShopRole() == "seller_individual" {
             sellerIndividualBtn.backgroundColor = .orange
+            sellerIndividualBtn.setTitleColor(.white, for: .normal)
         }else if UD().getShopRole() == "seller_legal" {
             sellerLegalBtn.backgroundColor = .orange
+            sellerLegalBtn.setTitleColor(.white, for: .normal)
         }else if UD().getShopRole() == "buyer_individual" {
             buyerIndividualBtn.backgroundColor = .orange
+            buyerIndividualBtn.setTitleColor(.white, for: .normal)
         }else if UD().getShopRole() == "buyer_legal" {
             buyerLegalBtn.backgroundColor = .orange
+            buyerLegalBtn.setTitleColor(.white, for: .normal)
         }
     }
     
     func changeButtons(btn: UIButton, otherBtns: [UIButton]) {
         btn.backgroundColor = .orange
+        btn.setTitleColor(.white, for: .normal)
         for x in 0 ... otherBtns.count - 1{
             otherBtns[x].backgroundColor = .white
+            otherBtns[x].setTitleColor(.black, for: .normal)
         }
     }
     
