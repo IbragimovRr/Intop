@@ -19,7 +19,7 @@ class Wishlist {
     func getFavorites() async throws -> [Product] {
         let info = try await User().getInfoUser(User.phoneNumber)
         let id = info.id
-        let url = Constants.url + "likes/products/\(id)"
+        let url = Constants.url + "favorites/products/\(id)"
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
         let count = json.count
@@ -48,7 +48,7 @@ class Wishlist {
     func addFavorites(_ product: Product, method:HTTPMethod) async throws {
         let info = try await User().getInfoUser(User.phoneNumber)
         let id = info.id
-        let url = Constants.url + "likes"
+        let url = Constants.url + "favorites"
         let parameters = [
             "user_id": id,
             "product_id": product.productID
