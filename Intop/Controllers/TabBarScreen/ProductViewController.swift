@@ -11,6 +11,11 @@ import SDWebImage
 class ProductViewController: UIViewController {
     
     
+    @IBOutlet weak var firstStar: UIImageView!
+    @IBOutlet weak var secondStar: UIImageView!
+    @IBOutlet weak var thirdStar: UIImageView!
+    @IBOutlet weak var fourthStar: UIImageView!
+    @IBOutlet weak var fifthStar: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var viewComment: Border!
@@ -140,6 +145,8 @@ class ProductViewController: UIViewController {
         }else {
             likesCountLbl.text = "Никто не лайкнул"
         }
+        
+        Stars().productRating(firstStar: firstStar, secondStar: secondStar, thirdStar: thirdStar, fourthStar: fourthStar, fifthStar: fifthStar, product: product.rating)
         
         
         self.view.layoutSubviews()
