@@ -9,6 +9,7 @@ import UIKit
 
 class FilterViewController: UIViewController {
     
+    @IBOutlet weak var filterSbrosBtn: UIButton!
     @IBOutlet weak var notVerify: UIButton!
     @IBOutlet weak var verify: UIButton!
     @IBOutlet weak var old: UIButton!
@@ -100,6 +101,8 @@ class FilterViewController: UIViewController {
     }
     
     func designStart() {
+        filterSbrosBtn.layer.borderColor = UIColor(named: "BorderGray")!.cgColor
+        filterSbrosBtn.layer.borderWidth = 1.5
         if Filter.priceDo != nil{
             priceDo.text = "\(Filter.priceDo!)"
         }

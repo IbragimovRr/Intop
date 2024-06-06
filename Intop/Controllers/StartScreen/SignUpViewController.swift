@@ -39,11 +39,16 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpBtn(_ sender: UIButton) {
         guard let phone = phoneTF.text else {return}
         guard let password = passwordTF.text else {return}
-        Sign().signUpPhone(phoneNumber: phone, password: password, shopRole: shopRole)  { result, error in
-            if error == nil {
+        Task{
+            do {
+                _ = try await Sign().signUpPhone(phoneNumber: phone, password: password, shopRole: shopRole)
                 self.performSegue(withIdentifier: "code", sender: self)
-            }else if let error = error{
-                Error().alert(error, self)
+            }catch let error as ErrorSignUp {
+                Error().alert(error.rawValue, self)
+            }catch {
+                DispatchQueue.main.async {
+                    Error().alert(ErrorSignUp.tryAgainLater.rawValue, self)
+                }
             }
         }
     }
