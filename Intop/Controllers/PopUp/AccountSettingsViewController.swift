@@ -55,36 +55,37 @@ class AccountSettingsViewController: UIViewController {
         }
         
     }
+    
     @IBAction func back(_ sender: UIButton) {
         NotificationCenter.default.post(name: Notification.Name("pathedInfoAccount"), object: nil)
         dismiss(animated: false)
     }
-    @IBAction func sellerFiz(_ sender: UIButton) {
-        role = .sellerIndividual
-        roleLbl.text = "Продавец физ лицо"
-        UD().saveShopRole(role!.rawValue)
-        roleView.isHidden = true
-    }
-    @IBAction func sellerUr(_ sender: UIButton) {
-        role = .sellerLegal
-        roleLbl.text = "Продавец юр лицо"
-        UD().saveShopRole(role!.rawValue)
-        roleView.isHidden = true
-    }
-    @IBAction func buyerFiz(_ sender: UIButton) {
-        role = .buyerIndividual
-        roleLbl.text = "Покупатель физ лицо"
-        UD().saveShopRole(role!.rawValue)
-        roleView.isHidden = true
-    }
-    @IBAction func buyerUr(_ sender: UIButton) {
-        role = .buyerLegal
-        roleLbl.text = "Покупатель юр лицо"
-        UD().saveShopRole(role!.rawValue)
-        roleView.isHidden = true
-    }
-
     
+    @IBAction func selectRole(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            role = .sellerIndividual
+            roleLbl.text = "Продавец физ лицо"
+        case 1:
+            role = .sellerIndividual
+            roleLbl.text = "Продавец физ лицо"
+        case 2:
+            role = .sellerIndividual
+            roleLbl.text = "Продавец физ лицо"
+        case 3:
+            role = .sellerIndividual
+            roleLbl.text = "Продавец физ лицо"
+        default:
+            break
+        }
+        UD().saveShopRole(role!.rawValue)
+        roleView.isHidden = true
+    }
+    
+    @IBAction func tap(_ sender: Any) {
+        biographyTextField.resignFirstResponder()
+        nameTextField.resignFirstResponder()
+    }
     
 }
 extension AccountSettingsViewController: UITextFieldDelegate {

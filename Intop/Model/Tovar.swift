@@ -49,6 +49,19 @@ class Tovar {
         return products
     }
     
+    func checkMeLikeAllProducts(_ product: [Product]) async throws -> [Product] {
+        let result = try await Wishlist().getFavorites()
+        var resultArray = product
+        for x in result {
+            for y in 0...product.count - 1{
+                if product[y].productID == x.productID {
+                    resultArray[y].meLike = true
+                }
+            }
+        }
+        return resultArray
+    }
+    
     func checkMeLikeProduct(_ product: Product) async throws -> Bool {
         let result = try await Wishlist().getFavorites()
         var resultBool = false
@@ -101,8 +114,8 @@ class Tovar {
         return products
     }
     
-    func getTovarByUserId(_ phoneNumber: String,limit:Int) async throws -> [Product]{
-        let url = Constants.url + "products?user_phone_number=\(phoneNumber)&limit=\(limit)"
+    func getTovarByUserId(_ phoneNumber: String, limit:Int, _ searchText: String = "") async throws -> [Product]{
+        let url = Constants.url + "products?user_phone_number=\(phoneNumber)&limit=\(limit)" + "&prod_name=\(searchText)"
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
         let count = json.count
