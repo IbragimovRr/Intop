@@ -109,7 +109,6 @@ class ProductViewController: UIViewController {
     func addAuthorInfo() {
         firstName.text = product.author.firstName
         avatar.sd_setImage(with: URL(string: product.author.avatar))
-
     }
     
     func addTovarInfo() {

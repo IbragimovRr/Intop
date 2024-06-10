@@ -18,12 +18,12 @@ class StoriesCollectionViewCell: UICollectionViewCell {
             let gradient = UIImage.gradientImage(bounds: viewBack.bounds, colors: [UIColor(named: "GradienStories")!, UIColor(named: "GradienStories2")!])
             let gradientColor = UIColor(patternImage: gradient)
             viewBack.layer.borderColor = gradientColor.cgColor
-            viewBack.layer.borderWidth = 3
+            viewBack.layer.borderWidth = 1.5
         }else {
             let gradient = UIImage.gradientImage(bounds: viewBack.bounds, colors: [UIColor.gray, UIColor.gray])
             let gradientColor = UIColor(patternImage: gradient)
             viewBack.layer.borderColor = gradientColor.cgColor
-            viewBack.layer.borderWidth = 3
+            viewBack.layer.borderWidth = 1.5
         }
     }
 }

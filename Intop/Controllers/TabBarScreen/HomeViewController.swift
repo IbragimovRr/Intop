@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var storiesEmpty: UILabel!
+    @IBOutlet weak var storiesEmpty: NSLayoutConstraint!
     @IBOutlet weak var search: UITextField!
     @IBOutlet weak var lentaHeight: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -70,10 +70,10 @@ class HomeViewController: UIViewController {
     func emptyStories() {
         if stories.count != 0{
             storiesCollectionView.isHidden = false
-            storiesEmpty.isHidden = true
+            storiesEmpty.constant = 85
         }else {
             storiesCollectionView.isHidden = true
-            storiesEmpty.isHidden = false
+            storiesEmpty.constant = 0
         }
     }
     
@@ -197,7 +197,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.designViews(isViewed: false)
             }
             cell.lbl.text = stories[indexPath.row].content
-            cell.image.sd_setImage(with: URL(string: stories[indexPath.row].avatar))
+            cell.image.sd_setImage(with: URL(string: stories[indexPath.row].mainImage))
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categories", for: indexPath) as! CategoriesCollectionViewCell

@@ -34,6 +34,7 @@ class Categories {
         var categories = [Category]()
         
         for (_, categoryJSON) in json {
+            guard categoryJSON["name"].stringValue != "No category" else { continue }
             let category = Category(json: categoryJSON)
             categories.append(category)
         }

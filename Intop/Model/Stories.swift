@@ -21,9 +21,8 @@ class Stories {
             let content = json[x]["content"].stringValue
             let idStory = json[x]["id"].intValue
             let viewed = json[x]["is_viewed"].boolValue
-            let avatar = json[x]["avatar"].stringValue
             let mainImage = json[x]["main_image_url"].stringValue
-            stories.append(Story(avatar: avatar, content: content, id: idStory, isViwed: viewed, mainImage: mainImage))
+            stories.append(Story(content: content, id: idStory, isViwed: viewed, mainImage: mainImage))
         }
         return stories
     }

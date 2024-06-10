@@ -45,6 +45,11 @@ class AccountViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Sign().goToSign(self, completion: nil)
+    }
+    
     
     func addObserverInAccount() {
         NotificationCenter.default.addObserver(self, selector: #selector(pathedInfo), name: NSNotification.Name("pathedInfoAccount"), object: nil)
