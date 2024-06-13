@@ -4,7 +4,6 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Mulish-Light.ttf</string>
 		<string>Roboto-Medium.ttf</string>
 		<string>Mulish-SemiBold.ttf</string>
 		<string>Roboto-Light.ttf</string>

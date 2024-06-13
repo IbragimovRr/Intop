@@ -50,6 +50,7 @@ struct JSONUser {
 }
 
 struct Product {
+    var price: Int? = 0
     var title: String? = ""
     var priceUSD: Int? = 0
     var image: [String]? = [""]

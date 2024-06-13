@@ -211,6 +211,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "instagram", for: indexPath) as! WishlistCollectionViewCell
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
+        cell.instagramView.layer.cornerRadius = 15
+        cell.instagramView.layer.shadowColor = UIColor.black.cgColor
+        cell.instagramView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        cell.instagramView.layer.shadowRadius = 5.0
+        cell.instagramView.layer.shadowOpacity = 0.25
+        
+
         let id = products[indexPath.row].productID
         Task{
             let likesCount = try await Wishlist().getFavoritesByID(id)
@@ -218,6 +225,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.likes.text = "Лайкнули \(likesCount)"
             }
         }
+        cell.priceSumLbl.text = "\(products[indexPath.row].price!) CУМ"
         cell.nameAuthor.text = products[indexPath.row].author.firstName
         cell.imageAuthor.sd_setImage(with: URL(string: products[indexPath.row].author.avatar))
         //Button
@@ -241,7 +249,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "multimedia", for: indexPath) as! WishlistCollectionViewCell
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
-        cell.priceLbl.text = "$\(products[indexPath.row].priceUSD!)"
+        cell.priceLbl.text = "СУМ \(products[indexPath.row].price!)"
         cell.reviewsCountLbl.text = "\(products[indexPath.row].rating.totalVotes) reviews"
         cell.ratingLbl.text = "\(products[indexPath.row].rating.rating)"
         
@@ -257,7 +265,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == lentaTovarsCollectionView {
             if segment.select == .instagram {
-                return CGSize(width: UIScreen.main.bounds.width, height: 550)
+                return CGSize(width: UIScreen.main.bounds.width, height: 600)
             }else {
                 let widthScreen = UIScreen.main.bounds.width
                 let result = (widthScreen / 2) - 40

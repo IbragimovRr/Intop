@@ -31,7 +31,7 @@ class Wishlist {
             let price = json[x]["price"].intValue
             let productID = json[x]["id"].intValue
             let rating = try await Rating().getRatingByProductId(productId: productID)
-            let favorites = Product(title: title,priceUSD: price, productID: productID, mainImages: mainImage, rating: rating)
+            let favorites = Product(price: price, title: title, productID: productID, mainImages: mainImage, rating: rating)
             arrayFavorites.append(favorites)
         }
         return arrayFavorites
