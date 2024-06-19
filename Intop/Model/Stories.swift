@@ -12,7 +12,7 @@ import SwiftyJSON
 class Stories {
     
     func getStories()  async throws -> [Story] {
-        let url = Constants.url + "stories"
+        let url = Constants.url + "stories?viewer_phone_number=%2B\(User.phoneNumber)"
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
         guard json.count != 0 else {return [Story]() }
@@ -31,6 +31,7 @@ class Stories {
     
     func getStoriesByPhoneNumber(phoneNumber: String)  async throws -> [Story] {
         let url = Constants.url + "stories_by_user_phone_number/\(phoneNumber)"
+        print(phoneNumber, 7676)
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
         guard json.count != 0 else {return [Story]() }
