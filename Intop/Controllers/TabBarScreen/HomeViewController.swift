@@ -19,7 +19,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var storiesCollectionView: UICollectionView!
     
-    var phoneNumber: String?
+    var phoneNumberForStory: String?
+    var phoneNumberForAccount: String?
     var me: Bool = true
     var segment: SegmentFilter!
     var products = [Product]()
@@ -210,7 +211,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == storiesCollectionView {
-            phoneNumber = stories[indexPath.row].phoneNumber
+            phoneNumberForStory = stories[indexPath.row].phoneNumber
+            print(stories[indexPath.row].phoneNumber, 7777)
             performSegue(withIdentifier: "goToStory", sender: self)
         }
     }
@@ -292,7 +294,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToStory" {
             let vc = segue.destination as! StoryViewController
-            vc.phoneNumber = phoneNumber
+            vc.phoneNumber = phoneNumberForStory
         }
         if segue.identifier == "product" {
             let vc = segue.destination as! ProductViewController
@@ -302,7 +304,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if segue.identifier == "goToAccount2" {
             let vc = segue.destination as! AccountViewController
             vc.me = me
-            vc.phoneNumber = phoneNumber
+            vc.phoneNumber = phoneNumberForAccount
         }
         
     }
@@ -346,7 +348,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     @objc func clickAccount(sender: UIButton) {
     
-        phoneNumber = products[sender.tag].author.phoneNumber
+        phoneNumberForAccount = products[sender.tag].author.phoneNumber
         if products[sender.tag].author.phoneNumber == User.phoneNumber {
             me = true
             performSegue(withIdentifier: "goToAccount2", sender: self)

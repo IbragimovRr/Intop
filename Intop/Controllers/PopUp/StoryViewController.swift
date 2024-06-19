@@ -23,18 +23,23 @@ class StoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        design()
+        
         getStoriesByPhoneNumber()
         getUserByPhoneNumber()
+        
     }
 
     func design() {
-        for _ in 0...5 {
-            stackProgress.addArrangedSubview(createProgressView())
+        if story.count > 0 {
+            for _ in 0...story.count - 1 {
+                stackProgress.addArrangedSubview(createProgressView())
+            }
+            nameAuthor.text = user?.name
+//            imageAuthor.sd_setImage(with: URL(string: user!.avatar))
+            storyImg.sd_setImage(with: URL(string: story[selectStory].mainImage))
+            print(user)
         }
-        nameAuthor.text = user?.name
-        imageAuthor.sd_setImage(with: URL(string: user!.avatar))
-        storyImg.sd_setImage(with: URL(string: story[selectStory].mainImage))
+        
     }
     
     func createProgressView() -> UIProgressView{
@@ -45,8 +50,9 @@ class StoryViewController: UIViewController {
     
     func getStoriesByPhoneNumber() {
         Task{
-            //let story = try await Stories().getStoriesByPhoneNumber(phoneNumber: phoneNumber!)
+            let story = try await Stories().getStoriesByPhoneNumber(phoneNumber: phoneNumber!)
             self.story = story
+            design()
         }
     }
     func getUserByPhoneNumber() {

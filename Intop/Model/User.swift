@@ -20,7 +20,6 @@ class User {
     
     func getInfoUser(_ phoneNumber:String) async throws -> JSONUser {
         let url = Constants.url + "users/\(phoneNumber)"
-        
         let value = try await AF.request(url).serializingData().value
         let json = JSON(value)
         let seller = json["is_seller"].boolValue
