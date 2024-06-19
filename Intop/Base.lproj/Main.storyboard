@@ -1781,16 +1781,16 @@
                                     <constraint firstItem="gAT-Nw-2Zs" firstAttribute="top" secondItem="lr2-4H-Irb" secondAttribute="top" constant="15" id="lW7-eZ-yzW"/>
                                 </constraints>
                             </view>
-                            <progressView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NdY-1v-GRw">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iK0-C2-Gog">
                                 <rect key="frame" x="10" y="95" width="370" height="4"/>
-                            </progressView>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VIP-Ml-OOh"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2ZU-mc-nKi" firstAttribute="leading" secondItem="fjF-EN-nJh" secondAttribute="trailing" constant="10" id="8sn-EZ-ipA"/>
-                            <constraint firstItem="VIP-Ml-OOh" firstAttribute="trailing" secondItem="NdY-1v-GRw" secondAttribute="trailing" constant="10" id="ABf-DJ-9f6"/>
-                            <constraint firstItem="NdY-1v-GRw" firstAttribute="leading" secondItem="VIP-Ml-OOh" secondAttribute="leading" constant="10" id="CKW-OF-esq"/>
+                            <constraint firstItem="VIP-Ml-OOh" firstAttribute="trailing" secondItem="iK0-C2-Gog" secondAttribute="trailing" constant="10" id="A0K-CA-oJg"/>
+                            <constraint firstItem="iK0-C2-Gog" firstAttribute="leading" secondItem="VIP-Ml-OOh" secondAttribute="leading" constant="10" id="Cw6-Wr-Dac"/>
                             <constraint firstItem="VIP-Ml-OOh" firstAttribute="bottom" secondItem="Kvy-wa-6dg" secondAttribute="bottom" constant="50" id="ILF-3s-6BQ"/>
                             <constraint firstItem="lr2-4H-Irb" firstAttribute="top" secondItem="Kvy-wa-6dg" secondAttribute="top" constant="30" id="KKE-tY-fVt"/>
                             <constraint firstItem="Kvy-wa-6dg" firstAttribute="top" secondItem="VIP-Ml-OOh" secondAttribute="top" constant="30" id="LUe-BQ-HAl"/>
@@ -1798,7 +1798,8 @@
                             <constraint firstItem="VIP-Ml-OOh" firstAttribute="bottom" secondItem="fjF-EN-nJh" secondAttribute="bottom" constant="10" id="NGe-qY-529"/>
                             <constraint firstItem="VIP-Ml-OOh" firstAttribute="trailing" secondItem="Kvy-wa-6dg" secondAttribute="trailing" id="P2l-pg-5JM"/>
                             <constraint firstItem="2ZU-mc-nKi" firstAttribute="top" secondItem="Kvy-wa-6dg" secondAttribute="bottom" constant="10" id="Syq-nc-3fF"/>
-                            <constraint firstItem="NdY-1v-GRw" firstAttribute="top" secondItem="Kvy-wa-6dg" secondAttribute="top" constant="18" id="YUU-me-hv6"/>
+                            <constraint firstItem="iK0-C2-Gog" firstAttribute="top" secondItem="Kvy-wa-6dg" secondAttribute="top" constant="18" id="TWL-rJ-kIx"/>
+                            <constraint firstItem="lr2-4H-Irb" firstAttribute="top" secondItem="iK0-C2-Gog" secondAttribute="bottom" constant="8" symbolic="YES" id="VUK-Ol-JIp"/>
                             <constraint firstItem="fjF-EN-nJh" firstAttribute="leading" secondItem="VIP-Ml-OOh" secondAttribute="leading" constant="15" id="bN7-bd-u11"/>
                             <constraint firstItem="Kvy-wa-6dg" firstAttribute="leading" secondItem="VIP-Ml-OOh" secondAttribute="leading" id="hWj-O5-Tx3"/>
                             <constraint firstItem="VIP-Ml-OOh" firstAttribute="trailing" secondItem="2ZU-mc-nKi" secondAttribute="trailing" constant="20" id="sU2-5C-yiU"/>
@@ -1810,7 +1811,7 @@
                     <connections>
                         <outlet property="imageAuthor" destination="fw7-3G-WBA" id="C5x-CT-ahV"/>
                         <outlet property="nameAuthor" destination="o5P-cD-kyE" id="d3f-6m-WWn"/>
-                        <outlet property="progressView" destination="NdY-1v-GRw" id="PQ1-1o-Htq"/>
+                        <outlet property="stackProgress" destination="iK0-C2-Gog" id="NjN-c0-mQl"/>
                         <outlet property="storyImg" destination="Kvy-wa-6dg" id="AcV-lb-GVx"/>
                     </connections>
                 </viewController>

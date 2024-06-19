@@ -9,9 +9,9 @@ import UIKit
 
 class StoryViewController: UIViewController {
 
+    @IBOutlet weak var stackProgress: UIStackView!
     @IBOutlet weak var nameAuthor: UILabel!
     @IBOutlet weak var imageAuthor: UIImageView!
-    @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var storyImg: UIImageView!
     
     var phoneNumber: String?
@@ -22,12 +22,29 @@ class StoryViewController: UIViewController {
         super.viewDidLoad()
         
         getStoriesByPhoneNumber()
-        progressView.setProgress(5, animated: true)
     }
 
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        design()
+    }
+    
+    func design() {
+        for _ in 0...1 {
+            stackProgress.addArrangedSubview(createProgressView())
+        }
+        view.layoutSubviews()
+    }
+    
+    func createProgressView() -> UIProgressView{
+        let progressView = UIProgressView(progressViewStyle: .default)
+        progressView.progress = 0.5
+        return progressView
+    }
+    
     func getStoriesByPhoneNumber() {
         Task{
-            let story = try await Stories().getStoriesByPhoneNumber(phoneNumber: phoneNumber!)
+            //let story = try await Stories().getStoriesByPhoneNumber(phoneNumber: phoneNumber!)
             self.story = story
         }
     }
