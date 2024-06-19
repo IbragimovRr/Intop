@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class StoryViewController: UIViewController {
 
@@ -17,23 +18,23 @@ class StoryViewController: UIViewController {
     var phoneNumber: String?
     var story = [Story]()
     var selectStory = 0
+    var user: JSONUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        design()
         getStoriesByPhoneNumber()
+        getUserByPhoneNumber()
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        design()
-    }
-    
     func design() {
-        for _ in 0...1 {
+        for _ in 0...5 {
             stackProgress.addArrangedSubview(createProgressView())
         }
-        view.layoutSubviews()
+        nameAuthor.text = user?.name
+        imageAuthor.sd_setImage(with: URL(string: user!.avatar))
+        storyImg.sd_setImage(with: URL(string: story[selectStory].mainImage))
     }
     
     func createProgressView() -> UIProgressView{
@@ -48,6 +49,11 @@ class StoryViewController: UIViewController {
             self.story = story
         }
     }
-    
+    func getUserByPhoneNumber() {
+        Task{
+            let user = try await User().getInfoUser(phoneNumber!)
+            self.user = user
+        }
+    }
     
 }
