@@ -89,11 +89,9 @@ class Tovar {
         let new = "&is_new=\(boolInString(Filter.isNew))"
         let sellerVerified = "&is_seller_verified=\(boolInString(Filter.isSellerVerified))"
         let url = Constants.url + "products" + name  + currency + ascending + limitURL + price + negotiable + nearby + wholesale + installment + retail + new + sellerVerified
-        print(url)
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
         let count = json.count
-        print(count)
         guard count != 0 else {return [Product]()}
         var products = [Product]()
         for x in 0...count - 1 {

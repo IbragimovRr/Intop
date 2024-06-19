@@ -19,47 +19,47 @@ class StoryViewController: UIViewController {
     var story = [Story]()
     var selectStory = 0
     var user: JSONUser?
+    var progressArray = [UIProgressView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         getStoriesByPhoneNumber()
-        getUserByPhoneNumber()
         
     }
 
     func design() {
         if story.count > 0 {
             for _ in 0...story.count - 1 {
-                stackProgress.addArrangedSubview(createProgressView())
+                let progressView = createProgressView()
+                stackProgress.addArrangedSubview(progressView)
+                progressArray.append(progressView)
             }
+            progressArray[selectStory].setProgress(Float(story[selectStory].seconds), animated: true)
             nameAuthor.text = user?.name
-//            imageAuthor.sd_setImage(with: URL(string: user!.avatar))
+            imageAuthor.sd_setImage(with: URL(string: user!.avatar))
             storyImg.sd_setImage(with: URL(string: story[selectStory].mainImage))
-            print(user)
         }
-        
     }
     
     func createProgressView() -> UIProgressView{
         let progressView = UIProgressView(progressViewStyle: .default)
-        progressView.progress = 0.5
+        progressView.progress = 0
         return progressView
     }
     
     func getStoriesByPhoneNumber() {
         Task{
+            try await getUserByPhoneNumber()
             let story = try await Stories().getStoriesByPhoneNumber(phoneNumber: phoneNumber!)
             self.story = story
             design()
         }
     }
-    func getUserByPhoneNumber() {
-        Task{
-            let user = try await User().getInfoUser(phoneNumber!)
-            self.user = user
-        }
+    func getUserByPhoneNumber() async throws {
+        let user = try await User().getInfoUser(phoneNumber!)
+        self.user = user
     }
     
 }
