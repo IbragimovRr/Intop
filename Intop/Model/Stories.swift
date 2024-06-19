@@ -11,18 +11,38 @@ import SwiftyJSON
 
 class Stories {
     
-    func getStories() async throws -> [Story] {
+    func getStories()  async throws -> [Story] {
         let url = Constants.url + "stories"
         let value = try await AF.request(url, method: .get).serializingData().value
         let json = JSON(value)
-        guard json.count != 0 else { return [Story]() }
+        guard json.count != 0 else {return [Story]() }
         var stories = [Story]()
         for x in 0...json.count - 1 {
+            let seconds = json[x]["show_time_in_seconds"].intValue
             let content = json[x]["content"].stringValue
             let idStory = json[x]["id"].intValue
             let viewed = json[x]["is_viewed"].boolValue
             let mainImage = json[x]["main_image_url"].stringValue
-            stories.append(Story(content: content, id: idStory, isViwed: viewed, mainImage: mainImage))
+            let phoneNumber = json[x]["user_phone_number"].stringValue
+            stories.append(Story(content: content, id: idStory, isViewed: viewed, mainImage: mainImage, seconds: seconds, phoneNumber: phoneNumber))
+        }
+        return stories
+    }
+    
+    func getStoriesByPhoneNumber(phoneNumber: String)  async throws -> [Story] {
+        let url = Constants.url + "stories_by_user_phone_number/+375290000002"
+        let value = try await AF.request(url, method: .get).serializingData().value
+        let json = JSON(value)
+        guard json.count != 0 else {return [Story]() }
+        var stories = [Story]()
+        for x in 0...json.count - 1 {
+            let phoneNumber = json[x]["user_phone_number"].stringValue
+            let seconds = json[x]["show_time_in_seconds"].intValue
+            let content = json[x]["content"].stringValue
+            let idStory = json[x]["id"].intValue
+            let viewed = json[x]["is_viewed"].boolValue
+            let mainImage = json[x]["main_image_url"].stringValue
+            stories.append(Story(content: content, id: idStory, isViewed: viewed, mainImage: mainImage, seconds: seconds, phoneNumber: phoneNumber))
         }
         return stories
     }

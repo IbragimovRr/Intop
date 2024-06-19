@@ -32,7 +32,7 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var firstName: UILabel!
     @IBOutlet weak var likesCountLbl: UILabel!
-    @IBOutlet weak var priceUSDLbl: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var reviewsLbl: UILabel!
     @IBOutlet weak var ratingLbl: UILabel!
@@ -112,7 +112,7 @@ class ProductViewController: UIViewController {
     }
     
     func addTovarInfo() {
-        priceUSDLbl.text = "$\(product.priceUSD!)"
+        priceLbl.text = "\(product.price!) СУМ"
         titleLbl.text = product.title
         reviewsLbl.text = "\(product.rating.totalVotes) reviews"
         ratingLbl.text = "\(product.rating.rating)"

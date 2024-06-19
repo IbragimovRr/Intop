@@ -9,6 +9,8 @@ import UIKit
 
 class WishlistCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var priceSumLbl: UILabel!
+    @IBOutlet weak var instagramView: UIView!
     @IBOutlet weak var imageAuthor: UIImageView!
     @IBOutlet weak var nameAuthor: UILabel!
     @IBOutlet weak var likes: UILabel!

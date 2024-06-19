@@ -97,6 +97,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+    
     func getAllCategories() {
         Task{
             let categories = try await Categories().getCategories()
@@ -191,7 +192,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }else if collectionView == storiesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "story", for: indexPath) as! StoriesCollectionViewCell
-            if stories[indexPath.row].isViwed == false {
+            if stories[indexPath.row].isViewed == false {
                 cell.designViews(isViewed: false)
             }else {
                 cell.designViews(isViewed: false)
@@ -207,10 +208,24 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == storiesCollectionView {
+            phoneNumber = stories[indexPath.row].phoneNumber
+            performSegue(withIdentifier: "goToStory", sender: self)
+        }
+    }
+    
     func instagramCell(_ indexPath: IndexPath,_ collectionView:UICollectionView) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "instagram", for: indexPath) as! WishlistCollectionViewCell
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
+        cell.instagramView.layer.cornerRadius = 15
+        cell.instagramView.layer.shadowColor = UIColor.black.cgColor
+        cell.instagramView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        cell.instagramView.layer.shadowRadius = 5.0
+        cell.instagramView.layer.shadowOpacity = 0.25
+        
+
         let id = products[indexPath.row].productID
         Task{
             let likesCount = try await Wishlist().getFavoritesByID(id)
@@ -218,6 +233,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.likes.text = "Лайкнули \(likesCount)"
             }
         }
+        cell.priceSumLbl.text = "\(products[indexPath.row].price!) CУМ"
         cell.nameAuthor.text = products[indexPath.row].author.firstName
         cell.imageAuthor.sd_setImage(with: URL(string: products[indexPath.row].author.avatar))
         //Button
@@ -241,7 +257,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "multimedia", for: indexPath) as! WishlistCollectionViewCell
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
-        cell.priceLbl.text = "$\(products[indexPath.row].priceUSD!)"
+        cell.priceLbl.text = "\(products[indexPath.row].price!) СУМ"
         cell.reviewsCountLbl.text = "\(products[indexPath.row].rating.totalVotes) reviews"
         cell.ratingLbl.text = "\(products[indexPath.row].rating.rating)"
         
@@ -257,7 +273,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == lentaTovarsCollectionView {
             if segment.select == .instagram {
-                return CGSize(width: UIScreen.main.bounds.width, height: 550)
+                return CGSize(width: UIScreen.main.bounds.width, height: 600)
             }else {
                 let widthScreen = UIScreen.main.bounds.width
                 let result = (widthScreen / 2) - 40
@@ -274,11 +290,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "goToStory" {
+            let vc = segue.destination as! StoryViewController
+            vc.phoneNumber = phoneNumber
+        }
         if segue.identifier == "product" {
             let vc = segue.destination as! ProductViewController
             vc.product.productID = selectProduct.productID
         }
+        
         if segue.identifier == "goToAccount2" {
             let vc = segue.destination as! AccountViewController
             vc.me = me

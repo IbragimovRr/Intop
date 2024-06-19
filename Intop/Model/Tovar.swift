@@ -27,9 +27,10 @@ class Tovar {
         let commentsCount = json["comments_count"].intValue
         let sharesCount = json["shares_count"].intValue
         let phoneNumber = json["user_phone_number"].stringValue
+        let priceSUM = json["price"].intValue
         var images = [String]()
         let count = json["additional_images_json"].count
-        
+        images.append(imageMain)
         if count != 0 {
             for x in 0...count - 1 {
                 let image = json["additional_images_json"][x].stringValue
@@ -42,7 +43,7 @@ class Tovar {
 
         
         let author = Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor, phoneNumber: phoneNumber)
-        var products = Product(title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, rating: rating, viewsCount: viewsCount,commentsCount: commentsCount,sharesCount: sharesCount, description: description, author: author, comments: comments)
+        var products = Product(price: priceSUM ,title: title, priceUSD: priceUSD, image: images,  productID: productId, mainImages: imageMain, likes: likes, rating: rating, viewsCount: viewsCount,commentsCount: commentsCount,sharesCount: sharesCount, description: description, author: author, comments: comments)
 
         
         let meLike = try await checkMeLikeProduct(products)
@@ -96,6 +97,7 @@ class Tovar {
         guard count != 0 else {return [Product]()}
         var products = [Product]()
         for x in 0...count - 1 {
+            let price = json[x]["price"].intValue
             let id = json[x]["product_id"].intValue
             let title = json[x]["title"].stringValue
             let priceUSD = json[x]["price_USD"].intValue
@@ -108,7 +110,7 @@ class Tovar {
             let viewsCount = json[x]["views_count"].intValue
             let commentsCount = json[x]["comments_count"].intValue
             let phoneNumber = json[x]["user_phone_number"].stringValue
-            let product = Product(title: title, priceUSD: priceUSD, productID: id, mainImages: imageMain, likes: likes, viewsCount: viewsCount, commentsCount: commentsCount, description: description, author: Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor, phoneNumber: phoneNumber))
+            let product = Product(price: price, title: title, priceUSD: priceUSD, productID: id, mainImages: imageMain, likes: likes, viewsCount: viewsCount, commentsCount: commentsCount, description: description, author: Author(authorId: authorId, firstName: firstNameAuthor, avatar: avatarAuthor, phoneNumber: phoneNumber))
             
             products.append(product)
         }

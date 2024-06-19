@@ -65,6 +65,7 @@
 		75D6AB4C2BFF6A8400A87852 /* Tovar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6AB4B2BFF6A8300A87852 /* Tovar.swift */; };
 		75E162782C02380300296003 /* CommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E162772C02380300296003 /* CommentCollectionViewCell.swift */; };
 		75E1627A2C02676F00296003 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E162792C02676F00296003 /* Comments.swift */; };
+		75EB964A2C1B39F60059A4A8 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EB96492C1B39F60059A4A8 /* StoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +126,7 @@
 		75D6AB4B2BFF6A8300A87852 /* Tovar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tovar.swift; sourceTree = "<group>"; };
 		75E162772C02380300296003 /* CommentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCollectionViewCell.swift; sourceTree = "<group>"; };
 		75E162792C02676F00296003 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
+		75EB96492C1B39F60059A4A8 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				44936CE12C0522FD0022E35A /* FilterViewController.swift */,
 				756AEC0C2C0F34D1004E0469 /* AccountSettingsViewController.swift */,
+				75EB96492C1B39F60059A4A8 /* StoryViewController.swift */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75EB964A2C1B39F60059A4A8 /* StoryViewController.swift in Sources */,
 				7586A21C2C077E20002C8157 /* CategoriesAnAccountCollectionViewCell.swift in Sources */,
 				7522387B2C12051900D3C29C /* Stars.swift in Sources */,
 				7598C9792BF902280077AD14 /* Wishlist.swift in Sources */,
@@ -576,7 +580,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 68XM2PNK9Q;
+				DEVELOPMENT_TEAM = DMM8286TLA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Intop/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Intop;
@@ -593,7 +597,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shops.Intop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shops.Intop2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -612,7 +616,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 68XM2PNK9Q;
+				DEVELOPMENT_TEAM = DMM8286TLA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Intop/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Intop;
@@ -629,7 +633,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shops.Intop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shops.Intop2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
