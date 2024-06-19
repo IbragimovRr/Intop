@@ -112,7 +112,7 @@ class ProductViewController: UIViewController {
     }
     
     func addTovarInfo() {
-        priceLbl.text = "СУМ \(product.price!)"
+        priceLbl.text = "\(product.price!) СУМ"
         titleLbl.text = product.title
         reviewsLbl.text = "\(product.rating.totalVotes) reviews"
         ratingLbl.text = "\(product.rating.rating)"

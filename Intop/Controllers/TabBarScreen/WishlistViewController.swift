@@ -51,7 +51,7 @@ extension WishlistViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = wishlistCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WishlistCollectionViewCell
-        cell.priceLbl.text = "СУМ \(wishlists[indexPath.row].price!)"
+        cell.priceLbl.text = "\(wishlists[indexPath.row].price!) СУМ"
         cell.itemName.text = wishlists[indexPath.row].title
         
         cell.reviewsCountLbl.text = "\(wishlists[indexPath.row].rating.totalVotes) reviews"

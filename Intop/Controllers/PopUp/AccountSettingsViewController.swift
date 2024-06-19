@@ -90,10 +90,13 @@ class AccountSettingsViewController: UIViewController {
     }
     
     @IBAction func back(_ sender: UIButton) {
-        NotificationCenter.default.post(name: Notification.Name("pathedInfoAccount"), object: nil)
         dismiss(animated: false)
     }
     
+    @IBAction func acceptBtn(_ sender: UIButton) {
+        NotificationCenter.default.post(name: Notification.Name("pathedInfoAccount"), object: nil)
+        dismiss(animated: false)
+    }
     @IBAction func selectRole(_ sender: UIButton) {
         switch sender.tag {
         case 0:

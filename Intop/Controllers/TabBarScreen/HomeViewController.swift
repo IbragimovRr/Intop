@@ -97,6 +97,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+    
     func getAllCategories() {
         Task{
             let categories = try await Categories().getCategories()
@@ -191,7 +192,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }else if collectionView == storiesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "story", for: indexPath) as! StoriesCollectionViewCell
-            if stories[indexPath.row].isViwed == false {
+            if stories[indexPath.row].isViewed == false {
                 cell.designViews(isViewed: false)
             }else {
                 cell.designViews(isViewed: false)
@@ -204,6 +205,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.im.sd_setImage(with: URL(string: category[indexPath.row].image ?? ""))
             cell.text.text = category[indexPath.row].name
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == storiesCollectionView {
+            phoneNumber = stories[indexPath.row].phoneNumber
+            performSegue(withIdentifier: "goToStory", sender: self)
         }
     }
     
@@ -249,7 +257,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "multimedia", for: indexPath) as! WishlistCollectionViewCell
         cell.image.sd_setImage(with: URL(string: products[indexPath.row].mainImages!))
         cell.itemName.text = products[indexPath.row].title
-        cell.priceLbl.text = "СУМ \(products[indexPath.row].price!)"
+        cell.priceLbl.text = "\(products[indexPath.row].price!) СУМ"
         cell.reviewsCountLbl.text = "\(products[indexPath.row].rating.totalVotes) reviews"
         cell.ratingLbl.text = "\(products[indexPath.row].rating.rating)"
         
@@ -282,11 +290,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "goToStory" {
+            let vc = segue.destination as! StoryViewController
+            vc.phoneNumber = phoneNumber
+        }
         if segue.identifier == "product" {
             let vc = segue.destination as! ProductViewController
             vc.product.productID = selectProduct.productID
         }
+        
         if segue.identifier == "goToAccount2" {
             let vc = segue.destination as! AccountViewController
             vc.me = me

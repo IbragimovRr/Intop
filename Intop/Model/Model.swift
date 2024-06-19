@@ -19,8 +19,10 @@ enum ShopRole:String {
 struct Story {
     var content:String
     var id:Int
-    var isViwed:Bool
+    var isViewed:Bool
     var mainImage:String
+    var seconds: Int
+    var phoneNumber: String
 }
 
 struct RatingStruct {
