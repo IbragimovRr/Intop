@@ -235,7 +235,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.likes.text = "Лайкнули \(likesCount)"
             }
         }
-        cell.priceSumLbl.text = "\(products[indexPath.row].price!) CУМ"
+        if Filter.valuta == "USD" {
+            cell.priceSumLbl.text = "\(products[indexPath.row].priceUSD!) $"
+        }else {
+            cell.priceSumLbl.text = "\(products[indexPath.row].price!) CУМ"
+        }
         cell.nameAuthor.text = products[indexPath.row].author.firstName
         cell.imageAuthor.sd_setImage(with: URL(string: products[indexPath.row].author.avatar))
         //Button
