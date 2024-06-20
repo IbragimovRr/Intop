@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var storiesCollectionView: UICollectionView!
     
-    var phoneNumberForStory: String?
+    
     var phoneNumberForAccount: String?
     var me: Bool = true
     var segment: SegmentFilter!
@@ -211,8 +211,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == storiesCollectionView {
-            phoneNumberForStory = stories[indexPath.row].phoneNumber
-            print(stories[indexPath.row].phoneNumber, 7777)
             performSegue(withIdentifier: "goToStory", sender: self)
         }
     }
@@ -298,7 +296,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToStory" {
             let vc = segue.destination as! StoryViewController
-            vc.phoneNumber = phoneNumberForStory
+            vc.story = stories
         }
         if segue.identifier == "product" {
             let vc = segue.destination as! ProductViewController
