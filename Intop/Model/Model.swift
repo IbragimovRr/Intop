@@ -25,6 +25,11 @@ struct Story {
     var phoneNumber: String
 }
 
+struct GroupedStory {
+    var phoneNumber: String
+    var story = [Story]()
+}
+
 struct RatingStruct {
     var rating: Float = 0.0
     var totalVotes: Int = 0

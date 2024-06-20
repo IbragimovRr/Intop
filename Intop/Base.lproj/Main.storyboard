@@ -1730,28 +1730,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kvy-wa-6dg">
-                                <rect key="frame" x="0.0" y="77" width="390" height="683"/>
+                                <rect key="frame" x="0.0" y="47" width="390" height="739"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjF-EN-nJh" customClass="Border" customModule="Intop" customModuleProvider="target">
-                                <rect key="frame" x="15" y="770" width="315" height="30"/>
+                                <rect key="frame" x="15" y="796" width="324" height="18"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="315" id="mh0-UZ-QMI"/>
+                                    <constraint firstAttribute="height" constant="18" id="Hav-8u-sjU"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="15"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="9"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="border">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZU-mc-nKi">
-                                <rect key="frame" x="340" y="770" width="30" height="30"/>
+                                <rect key="frame" x="349" y="796" width="21" height="18"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="sendMessage"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lr2-4H-Irb">
-                                <rect key="frame" x="0.0" y="107" width="200" height="40"/>
+                                <rect key="frame" x="0.0" y="67" width="200" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gAT-Nw-2Zs">
-                                        <rect key="frame" x="15" y="15" width="175" height="30"/>
+                                        <rect key="frame" x="15" y="10" width="175" height="30"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fw7-3G-WBA">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -1763,10 +1766,16 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Эльдар Ибрагимов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5P-cD-kyE">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5P-cD-kyE">
                                                 <rect key="frame" x="40" y="0.0" width="135" height="30"/>
-                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="10"/>
-                                                <color key="textColor" name="WhiteMain"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Эльдар Ибрагимов">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="10" name="Roboto-Regular"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -1778,27 +1787,28 @@
                                     <constraint firstAttribute="trailing" secondItem="gAT-Nw-2Zs" secondAttribute="trailing" constant="10" id="3J0-QU-Zkv"/>
                                     <constraint firstAttribute="width" constant="200" id="EHM-Ul-cyL"/>
                                     <constraint firstAttribute="height" constant="40" id="fn7-zl-zFd"/>
-                                    <constraint firstItem="gAT-Nw-2Zs" firstAttribute="top" secondItem="lr2-4H-Irb" secondAttribute="top" constant="15" id="lW7-eZ-yzW"/>
+                                    <constraint firstItem="gAT-Nw-2Zs" firstAttribute="top" secondItem="lr2-4H-Irb" secondAttribute="top" constant="10" id="lW7-eZ-yzW"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iK0-C2-Gog">
-                                <rect key="frame" x="10" y="95" width="370" height="4"/>
+                                <rect key="frame" x="4" y="57" width="382" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="Gcy-z2-waL"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VIP-Ml-OOh"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2ZU-mc-nKi" firstAttribute="leading" secondItem="fjF-EN-nJh" secondAttribute="trailing" constant="10" id="8sn-EZ-ipA"/>
-                            <constraint firstItem="VIP-Ml-OOh" firstAttribute="trailing" secondItem="iK0-C2-Gog" secondAttribute="trailing" constant="10" id="A0K-CA-oJg"/>
-                            <constraint firstItem="iK0-C2-Gog" firstAttribute="leading" secondItem="VIP-Ml-OOh" secondAttribute="leading" constant="10" id="Cw6-Wr-Dac"/>
-                            <constraint firstItem="VIP-Ml-OOh" firstAttribute="bottom" secondItem="Kvy-wa-6dg" secondAttribute="bottom" constant="50" id="ILF-3s-6BQ"/>
-                            <constraint firstItem="lr2-4H-Irb" firstAttribute="top" secondItem="Kvy-wa-6dg" secondAttribute="top" constant="30" id="KKE-tY-fVt"/>
-                            <constraint firstItem="Kvy-wa-6dg" firstAttribute="top" secondItem="VIP-Ml-OOh" secondAttribute="top" constant="30" id="LUe-BQ-HAl"/>
-                            <constraint firstItem="VIP-Ml-OOh" firstAttribute="bottom" secondItem="2ZU-mc-nKi" secondAttribute="bottom" constant="10" id="LpD-9h-Axw"/>
-                            <constraint firstItem="VIP-Ml-OOh" firstAttribute="bottom" secondItem="fjF-EN-nJh" secondAttribute="bottom" constant="10" id="NGe-qY-529"/>
+                            <constraint firstItem="VIP-Ml-OOh" firstAttribute="trailing" secondItem="iK0-C2-Gog" secondAttribute="trailing" constant="4" id="A0K-CA-oJg"/>
+                            <constraint firstItem="iK0-C2-Gog" firstAttribute="leading" secondItem="VIP-Ml-OOh" secondAttribute="leading" constant="4" id="Cw6-Wr-Dac"/>
+                            <constraint firstItem="Kvy-wa-6dg" firstAttribute="top" secondItem="VIP-Ml-OOh" secondAttribute="top" id="LUe-BQ-HAl"/>
+                            <constraint firstItem="fjF-EN-nJh" firstAttribute="bottom" secondItem="2ZU-mc-nKi" secondAttribute="bottom" id="LpD-9h-Axw"/>
+                            <constraint firstAttribute="bottom" secondItem="fjF-EN-nJh" secondAttribute="bottom" constant="30" id="NGe-qY-529"/>
                             <constraint firstItem="VIP-Ml-OOh" firstAttribute="trailing" secondItem="Kvy-wa-6dg" secondAttribute="trailing" id="P2l-pg-5JM"/>
                             <constraint firstItem="2ZU-mc-nKi" firstAttribute="top" secondItem="Kvy-wa-6dg" secondAttribute="bottom" constant="10" id="Syq-nc-3fF"/>
-                            <constraint firstItem="iK0-C2-Gog" firstAttribute="top" secondItem="Kvy-wa-6dg" secondAttribute="top" constant="18" id="TWL-rJ-kIx"/>
+                            <constraint firstItem="iK0-C2-Gog" firstAttribute="top" secondItem="Kvy-wa-6dg" secondAttribute="top" constant="10" id="TWL-rJ-kIx"/>
                             <constraint firstItem="lr2-4H-Irb" firstAttribute="top" secondItem="iK0-C2-Gog" secondAttribute="bottom" constant="8" symbolic="YES" id="VUK-Ol-JIp"/>
                             <constraint firstItem="fjF-EN-nJh" firstAttribute="leading" secondItem="VIP-Ml-OOh" secondAttribute="leading" constant="15" id="bN7-bd-u11"/>
                             <constraint firstItem="Kvy-wa-6dg" firstAttribute="leading" secondItem="VIP-Ml-OOh" secondAttribute="leading" id="hWj-O5-Tx3"/>
@@ -1809,7 +1819,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="SVw-Ow-WGD"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageAuthor" destination="fw7-3G-WBA" id="C5x-CT-ahV"/>
                         <outlet property="nameAuthor" destination="o5P-cD-kyE" id="d3f-6m-WWn"/>
@@ -2041,7 +2050,7 @@
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="  FILTER" image="filter">
+                                                <state key="normal" title=" ФИЛЬТР" image="filter">
                                                     <color key="titleColor" name="WhiteMain"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -2595,7 +2604,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите код подтверждения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnd-qc-KNd">
-                                        <rect key="frame" x="127.66666666666667" y="244" width="134.66666666666663" height="12"/>
+                                        <rect key="frame" x="127.66666666666667" y="244" width="134.66666666666657" height="12"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -4728,7 +4737,8 @@ sed do eiusmod tempor ut labore</string>
                                         <rect key="frame" x="100" y="580" width="150" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPy-KB-WvT">
-                                                <rect key="frame" x="27" y="-2" width="96" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                                 <color key="tintColor" name="OrangeMain"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Применить"/>
@@ -4742,9 +4752,11 @@ sed do eiusmod tempor ut labore</string>
                                         </subviews>
                                         <color key="backgroundColor" name="OrangeMain"/>
                                         <constraints>
-                                            <constraint firstItem="NPy-KB-WvT" firstAttribute="centerX" secondItem="0Dl-mq-2Jc" secondAttribute="centerX" id="CGu-yy-PkC"/>
+                                            <constraint firstAttribute="trailing" secondItem="NPy-KB-WvT" secondAttribute="trailing" id="BFs-Bl-EY0"/>
                                             <constraint firstAttribute="width" constant="150" id="KQK-kD-m2u"/>
-                                            <constraint firstItem="NPy-KB-WvT" firstAttribute="centerY" secondItem="0Dl-mq-2Jc" secondAttribute="centerY" id="rvg-Dl-J5i"/>
+                                            <constraint firstAttribute="bottom" secondItem="NPy-KB-WvT" secondAttribute="bottom" id="ZKw-Hi-pLX"/>
+                                            <constraint firstItem="NPy-KB-WvT" firstAttribute="leading" secondItem="0Dl-mq-2Jc" secondAttribute="leading" id="lqo-xt-GEU"/>
+                                            <constraint firstItem="NPy-KB-WvT" firstAttribute="top" secondItem="0Dl-mq-2Jc" secondAttribute="top" id="ppJ-Uz-7XR"/>
                                             <constraint firstAttribute="height" constant="30" id="xwR-rJ-zSC"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -4872,7 +4884,7 @@ sed do eiusmod tempor ut labore</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Bxh-7e-rdv"/>
-        <segue reference="UFF-IG-VIj"/>
+        <segue reference="A9l-dP-QhF"/>
         <segue reference="jFy-kn-78a"/>
         <segue reference="7sG-gQ-nz6"/>
         <segue reference="EMM-Ee-ckc"/>

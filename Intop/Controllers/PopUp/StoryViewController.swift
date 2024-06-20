@@ -24,9 +24,8 @@ class StoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         getStoriesByPhoneNumber()
-        
+        tabBarController?.tabBar.isHidden = true
     }
 
     func design() {
@@ -36,16 +35,26 @@ class StoryViewController: UIViewController {
                 stackProgress.addArrangedSubview(progressView)
                 progressArray.append(progressView)
             }
-            progressArray[selectStory].setProgress(Float(story[selectStory].seconds), animated: true)
-            nameAuthor.text = user?.name
-            imageAuthor.sd_setImage(with: URL(string: user!.avatar))
-            storyImg.sd_setImage(with: URL(string: story[selectStory].mainImage))
+            nextStory()
         }
+    }
+    
+    func nextStory() {
+        progressArray[selectStory].animate(Float(story[selectStory].seconds), finish: {
+            if self.story.count - 1 > self.selectStory {
+                self.selectStory += 1
+                self.nextStory()
+            }
+        })
+        nameAuthor.text = user?.name
+        imageAuthor.sd_setImage(with: URL(string: user!.avatar))
+        storyImg.sd_setImage(with: URL(string: story[selectStory].mainImage))
     }
     
     func createProgressView() -> UIProgressView{
         let progressView = UIProgressView(progressViewStyle: .default)
         progressView.progress = 0
+        progressView.progressTintColor = UIColor(named: "OrangeMain")
         return progressView
     }
     
