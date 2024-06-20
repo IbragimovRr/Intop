@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     var category = [Category]()
     var selectProduct = Product(productID: 0)
     var selectLike = UIButton()
-    var stories = [Story]()
+    var stories = [GroupedStory]()
     var limitTovars = 20
     var loadStatus = true
     
@@ -193,13 +193,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }else if collectionView == storiesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "story", for: indexPath) as! StoriesCollectionViewCell
-            if stories[indexPath.row].isViewed == false {
+            if stories[indexPath.row].story[0].isViewed == false {
                 cell.designViews(isViewed: false)
             }else {
                 cell.designViews(isViewed: false)
             }
-            cell.lbl.text = stories[indexPath.row].content
-            cell.image.sd_setImage(with: URL(string: stories[indexPath.row].mainImage))
+            cell.lbl.text = stories[indexPath.row].story[0].content
+            cell.image.sd_setImage(with: URL(string: stories[indexPath.row].story[0].mainImage))
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categories", for: indexPath) as! CategoriesCollectionViewCell
