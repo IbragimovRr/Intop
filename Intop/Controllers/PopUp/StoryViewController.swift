@@ -15,16 +15,18 @@ class StoryViewController: UIViewController {
     @IBOutlet weak var imageAuthor: UIImageView!
     @IBOutlet weak var storyImg: UIImageView!
     
-    var phoneNumber: String?
-    var story = [Story]()
+    var story = [GroupedStory]()
     var selectStory = 0
+    var selectPhoneNumber = 0
     var user: JSONUser?
     var progressArray = [UIProgressView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getStoriesByPhoneNumber()
+        
+        print(story[1])
+        getUserByPhoneNumber()
         tabBarController?.tabBar.isHidden = true
     }
 
@@ -36,19 +38,28 @@ class StoryViewController: UIViewController {
                 progressArray.append(progressView)
             }
             nextStory()
+            
         }
     }
     
     func nextStory() {
-        progressArray[selectStory].animate(Float(story[selectStory].seconds), finish: {
-            if self.story.count - 1 > self.selectStory {
+        progressArray[selectStory].animate(Float(story[selectPhoneNumber].story[selectStory].seconds), finish: {
+            if self.story[self.selectPhoneNumber].story.count - 1 > self.selectStory {
                 self.selectStory += 1
+                self.nextStory()
+            }else {
+                self.selectPhoneNumber += 1
+                self.selectStory = 0
                 self.nextStory()
             }
         })
+        updateStories()
+    }
+    
+    func updateStories() {
         nameAuthor.text = user?.name
         imageAuthor.sd_setImage(with: URL(string: user!.avatar))
-        storyImg.sd_setImage(with: URL(string: story[selectStory].mainImage))
+        storyImg.sd_setImage(with: URL(string: story[selectPhoneNumber].story[selectStory].mainImage))
     }
     
     func createProgressView() -> UIProgressView{
@@ -58,17 +69,20 @@ class StoryViewController: UIViewController {
         return progressView
     }
     
-    func getStoriesByPhoneNumber() {
+    
+    func getUserByPhoneNumber() {
         Task{
-            try await getUserByPhoneNumber()
-            let story = try await Stories().getStoriesByPhoneNumber(phoneNumber: phoneNumber!)
-            self.story = story
+            let user = try await User().getInfoUser(story[selectPhoneNumber].phoneNumber)
+            self.user = user
             design()
         }
     }
-    func getUserByPhoneNumber() async throws {
-        let user = try await User().getInfoUser(phoneNumber!)
-        self.user = user
+    
+    
+    @IBAction func nextStoryBtn(_ sender: UIButton) {
+        progressArray[selectStory].setProgress(1, animated: false)
     }
     
+    @IBAction func backStoryBtn(_ sender: UIButton) {
+    }
 }
