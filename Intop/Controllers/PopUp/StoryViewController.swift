@@ -15,109 +15,118 @@ class StoryViewController: UIViewController {
     @IBOutlet weak var imageAuthor: UIImageView!
     @IBOutlet weak var storyImg: UIImageView!
     
-    var currentProgressIndex = 0
-    
     var story = [GroupedStory]()
-    var selectStory = 0
-    var selectPhoneNumber = 0
     var user: JSONUser?
+    var selectStory: Int = 0
+    var selectPhoneNumber: Int = 0
     var progressArray = [UIProgressView]()
+    var progressView = ProgressView()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        print(story[1])
-        getUserByPhoneNumber()
         tabBarController?.tabBar.isHidden = true
+        createProgress()
+        getUserByPhoneNumber()
+        addStoryInDesign()
+    }
+    
+    func selectProgress() {
+        for x in 0...progressArray.count - 1 {
+            if x > selectStory {
+                progressArray[x].progress = 0
+            }else if x < selectStory {
+                progressArray[x].progress = 1
+            }else if x == selectStory {
+                progressArray[x].progress = 0
+                progressView.startProgress(progressArray[selectStory], seconds: Float(story[selectPhoneNumber].story[selectStory].seconds))
+            }
+        }
+    }
+    
+    func createProgress() {
+        progressArray.removeAll()
+        stackViewRemoveAll()
+        for _ in 1...story[selectPhoneNumber].story.count {
+            let progressView = progressView.createProgress()
+            progressArray.append(progressView)
+            stackProgress.addArrangedSubview(progressView)
+        }
+    }
+    
+    func stackViewRemoveAll() {
+        stackProgress.arrangedSubviews.forEach { view in
+            stackProgress.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+    }
+    
+    func nextUser() {
+        selectPhoneNumber += 1
+        selectStory = 0
+        addStoryInDesign()
+        getUserByPhoneNumber()
+        createProgress()
     }
 
-    func design() {
-        if story.count > 0 {
-            for _ in 0...story.count - 1 {
-                let progressView = createProgressView()
-                stackProgress.addArrangedSubview(progressView)
-                progressArray.append(progressView)
-            }
-            nextStory()
-            
-        }
-    }
-    
     func nextStory() {
-        if selectPhoneNumber < story.count && selectStory < story[selectPhoneNumber].story.count {
-            progressArray[selectStory].animate(Float(story[selectPhoneNumber].story[selectStory].seconds), finish: {
-                if self.story[self.selectPhoneNumber].story.count - 1 > self.selectStory {
-                    self.selectStory += 1
-                    self.nextStory()
-                } else {
-                    self.selectStory = 0
-                    self.selectPhoneNumber += 1
-                    
-                    if self.selectPhoneNumber < self.story.count {
-                        for subview in self.stackProgress.arrangedSubviews {
-                            self.stackProgress.removeArrangedSubview(subview)
-                            subview.removeFromSuperview()
-                        }
-                        
-                        
-                        let progressView = self.createProgressView()
-                        self.stackProgress.addArrangedSubview(progressView)
-                        self.progressArray.append(progressView)
-                        progressView.start(Float(self.story[self.selectPhoneNumber].story[self.selectStory].seconds))
-                        print(self.user?.phoneNumber)
-                        self.updateStories()
-                    }
-                }
-            })
-        }
+        selectStory += 1
+        addStoryInDesign()
     }
     
-    func updateStories() {
-        if selectPhoneNumber < story.count && selectStory < story[selectPhoneNumber].story.count {
-            nameAuthor.text = user?.name
-            imageAuthor.sd_setImage(with: URL(string: user!.avatar))
-            storyImg.sd_setImage(with: URL(string: story[selectPhoneNumber].story[selectStory].mainImage))
-        }
+    func backUser() {
+        selectPhoneNumber -= 1
+        selectStory = 0
+        addStoryInDesign()
+        getUserByPhoneNumber()
+        createProgress()
     }
     
-    func createProgressView() -> UIProgressView{
-        let progressView = UIProgressView(progressViewStyle: .default)
-        progressView.progress = 0
-        progressView.progressTintColor = UIColor(named: "OrangeMain")
-        return progressView
+    func backStory() {
+        selectStory -= 1
+        addStoryInDesign()
     }
     
+    func addStoryInDesign() {
+        let story = story[selectPhoneNumber].story[selectStory]
+        storyImg.sd_setImage(with: URL(string: story.mainImage))
+        selectProgress()
+        
+    }
     
     func getUserByPhoneNumber() {
         Task{
             let user = try await User().getInfoUser(story[selectPhoneNumber].phoneNumber)
             self.user = user
-            design()
+            addUserInfo()
         }
     }
     
+    func addUserInfo() {
+        nameAuthor.text = user!.name
+        imageAuthor.sd_setImage(with: URL(string: user!.avatar))
+    }
     
     
     @IBAction func nextStoryBtn(_ sender: UIButton) {
-        progressArray[selectStory].setProgress(1, animated: false)
-        progressArray[selectStory].start(Float(story[selectPhoneNumber].story[selectStory].seconds))
+        if selectStory == story[selectPhoneNumber].story.count - 1 && story.count - 1 > selectPhoneNumber{
+            nextUser()
+        }else if selectStory != story[selectPhoneNumber].story.count - 1{
+            nextStory()
+        }else {
+            print("Истории закончились")
+        }
     }
     
     @IBAction func backStoryBtn(_ sender: UIButton) {
-        if selectStory > 0 {
-            progressArray[selectStory].progress = 0
-            progressArray[selectStory].stop()
-            progressArray[selectStory - 1].progress = 0
-            progressArray[selectStory - 1].animate(Float(story[selectPhoneNumber].story[selectStory].seconds)) {
-                        self.selectStory += 1
-                        self.nextStory()
-                }
-            
-            selectStory -= 1
-        } else {
-            progressArray[selectStory].progress = 0
+        if selectStory == 0 && selectPhoneNumber != 0{
+            backUser()
+        }else if selectStory != 0 {
+            backStory()
+        }else {
+            print("Начало историй")
         }
-        
     }
+    
+    
 }
