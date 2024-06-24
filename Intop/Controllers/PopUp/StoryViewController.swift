@@ -41,18 +41,21 @@ class StoryViewController: UIViewController {
                 progressArray[x].progress = 1
             }else if x == selectStory {
                 progressArray[x].progress = 0
-                progressView.startProgress(progressArray[selectStory], seconds: Float(story[selectPhoneNumber].story[selectStory].seconds), select: x, finish: {
-                    if self.selectStory == self.story[self.selectPhoneNumber].story.count - 1 && self.story.count - 1 > self.selectPhoneNumber{
-                        self.nextUser()
-                    }else if self.selectStory != self.story[self.selectPhoneNumber].story.count - 1{
-                        self.nextStory()
-                    }else {
-                        print("Истории закончились")
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                })
             }
         }
+    }
+    
+    func startProgress() {
+        progressView.startProgress(progressArray[selectStory], seconds: Float(story[selectPhoneNumber].story[selectStory].seconds), select: selectStory, finish: {
+            if self.selectStory == self.story[self.selectPhoneNumber].story.count - 1 && self.story.count - 1 > self.selectPhoneNumber{
+                self.nextUser()
+            }else if self.selectStory != self.story[self.selectPhoneNumber].story.count - 1{
+                self.nextStory()
+            }else {
+                print("Истории закончились")
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
     
     func createProgress() {
@@ -80,16 +83,7 @@ class StoryViewController: UIViewController {
         addStoryInDesign()
         getUserByPhoneNumber()
         createProgress()
-        progressView.startProgress(progressArray[selectStory], seconds: Float(story[selectPhoneNumber].story[selectStory].seconds), select: selectStory, finish: {
-            if self.selectStory == self.story[self.selectPhoneNumber].story.count - 1 && self.story.count - 1 > self.selectPhoneNumber{
-                self.nextUser()
-            }else if self.selectStory != self.story[self.selectPhoneNumber].story.count - 1{
-                self.nextStory()
-            }else {
-                print("Истории закончились")
-                self.navigationController?.popViewController(animated: true)
-            }
-        })
+        startProgress()
     }
 
     func nextStory() {
@@ -103,9 +97,7 @@ class StoryViewController: UIViewController {
         addStoryInDesign()
         getUserByPhoneNumber()
         createProgress()
-        progressView.startProgress(progressArray[selectStory], seconds: Float(story[selectPhoneNumber].story[selectStory].seconds), select: selectStory, finish: {
-            self.backUser()
-        })
+        startProgress()
     }
     
     func backStory() {
@@ -117,6 +109,7 @@ class StoryViewController: UIViewController {
         let story = story[selectPhoneNumber].story[selectStory]
         storyImg.sd_setImage(with: URL(string: story.mainImage))
         selectProgress()
+        startProgress()
         
     }
     
