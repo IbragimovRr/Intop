@@ -10,10 +10,10 @@ import UIKit
 
 class ProgressView: UIProgressView {
     
-    var timer = Timer()
+    static var timer = [Timer]()
 
-    func startProgress(_ progressView:UIProgressView, seconds: Float) {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { timer in
+    func startProgress(_ progressView:UIProgressView, seconds: Float, select: Int) {
+        ProgressView.timer[select] = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { timer in
             progressView.progress += 0.01 / seconds
             if progressView.progress >= 1 {
                 timer.invalidate()
@@ -21,8 +21,8 @@ class ProgressView: UIProgressView {
         })
     }
     
-    func stopProgress() {
-        timer.invalidate()
+    func stopProgress(select: Int) {
+        ProgressView.timer[select].invalidate()
     }
     
     func createProgress() -> UIProgressView {

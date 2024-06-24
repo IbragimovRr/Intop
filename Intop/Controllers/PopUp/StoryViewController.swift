@@ -33,13 +33,14 @@ class StoryViewController: UIViewController {
     
     func selectProgress() {
         for x in 0...progressArray.count - 1 {
+            progressView.stopProgress(select: x)
             if x > selectStory {
                 progressArray[x].progress = 0
             }else if x < selectStory {
                 progressArray[x].progress = 1
             }else if x == selectStory {
                 progressArray[x].progress = 0
-                progressView.startProgress(progressArray[selectStory], seconds: Float(story[selectPhoneNumber].story[selectStory].seconds))
+                progressView.startProgress(progressArray[selectStory], seconds: Float(story[selectPhoneNumber].story[selectStory].seconds), select: x)
             }
         }
     }
@@ -47,10 +48,12 @@ class StoryViewController: UIViewController {
     func createProgress() {
         progressArray.removeAll()
         stackViewRemoveAll()
+        ProgressView.timer.removeAll()
         for _ in 1...story[selectPhoneNumber].story.count {
             let progressView = progressView.createProgress()
             progressArray.append(progressView)
             stackProgress.addArrangedSubview(progressView)
+            ProgressView.timer.append(Timer())
         }
     }
     
