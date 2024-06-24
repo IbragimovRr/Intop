@@ -12,11 +12,12 @@ class ProgressView: UIProgressView {
     
     static var timer = [Timer]()
 
-    func startProgress(_ progressView:UIProgressView, seconds: Float, select: Int) {
+    func startProgress(_ progressView:UIProgressView, seconds: Float, select: Int, finish: @escaping () -> ()) {
         ProgressView.timer[select] = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { timer in
             progressView.progress += 0.01 / seconds
             if progressView.progress >= 1 {
                 timer.invalidate()
+                finish()
             }
         })
     }
