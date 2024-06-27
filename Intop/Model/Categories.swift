@@ -42,9 +42,6 @@ class Categories {
         return categories
     }
 
-
-
-    
     
     
 }

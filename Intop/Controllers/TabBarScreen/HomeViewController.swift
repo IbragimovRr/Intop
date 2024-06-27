@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
     var selectProduct = Product(productID: 0)
     var selectLike = UIButton()
     var stories = [GroupedStory]()
+    var selectStories = 0
     var limitTovars = 20
     var loadStatus = true
     
@@ -211,6 +212,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == storiesCollectionView {
+            selectStories = indexPath.row
             performSegue(withIdentifier: "goToStory", sender: self)
         }
     }
@@ -297,6 +299,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if segue.identifier == "goToStory" {
             let vc = segue.destination as! StoryViewController
             vc.story = stories
+            vc.selectPhoneNumber = selectStories
         }
         if segue.identifier == "product" {
             let vc = segue.destination as! ProductViewController
