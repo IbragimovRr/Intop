@@ -53,6 +53,9 @@ class StoryViewController: UIViewController {
                 self.nextStory()
             }else {
                 print("Истории закончились")
+                Task {
+                    try await Stories().viewStory(phoneNumber: User.phoneNumber, storyId: self.story[self.selectPhoneNumber].story[self.selectStory].id)
+                }
                 self.navigationController?.popViewController(animated: true)
             }
         })

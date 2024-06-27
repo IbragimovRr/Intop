@@ -197,7 +197,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if stories[indexPath.row].story[0].isViewed == false {
                 cell.designViews(isViewed: false)
             }else {
-                cell.designViews(isViewed: false)
+                cell.designViews(isViewed: true)
             }
             cell.lbl.text = stories[indexPath.row].story[0].content
             cell.image.sd_setImage(with: URL(string: stories[indexPath.row].story[0].mainImage))
