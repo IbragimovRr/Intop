@@ -55,5 +55,9 @@ class Stories {
         return stories
     }
     
+    func viewStory(phoneNumber: String, storyId: Int) async throws {
+        let url = Constants.url + "stories/view/\(storyId)/\(phoneNumber)"
+        let _ = try await AF.request(url, method: .post, encoding: JSONEncoding.default).serializingData().value
+    }
     
 }

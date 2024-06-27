@@ -122,7 +122,13 @@ class ProductViewController: UIViewController {
     
     func design() {
         
-        pageControl.numberOfPages = product.image!.count
+        if product.image!.count < 2 {
+            pageControl.isHidden = true
+        }else {
+            pageControl.isHidden = false
+            pageControl.numberOfPages = product.image!.count
+        }
+        
         if product.meLike == true {
             likeBtn.setImage(UIImage(named: "likeFull2"), for: .normal)
         }else {
