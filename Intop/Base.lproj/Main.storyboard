@@ -1806,6 +1806,19 @@
                                     <action selector="nextStoryBtn:" destination="xWU-Mq-Mj4" eventType="touchUpInside" id="bUz-Uk-5u9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSZ-J1-o3g">
+                                <rect key="frame" x="340" y="59" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="78i-9r-Ro0"/>
+                                    <constraint firstAttribute="width" constant="40" id="zse-CK-FeC"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="back:" destination="xWU-Mq-Mj4" eventType="touchUpInside" id="QiP-W6-c3p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VIP-Ml-OOh"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1825,9 +1838,11 @@
                             <constraint firstItem="lr2-4H-Irb" firstAttribute="top" secondItem="iK0-C2-Gog" secondAttribute="bottom" constant="8" symbolic="YES" id="VUK-Ol-JIp"/>
                             <constraint firstItem="fjF-EN-nJh" firstAttribute="leading" secondItem="VIP-Ml-OOh" secondAttribute="leading" constant="15" id="bN7-bd-u11"/>
                             <constraint firstItem="OWA-JN-W8l" firstAttribute="top" secondItem="VIP-Ml-OOh" secondAttribute="top" id="cLW-EW-SzD"/>
+                            <constraint firstItem="VIP-Ml-OOh" firstAttribute="trailing" secondItem="pSZ-J1-o3g" secondAttribute="trailing" constant="10" id="hV2-fl-bPJ"/>
                             <constraint firstItem="Kvy-wa-6dg" firstAttribute="leading" secondItem="VIP-Ml-OOh" secondAttribute="leading" id="hWj-O5-Tx3"/>
                             <constraint firstItem="VIP-Ml-OOh" firstAttribute="bottom" secondItem="ORe-q7-uah" secondAttribute="bottom" id="ott-cu-BpX"/>
                             <constraint firstItem="VIP-Ml-OOh" firstAttribute="trailing" secondItem="2ZU-mc-nKi" secondAttribute="trailing" constant="20" id="sU2-5C-yiU"/>
+                            <constraint firstItem="pSZ-J1-o3g" firstAttribute="top" secondItem="iK0-C2-Gog" secondAttribute="bottom" id="u3W-pX-1ss"/>
                             <constraint firstItem="fjF-EN-nJh" firstAttribute="top" secondItem="Kvy-wa-6dg" secondAttribute="bottom" constant="10" id="ua6-MJ-6Zv"/>
                             <constraint firstItem="VIP-Ml-OOh" firstAttribute="bottom" secondItem="OWA-JN-W8l" secondAttribute="bottom" id="uzb-jb-5do"/>
                             <constraint firstItem="lr2-4H-Irb" firstAttribute="leading" secondItem="VIP-Ml-OOh" secondAttribute="leading" id="y4Q-sy-Ozr"/>
@@ -4958,6 +4973,7 @@ sed do eiusmod tempor ut labore</string>
         <image name="telephone" width="14" height="14"/>
         <image name="trackOrder" width="242" height="214"/>
         <image name="uzFlag" width="13" height="13"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="BlueMain">
             <color red="0.058823529411764705" green="0.59607843137254901" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
