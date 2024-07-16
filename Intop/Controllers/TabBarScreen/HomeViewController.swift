@@ -352,15 +352,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     @objc func clickAccount(sender: UIButton) {
-    
-        phoneNumberForAccount = products[sender.tag].author.phoneNumber
-        if products[sender.tag].author.phoneNumber == User.phoneNumber {
-            me = true
-            performSegue(withIdentifier: "goToAccount2", sender: self)
-        }else if products[sender.tag].author.phoneNumber != User.phoneNumber {
-            me = false
-            performSegue(withIdentifier: "goToAccount2", sender: self)
-        }
+        Sign().goToSign(self, completion: {
+            self.phoneNumberForAccount = self.products[sender.tag].author.phoneNumber
+            if self.products[sender.tag].author.phoneNumber == User.phoneNumber {
+                self.me = true
+                self.performSegue(withIdentifier: "goToAccount2", sender: self)
+            }else if self.products[sender.tag].author.phoneNumber != User.phoneNumber {
+                self.me = false
+                self.performSegue(withIdentifier: "goToAccount2", sender: self)
+            }
+        })
     }
     
     

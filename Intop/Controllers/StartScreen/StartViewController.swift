@@ -22,7 +22,7 @@ class StartViewController: UIViewController {
     @IBAction func back(_ sender: Any) {
         self.tabBarController?.selectedIndex = 0
         self.tabBarController?.tabBar.isHidden = false
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
 }

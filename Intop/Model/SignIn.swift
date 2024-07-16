@@ -82,7 +82,6 @@ class Sign {
         let url = Constants.url + "users/login"
         return try await withCheckedThrowingContinuation { continuation in
             AF.upload(multipartFormData: { multipartFormData in
-                
                 multipartFormData.append(Data("\(phoneNumber)".utf8), withName: "user_phone_number")
                 multipartFormData.append(Data("\(password)".utf8), withName: "app_password")
                 
@@ -91,7 +90,6 @@ class Sign {
                       headers: headers).responseData { responseData in
                 switch responseData.result {
                 case .success(let value):
-                    
                     let code = responseData.response!.statusCode
                     if code == 403{
                         continuation.resume(throwing: ErrorSignIn.invalidLoginOrPassword)
@@ -108,8 +106,6 @@ class Sign {
                             }else {
                                 continuation.resume(throwing: ErrorSignIn.notFound)
                             }
-                            
-                            
                         }
                     }
                 case .failure(_):

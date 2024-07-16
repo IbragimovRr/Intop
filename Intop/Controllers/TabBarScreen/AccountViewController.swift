@@ -33,7 +33,6 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         performSegue(withIdentifier: "loading", sender: self)
         addObserverInAccount()
         addInfo()
@@ -42,7 +41,6 @@ class AccountViewController: UIViewController {
         productsCollectionView.dataSource = self
         productsCollectionView.delegate = self
         searchText.delegate = self
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,9 +100,6 @@ class AccountViewController: UIViewController {
             settingsBtn.isHidden = true
             back.isHidden = false
             likeBtn.isHidden = false
-        }
-        if UD().getCurrentUser() == false {
-            performSegue(withIdentifier: "vhod", sender: self)
         }
         imageUser.sd_setImage(with: URL(string: users?.avatar ?? ""))
         shopNameLbl.text = users?.shopDescription
